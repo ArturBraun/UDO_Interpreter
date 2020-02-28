@@ -3,7 +3,8 @@
 #--------------------------------------------
 from arpeggio import *
 from arpeggio import RegExMatch as apperggioRegEx
-
+from arpeggio.export import PTDOTExporter
+from graphviz import Source
 
 #--------------------------------------------
 """ GRAMMAR FUNCTIONS: """
@@ -13,17 +14,17 @@ def number():
 # Sprawdzic czy wedlug UDO .2 to tez liczba
 # Aktualnie dziala tylko dla liczb normalnych typu 0.2 itd.
 
-def sign():
+def withSign():
     return Optional(["+","-"]),[number,("(", expression, ")")]
 
-def power(): # Zle Dziala !!!!!!!!!!!!!!!!!!!!!
-    return sign, ZeroOrMore(["^"], sign)
+def power():
+    return withSign, ZeroOrMore(["^"], withSign)
 
-def multiplicationAndDivision():
-    return sign, ZeroOrMore(["*","/"], sign)
+def multiplicationOrDivision():
+    return power, ZeroOrMore(["*","/"], power)
 
 def expression():
-    return [multiplicationAndDivision, power], ZeroOrMore(["+","-"], [multiplicationAndDivision, power])
+    return multiplicationOrDivision, ZeroOrMore(["+","-"], multiplicationOrDivision)
 
 def calc(): 
     return OneOrMore(expression), EOF
@@ -42,7 +43,7 @@ class GrammarRulesVisitor(PTNodeVisitor):
             print("Converting {}.".format(node.value))
         return float(node.value)
     
-    def visit_sign(self, node, children):
+    def visit_withSign(self, node, children):
         """
         Applies a sign to expression or number
         """
@@ -55,32 +56,33 @@ class GrammarRulesVisitor(PTNodeVisitor):
 
     def visit_power(self, node, children):
         """
-        Return the power of number
+        Raises number to Power
         """
         if self.debug:
-            print("PowerOfNumber {}.".format(children))
+            print("Power {}.".format(children))
         power = children[0]
         for i in range(2, len(children), 2):
-            power **= children[i]
+            if children[i-1] == "^":
+                power **= children[i]
         if self.debug:
-            print("PowerOfNumber {}.".format(power))
+            print("Power = {}.".format(power))
         return power
-
-    def visit_multiplicationAndDivision(self, node, children):
+    
+    def visit_multiplicationOrDivision(self, node, children):
         """
         Divides or Multiplies number
         """
         if self.debug:
-            print("DivisonOrMultiplication {}.".format(children))
-        divisonOrMultiplication = children[0]
+            print("MultiplicationOrDivision {}.".format(children))
+        multiplicationOrDivision = children[0]
         for i in range(2, len(children), 2):
             if children[i-1] == "*":
-                divisonOrMultiplication *= children[i]
-            else:
-                divisonOrMultiplication /= children[i]
+                multiplicationOrDivision *= children[i]
+            elif children[i-1] == "/":
+                multiplicationOrDivision /= children[i]
         if self.debug:
-            print("DivisonOrMultiplication = {}.".format(divisonOrMultiplication))
-        return divisonOrMultiplication
+            print("MultiplicationOrDivision = {}.".format(multiplicationOrDivision))
+        return multiplicationOrDivision
 
     def visit_expression(self, node, children):
         """
@@ -92,33 +94,49 @@ class GrammarRulesVisitor(PTNodeVisitor):
         for i in range(2, len(children), 2):
             if children[i-1] == "-":
                 expression -= children[i]
-            else:
+            elif children[i-1] == "+":
                 expression += children[i]
         if self.debug:
             print("Expression = {}.".format(expression))
         return expression
 
 
-def main(debug=False):
+def doParsing(debug = False, showDotFile = False, UDO_FilePath = ""):
     print("UDO Interpreter")
-
-    parser = ParserPython(calc, debug=debug)
     
-    # Wczytaj plik txt z wyrazeniem
-    #inputExpr = "-(4-1)^5+(2+4.67)*5^2+5.89/(0.2+7)"
-    #inputExprValue = -(4-1)**5+(2+4.67)*5**2+5.89/(0.2+7)
+    if UDO_FilePath:
+        try:
+            UDO_File = open(UDO_FilePath)
 
-    inputExpr = "-(4-1)*5+(2+4.67)+5.89/(0.2+7)"
-    inputExprValue = -(4-1)*5+(2+4.67)+5.89/(0.2+7)
+        except FileNotFoundError:
+            print("Error -> Cannot find the file in given directory!")
 
-    parse_tree = parser.parse(inputExpr)
-    result = visit_parse_tree(parse_tree,GrammarRulesVisitor(debug=debug))
+        else:
+            UDO_FileContent = UDO_File.read()
 
-    print("{} = {}".format(inputExprValue,result))
+            parser = ParserPython(calc, debug=debug)
+            parse_tree = parser.parse(UDO_FileContent)
+            result = visit_parse_tree(parse_tree,GrammarRulesVisitor(debug=debug))
 
-    # Dodac renderowanie wykreu
+            inputExprValue = -(-3*2**2)*4-5**2*6-8*(2-3**2)*2**2+(-2-3**2)**2*2**3
 
+            print("{} = {}".format("Python value","Calculated result from parser"))
+            print("{} = {}".format(inputExprValue,result))
+
+            if showDotFile:
+                PTDOTExporter().exportFile(parse_tree,"UDO_InterpreterParseTree.dot")    
+                s = Source.from_file("UDO_InterpreterParseTree.dot")
+                s.view()
+
+        finally:
+            UDO_File.close()
+
+    else:
+        print("Error -> File Path is empty!")
+
+
+def main():
+    doParsing(debug = False, showDotFile = True, UDO_FilePath = "udo_file_1.txt")
 
 if __name__ == "__main__":
-    main(debug=True)
-    #main(debug=False)
+    main()

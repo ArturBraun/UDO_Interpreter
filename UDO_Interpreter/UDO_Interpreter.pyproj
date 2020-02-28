@@ -5,8 +5,7 @@
     <ProjectGuid>87317cd9-135c-472b-b441-2a99acd2dec6</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>UDO_Interpreter.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>..\..\..\..\..\Program Files\Graphviz\bin</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>UDO_Interpreter</Name>
