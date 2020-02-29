@@ -1,21 +1,61 @@
+#############################################
+# TODO:
+# -dokonczyc pisac funkcje matematyczne w klasie MathematicalFunctions
+# -dopisac operatory typu k++, k-- itd.
+#############################################
+
 #--------------------------------------------
 """ INCLUDED MODULES: """
 #--------------------------------------------
+# Built-in:
 from arpeggio import *
 from arpeggio import RegExMatch as apperggioRegEx
 from arpeggio.export import PTDOTExporter
 from graphviz import Source
+import math
+
+# Written:
+from UDO_functions import MathematicalFunctions
 
 #--------------------------------------------
 """ GRAMMAR FUNCTIONS: """
 #--------------------------------------------
+def variable():
+    return apperggioRegEx(r'[a-zA-Z]{1}[a-zA-Z0-9]*') 
+
+def substitutionOperator():
+    return variable, OneOrMore(["="],[variable, expression]), ";" 
+
+def functions():
+    return ([mathFunctions])
+
+def mathFunctions():
+    return [
+        "sin",
+        "cos",
+        "tan",
+        "asin",
+        "acos",
+        "atan",
+        "atan2",
+        "log",
+        "logd",
+        "exp",
+        "sqrt",
+        "abs",
+        "sgn",
+        "int",
+        "frac",
+        "rand",
+        "srand"], ["("], [expression], [")"]
+
 def number():
     return apperggioRegEx(r'\d+\.\d+|\d+') 
 # Sprawdzic czy wedlug UDO .2 to tez liczba
 # Aktualnie dziala tylko dla liczb normalnych typu 0.2 itd.
 
 def withSign():
-    return Optional(["+","-"]),[number,("(", expression, ")")]
+    return Optional(["+","-"]),[functions, variable, number, ("(", expression, ")")]
 
 def power():
     return withSign, ZeroOrMore(["^"], withSign)
@@ -27,7 +67,7 @@ def expression():
     return multiplicationOrDivision, ZeroOrMore(["+","-"], multiplicationOrDivision)
 
 def calc(): 
-    return OneOrMore(expression), EOF
+    return OneOrMore([substitutionOperator, expression]), EOF
 
 
 #--------------------------------------------
@@ -35,11 +75,17 @@ def calc():
 #--------------------------------------------
 
 class GrammarRulesVisitor(PTNodeVisitor):
+    def __init__(self, interpreter_debug = False, **kwargs):
+        super().__init__(**kwargs)
+        self.interpreter_debug = interpreter_debug
+        self.mathFunctions = MathematicalFunctions()
+        self.variables = {}
+
     def visit_number(self, node, children):
         """
         Converts Node value to float
         """
-        if self.debug:
+        if self.interpreter_debug:
             print("Converting {}.".format(node.value))
         return float(node.value)
     
@@ -47,62 +93,100 @@ class GrammarRulesVisitor(PTNodeVisitor):
         """
         Applies a sign to expression or number
         """
-        if self.debug:
-            print("NumberWithSign {}.".format(children))
         if len(children) == 1:
             return children[0]
         sign = -1 if children[0] == "-" else 1
-        return sign * children[-1]
+        result = sign * children[-1]
+        if self.interpreter_debug:
+            print("NumberWithSign {}.\nNumberWithSign {}.".format(children,result))
+        return result
 
     def visit_power(self, node, children):
         """
         Raises number to Power
         """
-        if self.debug:
-            print("Power {}.".format(children))
         power = children[0]
         for i in range(2, len(children), 2):
             if children[i-1] == "^":
                 power **= children[i]
-        if self.debug:
-            print("Power = {}.".format(power))
+        if self.interpreter_debug:
+            print("Power {}.\nPower = {}.".format(children, power))
         return power
     
     def visit_multiplicationOrDivision(self, node, children):
         """
         Divides or Multiplies number
         """
-        if self.debug:
-            print("MultiplicationOrDivision {}.".format(children))
         multiplicationOrDivision = children[0]
         for i in range(2, len(children), 2):
             if children[i-1] == "*":
                 multiplicationOrDivision *= children[i]
             elif children[i-1] == "/":
                 multiplicationOrDivision /= children[i]
-        if self.debug:
-            print("MultiplicationOrDivision = {}.".format(multiplicationOrDivision))
+        if self.interpreter_debug:
+            print("MultiplicationOrDivision {}.\nMultiplicationOrDivision = {}.".format(children, multiplicationOrDivision))
         return multiplicationOrDivision
 
     def visit_expression(self, node, children):
         """
         Adds or substracts numbers.
         """
-        if self.debug:
-            print("Expression {}.".format(children))
         expression = children[0]
         for i in range(2, len(children), 2):
             if children[i-1] == "-":
                 expression -= children[i]
             elif children[i-1] == "+":
                 expression += children[i]
-        if self.debug:
-            print("Expression = {}.".format(expression))
+        if self.interpreter_debug:
+            print("Expression {}.\nExpression = {}.".format(children, expression))
         return expression
 
+    def visit_functions(self, node, children):
+        """
+        Runs proper type of function e.g. mathFunctions
+        """
+        if self.interpreter_debug:
+            print("Functions {}.".format(children))
+        return children[0]
 
-def doParsing(debug = False, showDotFile = False, UDO_FilePath = ""):
-    print("UDO Interpreter")
+    def visit_mathFunctions(self, node, children):
+        """
+        Does mathematical functions e.g. sin, cos, tan ...
+        """
+        result = self.mathFunctions.callFunction(stringWith_UDO_FunctionName = children[0], child=children[2])
+        if self.interpreter_debug:
+            print("MathFunctions = {}.\nMathFunctions = {}.".format(children,result))
+        return result
+
+    def visit_variable(self, node, children):
+        """
+        Returns value of variable
+        """        
+        if node.value not in self.variables:
+            return node.value
+        if self.interpreter_debug:
+            print("Variable {} = {}".format(node.value, self.variables[node.value]))
+        return self.variables[node.value]
+
+    def visit_substitutionOperator(self, node, children):
+        """
+        Applies value to variable
+        """
+        if type(children[-1]) is float:
+            value = children[-1]
+        else:
+            value = self.variables[children[-1]]
+
+        for i in range(len(children)-3,-1,-2):
+            self.variables[children[i]] = value
+
+        if self.interpreter_debug:
+            var = children[::2]
+            print("SubstitutionOperator {}.\nSubstitutionOperator {}={}.".format(children, var[:-1], var[-1]))
+
+
+def doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = ""):
+    print("UDO Interpreter\n\n")
     
     if UDO_FilePath:
         try:
@@ -116,12 +200,12 @@ def doParsing(debug = False, showDotFile = False, UDO_FilePath = ""):
 
             parser = ParserPython(calc, debug=debug)
             parse_tree = parser.parse(UDO_FileContent)
-            result = visit_parse_tree(parse_tree,GrammarRulesVisitor(debug=debug))
+            result = visit_parse_tree(parse_tree,GrammarRulesVisitor(debug=debug, interpreter_debug = interpreter_debug))
 
-            inputExprValue = -(-3*2**2)*4-5**2*6-8*(2-3**2)*2**2+(-2-3**2)**2*2**3
+            inputExprValue = -2*(2*math.sin(2+5**2*10)**2+2*math.cos(2+5**2*10)**2)
 
-            print("{} = {}".format("Python value","Calculated result from parser"))
-            print("{} = {}".format(inputExprValue,result))
+            print("\n\n{} = {}".format("Python value","Calculated result from parser"))
+            print("{} = {}\n".format(inputExprValue,result))
 
             if showDotFile:
                 PTDOTExporter().exportFile(parse_tree,"UDO_InterpreterParseTree.dot")    
@@ -136,7 +220,7 @@ def doParsing(debug = False, showDotFile = False, UDO_FilePath = ""):
 
 
 def main():
-    doParsing(debug = False, showDotFile = True, UDO_FilePath = "udo_file_1.txt")
+    doParsing(debug = False, interpreter_debug = True, showDotFile = True, UDO_FilePath = "udo_file_1.txt")
 
 if __name__ == "__main__":
     main()
