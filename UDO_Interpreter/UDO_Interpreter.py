@@ -1,7 +1,7 @@
 #############################################
 # TODO:
 # -dokonczyc pisac funkcje matematyczne w klasie MathematicalFunctions
-# -dopisac operatory typu k++, k-- itd.
+# -dokonczyc LogicalOperators
 #############################################
 
 #--------------------------------------------
@@ -15,7 +15,7 @@ from graphviz import Source
 import math
 
 # Written:
-from UDO_functions import MathematicalFunctions
+from UDO_functions import MathematicalFunctions, LogicalOperators
 
 #--------------------------------------------
 """ GRAMMAR FUNCTIONS: """
@@ -24,10 +24,20 @@ def variable():
     return apperggioRegEx(r'[a-zA-Z]{1}[a-zA-Z0-9]*') 
 
 def substitutionOperator():
-    return variable, OneOrMore(["="],[variable, expression]), ";" 
+    return variable, OneOrMore(["="],[expression, variable]), ";" 
 
 def functions():
-    return ([mathFunctions])
+    return ([mathFunctions, afterVariableOperator, beforeVariableOperator])
+
+def afterVariableOperator():
+    return variable, ["++", "--"]
+
+def beforeVariableOperator():
+    return ["~"], variable
+
+def logicalOperator():
+    return variable, OneOrMore(
+        ["&&", "||", "==", "!=", ">", "<", "<=", "=<", ">=", "=>"],[variable, expression]), ";"
 
 def mathFunctions():
     return [
@@ -79,6 +89,7 @@ class GrammarRulesVisitor(PTNodeVisitor):
         super().__init__(**kwargs)
         self.interpreter_debug = interpreter_debug
         self.mathFunctions = MathematicalFunctions()
+        self.logicalOperators = LogicalOperators()
         self.variables = {}
 
     def visit_number(self, node, children):
@@ -184,6 +195,38 @@ class GrammarRulesVisitor(PTNodeVisitor):
             var = children[::2]
             print("SubstitutionOperator {}.\nSubstitutionOperator {}={}.".format(children, var[:-1], var[-1]))
 
+    def visit_afterVariableOperator(self, node, children):
+        """
+        Aplies r-operator to variable
+        """
+        if children[1] == "++":
+            self.variables[node[0].value] += 1
+        elif children[1] == "--":
+            self.variables[node[0].value] -= 1
+        if self.interpreter_debug:
+            print("AfterVariableOperator {} = {}.".format(children,self.variables[node[0].value]))
+        return self.variables[node[0].value]
+
+    def visit_beforeVariableOperator(self, node, children):
+        """
+        Aplies l-operator to variable
+        """
+        if children[0] == "~":
+            self.variables[node[1].value] *= (-1)
+        if self.interpreter_debug:
+            print("BeforeVariableOperator {} = {}.".format(children,self.variables[node[1].value]))
+        return self.variables[node[1].value]
+
+    def visit_logicalOperator(self, node, children):
+        """
+        Does logical operation
+        """
+        # DOKONCZYC ! + dokonczyc klase LogicalOperators
+        if self.interpreter_debug:
+            print("LogicalOperator {} = {}.".format(children,result))
+        a =["&&", "||", "==", "!=", ">", "<", "<=", "=<", ">=", "=>"]
+        return result
+
 
 def doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = ""):
     print("UDO Interpreter\n\n")
@@ -202,7 +245,7 @@ def doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO
             parse_tree = parser.parse(UDO_FileContent)
             result = visit_parse_tree(parse_tree,GrammarRulesVisitor(debug=debug, interpreter_debug = interpreter_debug))
 
-            inputExprValue = -2*(2*math.sin(2+5**2*10)**2+2*math.cos(2+5**2*10)**2)
+            inputExprValue = -3
 
             print("\n\n{} = {}".format("Python value","Calculated result from parser"))
             print("{} = {}\n".format(inputExprValue,result))

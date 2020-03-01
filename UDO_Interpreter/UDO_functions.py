@@ -87,3 +87,51 @@ class MathematicalFunctions:
     def do_srand(self, **kwargs):
         pass
 
+class LogicalOperators:
+    def __init__(self):
+        self.functionsNames = {
+            "nothing" : "do_nothing",
+            "&&" : "do_logicalAnd",
+            "||" : "do_logicalOr",
+            "==" : "do_equalTo",
+            "!=" : "do_differentThan",
+            "<" : "do_lessThan",
+            ">" : "do_greaterThan",
+            "<=" : "do_lessOrEqualTo",
+            "=<" : "do_lessOrEqualTo",
+            ">=" : "do_greaterOrEqualTo",
+            "=>" : "do_greaterOrEqualTo"
+            }
+
+    def callFunction(self, stringWithLogicalOperator = "nothing", **kwargs):
+        return getattr(self, self.functionsNames[stringWithLogicalOperator])(**kwargs)
+
+    def do_nothing(self, **kwargs):
+        pass
+
+    def do_logicalAnd(self, value1, value2):
+        return value1 and value2
+
+    def do_logicalOr(self, value1, value2):
+        return value1 or value2
+
+    def do_equalTo(self, value1, value2):
+        return value1 == value2
+
+    def do_differentThan(self, value1, value2):
+        return value1 != value2
+
+    def do_lessThan(self, value1, value2):
+        return value1 < value2
+
+    def do_greaterThan(self, value1, value2):
+        return value1 > value2
+
+    def do_lessOrEqualTo(self, value1, value2):
+        return value1 <= value2
+
+    def do_greaterOrEqualTo(self, value1, value2):
+        return value1 >= value2
+
+
+
