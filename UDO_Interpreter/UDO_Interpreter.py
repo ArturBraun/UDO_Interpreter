@@ -1,11 +1,19 @@
-#############################################
+"""@package UDO_Interpreter
+Main module for this project. Contain main function.
+ 
+This module include main function, functions describing parser grammar and a grammar class (which uses visitor
+design pattern to appropriately behave when the specific grammar rule is met). 
+"""
+
+#____________________________________________
 # TODO:
 # -dokonczyc pisac funkcje matematyczne w klasie MathematicalFunctions
-# -dokonczyc LogicalOperators
-#############################################
+# -dokonczyc LogicalOperators i funkcje visit_logicalOperator
+# -stworzyc dokumentacje w pliku UDO_functions
+#____________________________________________
 
 #--------------------------------------------
-""" INCLUDED MODULES: """
+# INCLUDED MODULES:
 #--------------------------------------------
 # Built-in:
 from arpeggio import *
@@ -18,28 +26,55 @@ import math
 from UDO_functions import MathematicalFunctions, LogicalOperators
 
 #--------------------------------------------
-""" GRAMMAR FUNCTIONS: """
+# GRAMMAR FUNCTIONS
 #--------------------------------------------
+def comment():
+    """
+    Grammar rule for comment
+    """
+    return apperggioRegEx(r'[#]{1}[ -~]*[\n]{1}')
+
 def variable():
+    """
+    Grammar rule for variable
+    """
     return apperggioRegEx(r'[a-zA-Z]{1}[a-zA-Z0-9]*') 
 
 def substitutionOperator():
-    return variable, OneOrMore(["="],[expression, variable]), ";" 
+    """
+    Grammar rule for substitution operator
+    """
+    return variable, OneOrMore(["="],[logicalOperator, expression, variable]), ";" 
 
 def functions():
+    """
+    Grammar rule for functions
+    """
     return ([mathFunctions, afterVariableOperator, beforeVariableOperator])
 
 def afterVariableOperator():
+    """
+    Grammar rule for operator that appears on right hand side of variable
+    """
     return variable, ["++", "--"]
 
 def beforeVariableOperator():
+    """
+    Grammar rule for operator that appears on left hand side of variable
+    """
     return ["~"], variable
 
 def logicalOperator():
-    return variable, OneOrMore(
-        ["&&", "||", "==", "!=", ">", "<", "<=", "=<", ">=", "=>"],[variable, expression]), ";"
+    """
+    Grammar rule for logical operator
+    """
+    return [variable, expression], OneOrMore(
+        ["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[variable, expression])
 
 def mathFunctions():
+    """
+    Grammar rule for mathematical functions
+    """
     return [
         "sin",
         "cos",
@@ -60,31 +95,52 @@ def mathFunctions():
         "srand"], ["("], [expression], [")"]
 
 def number():
+    """
+    Grammar rule for number
+    """
     return apperggioRegEx(r'\d+\.\d+|\d+') 
 # Sprawdzic czy wedlug UDO .2 to tez liczba
 # Aktualnie dziala tylko dla liczb normalnych typu 0.2 itd.
 
 def withSign():
+    """
+    Grammar rule to apply sign to expression
+    """
     return Optional(["+","-"]),[functions, variable, number, ("(", expression, ")")]
 
 def power():
+    """
+    Grammar rule for exponentiation
+    """
     return withSign, ZeroOrMore(["^"], withSign)
 
 def multiplicationOrDivision():
+    """
+    Grammar rule for multiplication or division
+    """
     return power, ZeroOrMore(["*","/"], power)
 
 def expression():
+    """
+    Grammar rule for expression
+    """
     return multiplicationOrDivision, ZeroOrMore(["+","-"], multiplicationOrDivision)
 
 def calc(): 
+    """
+    Grammar rule for whole UDO file
+    """
     return OneOrMore([substitutionOperator, expression]), EOF
 
 
 #--------------------------------------------
-""" CLASSES AND MAIN FUNCTION: """
+#CLASSES AND MAIN FUNCTION
 #--------------------------------------------
 
 class GrammarRulesVisitor(PTNodeVisitor):
+    """
+    Class that applies behaviour (concrete function) when the particular grammar rule is met
+    """
     def __init__(self, interpreter_debug = False, **kwargs):
         super().__init__(**kwargs)
         self.interpreter_debug = interpreter_debug
@@ -209,7 +265,7 @@ class GrammarRulesVisitor(PTNodeVisitor):
 
     def visit_beforeVariableOperator(self, node, children):
         """
-        Aplies l-operator to variable
+        Apllies l-operator to variable
         """
         if children[0] == "~":
             self.variables[node[1].value] *= (-1)
@@ -221,14 +277,19 @@ class GrammarRulesVisitor(PTNodeVisitor):
         """
         Does logical operation
         """
-        # DOKONCZYC ! + dokonczyc klase LogicalOperators
+        result = float(self.logicalOperators.callFunction(stringWithLogicalOperator = children[1], value1 = children[0], value2 = children[2]))
+        if result:
+            for i in range(4,len(children),2):
+                result = float(self.logicalOperators.callFunction(stringWithLogicalOperator = children[i-1], value1 = result, value2 = children[i]))
         if self.interpreter_debug:
             print("LogicalOperator {} = {}.".format(children,result))
-        a =["&&", "||", "==", "!=", ">", "<", "<=", "=<", ">=", "=>"]
         return result
 
 
 def doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = ""):
+    """
+    Function which reads the UDO file, does parsing and visits parse tree to properly create QW Modeller python script 
+    """
     print("UDO Interpreter\n\n")
     
     if UDO_FilePath:
@@ -263,6 +324,9 @@ def doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO
 
 
 def main():
+    """
+    Main function of UDO_Interpreter project
+    """
     doParsing(debug = False, interpreter_debug = True, showDotFile = True, UDO_FilePath = "udo_file_1.txt")
 
 if __name__ == "__main__":

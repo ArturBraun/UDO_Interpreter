@@ -109,29 +109,29 @@ class LogicalOperators:
     def do_nothing(self, **kwargs):
         pass
 
-    def do_logicalAnd(self, value1, value2):
-        return value1 and value2
+    def do_logicalAnd(self, **kwargs):
+        return kwargs["value1"] and kwargs["value2"]
 
-    def do_logicalOr(self, value1, value2):
-        return value1 or value2
+    def do_logicalOr(self, **kwargs):
+        return kwargs["value1"] or kwargs["value2"]
 
-    def do_equalTo(self, value1, value2):
-        return value1 == value2
+    def do_equalTo(self, **kwargs):
+        return kwargs["value1"] == kwargs["value2"]
 
-    def do_differentThan(self, value1, value2):
-        return value1 != value2
+    def do_differentThan(self, **kwargs):
+        return kwargs["value1"] != kwargs["value2"]
 
-    def do_lessThan(self, value1, value2):
-        return value1 < value2
+    def do_lessThan(self, **kwargs):
+        return kwargs["value1"] < kwargs["value2"]
 
-    def do_greaterThan(self, value1, value2):
-        return value1 > value2
+    def do_greaterThan(self, **kwargs):
+        return kwargs["value1"] > kwargs["value2"]
 
-    def do_lessOrEqualTo(self, value1, value2):
-        return value1 <= value2
+    def do_lessOrEqualTo(self, **kwargs):
+        return kwargs["value1"] <= kwargs["value2"]
 
-    def do_greaterOrEqualTo(self, value1, value2):
-        return value1 >= value2
+    def do_greaterOrEqualTo(self, **kwargs):
+        return kwargs["value1"] >= kwargs["value2"]
 
 
 
