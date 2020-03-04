@@ -1,3 +1,9 @@
+"""@package UDO_functions
+This module include classes, which functions are used during visiting parse tree.  
+
+Contain mathematical functions and logical operators.
+"""
+
 #--------------------------------------------
 """ INCLUDED MODULES: """
 #--------------------------------------------
@@ -8,6 +14,9 @@ import math
 #--------------------------------------------
 
 class MathematicalFunctions:
+    """
+    Class used when visiting mathFunctions grammar rule.
+    """
     def __init__(self):
         self.functionsNames = {
             "nothing" : "do_nothing",
@@ -31,45 +40,87 @@ class MathematicalFunctions:
             }
 
     def callFunction(self, stringWith_UDO_FunctionName = "nothing", **kwargs):
+        """
+        Function that uses dictionary to math and call appropriate function from given string with math function name. 
+        """
         return getattr(self, self.functionsNames[stringWith_UDO_FunctionName])(**kwargs)
 
     def do_nothing(self, **kwargs):
+        """
+        Function that does nothing.
+        """
         pass
 
     def do_sin(self, **kwargs):
+        """
+        Does sine operation.
+        """
         return math.sin(kwargs["child"])
 
     def do_cos(self, **kwargs):
+        """
+        Does cosine operation.
+        """
         return math.cos(kwargs["child"])
 
     def do_tan(self, **kwargs):
+        """
+        Does tangent operation.
+        """
         return math.tan(kwargs["child"])
 
     def do_asin(self, **kwargs):
+        """
+        Does arcsine operation.
+        """
         return math.asin(kwargs["child"])
 
     def do_acos(self, **kwargs):
+        """
+        Does arccosine operation.
+        """
         return math.acos(kwargs["child"])
 
     def do_atan(self, **kwargs):
+        """
+        Does arctangent operation.
+        """
         return math.atan(kwargs["child"])
 
-    def do_atan2(self, **kwargs):
+    def do_atan2(self, **kwargs): #POPRAWIC powinna przyjmowac dwa argumenty x i y!!!
+        """
+        Does atan(y / x) in radians.
+        """
         return math.atan2(kwargs["child"])
 
-    def do_log(self, **kwargs):
+    def do_log(self, **kwargs): #SPRAWDZIC jak ta funkcja dziala w UDO !!!
+        """
+        Does logarithm operation to base e.
+        """
         return math.log(kwargs["child"])
 
     def do_logd(self, **kwargs):
+        """
+        Does logarithm operation to base 10.
+        """
         return math.log10(kwargs["child"]) #Co robi funkcja logd() w UDO ????
 
     def do_exp(self, **kwargs):
+        """
+        Does e to power of x.
+        """
         return math.exp(kwargs["child"])
 
     def do_sqrt(self, **kwargs):
+        """
+        Does square root.
+        """
         return math.sqrt(kwargs["child"])
 
     def do_abs(self, **kwargs):
+        """
+        Does modulus operation.
+        """
         return math.fabs(kwargs["child"])
 
     def do_sgn(self, **kwargs):
