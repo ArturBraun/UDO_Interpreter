@@ -9,6 +9,7 @@ design pattern to appropriately behave when the specific grammar rule is met).
 # TODO:
 # -dokonczyc pisac funkcje matematyczne w klasie MathematicalFunctions
 # -stworzyc dokumentacje w pliku UDO_functions
+# -storzyc visit_UDO_command oraz klase udo_commands
 #____________________________________________
 
 #--------------------------------------------
@@ -27,6 +28,17 @@ from UDO_functions import MathematicalFunctions, LogicalOperators
 #--------------------------------------------
 # GRAMMAR FUNCTIONS
 #--------------------------------------------
+def UDO_command():
+    return [
+        "TEST",
+        "ADDY",
+        "ADDX"
+        ], ["("],  ZeroOrMore([logicalOperator, string, expression, variable],","), Optional([logicalOperator, string, expression, variable]), [")"], ";"
+
+def parameterDeclaration():
+    return [
+        "PAR"], ["("],  ZeroOrMore([string, logicalOperator, expression, variable],","), Optional([string, logicalOperator, expression, variable]), [")"], ";"
+
 def comment():
     """
     Grammar rule for comment.
@@ -135,7 +147,7 @@ def calc():
     """
     Grammar rule for whole UDO file.
     """
-    return OneOrMore([substitutionOperator, expression]), EOF
+    return OneOrMore([comment, parameterDeclaration, UDO_command ,substitutionOperator, expression]), EOF
 
 
 #--------------------------------------------
@@ -152,9 +164,10 @@ class GrammarRulesVisitor(PTNodeVisitor):
         self.mathFunctions = MathematicalFunctions()
         self.logicalOperators = LogicalOperators()
         self.variables = {
-            "x":0,
-            "y":0,
-            "z":0
+            "x":["", 0],
+            "y":["", 0],
+            "z":["", 0],
+            "air":["", "air"]
             }
 
     def visit_number(self, node, children):
@@ -237,12 +250,12 @@ class GrammarRulesVisitor(PTNodeVisitor):
     def visit_variable(self, node, children):
         """
         Returns value of variable.
-        """        
+        """      
         if node.value not in self.variables:
             return node.value
         if self.interpreter_debug:
             print("Variable {} = {}".format(node.value.replace("|",""), self.variables[node.value]))
-        return self.variables[node.value]
+        return self.variables[node.value][1]
 
     def visit_substitutionOperator(self, node, children):
         """
@@ -254,7 +267,7 @@ class GrammarRulesVisitor(PTNodeVisitor):
             value = self.variables[children[-1]]
 
         for i in range(len(children)-3,-1,-2):
-            self.variables[node[0].value] = value
+            self.variables[node[0].value] = ["", value]
 
         if self.interpreter_debug:
             print("SubstitutionOperator {}.\nSubstitutionOperator {} = {}.".format(node.value.replace("|",""), node[0].value, value))
@@ -301,7 +314,14 @@ class GrammarRulesVisitor(PTNodeVisitor):
             print("String {} = {}.".format(children, node.value))
         return str(children[0])
 
-
+    def visit_parameterDeclaration(self, node, children):
+        """
+        Adds new parameter.
+        """
+        if self.interpreter_debug:
+            print("ParameterDeclaration {}.".format(children))
+        self.variables[node[4].value] = [children[2], children[4]]
+        
 
 def doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = ""):
     """

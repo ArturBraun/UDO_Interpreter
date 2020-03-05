@@ -1,10 +1,10 @@
-a = sin(2*cos(5))^2+cos(2*cos(5))^2;
-b = a++;
-c = ~b;
-d = c--;
-e = ~d;
-e = 2;
-f = e==3>=2<=4>5;
-f = "abc";
-f = "cde";
-f
+comment="Cubicoidal structure - type E";
+bitmap="cubic0.bmp";
+
+PAR("name", ename, "cubic");
+PAR("length (x-dir)", a, 10 );
+PAR("medium", med, air );
+
+TEST( a>0, "Length should be positive" );
+
+# komentarz

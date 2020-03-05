@@ -185,4 +185,18 @@ class LogicalOperators:
         return kwargs["value1"] >= kwargs["value2"]
 
 
+class UDO_commands:
+    """
+    Class used when visiting UDO_command grammar rule. This class creates behaviour for all UDO commands.
+    """
+    def __init__(self):
+        pass
+
+    def callFunction(self):
+        """
+        Function that uses dictionary to math and call appropriate function from given string with math function name. 
+        """
+        pass
+
+
 
