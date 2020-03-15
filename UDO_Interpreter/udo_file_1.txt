@@ -1,6 +1,8 @@
 comment="Cubicoidal structure - type E";
 bitmap="cubic0.bmp";
 
+# komentarz
+
 PAR("name", ename, "cubic");
 PAR("length (x-dir)", a, 10 );
 PAR("medium", med, air );

@@ -8,6 +8,7 @@ Contain mathematical functions and logical operators.
 """ INCLUDED MODULES: """
 #--------------------------------------------
 import math
+from GlobalData import *
 
 #--------------------------------------------
 """ CLASSES: """
@@ -55,73 +56,73 @@ class MathematicalFunctions:
         """
         Does sine operation.
         """
-        return math.sin(kwargs["child"])
+        return math.sin(kwargs["arguments"][0])
 
     def do_cos(self, **kwargs):
         """
         Does cosine operation.
         """
-        return math.cos(kwargs["child"])
+        return math.cos(kwargs["arguments"][0])
 
     def do_tan(self, **kwargs):
         """
         Does tangent operation.
         """
-        return math.tan(kwargs["child"])
+        return math.tan(kwargs["arguments"][0])
 
     def do_asin(self, **kwargs):
         """
         Does arcsine operation.
         """
-        return math.asin(kwargs["child"])
+        return math.asin(kwargs["arguments"][0])
 
     def do_acos(self, **kwargs):
         """
         Does arccosine operation.
         """
-        return math.acos(kwargs["child"])
+        return math.acos(kwargs["arguments"][0])
 
     def do_atan(self, **kwargs):
         """
         Does arctangent operation.
         """
-        return math.atan(kwargs["child"])
+        return math.atan(kwargs["arguments"][0])
 
     def do_atan2(self, **kwargs): #POPRAWIC powinna przyjmowac dwa argumenty x i y!!!
         """
         Does atan(y / x) in radians.
         """
-        return math.atan2(kwargs["child"])
+        return math.atan2(kwargs["arguments"][0])
 
     def do_log(self, **kwargs): #SPRAWDZIC jak ta funkcja dziala w UDO !!!
         """
         Does logarithm operation to base e.
         """
-        return math.log(kwargs["child"])
+        return math.log(kwargs["arguments"][0])
 
     def do_logd(self, **kwargs):
         """
         Does logarithm operation to base 10.
         """
-        return math.log10(kwargs["child"]) #Co robi funkcja logd() w UDO ????
+        return math.log10(kwargs["arguments"][0]) #Co robi funkcja logd() w UDO ????
 
     def do_exp(self, **kwargs):
         """
         Does e to power of x.
         """
-        return math.exp(kwargs["child"])
+        return math.exp(kwargs["arguments"][0])
 
     def do_sqrt(self, **kwargs):
         """
         Does square root.
         """
-        return math.sqrt(kwargs["child"])
+        return math.sqrt(kwargs["arguments"][0])
 
     def do_abs(self, **kwargs):
         """
         Does modulus operation.
         """
-        return math.fabs(kwargs["child"])
+        return math.fabs(kwargs["arguments"][0])
 
     def do_sgn(self, **kwargs):
         pass
@@ -161,28 +162,28 @@ class LogicalOperators:
         pass
 
     def do_logicalAnd(self, **kwargs):
-        return kwargs["value1"] and kwargs["value2"]
+        return kwargs["variable1"] and kwargs["variable2"]
 
     def do_logicalOr(self, **kwargs):
-        return kwargs["value1"] or kwargs["value2"]
+        return kwargs["variable1"] or kwargs["variable2"]
 
     def do_equalTo(self, **kwargs):
-        return kwargs["value1"] == kwargs["value2"]
+        return kwargs["variable1"] == kwargs["variable2"]
 
     def do_differentThan(self, **kwargs):
-        return kwargs["value1"] != kwargs["value2"]
+        return kwargs["variable1"] != kwargs["variable2"]
 
     def do_lessThan(self, **kwargs):
-        return kwargs["value1"] < kwargs["value2"]
+        return kwargs["variable1"] < kwargs["variable2"]
 
     def do_greaterThan(self, **kwargs):
-        return kwargs["value1"] > kwargs["value2"]
+        return kwargs["variable1"] > kwargs["variable2"]
 
     def do_lessOrEqualTo(self, **kwargs):
-        return kwargs["value1"] <= kwargs["value2"]
+        return kwargs["variable1"] <= kwargs["variable2"]
 
     def do_greaterOrEqualTo(self, **kwargs):
-        return kwargs["value1"] >= kwargs["value2"]
+        return kwargs["variable1"] >= kwargs["variable2"]
 
 
 class UDO_commands:
@@ -190,13 +191,66 @@ class UDO_commands:
     Class used when visiting UDO_command grammar rule. This class creates behaviour for all UDO commands.
     """
     def __init__(self):
-        pass
+        self.functionsNames = {
+            "TEST":"do_test",
+            "ELEMENT":"do_element",
+            "ENDELEM":"do_endelem",
+            "NEWLINE":"do_newline",
+            "CLOSELINE":"do_closeline",
+            "ADDY":"do_addy",
+            "ADDX":"do_addx"
+            }
 
-    def callFunction(self):
+    def callFunction(self,stringWithUdoCommand,argumentsList):
         """
         Function that uses dictionary to math and call appropriate function from given string with math function name. 
         """
+        return getattr(self, self.functionsNames[stringWithUdoCommand])(argumentsList)
+
+    def do_test(self, argumentsList):
+        """
+        Does TEST command from UDO language.
+        """
+        if not argumentsList[0]:
+            #zla wartosc zmiennej -> nalezy dac stosowny komunikat
+            print(argumentsList[1])
+
+    def do_element(self,argumentsList):
+        """
+        Does ELEMENT command from UDO language.
+        """
         pass
+
+    def do_endelem(self,argumentList):
+        """
+        Does ENDELEM command from UDO language.
+        """
+        pass
+
+    def do_newline(self,argumentList):
+        """
+        Does NEWLINE command from UDO language.
+        """
+        pass
+
+    def do_closeline(self,argumentList):
+        """
+        Does CLOSELINE command from UDO language.
+        """
+        pass
+
+    def do_addy(self,argumentList):
+        """
+        Does ADDY command from UDO language.
+        """
+        pass
+
+    def do_addx(self,argumentList):
+        """
+        Does ADDX command from UDO language.
+        """
+        pass
+
 
 
 
