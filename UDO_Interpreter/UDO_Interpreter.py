@@ -8,7 +8,7 @@ This module include main function and functions describing parser grammar.
 # TODO:
 # -dokonczyc pisac funkcje matematyczne w klasie MathematicalFunctions
 # -stworzyc dokumentacje w pliku UDO_functions
-# -storzyc visit_UDO_command oraz klase udo_commands
+# -dodac pisanie tresci podstawowych w skryptach Modeller w pliku UDO_functions w funkcji writeBasicScriptsToFiles()
 #____________________________________________
 
 #--------------------------------------------
@@ -53,7 +53,7 @@ def variable():
     """
     Grammar rule for variable.
     """
-    return apperggioRegEx(r'[a-zA-Z]{1}[a-zA-Z0-9]*') 
+    return apperggioRegEx(r'[a-zA-Z]{1}[a-zA-Z0-9_]*') 
 
 def substitutionOperator():
     """

@@ -8,7 +8,7 @@ and the generated QW-Modeller python scripts.
 #--------------------------------------------
 """ INCLUDED MODULES: """
 #--------------------------------------------
-
+import re
 
 #--------------------------------------------
 """ CLASSES: """
@@ -35,19 +35,86 @@ class GlobalData:
                                 "z":["", 0],
                                 "air":["", "air"]
                                 } 
-            cls._singleton.projectName = kwargs["projectName"]
-            cls._singleton.projectFile = open(cls._singleton.projectName + ".py", "w")
+            if re.fullmatch("[a-zA-Z]{1}[a-zA-Z0-9_]*", kwargs["projectName"]): cls._singleton.projectName = kwargs["projectName"]
+            else: cls._singleton.projectName = "project"
+            
+            cls._singleton.mainFile = open(cls._singleton.projectName + ".udo", "w")
+            cls._singleton.circuitFile = open(cls._singleton.projectName + "_circuit.udo", "w")
+            cls._singleton.excitFile = open(cls._singleton.projectName + "_excit.udo", "w")
+            cls._singleton.geomMediaFile = open(cls._singleton.projectName + "_geom_media.udo", "w")
+            cls._singleton.meshFile = open(cls._singleton.projectName + "_mesh.udo", "w")
+            cls._singleton.ppostFile = open(cls._singleton.projectName + "_ppost.udo", "w")
+            cls._singleton.projFile = open(cls._singleton.projectName + "_proj.udo", "w")
+            cls._singleton.runsimulFile = open(cls._singleton.projectName + "_runsimul.udo", "w")
+            cls._singleton.setsimulFile = open(cls._singleton.projectName + "_setsimul.udo", "w")
 
         return cls._singleton
-
-    def writeToProjectFile(self,content):
-        """
-        Function that writes content to the project file.
-        """
-        self._singleton.projectFile.write(content)
 
     def closeAllModellerScripts(self):
         """
         Function that closes all Modeller python scripts files.
         """
-        self._singleton.projectFile.close()
+        self._singleton.mainFile.close()
+        self._singleton.circuitFile.close()
+        self._singleton.excitFile.close()
+        self._singleton.geomMediaFile.close()
+        self._singleton.meshFile.close()
+        self._singleton.ppostFile.close()
+        self._singleton.projFile.close()
+        self._singleton.runsimulFile.close()
+        self._singleton.setsimulFile.close()
+
+    def writeToMainFile(self,content):
+        """
+        Function that writes content to the main file.
+        """
+        self._singleton.mainFile.write(content)
+
+    def writeToCircuitFile(self,content):
+        """
+        Function that writes content to the circuit file.
+        """
+        self._singleton.circuitFile.write(content)
+
+    def writeToExcitFile(self,content):
+        """
+        Function that writes content to the excit file.
+        """
+        self._singleton.excitFile.write(content)
+
+    def writeToGeomMediaFile(self,content):
+        """
+        Function that writes content to geom media file.
+        """
+        self._singleton.geomMediaFile.write(content)
+
+    def writeToMeshFile(self,content):
+        """
+        Function that writes content to mesh file.
+        """
+        self._singleton.meshFile.write(content)
+
+    def writeToPpostFile(self,content):
+        """
+        Function that writes content to ppost file.
+        """
+        self._singleton.ppostFile.write(content)
+
+    def writeToProjFile(self,content):
+        """
+        Function that writes content to the proj file.
+        """
+        self._singleton.projFile.write(content)
+
+    def writeToRunsimulFile(self,content):
+        """
+        Function that writes content to runsimul file.
+        """
+        self._singleton.runsimulFile.write(content)
+
+    def writesetsimulFile(self,content):
+        """
+        Function that writes content to setsimul file.
+        """
+        self._singleton.setsimulFile.write(content)
+

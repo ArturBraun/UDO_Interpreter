@@ -1,3 +1,4 @@
+# komentarz
 comment="Cubicoidal structure - type E";
 bitmap="cubic0.bmp";
 

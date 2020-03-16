@@ -191,6 +191,8 @@ class UDO_commands:
     Class used when visiting UDO_command grammar rule. This class creates behaviour for all UDO commands.
     """
     def __init__(self):
+        self.globalData = GlobalData()
+        self.writeBasicScriptsToFiles()
         self.functionsNames = {
             "TEST":"do_test",
             "ELEMENT":"do_element",
@@ -200,6 +202,134 @@ class UDO_commands:
             "ADDY":"do_addy",
             "ADDX":"do_addx"
             }
+
+    def writeBasicScriptsToFiles(self):
+        content = """
+import sys, os
+
+cwd = os.path.dirname(os.path.realpath(__file__))
+sys.path.insert(0, cwd)  # for multifile QW-Modeller macro processing
+qwutilspath=cwd+"/../qw-utils"
+sys.path.append(qwutilspath)
+
+from qw_paths import *
+
+setqwutilspath(qwutilspath)
+
+sys.path.insert(0, get_qw_modeller_path(qwutilspath)+"/bin")
+
+import FreeCADGui
+import QW_Modeller
+import FreeCAD
+
+#FreeCAD.Console.PrintMessage(sys.path)  #for test
+from wgtocx1_proj import *
+
+# from PySide.QtCore import *
+# from PySide.QtGui import *
+
+GUIMode = FreeCAD.ConfigGet("RunMode")
+
+if not GUIMode:
+    FreeCADGui.showMainWindow()
+
+FreeCADGui.activateWorkbench("QW_ModellerWorkbench")
+
+qwm_doc = QW_Modeller.newQWDocument("{projectName}")
+
+FreeCADGui.activeDocument().activeView().viewAxometric()
+
+{projectName}_par = {projectName}_Geometry_Parameters()
+
+proj = bb_antenna_Project(qwm_doc, {projectName})
+proj.set_Circuit_Parameters()
+proj.set_GeometryAndMedia()
+proj.set_Mesh()
+proj.set_Excitation()
+proj.set_Postprocessing()
+proj.set_Simulation()
+proj.run_Simulation()
+
+FreeCADGui.SendMsgToActiveView("ViewFit")
+qwm_doc.recompute()
+
+if not GUIMode:
+    FreeCADGui.exec_loop() #for quick tests
+
+        """.format(projectName = self.globalData.projectName)
+
+        self.globalData.writeToMainFile(content)
+
+        content = """
+import QW_Modeller, FreeCADGui
+from {projectName}_circuit import *
+from {projectName}_geom_media import *
+from {projectName}_mesh import *
+from {projectName}_excit import *
+from {projectName}_ppost import *
+from {projectName}_setsimul import *
+from {projectName}_runsimul import *
+
+class {projectName}_Project(QW_Project): # test
+    def __init__(self, qwm_doc, param):
+        self.qwm_doc = qwm_doc
+        self.param = param
+        qwm_doc.Company = 'QWED SP. z o.o.'
+        qwm_doc.CreatedBy = 'Automatically generated'
+        qwm_doc.Comment = '{projectName}'
+
+    def set_Circuit_Parameters(self):
+        #most parameters are defaults taken from qw_project
+        super({projectName}_Project, self).set_Circuit_Parameters()
+        set_Circuit_Parameters(self.qwm_doc)
+
+    def set_GeometryAndMedia(self):
+        super({projectName}_Project, self).set_GeometryAndMedia()
+        set_GeometryAndMedia(self.qwm_doc, self.param)
+
+    def set_Mesh(self):
+        #most parameters are defaults taken from qw_project
+        super({projectName}_Project, self).set_Mesh()
+        set_Mesh(self.qwm_doc,self.param)
+
+    def set_Excitation(self):
+        super({projectName}_Project, self).set_Excitation()
+        set_Excitation(self.qwm_doc, self.param)
+
+    def set_Postprocessing(self):
+        super({projectName}_Project, self).set_Postprocessing()
+        set_Postprocessing(self.qwm_doc)
+
+    def set_Simulation(self):
+        super({projectName}_Project, self).set_Simulation()
+        set_Simulation(self.qwm_doc)
+
+    def run_Simulation(self):
+        super({projectName}_Project, self).run_Simulation()
+        run_Simulation(self.qwm_doc)
+
+        """.format(projectName=self.globalData.projectName)
+
+        self.globalData.writeToProjFile(content)
+
+        content = """
+import FreeCAD
+import FreeCADGui
+from FreeCAD import Base
+import QW_Modeller
+from qw_project import *
+import Part
+import Sketcher
+from qw_units import *
+from qw_paths import *
+
+setGHzBaseFreqUnit()
+setmmBaseGeomUnit()
+
+        """
+
+        self.globalData.writeToGeomMediaFile(content)
+
 
     def callFunction(self,stringWithUdoCommand,argumentsList):
         """
