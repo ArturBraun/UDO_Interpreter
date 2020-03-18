@@ -204,6 +204,11 @@ class UDO_commands:
             }
 
     def writeBasicScriptsToFiles(self):
+        """
+        Writes content to python scripts that is constant for all UDO projects.
+        """
+
+        # main file
         content = """
 import sys, os
 
@@ -257,9 +262,80 @@ if not GUIMode:
     FreeCADGui.exec_loop() #for quick tests
 
         """.format(projectName = self.globalData.projectName)
-
         self.globalData.writeToMainFile(content)
 
+
+        # circuit file
+        content = """
+from qw_units import *
+# Circuit settings
+def set_Circuit_Parameters(qwm_doc):
+    pass
+        """
+        self.globalData.writeToCircuitFile(content)
+
+
+        # excit file
+        content = """
+from FreeCAD import Base
+import QW_Modeller
+from qw_project import *
+from qw_units import *
+
+
+def set_Excitation(qwm_doc, param):
+    pass
+        """
+        self.globalData.writeToExcitFile(content)
+
+
+        # geom media file
+        content = """
+import FreeCAD
+import FreeCADGui
+from FreeCAD import Base
+import QW_Modeller
+from qw_project import *
+import Part
+import Sketcher
+from qw_units import *
+from qw_paths import *
+
+setGHzBaseFreqUnit()
+setmmBaseGeomUnit()
+
+def set_GeometryAndMedia(qwm_doc, {projectName}_par):
+    pass
+
+        """.format(projectName = self.globalData.projectName)
+        self.globalData.writeToGeomMediaFile(content)
+
+
+        # mesh file
+        content = """
+import FreeCADGui,QW_Modeller
+#from qw_project import *
+from qw_units import *
+
+def set_Mesh(qwm_doc, param):
+    pass
+        """
+        self.globalData.writeToMeshFile(content)
+
+
+        # ppost file
+        content = """
+from qw_units import *
+from qw_project import *
+
+# S postprocessing set
+def set_Postprocessing(qwm_doc):
+    pass
+        """
+        self.globalData.writeToPpostFile(content)
+
+
+        # proj file
         content = """
 import QW_Modeller, FreeCADGui
 from {projectName}_circuit import *
@@ -309,26 +385,34 @@ class {projectName}_Project(QW_Project): # test
         run_Simulation(self.qwm_doc)
 
         """.format(projectName=self.globalData.projectName)
-
         self.globalData.writeToProjFile(content)
 
+
+        # runsimul file
         content = """
-import FreeCAD
-import FreeCADGui
-from FreeCAD import Base
-import QW_Modeller
-from qw_project import *
-import Part
-import Sketcher
-from qw_units import *
+import os, QW_Modeller, FreeCAD
+import subprocess
 from qw_paths import *
+from qw_project import *
 
-setGHzBaseFreqUnit()
-setmmBaseGeomUnit()
 
+def run_Simulation(qwm_doc):
+    pass
         """
+        self.globalData.writeToRunsimulFile(content)
 
-        self.globalData.writeToGeomMediaFile(content)
+
+        # setsimul file
+        content = """
+import QW_Modeller, FreeCAD, FreeCADGui
+import subprocess
+from qw_paths import *
+from qw_project import *
+
+def set_Simulation(qwm_doc):
+    pass
+        """
+        self.globalData.writeToSetsimulFile(content)
 
 
     def callFunction(self,stringWithUdoCommand,argumentsList):

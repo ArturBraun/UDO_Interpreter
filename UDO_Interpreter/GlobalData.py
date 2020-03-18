@@ -112,7 +112,7 @@ class GlobalData:
         """
         self._singleton.runsimulFile.write(content)
 
-    def writesetsimulFile(self,content):
+    def writeToSetsimulFile(self,content):
         """
         Function that writes content to setsimul file.
         """
