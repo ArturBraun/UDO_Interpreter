@@ -10,4 +10,6 @@ PAR("medium", med, air );
 
 TEST( a>0, "Length should be positive" );
 
-# komentarz
+ELEMENT(a);
+# wnetrze element
+ENDELEM;

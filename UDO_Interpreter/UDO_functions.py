@@ -202,6 +202,15 @@ class UDO_commands:
             "ADDY":"do_addy",
             "ADDX":"do_addx"
             }
+        self.hasSomethingBeenAddedToFiles = {
+            "circuitFile" : False,
+            "excitFile" : False,
+            "geomMediaFile" : False,
+            "meshFile" : False,
+            "ppostFile" : False,
+            "runsimulFile" : False,
+            "setsimulFile" : False
+            }
 
     def writeBasicScriptsToFiles(self):
         """
@@ -227,11 +236,9 @@ import FreeCADGui
 import QW_Modeller
 import FreeCAD
 
-#FreeCAD.Console.PrintMessage(sys.path)  #for test
-from wgtocx1_proj import *
-
-# from PySide.QtCore import *
-# from PySide.QtGui import *
+#sys.path.insert(0, os.path.dirname(__file__))
+sys.path.append(os.path.dirname(__file__))
+from {projectName}_proj import *
 
 GUIMode = FreeCAD.ConfigGet("RunMode")
 
@@ -244,9 +251,7 @@ qwm_doc = QW_Modeller.newQWDocument("{projectName}")
 
 FreeCADGui.activeDocument().activeView().viewAxometric()
 
-{projectName}_par = {projectName}_Geometry_Parameters()
-
-proj = bb_antenna_Project(qwm_doc, {projectName})
+proj = {projectName}_Project(qwm_doc)
 proj.set_Circuit_Parameters()
 proj.set_GeometryAndMedia()
 proj.set_Mesh()
@@ -261,7 +266,7 @@ qwm_doc.recompute()
 if not GUIMode:
     FreeCADGui.exec_loop() #for quick tests
 
-        """.format(projectName = self.globalData.projectName)
+        """.format(projectName = self.globalData.projectName, filesPath = self.globalData.path)
         self.globalData.writeToMainFile(content)
 
 
@@ -270,8 +275,7 @@ if not GUIMode:
 from qw_units import *
 # Circuit settings
 def set_Circuit_Parameters(qwm_doc):
-    pass
-        """
+"""
         self.globalData.writeToCircuitFile(content)
 
 
@@ -283,9 +287,8 @@ from qw_project import *
 from qw_units import *
 
 
-def set_Excitation(qwm_doc, param):
-    pass
-        """
+def set_Excitation(qwm_doc):
+"""
         self.globalData.writeToExcitFile(content)
 
 
@@ -304,10 +307,8 @@ from qw_paths import *
 setGHzBaseFreqUnit()
 setmmBaseGeomUnit()
 
-def set_GeometryAndMedia(qwm_doc, {projectName}_par):
-    pass
-
-        """.format(projectName = self.globalData.projectName)
+def set_GeometryAndMedia(qwm_doc):
+""".format(projectName = self.globalData.projectName)
         self.globalData.writeToGeomMediaFile(content)
 
 
@@ -317,9 +318,8 @@ import FreeCADGui,QW_Modeller
 #from qw_project import *
 from qw_units import *
 
-def set_Mesh(qwm_doc, param):
-    pass
-        """
+def set_Mesh(qwm_doc):
+"""
         self.globalData.writeToMeshFile(content)
 
 
@@ -330,8 +330,7 @@ from qw_project import *
 
 # S postprocessing set
 def set_Postprocessing(qwm_doc):
-    pass
-        """
+"""
         self.globalData.writeToPpostFile(content)
 
 
@@ -347,9 +346,8 @@ from {projectName}_setsimul import *
 from {projectName}_runsimul import *
 
 class {projectName}_Project(QW_Project): # test
-    def __init__(self, qwm_doc, param):
+    def __init__(self, qwm_doc):
         self.qwm_doc = qwm_doc
-        self.param = param
         qwm_doc.Company = 'QWED SP. z o.o.'
         qwm_doc.CreatedBy = 'Automatically generated'
         qwm_doc.Comment = '{projectName}'
@@ -361,16 +359,16 @@ class {projectName}_Project(QW_Project): # test
 
     def set_GeometryAndMedia(self):
         super({projectName}_Project, self).set_GeometryAndMedia()
-        set_GeometryAndMedia(self.qwm_doc, self.param)
+        set_GeometryAndMedia(self.qwm_doc)
 
     def set_Mesh(self):
         #most parameters are defaults taken from qw_project
         super({projectName}_Project, self).set_Mesh()
-        set_Mesh(self.qwm_doc,self.param)
+        set_Mesh(self.qwm_doc)
 
     def set_Excitation(self):
         super({projectName}_Project, self).set_Excitation()
-        set_Excitation(self.qwm_doc, self.param)
+        set_Excitation(self.qwm_doc)
 
     def set_Postprocessing(self):
         super({projectName}_Project, self).set_Postprocessing()
@@ -397,8 +395,7 @@ from qw_project import *
 
 
 def run_Simulation(qwm_doc):
-    pass
-        """
+"""
         self.globalData.writeToRunsimulFile(content)
 
 
@@ -410,10 +407,33 @@ from qw_paths import *
 from qw_project import *
 
 def set_Simulation(qwm_doc):
-    pass
-        """
+"""
         self.globalData.writeToSetsimulFile(content)
 
+    def addLastLineToFilesIfRequired(self):
+        """
+        Adds 'pass' keyword to files if it is required -> if no content has been added to those files.
+        """
+        if (not self.hasSomethingBeenAddedToFiles["circuitFile"]):
+            self.globalData.writeToCircuitFile("    pass\n")
+
+        if (not self.hasSomethingBeenAddedToFiles["excitFile"]):
+            self.globalData.writeToExcitFile("    pass\n")
+
+        if (not self.hasSomethingBeenAddedToFiles["geomMediaFile"]):
+            self.globalData.writeToGeomMediaFile("    pass\n")
+
+        if (not self.hasSomethingBeenAddedToFiles["meshFile"]):
+            self.globalData.writeToMeshFile("    pass\n")
+
+        if (not self.hasSomethingBeenAddedToFiles["ppostFile"]):
+            self.globalData.writeToPpostFile("    pass\n")
+
+        if (not self.hasSomethingBeenAddedToFiles["runsimulFile"]):
+            self.globalData.writeToRunsimulFile("    pass\n")
+
+        if (not self.hasSomethingBeenAddedToFiles["setsimulFile"]):
+            self.globalData.writeToSetsimulFile("    pass\n")
 
     def callFunction(self,stringWithUdoCommand,argumentsList):
         """
@@ -433,7 +453,58 @@ def set_Simulation(qwm_doc):
         """
         Does ELEMENT command from UDO language.
         """
-        pass
+        #pass
+
+        content = """   wg_width = 2.65 * un.inch  # y-dir
+    wg_height = 3.45 * un.inch # z-dir
+    wg_length = 2.0 * un.inch  # x-dir
+    horn_width = 5.45 * un.inch  # y-dir
+    horn_height = 9.45 * un.inch  # z-dir
+    horn_length = 6.0 * un.inch  # x-dir
+    wall_thickness = 0.2 * un.inch
+    ridge_height = 0.36 * un.inch
+    wg_ridge_width = 1.0 * un.inch
+    horn_ridge_shape_file = "gainhorn.dat"
+    side_bar_size = 0.2 * un.inch
+    first_bar_position = 0.3 * un.inch
+    spacing_between_bars = 2.7 * un.inch       
+    qwm_doc.addObject('Sketcher::SketchObject', 'Sketch_wg')
+    qwm_doc.Sketch_wg.Placement = FreeCAD.Placement(FreeCAD.Vector(0.000000,0.000000,0.000000),FreeCAD.Rotation(0.500000,0.500000,0.500000,0.500000))
+    # waveguide outer
+    point1 = (-(wg_width/2.0 + wall_thickness), -(wg_height/2.0 + wall_thickness))
+    point2 = (wg_width/2.0 + wall_thickness, wg_height/2.0 + wall_thickness)
+    sketch = qwm_doc.Sketch_wg
+    sketch.addGeometry(Part.Line(FreeCAD.Vector(point1[0],point1[1], 0), FreeCAD.Vector(point1[0],point2[1],0)))
+    sketch.addGeometry(Part.Line(FreeCAD.Vector(point1[0],point2[1], 0), FreeCAD.Vector(point2[0],point2[1],0)))
+    sketch.addGeometry(Part.Line(FreeCAD.Vector(point2[0],point2[1], 0), FreeCAD.Vector(point2[0],point1[1],0)))
+    sketch.addGeometry(Part.Line(FreeCAD.Vector(point2[0],point1[1], 0), FreeCAD.Vector(point1[0],point1[1],0)))
+    sketch.addConstraint(Sketcher.Constraint('Coincident',0,2,1,1))
+    sketch.addConstraint(Sketcher.Constraint('Coincident',1,2,2,1))
+    sketch.addConstraint(Sketcher.Constraint('Coincident',2,2,3,1))
+    sketch.addConstraint(Sketcher.Constraint('Coincident',3,2,0,1))
+    # ridged waveguide points
+    points = [
+        (-wg_width/2.0, -wg_height/2.0),
+        (+wg_width/2.0, -wg_height/2.0),
+        (+wg_width/2.0, -ridge_height/2.0 ),
+        (+wg_width/2.0 - wg_ridge_width, -ridge_height/2.0 ),
+        (+wg_width/2.0 - wg_ridge_width, +ridge_height/2.0 ),
+        (+wg_width/2.0, +ridge_height/2.0 ),
+        (+wg_width/2.0, +wg_height/2.0 ),
+        (-wg_width/2.0, +wg_height/2.0 ),
+        (-wg_width/2.0, +ridge_height/2.0),
+        (-wg_width/2.0 + wg_ridge_width, +ridge_height/2.0),
+        (-wg_width/2.0 + wg_ridge_width, -ridge_height/2.0),
+        (-wg_width/2.0, -ridge_height/2.0),
+        (-wg_width/2.0, -wg_height/2.0),
+    ]
+    sketch = qwm_doc.Sketch_wg
+    for index in range(len(points)-1):
+        sketch.addGeometry(Part.Line(FreeCAD.Vector(points[index][0],points[index][1], 0), FreeCAD.Vector(points[index+1][0],points[index+1][1],0)))
+
+"""
+        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
+        self.globalData.writeToGeomMediaFile(content)
 
     def do_endelem(self,argumentList):
         """

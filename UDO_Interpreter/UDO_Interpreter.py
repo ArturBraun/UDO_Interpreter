@@ -8,7 +8,6 @@ This module include main function and functions describing parser grammar.
 # TODO:
 # -dokonczyc pisac funkcje matematyczne w klasie MathematicalFunctions
 # -stworzyc dokumentacje w pliku UDO_functions
-# -dodac pisanie tresci podstawowych w skryptach Modeller w pliku UDO_functions w funkcji writeBasicScriptsToFiles()
 #____________________________________________
 
 #--------------------------------------------
@@ -37,7 +36,7 @@ def UDO_command():
         "CLOSELINE",
         "ELEMENT",
         "ENDELEM"
-        ], "(",  ZeroOrMore([logicalOperator, string, expression, variable],","), Optional([logicalOperator, string, expression, variable]), ")", ";"
+        ], Optional("("),  ZeroOrMore([logicalOperator, string, expression, variable],","), Optional([logicalOperator, string, expression, variable]), Optional(")"), ";"
 
 def parameterDeclaration():
     return [
@@ -174,11 +173,13 @@ def doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO
 
         else:
             UDO_FileContent = UDO_File.read()
-            globalData = GlobalData(projectName = UDO_FilePath.split(".")[0])
+            globalData = GlobalData(projectName = UDO_FilePath[UDO_FilePath.rfind("\\")+1:].split(".")[0], 
+                                    filePath = UDO_FilePath[:UDO_FilePath.rfind("\\")+1])
+            grammarRulesVistor = GrammarRulesVisitor(debug=debug, interpreter_debug = interpreter_debug)
 
             parser = ParserPython(program, debug=debug)
             parse_tree = parser.parse(UDO_FileContent)
-            result = visit_parse_tree(parse_tree,GrammarRulesVisitor(debug=debug, interpreter_debug = interpreter_debug))
+            result = visit_parse_tree(parse_tree, grammarRulesVistor)
 
             inputExprValue = -3
 
@@ -190,6 +191,7 @@ def doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO
                 s = Source.from_file("UDO_InterpreterParseTree.dot")
                 s.view()
 
+            grammarRulesVistor.addLastLineToFilesIfRequired()
             globalData.closeAllModellerScripts()
             UDO_File.close()            
 
@@ -201,7 +203,9 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    doParsing(debug = False, interpreter_debug = True, showDotFile = True, UDO_FilePath = "udo_file_1.txt")
+
+    # It is always required to provide full path !!!
+    doParsing(debug = False, interpreter_debug = True, showDotFile = True, UDO_FilePath = "C:\\Users\\artur\\Desktop\\UDO_Interpreter\\UDO_Interpreter\\udo_file_1.txt")
 
 if __name__ == "__main__":
     main()

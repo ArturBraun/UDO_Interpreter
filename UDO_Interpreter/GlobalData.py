@@ -9,6 +9,7 @@ and the generated QW-Modeller python scripts.
 """ INCLUDED MODULES: """
 #--------------------------------------------
 import re
+import os
 
 #--------------------------------------------
 """ CLASSES: """
@@ -37,16 +38,20 @@ class GlobalData:
                                 } 
             if re.fullmatch("[a-zA-Z]{1}[a-zA-Z0-9_]*", kwargs["projectName"]): cls._singleton.projectName = kwargs["projectName"]
             else: cls._singleton.projectName = "project"
-            
-            cls._singleton.mainFile = open(cls._singleton.projectName + ".udo", "w")
-            cls._singleton.circuitFile = open(cls._singleton.projectName + "_circuit.udo", "w")
-            cls._singleton.excitFile = open(cls._singleton.projectName + "_excit.udo", "w")
-            cls._singleton.geomMediaFile = open(cls._singleton.projectName + "_geom_media.udo", "w")
-            cls._singleton.meshFile = open(cls._singleton.projectName + "_mesh.udo", "w")
-            cls._singleton.ppostFile = open(cls._singleton.projectName + "_ppost.udo", "w")
-            cls._singleton.projFile = open(cls._singleton.projectName + "_proj.udo", "w")
-            cls._singleton.runsimulFile = open(cls._singleton.projectName + "_runsimul.udo", "w")
-            cls._singleton.setsimulFile = open(cls._singleton.projectName + "_setsimul.udo", "w")
+
+            #cls.path = kwargs["filePath"]
+            cls.path = "C:\\Users\\artur\\Desktop\\praca_inz\\generowanePlikiPy\\"
+            #cls.path = "C:\\Users\\Public\\QWED\\QW-Modeller\\v2017x64\\macros\\bb_antenna\\"
+
+            cls._singleton.mainFile = open(cls.path + cls._singleton.projectName + ".py", "w")
+            cls._singleton.circuitFile = open(cls.path + cls._singleton.projectName + "_circuit.py", "w")
+            cls._singleton.excitFile = open(cls.path + cls._singleton.projectName + "_excit.py", "w")
+            cls._singleton.geomMediaFile = open(cls.path + cls._singleton.projectName + "_geom_media.py", "w")
+            cls._singleton.meshFile = open(cls.path + cls._singleton.projectName + "_mesh.py", "w")
+            cls._singleton.ppostFile = open(cls.path + cls._singleton.projectName + "_ppost.py", "w")
+            cls._singleton.projFile = open(cls.path + cls._singleton.projectName + "_proj.py", "w")
+            cls._singleton.runsimulFile = open(cls.path + cls._singleton.projectName + "_runsimul.py", "w")
+            cls._singleton.setsimulFile = open(cls.path + cls._singleton.projectName + "_setsimul.py", "w")
 
         return cls._singleton
 

@@ -185,5 +185,11 @@ class GrammarRulesVisitor(PTNodeVisitor):
         """
         Does command from UDO language.
         """
-        self.udoCommands.callFunction(stringWithUdoCommand = children[0], argumentsList = children[1:])
-        
+        self.udoCommands.callFunction(stringWithUdoCommand = children[0], argumentsList = children[2:-1])
+
+    def addLastLineToFilesIfRequired(self):
+        """
+        Runs UDO_commands->addLastLineToFilesIfRequired()
+        """
+        self.udoCommands.addLastLineToFilesIfRequired()
+
