@@ -31,27 +31,26 @@ class GlobalData:
             cls._singleton = super(GlobalData, cls).__new__(cls)
             # Content of class:
             cls._singleton.variables = {
-                                "x":["", 0],
-                                "y":["", 0],
-                                "z":["", 0],
+                                "x":["", 0.0],
+                                "y":["", 0.0],
+                                "z":["", 0.0],
                                 "air":["", "air"]
                                 } 
             if re.fullmatch("[a-zA-Z]{1}[a-zA-Z0-9_]*", kwargs["projectName"]): cls._singleton.projectName = kwargs["projectName"]
             else: cls._singleton.projectName = "project"
 
-            #cls.path = kwargs["filePath"]
-            cls.path = "C:\\Users\\artur\\Desktop\\praca_inz\\generowanePlikiPy\\"
-            #cls.path = "C:\\Users\\Public\\QWED\\QW-Modeller\\v2017x64\\macros\\bb_antenna\\"
+            cls.UDO_filePath = kwargs["filePath"]
+            cls.pathToGeneratePyFiles = kwargs["pathToGeneratePyFiles"]
 
-            cls._singleton.mainFile = open(cls.path + cls._singleton.projectName + ".py", "w")
-            cls._singleton.circuitFile = open(cls.path + cls._singleton.projectName + "_circuit.py", "w")
-            cls._singleton.excitFile = open(cls.path + cls._singleton.projectName + "_excit.py", "w")
-            cls._singleton.geomMediaFile = open(cls.path + cls._singleton.projectName + "_geom_media.py", "w")
-            cls._singleton.meshFile = open(cls.path + cls._singleton.projectName + "_mesh.py", "w")
-            cls._singleton.ppostFile = open(cls.path + cls._singleton.projectName + "_ppost.py", "w")
-            cls._singleton.projFile = open(cls.path + cls._singleton.projectName + "_proj.py", "w")
-            cls._singleton.runsimulFile = open(cls.path + cls._singleton.projectName + "_runsimul.py", "w")
-            cls._singleton.setsimulFile = open(cls.path + cls._singleton.projectName + "_setsimul.py", "w")
+            cls._singleton.mainFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + ".py", "w")
+            cls._singleton.circuitFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_circuit.py", "w")
+            cls._singleton.excitFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_excit.py", "w")
+            cls._singleton.geomMediaFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_geom_media.py", "w")
+            cls._singleton.meshFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_mesh.py", "w")
+            cls._singleton.ppostFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_ppost.py", "w")
+            cls._singleton.projFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_proj.py", "w")
+            cls._singleton.runsimulFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_runsimul.py", "w")
+            cls._singleton.setsimulFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_setsimul.py", "w")
 
         return cls._singleton
 

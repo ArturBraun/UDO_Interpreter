@@ -30,6 +30,7 @@ from GlobalData import *
 def UDO_command():
     return [
         "TEST",
+        "ADDLINE",
         "ADDY",
         "ADDX",
         "NEWLINE",
@@ -158,7 +159,7 @@ def program():
 #--------------------------------------------
 
 
-def doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = ""):
+def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGeneratePyFiles):
     """
     Function which reads the UDO file, does parsing and visits parse tree to properly create QW Modeller python script. 
     """
@@ -174,17 +175,14 @@ def doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO
         else:
             UDO_FileContent = UDO_File.read()
             globalData = GlobalData(projectName = UDO_FilePath[UDO_FilePath.rfind("\\")+1:].split(".")[0], 
-                                    filePath = UDO_FilePath[:UDO_FilePath.rfind("\\")+1])
+                                    filePath = UDO_FilePath[:UDO_FilePath.rfind("\\")+1],
+                                    pathToGeneratePyFiles = pathToGeneratePyFiles[:pathToGeneratePyFiles.rfind("\\")+1]
+                                    )
             grammarRulesVistor = GrammarRulesVisitor(debug=debug, interpreter_debug = interpreter_debug)
 
             parser = ParserPython(program, debug=debug)
             parse_tree = parser.parse(UDO_FileContent)
             result = visit_parse_tree(parse_tree, grammarRulesVistor)
-
-            inputExprValue = -3
-
-            print("\n\n{} = {}".format("Python value","programulated result from parser"))
-            print("{} = {}\n".format(inputExprValue,result))
 
             if showDotFile:
                 PTDOTExporter().exportFile(parse_tree,"UDO_InterpreterParseTree.dot")    
@@ -193,7 +191,9 @@ def doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO
 
             grammarRulesVistor.addLastLineToFilesIfRequired()
             globalData.closeAllModellerScripts()
-            UDO_File.close()            
+            UDO_File.close()      
+            
+            print("Parsing UDO file is completed!\nCheck .py generated files.\n\n")
 
     else:
         print("Error -> File Path is empty!\n\n")
@@ -205,7 +205,12 @@ def main():
     """
 
     # It is always required to provide full path !!!
-    doParsing(debug = False, interpreter_debug = True, showDotFile = True, UDO_FilePath = "C:\\Users\\artur\\Desktop\\UDO_Interpreter\\UDO_Interpreter\\udo_file_1.txt")
+    #doParsing(debug = False, interpreter_debug = True, showDotFile = True, UDO_FilePath = "C:\\Users\\artur\\Desktop\\UDO_Interpreter\\UDO_Interpreter\\udo_file_1.txt",
+    #            pathToGeneratePyFiles = "C:\\Users\\artur\\Desktop\\praca_inz\\generowanePlikiPy\\")
+    # "C:\\Users\\Public\\QWED\\QW-Modeller\\v2017x64\\macros\\bb_antenna\\"
+
+    doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = "C:\\Users\\artur\\Desktop\\UDO_Interpreter\\UDO_Interpreter\\udo_file_1.txt",
+            pathToGeneratePyFiles = "C:\\Users\\artur\\Desktop\\praca_inz\\generowanePlikiPy\\")
 
 if __name__ == "__main__":
     main()

@@ -195,6 +195,7 @@ class UDO_commands:
         self.writeBasicScriptsToFiles()
         self.functionsNames = {
             "TEST":"do_test",
+            "ADDLINE":"do_addline",
             "ELEMENT":"do_element",
             "ENDELEM":"do_endelem",
             "NEWLINE":"do_newline",
@@ -211,6 +212,18 @@ class UDO_commands:
             "runsimulFile" : False,
             "setsimulFile" : False
             }
+
+        # ELEMENT command variables
+        self.elementCommandLevel = 0.0
+        self.elementCommandHeight = 0.0
+        self.elementCommandType = 0
+        self.elementCommandMediumName = ""
+        self.elementCommandName = ""
+        self.elementCommandSpinWire = ""
+
+        # ***Line command variables
+        self.newlineCommandFirstPoint = [0.0, 0.0]
+        self.lineCommandLastPoint = [0.0, 0.0]
 
     def writeBasicScriptsToFiles(self):
         """
@@ -237,7 +250,10 @@ import QW_Modeller
 import FreeCAD
 
 #sys.path.insert(0, os.path.dirname(__file__))
-sys.path.append(os.path.dirname(__file__))
+#sys.path.append(os.path.dirname(__file__))
+#sys.path.append("{filesPath}")
+#sys.path.insert(0, '{filesPath}')
+
 from {projectName}_proj import *
 
 GUIMode = FreeCAD.ConfigGet("RunMode")
@@ -266,7 +282,7 @@ qwm_doc.recompute()
 if not GUIMode:
     FreeCADGui.exec_loop() #for quick tests
 
-        """.format(projectName = self.globalData.projectName, filesPath = self.globalData.path)
+        """.format(projectName = self.globalData.projectName, filesPath = self.globalData.pathToGeneratePyFiles)
         self.globalData.writeToMainFile(content)
 
 
@@ -447,95 +463,136 @@ def set_Simulation(qwm_doc):
         """
         if not argumentsList[0]:
             #zla wartosc zmiennej -> nalezy dac stosowny komunikat
-            print(argumentsList[1])
+            raise Exception(argumentsList[1])
+            #print(argumentsList[1])
 
     def do_element(self,argumentsList):
         """
         Does ELEMENT command from UDO language.
         """
-        #pass
-
-        content = """   wg_width = 2.65 * un.inch  # y-dir
-    wg_height = 3.45 * un.inch # z-dir
-    wg_length = 2.0 * un.inch  # x-dir
-    horn_width = 5.45 * un.inch  # y-dir
-    horn_height = 9.45 * un.inch  # z-dir
-    horn_length = 6.0 * un.inch  # x-dir
-    wall_thickness = 0.2 * un.inch
-    ridge_height = 0.36 * un.inch
-    wg_ridge_width = 1.0 * un.inch
-    horn_ridge_shape_file = "gainhorn.dat"
-    side_bar_size = 0.2 * un.inch
-    first_bar_position = 0.3 * un.inch
-    spacing_between_bars = 2.7 * un.inch       
-    qwm_doc.addObject('Sketcher::SketchObject', 'Sketch_wg')
-    qwm_doc.Sketch_wg.Placement = FreeCAD.Placement(FreeCAD.Vector(0.000000,0.000000,0.000000),FreeCAD.Rotation(0.500000,0.500000,0.500000,0.500000))
-    # waveguide outer
-    point1 = (-(wg_width/2.0 + wall_thickness), -(wg_height/2.0 + wall_thickness))
-    point2 = (wg_width/2.0 + wall_thickness, wg_height/2.0 + wall_thickness)
-    sketch = qwm_doc.Sketch_wg
-    sketch.addGeometry(Part.Line(FreeCAD.Vector(point1[0],point1[1], 0), FreeCAD.Vector(point1[0],point2[1],0)))
-    sketch.addGeometry(Part.Line(FreeCAD.Vector(point1[0],point2[1], 0), FreeCAD.Vector(point2[0],point2[1],0)))
-    sketch.addGeometry(Part.Line(FreeCAD.Vector(point2[0],point2[1], 0), FreeCAD.Vector(point2[0],point1[1],0)))
-    sketch.addGeometry(Part.Line(FreeCAD.Vector(point2[0],point1[1], 0), FreeCAD.Vector(point1[0],point1[1],0)))
-    sketch.addConstraint(Sketcher.Constraint('Coincident',0,2,1,1))
-    sketch.addConstraint(Sketcher.Constraint('Coincident',1,2,2,1))
-    sketch.addConstraint(Sketcher.Constraint('Coincident',2,2,3,1))
-    sketch.addConstraint(Sketcher.Constraint('Coincident',3,2,0,1))
-    # ridged waveguide points
-    points = [
-        (-wg_width/2.0, -wg_height/2.0),
-        (+wg_width/2.0, -wg_height/2.0),
-        (+wg_width/2.0, -ridge_height/2.0 ),
-        (+wg_width/2.0 - wg_ridge_width, -ridge_height/2.0 ),
-        (+wg_width/2.0 - wg_ridge_width, +ridge_height/2.0 ),
-        (+wg_width/2.0, +ridge_height/2.0 ),
-        (+wg_width/2.0, +wg_height/2.0 ),
-        (-wg_width/2.0, +wg_height/2.0 ),
-        (-wg_width/2.0, +ridge_height/2.0),
-        (-wg_width/2.0 + wg_ridge_width, +ridge_height/2.0),
-        (-wg_width/2.0 + wg_ridge_width, -ridge_height/2.0),
-        (-wg_width/2.0, -ridge_height/2.0),
-        (-wg_width/2.0, -wg_height/2.0),
-    ]
-    sketch = qwm_doc.Sketch_wg
-    for index in range(len(points)-1):
-        sketch.addGeometry(Part.Line(FreeCAD.Vector(points[index][0],points[index][1], 0), FreeCAD.Vector(points[index+1][0],points[index+1][1],0)))
-
-"""
         self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
+
+        self.elementCommandLevel = argumentsList[0]
+        self.elementCommandHeight = argumentsList[1]
+        self.elementCommandType = argumentsList[2]
+        self.elementCommandMediumName = argumentsList[3]
+        self.elementCommandName = argumentsList[4]
+        self.elementCommandSpinWire = argumentsList[5]
+
+        content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
+    qwm_doc.sketch_{name}.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,{level}),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
+""".format(name = self.elementCommandName, level = self.elementCommandLevel)
+
         self.globalData.writeToGeomMediaFile(content)
 
-    def do_endelem(self,argumentList):
+    def do_endelem(self,argumentsList):
         """
         Does ENDELEM command from UDO language.
         """
-        pass
+        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
 
-    def do_newline(self,argumentList):
+        content = """    qwm_doc.addObject("Part::Extrusion", "{name}")
+    qwm_doc.{name}.Base = qwm_doc.sketch_{name}
+    qwm_doc.{name}.Dir = (0, 0, {height})
+    qwm_doc.{name}.Solid = True
+    {name}_viewObject = qwm_doc.{name}.ViewObject
+    {name}_viewObject.Transparency = 60
+    qwm_doc.{name}.Medium = QW_Modeller.getQWMedium("{mediumName}")
+    qwm_doc.recompute()
+""".format(name = self.elementCommandName, height = self.elementCommandHeight, mediumName = self.elementCommandMediumName)
+
+        self.globalData.writeToGeomMediaFile(content)
+
+    def do_newline(self,argumentsList):
         """
         Does NEWLINE command from UDO language.
         """
-        pass
+        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
 
-    def do_closeline(self,argumentList):
+        _x1 = argumentsList[0]
+        _y1 = argumentsList[1]
+        _x2 = argumentsList[2]
+        _y2 = argumentsList[3]
+
+        content = """    qwm_doc.sketch_{name}.addGeometry(Part.Line(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+""".format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+
+        self.globalData.writeToGeomMediaFile(content)
+
+        self.newlineCommandFirstPoint = [_x1, _y1]
+        self.lineCommandLastPoint = [_x2, _y2]
+
+    def do_closeline(self,argumentsList):
         """
         Does CLOSELINE command from UDO language.
         """
-        pass
+        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
 
-    def do_addy(self,argumentList):
+        _x1 = self.lineCommandLastPoint[0]
+        _y1 = self.lineCommandLastPoint[1]
+        _x2 = self.newlineCommandFirstPoint[0]
+        _y2 = self.newlineCommandFirstPoint[1]
+
+        content = """    qwm_doc.sketch_{name}.addGeometry(Part.Line(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+""".format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+
+        self.globalData.writeToGeomMediaFile(content)
+
+        self.lineCommandLastPoint = [_x2, _y2]
+
+    def do_addy(self,argumentsList):
         """
         Does ADDY command from UDO language.
         """
-        pass
+        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
 
-    def do_addx(self,argumentList):
+        _x1 = self.lineCommandLastPoint[0]
+        _y1 = self.lineCommandLastPoint[1]
+        _x2 = self.lineCommandLastPoint[0]
+        _y2 = self.lineCommandLastPoint[1] + argumentsList[0]
+
+        content = """    qwm_doc.sketch_{name}.addGeometry(Part.Line(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+""".format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+
+        self.globalData.writeToGeomMediaFile(content)
+
+        self.lineCommandLastPoint = [_x2, _y2]
+
+    def do_addx(self,argumentsList):
         """
         Does ADDX command from UDO language.
         """
-        pass
+        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
 
+        _x1 = self.lineCommandLastPoint[0]
+        _y1 = self.lineCommandLastPoint[1]
+        _x2 = self.lineCommandLastPoint[0] + argumentsList[0]
+        _y2 = self.lineCommandLastPoint[1]
+
+        content = """    qwm_doc.sketch_{name}.addGeometry(Part.Line(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+""".format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+
+        self.globalData.writeToGeomMediaFile(content)
+
+        self.lineCommandLastPoint = [_x2, _y2]
+
+    def do_addline(self,argumentsList):
+        """
+        Does ADDLINE command from UDO language.
+        """
+        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
+
+        _x1 = self.lineCommandLastPoint[0]
+        _y1 = self.lineCommandLastPoint[1] 
+        _x2 = argumentsList[0]
+        _y2 = argumentsList[1]
+
+        content = """    qwm_doc.sketch_{name}.addGeometry(Part.Line(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+""".format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+
+        self.globalData.writeToGeomMediaFile(content)
+
+        self.lineCommandLastPoint = [_x2, _y2]
 
 
 
