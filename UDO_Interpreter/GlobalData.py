@@ -39,6 +39,7 @@ class GlobalData:
             if re.fullmatch("[a-zA-Z]{1}[a-zA-Z0-9_]*", kwargs["projectName"]): cls._singleton.projectName = kwargs["projectName"]
             else: cls._singleton.projectName = "project"
 
+            cls.objectsNames = []
             cls.UDO_filePath = kwargs["filePath"]
             cls.pathToGeneratePyFiles = kwargs["pathToGeneratePyFiles"]
 

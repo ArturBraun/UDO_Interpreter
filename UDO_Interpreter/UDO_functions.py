@@ -9,7 +9,8 @@ Contain mathematical functions and logical operators.
 #--------------------------------------------
 import math
 from GlobalData import *
-
+from UDO_Interpreter import doNestedParsing
+from GrammarRulesVisitor import *
 #--------------------------------------------
 """ CLASSES: """
 #--------------------------------------------
@@ -201,7 +202,8 @@ class UDO_commands:
             "NEWLINE":"do_newline",
             "CLOSELINE":"do_closeline",
             "ADDY":"do_addy",
-            "ADDX":"do_addx"
+            "ADDX":"do_addx",
+            "CALL":"do_call"
             }
         self.hasSomethingBeenAddedToFiles = {
             "circuitFile" : False,
@@ -233,6 +235,10 @@ class UDO_commands:
         # main file
         content = """
 import sys, os
+import inspect
+
+if '__file__' not in locals():
+    __file__ = inspect.getframeinfo(inspect.currentframe())[0]
 
 cwd = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, cwd)  # for multifile QW-Modeller macro processing
@@ -240,10 +246,10 @@ qwutilspath=cwd+"/../qw-utils"
 sys.path.append(qwutilspath)
 
 from qw_paths import *
-
 setqwutilspath(qwutilspath)
-
-sys.path.insert(0, get_qw_modeller_path(qwutilspath)+"/bin")
+qw_modeller_path = get_qw_modeller_path(qwutilspath)+"/bin"
+sys.path.insert(0, qw_modeller_path)
+os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = qw_modeller_path+"\platforms" #wersja  freecad 018 qt5 python 3.6
 
 import FreeCADGui
 import QW_Modeller
@@ -479,6 +485,14 @@ def set_Simulation(qwm_doc):
         self.elementCommandName = argumentsList[4]
         self.elementCommandSpinWire = argumentsList[5]
 
+        sketchName = "sketch_{name}".format(name = self.elementCommandName)
+        while True:
+            if sketchName in self.globalData._singleton.objectsNames:
+                sketchName += "1"
+            else: 
+                break
+        self.elementCommandName = sketchName[7:]
+        
         content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
     qwm_doc.sketch_{name}.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,{level}),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
 """.format(name = self.elementCommandName, level = self.elementCommandLevel)
@@ -594,5 +608,11 @@ def set_Simulation(qwm_doc):
 
         self.lineCommandLastPoint = [_x2, _y2]
 
+    def do_call(self,argumentsList):
+        """
+        Does CALL command from UDO language.
+        """
+        UDO_FilePath = argumentsList[0]
+        doNestedParsing(argumentsList[1:-1], UDO_FilePath, debug = False, interpreter_debug = False, showDotFile = False)
 
 

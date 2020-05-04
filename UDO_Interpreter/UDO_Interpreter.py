@@ -23,6 +23,7 @@ import math
 # Written:
 from GrammarRulesVisitor import *
 from GlobalData import *
+from Exceptions import *
 
 #--------------------------------------------
 # GRAMMAR FUNCTIONS
@@ -36,7 +37,8 @@ def UDO_command():
         "NEWLINE",
         "CLOSELINE",
         "ELEMENT",
-        "ENDELEM"
+        "ENDELEM",
+        "CALL"
         ], Optional("("),  ZeroOrMore([logicalOperator, string, expression, variable],","), Optional([logicalOperator, string, expression, variable]), Optional(")"), ";"
 
 def parameterDeclaration():
@@ -158,7 +160,6 @@ def program():
 #CLASSES AND MAIN FUNCTION
 #--------------------------------------------
 
-
 def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGeneratePyFiles):
     """
     Function which reads the UDO file, does parsing and visits parse tree to properly create QW Modeller python script. 
@@ -178,27 +179,74 @@ def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGenerat
                                     filePath = UDO_FilePath[:UDO_FilePath.rfind("\\")+1],
                                     pathToGeneratePyFiles = pathToGeneratePyFiles[:pathToGeneratePyFiles.rfind("\\")+1]
                                     )
-            grammarRulesVistor = GrammarRulesVisitor(debug=debug, interpreter_debug = interpreter_debug)
+            grammarRulesVistor = GrammarRulesVisitor(debug=debug, interpreter_debug = interpreter_debug, isNestedParsing = False)
 
             parser = ParserPython(program, debug=debug)
             parse_tree = parser.parse(UDO_FileContent)
-            result = visit_parse_tree(parse_tree, grammarRulesVistor)
-
-            if showDotFile:
-                PTDOTExporter().exportFile(parse_tree,"UDO_InterpreterParseTree.dot")    
-                s = Source.from_file("UDO_InterpreterParseTree.dot")
-                s.view()
-
-            grammarRulesVistor.addLastLineToFilesIfRequired()
-            globalData.closeAllModellerScripts()
-            UDO_File.close()      
             
-            print("Parsing UDO file is completed!\nCheck .py generated files.\n\n")
+            try:
+                result = visit_parse_tree(parse_tree, grammarRulesVistor)
+                if showDotFile:
+                    PTDOTExporter().exportFile(parse_tree,"UDO_InterpreterParseTree.dot")    
+                    s = Source.from_file("UDO_InterpreterParseTree.dot")
+                    s.view()
 
+                grammarRulesVistor.addLastLineToFilesIfRequired()
+                print("Parsing UDO file is completed!\nCheck .py generated files.\n\n")
+
+            except NestedParsingFileNotFoundError as e:
+                print(str(e) + "\n" + ".py generated files contain errors!\n")
+
+            globalData.closeAllModellerScripts()
+            UDO_File.close()              
     else:
         print("Error -> File Path is empty!\n\n")
 
 
+def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_debug = False, showDotFile = False):
+    """
+    Does nested parsing (when UDO command 'CALL' is executed). 
+    """
+    print("Nested UDO Interpreter\n")
+    
+    try:
+        UDO_File = open(UDO_FilePath)
+
+    except FileNotFoundError:
+        raise NestedParsingFileNotFoundError("Cannot find file for nested parsing in directory: " + UDO_FilePath + "!")
+
+    else:
+        UDO_FileContent = UDO_File.read()
+        globalData = GlobalData()
+        variableStorage = globalData._singleton.variables
+        globalData._singleton.variables = {
+                                "x":["", nestedParameters[-3]],
+                                "y":["", nestedParameters[-2]],
+                                "z":["", nestedParameters[-1]],
+                                "air":["", "air"]
+                                } 
+        grammarRulesVistor = GrammarRulesVisitor(debug=debug, interpreter_debug = interpreter_debug, isNestedParsing = True,
+                                                nestedParameters = nestedParameters )
+
+        parser = ParserPython(program, debug=debug)
+        parse_tree = parser.parse(UDO_FileContent)
+            
+        try:
+            result = visit_parse_tree(parse_tree, grammarRulesVistor)
+            if showDotFile:
+                PTDOTExporter().exportFile(parse_tree,"UDO_InterpreterParseTree.dot")   # Nadpisuje pliki.dot !!! 
+                s = Source.from_file("UDO_InterpreterParseTree.dot")
+                s.view()
+
+            print("Nested parsing UDO file is completed!\n")
+
+        except NestedParsingFileNotFoundError as e:
+            raise NestedParsingFileNotFoundError(str(e))
+
+        UDO_File.close()   
+
+    globalData._singleton.variables = variableStorage
+            
 def main():
     """
     Main function of UDO_Interpreter project.
@@ -209,7 +257,7 @@ def main():
     #            pathToGeneratePyFiles = "C:\\Users\\artur\\Desktop\\praca_inz\\generowanePlikiPy\\")
     # "C:\\Users\\Public\\QWED\\QW-Modeller\\v2017x64\\macros\\bb_antenna\\"
 
-    doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = "C:\\Users\\artur\\Desktop\\UDO_Interpreter\\UDO_Interpreter\\udo_file_1.txt",
+    doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = "C:\\Users\\artur\\Desktop\\UDO_Interpreter\\UDO_Interpreter\\udo_file_3.txt",
             pathToGeneratePyFiles = "C:\\Users\\artur\\Desktop\\praca_inz\\generowanePlikiPy\\")
 
 if __name__ == "__main__":

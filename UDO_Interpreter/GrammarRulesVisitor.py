@@ -21,9 +21,13 @@ class GrammarRulesVisitor(PTNodeVisitor):
     """
     Class that applies behaviour (concrete function) when the particular grammar rule is met.
     """
-    def __init__(self, interpreter_debug = False, **kwargs):
+    def __init__(self, interpreter_debug = False, isNestedParsing = False, **kwargs):
         super().__init__(**kwargs)
         self.interpreter_debug = interpreter_debug
+        self.isNestedParsing = isNestedParsing
+        if "nestedParameters" in kwargs:
+            self.nestedParameters = kwargs["nestedParameters"]
+            self.parameterNumber = 0
         self.globalData = GlobalData()
         self.mathFunctions = MathematicalFunctions()
         self.logicalOperators = LogicalOperators()
@@ -179,7 +183,11 @@ class GrammarRulesVisitor(PTNodeVisitor):
         """
         if self.interpreter_debug:
             print("ParameterDeclaration {}.".format(children))
-        self.globalData.variables[node[4].value] = [children[1], children[3]]
+        if self.isNestedParsing:
+            self.globalData.variables[node[4].value] = [children[1], self.nestedParameters[self.parameterNumber]]
+            self.parameterNumber += 1
+        else:
+            self.globalData.variables[node[4].value] = [children[1], children[3]]
 
     def visit_UDO_command(self, node, children):
         """

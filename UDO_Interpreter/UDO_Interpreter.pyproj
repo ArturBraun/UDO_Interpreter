@@ -20,6 +20,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Exceptions.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GrammarRulesVisitor.py">
       <SubType>Code</SubType>
     </Compile>
