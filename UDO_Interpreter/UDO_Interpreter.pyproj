@@ -23,13 +23,7 @@
     <Compile Include="Exceptions.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GrammarRulesVisitor.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="GlobalData.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UDO_functions.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UDO_Interpreter.py" />

@@ -485,13 +485,15 @@ def set_Simulation(qwm_doc):
         self.elementCommandName = argumentsList[4]
         self.elementCommandSpinWire = argumentsList[5]
 
-        sketchName = "sketch_{name}".format(name = self.elementCommandName)
+        #sketchName = "sketch_{name}".format(name = self.elementCommandName)
         while True:
-            if sketchName in self.globalData._singleton.objectsNames:
-                sketchName += "1"
+            if self.elementCommandName in self.globalData._singleton.objectsNames:
+                #sketchName += "1"
+                self.elementCommandName += "1"
             else: 
                 break
-        self.elementCommandName = sketchName[7:]
+        self.globalData._singleton.objectsNames.append(self.elementCommandName)
+        #self.elementCommandName = sketchName[7:]
         
         content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
     qwm_doc.sketch_{name}.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,{level}),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
@@ -528,7 +530,7 @@ def set_Simulation(qwm_doc):
         _x2 = argumentsList[2]
         _y2 = argumentsList[3]
 
-        content = """    qwm_doc.sketch_{name}.addGeometry(Part.Line(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+        content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
         self.globalData.writeToGeomMediaFile(content)
@@ -547,7 +549,7 @@ def set_Simulation(qwm_doc):
         _x2 = self.newlineCommandFirstPoint[0]
         _y2 = self.newlineCommandFirstPoint[1]
 
-        content = """    qwm_doc.sketch_{name}.addGeometry(Part.Line(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+        content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
         self.globalData.writeToGeomMediaFile(content)
@@ -565,7 +567,7 @@ def set_Simulation(qwm_doc):
         _x2 = self.lineCommandLastPoint[0]
         _y2 = self.lineCommandLastPoint[1] + argumentsList[0]
 
-        content = """    qwm_doc.sketch_{name}.addGeometry(Part.Line(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+        content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
         self.globalData.writeToGeomMediaFile(content)
@@ -583,7 +585,7 @@ def set_Simulation(qwm_doc):
         _x2 = self.lineCommandLastPoint[0] + argumentsList[0]
         _y2 = self.lineCommandLastPoint[1]
 
-        content = """    qwm_doc.sketch_{name}.addGeometry(Part.Line(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+        content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
         self.globalData.writeToGeomMediaFile(content)
@@ -601,7 +603,7 @@ def set_Simulation(qwm_doc):
         _x2 = argumentsList[0]
         _y2 = argumentsList[1]
 
-        content = """    qwm_doc.sketch_{name}.addGeometry(Part.Line(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+        content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
         self.globalData.writeToGeomMediaFile(content)
