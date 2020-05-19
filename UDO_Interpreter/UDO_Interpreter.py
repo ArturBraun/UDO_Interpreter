@@ -8,6 +8,7 @@ This module include main function and functions describing parser grammar.
 # TODO:
 # -dokonczyc pisac funkcje matematyczne w klasie MathematicalFunctions
 # -stworzyc dokumentacje w pliku UDO_functions
+# -POPRAWIC LOGICAL OPERATOR DLA ZLOZONYCH WYRAZEN LOGICZNYCH i funkcje visit_logicalOperator!!!    
 #____________________________________________
 
 #--------------------------------------------
@@ -49,19 +50,31 @@ def whileLoop():
     """
     Grammar rule for while loop.
     """
-    return ["while"], content, ["do"], content, ["endwhile"];
+    return ["while"], logicalContent, ["do"], whileLoopContent, ["endwhile"], ";"
+
+def whileLoopContent():
+    """
+    Grammar rule for while loop content.
+    """
+    return apperggioRegEx(r'[\S\s]+?(?=endwhile)')
 
 def ifStatement():
     """
     Grammar rule for if statement.
     """
-    return ["if"], content, ["do"], content, ["endif"];
+    return ["if"], logicalContent, ["do"], ifStatementContent, ["endif"], ";"
 
-def content():
+def ifStatementContent():
+    """
+    Grammar rule for if statement content.
+    """
+    return apperggioRegEx(r'[\S\s]+?(?=endif)')
+
+def logicalContent():
     """
     Grammar rule for content inside if statements and while loops.
     """
-    return apperggioRegEx(r'[ -~]*')
+    return apperggioRegEx(r'[\S\s]+?(?=do)')
 
 def comment():
     """
@@ -105,6 +118,13 @@ def logicalOperator():
     """
     return [variable, expression], OneOrMore(
         ["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[variable, expression])
+
+    # POPRAWIC LOGICAL OPERATOR DLA ZLOZONYCH WYRAZEN LOGICZNYCH !!!    
+
+    #return (Optional("("), [variable, expression], Optional(")")), OneOrMore(
+    #    ["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],(Optional("("), [variable, expression], Optional(")")))
+
+# Optional(["+","-"]),[functions, variable, number, ("(", expression, ")")]
 
 def mathFunctions():
     """
@@ -171,7 +191,7 @@ def program():
     """
     Grammar rule for whole UDO file.
     """
-    return OneOrMore([comment, parameterDeclaration, UDO_command ,substitutionOperator, "ENDHEADER;", expression]), EOF
+    return OneOrMore([comment, parameterDeclaration, UDO_command, whileLoop, ifStatement, substitutionOperator, "ENDHEADER;", logicalOperator, expression]), EOF
 
 
 #--------------------------------------------
@@ -326,10 +346,10 @@ class LogicalOperators:
         pass
 
     def do_logicalAnd(self, **kwargs):
-        return kwargs["variable1"] and kwargs["variable2"]
+        return bool(kwargs["variable1"]) and bool(kwargs["variable2"])
 
     def do_logicalOr(self, **kwargs):
-        return kwargs["variable1"] or kwargs["variable2"]
+        return bool(kwargs["variable1"]) or bool(kwargs["variable2"])
 
     def do_equalTo(self, **kwargs):
         return kwargs["variable1"] == kwargs["variable2"]
@@ -967,17 +987,57 @@ class GrammarRulesVisitor(PTNodeVisitor):
         """
         Does while loop operation.
         """
+        logicalContent = node[1].value
+        whileLoopContent = node[3].value
+        
+        grammarRulesVistor = GrammarRulesVisitor()
+        parser = ParserPython(program, debug=False)
+
+        while(True):
+            # Get value from logical content
+            parse_tree = parser.parse(logicalContent)
+            logicalContentResult = visit_parse_tree(parse_tree, grammarRulesVistor)
+
+            if not logicalContentResult: 
+                break
+
+            parse_tree = parser.parse(whileLoopContent)
+            whileLoopContentResult = visit_parse_tree(parse_tree, grammarRulesVistor)
+
+
+    def visit_whileLoopContent(self, node, children):
+        """
+        Does nothing when visiting while loop content.
+        """
         pass
 
     def visit_ifStatement(self, node, children):
         """
         Does if statement operation.
         """
+        logicalContent = node[1].value
+        ifStatementContent = node[3].value
+        
+        grammarRulesVistor = GrammarRulesVisitor()
+        parser = ParserPython(program, debug=False)
+
+        # Get value from logical content
+        parse_tree = parser.parse(logicalContent)
+        logicalContentResult = visit_parse_tree(parse_tree, grammarRulesVistor)
+
+        if logicalContentResult:            
+            parse_tree = parser.parse(ifStatementContent)
+            ifStatementContentResult = visit_parse_tree(parse_tree, grammarRulesVistor)
+
+    def visit_ifStatementContent(self, node, children):
+        """
+        Does nothing when visiting if statement content.
+        """
         pass
 
-    def visit_content():
+    def visit_logicalContent(self, node, children):
         """
-        Does nothing when visits content of while loops and if statements.
+        Does nothing when visiting logical content.
         """
         pass
 
@@ -1014,6 +1074,9 @@ def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGenerat
             
             try:
                 result = visit_parse_tree(parse_tree, grammarRulesVistor)
+
+                # print("result = {result}\n\n".format(result = result))
+
                 if showDotFile:
                     PTDOTExporter().exportFile(parse_tree,"UDO_InterpreterParseTree.dot")    
                     s = Source.from_file("UDO_InterpreterParseTree.dot")
