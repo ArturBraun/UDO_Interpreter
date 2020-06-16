@@ -4,4 +4,4 @@
 
 **UDO_Interpreter folder:** This folder contains source code.
 
-**test folder:** This folder contains passed tests, which each of them is a seperate folder with "*.udo" file and with few "*.py" files that are correct solution.
+**Tests folder:** This folder contains passed tests, which each of them is a seperate folder with ".udo" file and with few ".py" files that are correct solution.
