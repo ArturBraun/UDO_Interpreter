@@ -13,19 +13,11 @@ TEST( a>0, "Length should be positive" );
 TEST( b>0, "Width should be positive" ); 
 TEST( h>=0, "Height should be positive or equal to 0" );
 
-i = 0;
-while i<5 do
-	i = i + 1;
-endwhile;
-
-c = 2;
-if c >= 2 do
-	c = 3;
-endif;
-
 ELEMENT(z,h,0,med,ename,IN);
   NEWLINE(x-a/2, y-b/2, x+a/2, y-b/2 );
   ADDY(b);
   ADDX(-a);
   CLOSELINE;
 ENDELEM;
+
+CALL("cubeNested2.udo", ename, a, b, h, med, x, y, z, 9);

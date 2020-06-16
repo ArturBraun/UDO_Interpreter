@@ -19,5 +19,3 @@ ELEMENT(z,h,0,med,ename,IN);
   ADDX(-a);
   CLOSELINE;
 ENDELEM;
-
-CALL("udo_file_2.txt", ename, a, b, h, med, x, y, z, 9);

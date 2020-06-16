@@ -22,7 +22,6 @@ from graphviz import Source
 import math
 
 # Written:
-from GrammarRulesVisitor import *
 from GlobalData import *
 from Exceptions import *
 
@@ -40,11 +39,11 @@ def UDO_command():
         "ELEMENT",
         "ENDELEM",
         "CALL"
-        ], Optional("("),  ZeroOrMore([logicalOperator, string, expression, variable],","), Optional([logicalOperator, string, expression, variable]), Optional(")"), ";"
+        ], Optional("("),  ZeroOrMore([logicalExpression, string, expression, variable],","), Optional([logicalExpression, string, expression, variable]), Optional(")"), ";"
 
 def parameterDeclaration():
     return [
-        "PAR"], "(",  ZeroOrMore([string, logicalOperator, expression, variable],","), Optional([string, logicalOperator, expression, variable]), ")", ";"
+        "PAR"], "(",  ZeroOrMore([string, logicalExpression, expression, variable],","), Optional([string, logicalExpression, expression, variable]), ")", ";"
 
 def whileLoop():
     """
@@ -92,7 +91,7 @@ def substitutionOperator():
     """
     Grammar rule for substitution operator.
     """
-    return variable, OneOrMore(["="],[logicalOperator, string, expression, variable]), ";" 
+    return variable, OneOrMore(["="],[logicalExpression, string, expression, variable]), ";" 
 
 def functions():
     """
@@ -102,7 +101,7 @@ def functions():
 
 def afterVariableOperator():
     """
-    Grammar rule for operator that appears on right hand side of variable.
+    Grammar rule for operator that appears on right hand side of variable in substitution operator.
     """
     return variable, ["++", "--"]
 
@@ -116,15 +115,14 @@ def logicalOperator():
     """
     Grammar rule for logical operator.
     """
-    return [variable, expression], OneOrMore(
-        ["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[variable, expression])
+    return [string, variable, expression, ("(", logicalExpression, ")")], OneOrMore(
+        ["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[string, variable, expression, ("(", logicalExpression, ")")])
 
-    # POPRAWIC LOGICAL OPERATOR DLA ZLOZONYCH WYRAZEN LOGICZNYCH !!!    
-
-    #return (Optional("("), [variable, expression], Optional(")")), OneOrMore(
-    #    ["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],(Optional("("), [variable, expression], Optional(")")))
-
-# Optional(["+","-"]),[functions, variable, number, ("(", expression, ")")]
+def logicalExpression():
+    """
+    Grammar rule for logical expression.
+    """
+    return logicalOperator
 
 def mathFunctions():
     """
@@ -191,7 +189,7 @@ def program():
     """
     Grammar rule for whole UDO file.
     """
-    return OneOrMore([comment, parameterDeclaration, UDO_command, whileLoop, ifStatement, substitutionOperator, "ENDHEADER;", logicalOperator, expression]), EOF
+    return OneOrMore([comment, parameterDeclaration, UDO_command, whileLoop, ifStatement, substitutionOperator, "ENDHEADER;", logicalExpression, (afterVariableOperator, ";"), expression]), EOF
 
 
 #--------------------------------------------
@@ -240,37 +238,37 @@ class MathematicalFunctions:
         """
         Does sine operation.
         """
-        return math.sin(kwargs["arguments"][0])
+        return math.sin(math.radians(kwargs["arguments"][0]))
 
     def do_cos(self, **kwargs):
         """
         Does cosine operation.
         """
-        return math.cos(kwargs["arguments"][0])
+        return math.cos(math.radians(kwargs["arguments"][0]))
 
     def do_tan(self, **kwargs):
         """
         Does tangent operation.
         """
-        return math.tan(kwargs["arguments"][0])
+        return math.tan(math.radians(kwargs["arguments"][0]))
 
     def do_asin(self, **kwargs):
         """
         Does arcsine operation.
         """
-        return math.asin(kwargs["arguments"][0])
+        return math.asin(math.radians(kwargs["arguments"][0]))
 
     def do_acos(self, **kwargs):
         """
         Does arccosine operation.
         """
-        return math.acos(kwargs["arguments"][0])
+        return math.acos(math.radians(kwargs["arguments"][0]))
 
     def do_atan(self, **kwargs):
         """
         Does arctangent operation.
         """
-        return math.atan(kwargs["arguments"][0])
+        return math.atan(math.radians(kwargs["arguments"][0]))
 
     def do_atan2(self, **kwargs): #POPRAWIC powinna przyjmowac dwa argumenty x i y!!!
         """
@@ -374,9 +372,9 @@ class UDO_commands:
     """
     Class used when visiting UDO_command grammar rule. This class creates behaviour for all UDO commands.
     """
-    def __init__(self, isForNestedParsing = False):
+    def __init__(self, isForNestedParsing = False, isSpecialParsing = False):
         self.globalData = GlobalData()
-        if not isForNestedParsing:
+        if (not isForNestedParsing) and (not isSpecialParsing):
             self.writeBasicScriptsToFiles()
         self.functionsNames = {
             "TEST":"do_test",
@@ -669,15 +667,12 @@ def set_Simulation(qwm_doc):
         self.elementCommandName = argumentsList[4]
         self.elementCommandSpinWire = argumentsList[5]
 
-        #sketchName = "sketch_{name}".format(name = self.elementCommandName)
         while True:
             if self.elementCommandName in self.globalData._singleton.objectsNames:
-                #sketchName += "1"
                 self.elementCommandName += "1"
             else: 
                 break
         self.globalData._singleton.objectsNames.append(self.elementCommandName)
-        #self.elementCommandName = sketchName[7:]
         
         content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
     qwm_doc.sketch_{name}.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,{level}),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
@@ -798,7 +793,7 @@ def set_Simulation(qwm_doc):
         """
         Does CALL command from UDO language.
         """
-        UDO_FilePath = argumentsList[0]
+        UDO_FilePath = self.globalData.UDO_filePath + argumentsList[0]
         doNestedParsing(argumentsList[1:-1], UDO_FilePath, debug = False, interpreter_debug = False, showDotFile = False)
 
 
@@ -808,7 +803,8 @@ class GrammarRulesVisitor(PTNodeVisitor):
     """
 #    def __init__(self, interpreter_debug = False, isNestedParsing = False, **kwargs):
 
-    def __init__(self, interpreter_debug = False, isNestedParsing = False, nestedParameters = False,**kwargs):
+    def __init__(self, interpreter_debug = False, isNestedParsing = False, nestedParameters = False, isSpecialParsing = False, 
+                 udoCommands = False, **kwargs):
         super().__init__(**kwargs)
         self.interpreter_debug = interpreter_debug
         self.isNestedParsing = isNestedParsing
@@ -819,7 +815,10 @@ class GrammarRulesVisitor(PTNodeVisitor):
         self.globalData = GlobalData()
         self.mathFunctions = MathematicalFunctions()
         self.logicalOperators = LogicalOperators()
-        self.udoCommands = UDO_commands(isForNestedParsing = isNestedParsing)
+        if udoCommands:
+            self.udoCommands = udoCommands
+        else:
+            self.udoCommands = UDO_commands(isForNestedParsing = isNestedParsing, isSpecialParsing = isSpecialParsing)
         
     def visit_number(self, node, children):
         """
@@ -928,26 +927,32 @@ class GrammarRulesVisitor(PTNodeVisitor):
         Aplies r-operator to variable.
         """
         if children[1] == "++":
-            self.globalData.variables[node[0].value] += 1
+            self.globalData.variables[node[0].value][1] += 1
         elif children[1] == "--":
-            self.globalData.variables[node[0].value] -= 1
+            self.globalData.variables[node[0].value][1] -= 1
         if self.interpreter_debug:
             print("AfterVariableOperator {} = {}.".format(node.value.replace("|",""),self.globalData.variables[node[0].value]))
-        return self.globalData.variables[node[0].value]
+        return self.globalData.variables[node[0].value][1]
 
     def visit_beforeVariableOperator(self, node, children):
         """
         Apllies l-operator to variable.
         """
         if children[0] == "~":
-            self.globalData.variables[node[1].value] *= (-1)
+            self.globalData.variables[node[1].value][1] *= (-1)
         if self.interpreter_debug:
             print("BeforeVariableOperator {} = {}.".format(node.value.replace("|",""),self.globalData.variables[node[1].value]))
-        return self.globalData.variables[node[1].value]
+        return self.globalData.variables[node[1].value][1]
 
     def visit_logicalOperator(self, node, children):
         """
         Does logical operation.
+        """
+        pass
+
+    def visit_logicalExpression(self, node, children):
+        """
+        Does logical expression operation.
         """
         result = float(self.logicalOperators.callFunction(stringWithLogicalOperator = children[1], variable1 = children[0], variable2 = children[2]))
         if result:
@@ -990,7 +995,7 @@ class GrammarRulesVisitor(PTNodeVisitor):
         logicalContent = node[1].value
         whileLoopContent = node[3].value
         
-        grammarRulesVistor = GrammarRulesVisitor()
+        grammarRulesVistor = GrammarRulesVisitor(isSpecialParsing = True, udoCommands = self.udoCommands)
         parser = ParserPython(program, debug=False)
 
         while(True):
@@ -1018,7 +1023,7 @@ class GrammarRulesVisitor(PTNodeVisitor):
         logicalContent = node[1].value
         ifStatementContent = node[3].value
         
-        grammarRulesVistor = GrammarRulesVisitor()
+        grammarRulesVistor = GrammarRulesVisitor(isSpecialParsing = True, udoCommands = self.udoCommands)
         parser = ParserPython(program, debug=False)
 
         # Get value from logical content
@@ -1075,7 +1080,7 @@ def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGenerat
             try:
                 result = visit_parse_tree(parse_tree, grammarRulesVistor)
 
-                # print("result = {result}\n\n".format(result = result))
+                print("result = {result}\n\n".format(result = result))
 
                 if showDotFile:
                     PTDOTExporter().exportFile(parse_tree,"UDO_InterpreterParseTree.dot")    
@@ -1141,14 +1146,8 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-
-    # It is always required to provide full path !!!
-    #doParsing(debug = False, interpreter_debug = True, showDotFile = True, UDO_FilePath = "C:\\Users\\artur\\Desktop\\UDO_Interpreter\\UDO_Interpreter\\udo_file_1.txt",
-    #            pathToGeneratePyFiles = "C:\\Users\\artur\\Desktop\\praca_inz\\generowanePlikiPy\\")
-    # "C:\\Users\\Public\\QWED\\QW-Modeller\\v2017x64\\macros\\bb_antenna\\"
-
-    doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = "C:\\Users\\artur\\Desktop\\UDO_Interpreter\\UDO_Interpreter\\udo_file_3.txt",
-            pathToGeneratePyFiles = "C:\\Users\\artur\\Desktop\\praca_inz\\generowanePlikiPy\\")
+    doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = "..\\tests\\cylinder\\cylinder.udo",
+        pathToGeneratePyFiles = "..\\tests\\cylinder\\")
 
 if __name__ == "__main__":
     main()
