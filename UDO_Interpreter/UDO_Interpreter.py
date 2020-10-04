@@ -8,7 +8,6 @@ This module include main function and functions describing parser grammar.
 # TODO:
 # -dokonczyc pisac funkcje matematyczne w klasie MathematicalFunctions
 # -stworzyc dokumentacje w pliku UDO_functions
-# -POPRAWIC LOGICAL OPERATOR DLA ZLOZONYCH WYRAZEN LOGICZNYCH i funkcje visit_logicalOperator!!!    
 #____________________________________________
 
 #--------------------------------------------
@@ -401,6 +400,7 @@ class UDO_commands:
         self.elementCommandLevel = 0.0
         self.elementCommandHeight = 0.0
         self.elementCommandType = 0
+        self.elementCommandTypeCombinedDict = {}
         self.elementCommandMediumName = ""
         self.elementCommandName = ""
         self.elementCommandSpinWire = ""
@@ -673,6 +673,9 @@ def set_Simulation(qwm_doc):
             else: 
                 break
         self.globalData._singleton.objectsNames.append(self.elementCommandName)
+
+        if self.elementCommandType == 5 or self.elementCommandType == 6:
+            self.elementCommandTypeCombinedDict[self.elementCommandType] = "sketch_" + self.elementCommandName
         
         content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
     qwm_doc.sketch_{name}.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,{level}),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
@@ -685,8 +688,10 @@ def set_Simulation(qwm_doc):
         Does ENDELEM command from UDO language.
         """
         self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
+        content = ""
 
-        content = """    qwm_doc.addObject("Part::Extrusion", "{name}")
+        if self.elementCommandType == 0:
+            content = """    qwm_doc.addObject("Part::Extrusion", "{name}")
     qwm_doc.{name}.Base = qwm_doc.sketch_{name}
     qwm_doc.{name}.Dir = (0, 0, {height})
     qwm_doc.{name}.Solid = True
@@ -695,6 +700,21 @@ def set_Simulation(qwm_doc):
     qwm_doc.{name}.Medium = QW_Modeller.getQWMedium("{mediumName}")
     qwm_doc.recompute()
 """.format(name = self.elementCommandName, height = self.elementCommandHeight, mediumName = self.elementCommandMediumName)
+
+        if 5 in self.elementCommandTypeCombinedDict and 6 in self.elementCommandTypeCombinedDict:
+            content = """    qwm_doc.addObject("Part::Loft", "{name}")
+    qwm_doc.{name}.Sections=[qwm_doc.{sketch1}, qwm_doc.{sketch2}]
+    qwm_doc.{name}.Solid=True
+    qwm_doc.{name}.Ruled=False
+    qwm_doc.{name}.Closed=False
+    {name}_viewObject = qwm_doc.{name}.ViewObject
+    {name}_viewObject.Transparency = 60
+    qwm_doc.{name}.Medium = QW_Modeller.getQWMedium("{mediumName}")
+    qwm_doc.recompute()
+""".format(name = self.elementCommandName, mediumName = self.elementCommandMediumName, sketch1 = self.elementCommandTypeCombinedDict[5], 
+           sketch2 = self.elementCommandTypeCombinedDict[6])
+
+            self.elementCommandTypeCombinedDict = {}
 
         self.globalData.writeToGeomMediaFile(content)
 
@@ -1083,8 +1103,9 @@ def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGenerat
                 print("result = {result}\n\n".format(result = result))
 
                 if showDotFile:
-                    PTDOTExporter().exportFile(parse_tree,"UDO_InterpreterParseTree.dot")    
-                    s = Source.from_file("UDO_InterpreterParseTree.dot")
+                    parseTreeVisualizationFileName = pathToGeneratePyFiles + globalData._singleton.projectName + "_ParseTreeVisualization.dot"
+                    PTDOTExporter().exportFile(parse_tree, parseTreeVisualizationFileName)    
+                    s = Source.from_file(parseTreeVisualizationFileName)
                     s.view()
 
                 grammarRulesVistor.addLastLineToFilesIfRequired()
@@ -1146,8 +1167,13 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = "..\\tests\\cylinder\\cylinder.udo",
-        pathToGeneratePyFiles = "..\\tests\\cylinder\\")
+    udoName = "vtape"
+
+    pathToFolder = "..\\tests\\" + udoName + "\\"
+    fileToInterpret = udoName + ".udo"
+
+    doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = pathToFolder + fileToInterpret,
+        pathToGeneratePyFiles = pathToFolder)
 
 if __name__ == "__main__":
     main()

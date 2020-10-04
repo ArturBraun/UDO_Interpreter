@@ -1,0 +1,6 @@
+# ---> Visual Studio Python 3.X
+.vs/
+UDO_Interpreter/__pycache__
+*.dot
+*.pdf
+
