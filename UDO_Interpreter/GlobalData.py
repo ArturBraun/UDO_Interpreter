@@ -43,15 +43,20 @@ class GlobalData:
             cls.UDO_filePath = kwargs["filePath"]
             cls.pathToGeneratePyFiles = kwargs["pathToGeneratePyFiles"]
 
-            cls._singleton.mainFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + ".py", "w")
-            cls._singleton.circuitFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_circuit.py", "w")
-            cls._singleton.excitFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_excit.py", "w")
-            cls._singleton.geomMediaFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_geom_media.py", "w")
-            cls._singleton.meshFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_mesh.py", "w")
-            cls._singleton.ppostFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_ppost.py", "w")
-            cls._singleton.projFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_proj.py", "w")
-            cls._singleton.runsimulFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_runsimul.py", "w")
-            cls._singleton.setsimulFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_setsimul.py", "w")
+            createPyFiles = True
+            if "createPyFiles" in kwargs:
+                createPyFiles = kwargs["createPyFiles"]
+
+            if createPyFiles:
+                cls._singleton.mainFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + ".py", "w")
+                cls._singleton.circuitFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_circuit.py", "w")
+                cls._singleton.excitFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_excit.py", "w")
+                cls._singleton.geomMediaFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_geom_media.py", "w")
+                cls._singleton.meshFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_mesh.py", "w")
+                cls._singleton.ppostFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_ppost.py", "w")
+                cls._singleton.projFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_proj.py", "w")
+                cls._singleton.runsimulFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_runsimul.py", "w")
+                cls._singleton.setsimulFile = open(cls.pathToGeneratePyFiles + cls._singleton.projectName + "_setsimul.py", "w")
 
         return cls._singleton
 

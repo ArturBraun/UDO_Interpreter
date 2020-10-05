@@ -8,6 +8,8 @@ This module include main function and functions describing parser grammar.
 # TODO:
 # -dokonczyc pisac funkcje matematyczne w klasie MathematicalFunctions
 # -stworzyc dokumentacje w pliku UDO_functions
+# -dodac string do zasad gramatycznych
+# -dodac funkcje zwiazane z meshem
 #____________________________________________
 
 #--------------------------------------------
@@ -38,11 +40,11 @@ def UDO_command():
         "ELEMENT",
         "ENDELEM",
         "CALL"
-        ], Optional("("),  ZeroOrMore([logicalExpression, string, expression, variable],","), Optional([logicalExpression, string, expression, variable]), Optional(")"), ";"
+        ], Optional("("),  ZeroOrMore([logicalExpression, stringExpression, expression, variable],","), Optional([logicalExpression, stringExpression, expression, variable]), Optional(")"), ";"
 
 def parameterDeclaration():
     return [
-        "PAR"], "(",  ZeroOrMore([string, logicalExpression, expression, variable],","), Optional([string, logicalExpression, expression, variable]), ")", ";"
+        "PAR"], "(",  ZeroOrMore([stringExpression, logicalExpression, expression, variable],","), Optional([stringExpression, logicalExpression, expression, variable]), ")", ";"
 
 def whileLoop():
     """
@@ -90,13 +92,14 @@ def substitutionOperator():
     """
     Grammar rule for substitution operator.
     """
-    return variable, OneOrMore(["="],[logicalExpression, string, expression, variable]), ";" 
+    #return variable, OneOrMore(["="],[logicalExpression, stringExpression, expression, variable]), ";" 
+    return variable, OneOrMore(["="],[logicalExpression, expression, variable]), ";" 
 
 def functions():
     """
     Grammar rule for functions.
     """
-    return ([mathFunctions, afterVariableOperator, beforeVariableOperator])
+    return [mathFunctions, afterVariableOperator, beforeVariableOperator]
 
 def afterVariableOperator():
     """
@@ -114,8 +117,8 @@ def logicalOperator():
     """
     Grammar rule for logical operator.
     """
-    return [string, variable, expression, ("(", logicalExpression, ")")], OneOrMore(
-        ["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[string, variable, expression, ("(", logicalExpression, ")")])
+    #return [stringExpression, variable, expression, ("(", logicalExpression, ")")], OneOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[stringExpression, variable, expression, ("(", logicalExpression, ")")])
+    return [variable, expression, ("(", logicalExpression, ")")], OneOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[variable, expression, ("(", logicalExpression, ")")])
 
 def logicalExpression():
     """
@@ -159,6 +162,12 @@ def string():
     Grammar rule for string.
     """
     return '"', apperggioRegEx(r'[ !#-~]*'), '"'
+
+def stringExpression():
+    """
+    Grammar rule for string concatenation.
+    """
+    return [string, variable], ZeroOrMore(("@", [string, variable]))
 
 def withSign():
     """
@@ -371,10 +380,13 @@ class UDO_commands:
     """
     Class used when visiting UDO_command grammar rule. This class creates behaviour for all UDO commands.
     """
-    def __init__(self, isForNestedParsing = False, isSpecialParsing = False):
+    def __init__(self, isForNestedParsing = False, isSpecialParsing = False, createPyFiles = True):
         self.globalData = GlobalData()
-        if (not isForNestedParsing) and (not isSpecialParsing):
+        self.createPyFiles = createPyFiles
+
+        if (not isForNestedParsing) and (not isSpecialParsing) and self.createPyFiles:
             self.writeBasicScriptsToFiles()
+
         self.functionsNames = {
             "TEST":"do_test",
             "ADDLINE":"do_addline",
@@ -680,8 +692,9 @@ def set_Simulation(qwm_doc):
         content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
     qwm_doc.sketch_{name}.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,{level}),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
 """.format(name = self.elementCommandName, level = self.elementCommandLevel)
-
-        self.globalData.writeToGeomMediaFile(content)
+        
+        if self.createPyFiles:
+            self.globalData.writeToGeomMediaFile(content)
 
     def do_endelem(self,argumentsList):
         """
@@ -716,7 +729,8 @@ def set_Simulation(qwm_doc):
 
             self.elementCommandTypeCombinedDict = {}
 
-        self.globalData.writeToGeomMediaFile(content)
+        if self.createPyFiles:
+            self.globalData.writeToGeomMediaFile(content)
 
     def do_newline(self,argumentsList):
         """
@@ -731,8 +745,9 @@ def set_Simulation(qwm_doc):
 
         content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
-
-        self.globalData.writeToGeomMediaFile(content)
+        
+        if self.createPyFiles:
+            self.globalData.writeToGeomMediaFile(content)
 
         self.newlineCommandFirstPoint = [_x1, _y1]
         self.lineCommandLastPoint = [_x2, _y2]
@@ -751,7 +766,8 @@ def set_Simulation(qwm_doc):
         content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
-        self.globalData.writeToGeomMediaFile(content)
+        if self.createPyFiles:
+            self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
 
@@ -768,8 +784,9 @@ def set_Simulation(qwm_doc):
 
         content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
-
-        self.globalData.writeToGeomMediaFile(content)
+        
+        if self.createPyFiles:
+            self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
 
@@ -787,7 +804,8 @@ def set_Simulation(qwm_doc):
         content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
-        self.globalData.writeToGeomMediaFile(content)
+        if self.createPyFiles:
+            self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
 
@@ -805,7 +823,8 @@ def set_Simulation(qwm_doc):
         content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
-        self.globalData.writeToGeomMediaFile(content)
+        if self.createPyFiles:
+            self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
 
@@ -824,7 +843,7 @@ class GrammarRulesVisitor(PTNodeVisitor):
 #    def __init__(self, interpreter_debug = False, isNestedParsing = False, **kwargs):
 
     def __init__(self, interpreter_debug = False, isNestedParsing = False, nestedParameters = False, isSpecialParsing = False, 
-                 udoCommands = False, **kwargs):
+                 udoCommands = False, createPyFiles = True, **kwargs):
         super().__init__(**kwargs)
         self.interpreter_debug = interpreter_debug
         self.isNestedParsing = isNestedParsing
@@ -832,13 +851,14 @@ class GrammarRulesVisitor(PTNodeVisitor):
             self.parameterNumber = 0
         if nestedParameters:
             self.nestedParameters = nestedParameters
+        self.createPyFiles = createPyFiles
         self.globalData = GlobalData()
         self.mathFunctions = MathematicalFunctions()
         self.logicalOperators = LogicalOperators()
         if udoCommands:
             self.udoCommands = udoCommands
         else:
-            self.udoCommands = UDO_commands(isForNestedParsing = isNestedParsing, isSpecialParsing = isSpecialParsing)
+            self.udoCommands = UDO_commands(isForNestedParsing = isNestedParsing, isSpecialParsing = isSpecialParsing, createPyFiles = createPyFiles)
         
     def visit_number(self, node, children):
         """
@@ -990,6 +1010,19 @@ class GrammarRulesVisitor(PTNodeVisitor):
             print("String {} = {}.".format(children, node.value))
         return str(children[0])
 
+    def visit_stringExpression(self, node, children):
+        """
+        Returns string or concatenated string.
+        """
+        if self.interpreter_debug:
+            print("String {} = {}.".format(children, node.value))
+
+        finalString = ""
+        for i in range(0, len(children), 2):
+            finalString += children[i]
+
+        return finalString
+
     def visit_parameterDeclaration(self, node, children):
         """
         Adds new parameter.
@@ -1071,6 +1104,29 @@ class GrammarRulesVisitor(PTNodeVisitor):
         Runs UDO_commands->addLastLineToFilesIfRequired()
         """
         self.udoCommands.addLastLineToFilesIfRequired()
+
+def doTestParsing(UDO_FileContent):
+    """
+    Function that does parse UDO from string as a test and returns result to check for corectness.
+    """
+    globalData = GlobalData(projectName = "testProject", 
+                            filePath = "",
+                            pathToGeneratePyFiles = "",
+                            createPyFiles = False
+                            )
+    grammarRulesVistor = GrammarRulesVisitor(interpreter_debug = False, isNestedParsing = False, createPyFiles = False)
+
+    parser = ParserPython(program, debug=False)
+    parse_tree = parser.parse(UDO_FileContent)
+            
+    result = None
+    try:
+        result = visit_parse_tree(parse_tree, grammarRulesVistor)
+
+    except NestedParsingFileNotFoundError as e:
+        print(str(e) + "\n" + ".py generated files contain errors!\n")
+
+    return result
 
 
 def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGeneratePyFiles):
@@ -1167,7 +1223,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "vtape"
+    udoName = "customTest"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"
