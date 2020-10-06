@@ -40,11 +40,12 @@ def UDO_command():
         "ELEMENT",
         "ENDELEM",
         "CALL"
-        ], Optional("("),  ZeroOrMore([logicalExpression, stringExpression, expression, variable],","), Optional([logicalExpression, stringExpression, expression, variable]), Optional(")"), ";"
+        #], Optional("("),  ZeroOrMore([logicalExpression, stringExpression, expression, variable],","), Optional([logicalExpression, stringExpression, expression, variable]), Optional(")"), ";"
+        ], Optional("("),  ZeroOrMore([logicalExpression, string, expression, variable],","), Optional([logicalExpression, string, expression, variable]), Optional(")"), ";"
 
 def parameterDeclaration():
-    return [
-        "PAR"], "(",  ZeroOrMore([stringExpression, logicalExpression, expression, variable],","), Optional([stringExpression, logicalExpression, expression, variable]), ")", ";"
+    #return ["PAR"], "(",  ZeroOrMore([stringExpression, logicalExpression, expression, variable],","), Optional([stringExpression, logicalExpression, expression, variable]), ")", ";"
+    return ["PAR"], "(",  ZeroOrMore([string, logicalExpression, expression, variable],","), Optional([string, logicalExpression, expression, variable]), ")", ";"
 
 def whileLoop():
     """
@@ -93,7 +94,7 @@ def substitutionOperator():
     Grammar rule for substitution operator.
     """
     #return variable, OneOrMore(["="],[logicalExpression, stringExpression, expression, variable]), ";" 
-    return variable, OneOrMore(["="],[logicalExpression, expression, variable]), ";" 
+    return variable, OneOrMore(["="],[logicalExpression, string, expression, variable]), ";" 
 
 def functions():
     """
@@ -118,7 +119,7 @@ def logicalOperator():
     Grammar rule for logical operator.
     """
     #return [stringExpression, variable, expression, ("(", logicalExpression, ")")], OneOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[stringExpression, variable, expression, ("(", logicalExpression, ")")])
-    return [variable, expression, ("(", logicalExpression, ")")], OneOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[variable, expression, ("(", logicalExpression, ")")])
+    return [string, variable, expression, ("(", logicalExpression, ")")], OneOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[string, variable, expression, ("(", logicalExpression, ")")])
 
 def logicalExpression():
     """
@@ -449,11 +450,6 @@ import FreeCADGui
 import QW_Modeller
 import FreeCAD
 
-#sys.path.insert(0, os.path.dirname(__file__))
-#sys.path.append(os.path.dirname(__file__))
-#sys.path.append("{filesPath}")
-#sys.path.insert(0, '{filesPath}')
-
 from {projectName}_proj import *
 
 GUIMode = FreeCAD.ConfigGet("RunMode")
@@ -482,7 +478,7 @@ qwm_doc.recompute()
 if not GUIMode:
     FreeCADGui.exec_loop() #for quick tests
 
-        """.format(projectName = self.globalData.projectName, filesPath = self.globalData.pathToGeneratePyFiles)
+        """.format(projectName = self.globalData.projectName)
         self.globalData.writeToMainFile(content)
 
 
@@ -1105,16 +1101,16 @@ class GrammarRulesVisitor(PTNodeVisitor):
         """
         self.udoCommands.addLastLineToFilesIfRequired()
 
-def doTestParsing(UDO_FileContent):
+def doTestParsing(UDO_FileContent, createPyFiles = False):
     """
     Function that does parse UDO from string as a test and returns result to check for corectness.
     """
     globalData = GlobalData(projectName = "testProject", 
                             filePath = "",
                             pathToGeneratePyFiles = "",
-                            createPyFiles = False
+                            createPyFiles = createPyFiles
                             )
-    grammarRulesVistor = GrammarRulesVisitor(interpreter_debug = False, isNestedParsing = False, createPyFiles = False)
+    grammarRulesVistor = GrammarRulesVisitor(interpreter_debug = False, isNestedParsing = False, createPyFiles = createPyFiles)
 
     parser = ParserPython(program, debug=False)
     parse_tree = parser.parse(UDO_FileContent)
@@ -1126,25 +1122,36 @@ def doTestParsing(UDO_FileContent):
     except NestedParsingFileNotFoundError as e:
         print(str(e) + "\n" + ".py generated files contain errors!\n")
 
+    # For unit test purpose:
+    del GlobalData._singleton
+    GlobalData._singleton = None
+
     return result
 
 
-def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGeneratePyFiles):
+def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGeneratePyFiles, customProjectName = "", printMessages = True):
     """
     Function which reads the UDO file, does parsing and visits parse tree to properly create QW Modeller python script. 
     """
-    print("UDO Interpreter\n\n")
+    if printMessages:
+        print("UDO Interpreter\n\n")
     
     if UDO_FilePath:
         try:
             UDO_File = open(UDO_FilePath)
 
         except FileNotFoundError:
-            print("Error -> Cannot find the file in given directory!\n\n")
+            if printMessages:
+                print("Error -> Cannot find the file in given directory!\n\n")
 
         else:
             UDO_FileContent = UDO_File.read()
-            globalData = GlobalData(projectName = UDO_FilePath[UDO_FilePath.rfind("\\")+1:].split(".")[0], 
+
+            projectName = customProjectName
+            if not customProjectName:
+                projectName = UDO_FilePath[UDO_FilePath.rfind("\\")+1:].split(".")[0]
+
+            globalData = GlobalData(projectName = projectName, 
                                     filePath = UDO_FilePath[:UDO_FilePath.rfind("\\")+1],
                                     pathToGeneratePyFiles = pathToGeneratePyFiles[:pathToGeneratePyFiles.rfind("\\")+1]
                                     )
@@ -1156,7 +1163,8 @@ def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGenerat
             try:
                 result = visit_parse_tree(parse_tree, grammarRulesVistor)
 
-                print("result = {result}\n\n".format(result = result))
+                if printMessages:
+                    print("result = {result}\n\n".format(result = result))
 
                 if showDotFile:
                     parseTreeVisualizationFileName = pathToGeneratePyFiles + globalData._singleton.projectName + "_ParseTreeVisualization.dot"
@@ -1165,15 +1173,23 @@ def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGenerat
                     s.view()
 
                 grammarRulesVistor.addLastLineToFilesIfRequired()
-                print("Parsing UDO file is completed!\nCheck .py generated files.\n\n")
+                if printMessages:
+                    print("Parsing UDO file is completed!\nCheck .py generated files.\n\n")
 
             except NestedParsingFileNotFoundError as e:
-                print(str(e) + "\n" + ".py generated files contain errors!\n")
+                if printMessages:
+                    print(str(e) + "\n" + ".py generated files contain errors!\n")
 
             globalData.closeAllModellerScripts()
-            UDO_File.close()              
+            UDO_File.close() 
+
+            # For unit test purpose:
+            del GlobalData._singleton
+            GlobalData._singleton = None
+            
     else:
-        print("Error -> File Path is empty!\n\n")
+        if printMessages:
+            print("Error -> File Path is empty!\n\n")
 
 
 def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_debug = False, showDotFile = False):
@@ -1223,7 +1239,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "customTest"
+    udoName = "cube"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"

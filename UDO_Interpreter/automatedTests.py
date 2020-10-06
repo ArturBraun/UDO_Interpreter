@@ -1,15 +1,87 @@
 import unittest
-from UDO_Interpreter import doTestParsing
+import difflib
+import os
+
+from UDO_Interpreter import doTestParsing, doParsing
 
 
-# TODO:
-# - dopisac testy automatyczne dla sprawdzania poprawnosci generowanych plikow !!!
+def testGeneratedFiles(projectName):
+    """
+    Tests files that are generated during interpreting UDO script for corectness with proper files.
+    """
+    udoFilePath = "..\\tests\\" + projectName + "\\"
+    udoFileName = projectName + ".udo"
+    pathToGeneratePyFiles = "..\\tests\\automatedTests\\"
+    testProjectName = "tmpTest"
+
+    doParsing(debug = False, interpreter_debug = False, showDotFile = False, UDO_FilePath = udoFilePath + udoFileName,
+        pathToGeneratePyFiles = pathToGeneratePyFiles, printMessages = False)
+
+    generatedFilesNamesEnding = [
+        "",
+        "_circuit",
+        "_excit",
+        "_geom_media",
+        "_mesh",
+        "_ppost",
+        "_proj",
+        "_runsimul",
+        "_setsimul"
+        ]
+
+    correctFiles = []
+    generatedFiles = []
+
+    for i in range(len(generatedFilesNamesEnding)):
+        correctFilePath = udoFilePath + projectName + generatedFilesNamesEnding[i] + ".py"
+        generatedFilePath = pathToGeneratePyFiles + projectName + generatedFilesNamesEnding[i] + ".py"
+
+        with open(correctFilePath, "r") as file:
+            data = file.read()
+            correctFiles.append(data)
+
+        with open(generatedFilePath, "r") as file:
+            data = file.read()
+            generatedFiles.append(data)
+
+    resultsAreCorrect = True
+
+    for i in range(len(correctFiles)):
+        if correctFiles[i] != generatedFiles[i]:
+            incorrectFileName = projectName + generatedFilesNamesEnding[i] + "\n"
+            spacing = "="*50 + "\n"
+            print(spacing + incorrectFileName + spacing)
+            diff = difflib.ndiff(correctFiles[i].splitlines(keepends=True),
+                        generatedFiles[i].splitlines(keepends=True))
+            print(''.join(diff), end="")
+            print(spacing + "\n")
+
+            resultsAreCorrect = False
+
+        properFileName = pathToGeneratePyFiles + testProjectName + generatedFilesNamesEnding[i] + ".py"
+        if os.path.exists(properFileName):
+            os.remove(properFileName)
+        os.rename(pathToGeneratePyFiles + projectName + generatedFilesNamesEnding[i] + ".py", properFileName)
+
+    return resultsAreCorrect
 
 
 class TestsUdoInterpreter(unittest.TestCase):
     """
     Tests Udo Interpreter for simple mathematical equasions and simple loop, if statements etc.
+    Checks also generated files corectness.
     """
+
+    def test_cylinder(self):
+        result = testGeneratedFiles("cylinder")
+        self.assertEqual(result, True)
+
+    def test_cube(self):
+        result = testGeneratedFiles("cube")
+        self.assertEqual(result, True)
+
+    # UDO language unit tests
+
     def test1(self):
         udoFileStr = """a = 2*cos(0); 
                         a"""
@@ -127,6 +199,7 @@ class TestsUdoInterpreter(unittest.TestCase):
     #    udoFileStr = """a = abs(2 - 2.5) < 1;
     #                    a"""
     #    self.assertEqual(doTestParsing(udoFileStr), 1)
+
 
 def main():
     unittest.main()
