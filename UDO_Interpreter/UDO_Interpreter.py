@@ -683,7 +683,7 @@ def set_Simulation(qwm_doc):
                 break
         self.globalData._singleton.objectsNames.append(self.elementCommandName)
 
-        if self.elementCommandType == 5 or self.elementCommandType == 6:
+        if self.elementCommandType in [5,6,15,16]:
             self.elementCommandTypeCombinedDict[self.elementCommandType] = "sketch_" + self.elementCommandName
         
         content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
@@ -700,7 +700,7 @@ def set_Simulation(qwm_doc):
         self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
         content = ""
 
-        if self.elementCommandType == 0:
+        if self.elementCommandType == 0 or self.elementCommandType == 10:
             content = """    qwm_doc.addObject("Part::Extrusion", "{name}")
     qwm_doc.{name}.Base = qwm_doc.sketch_{name}
     qwm_doc.{name}.Dir = (0, 0, {height})
@@ -711,8 +711,19 @@ def set_Simulation(qwm_doc):
     qwm_doc.recompute()
 """.format(name = self.elementCommandName, height = self.elementCommandHeight, mediumName = self.elementCommandMediumName)
 
-        if 5 in self.elementCommandTypeCombinedDict and 6 in self.elementCommandTypeCombinedDict:
-            content = """    qwm_doc.addObject("Part::Loft", "{name}")
+        else:
+            isCombinedElement = 5 in self.elementCommandTypeCombinedDict and 6 in self.elementCommandTypeCombinedDict
+            isBiphasedElement = 15 in self.elementCommandTypeCombinedDict and 16 in self.elementCommandTypeCombinedDict
+
+            if isCombinedElement or isBiphasedElement:
+                bottomNumber = 5
+                coverNumber = 6
+
+                if isBiphasedElement:
+                    bottomNumber += 10
+                    coverNumber += 10
+
+                content = """    qwm_doc.addObject("Part::Loft", "{name}")
     qwm_doc.{name}.Sections=[qwm_doc.{sketch1}, qwm_doc.{sketch2}]
     qwm_doc.{name}.Solid=True
     qwm_doc.{name}.Ruled=False
@@ -721,10 +732,10 @@ def set_Simulation(qwm_doc):
     {name}_viewObject.Transparency = 60
     qwm_doc.{name}.Medium = QW_Modeller.getQWMedium("{mediumName}")
     qwm_doc.recompute()
-""".format(name = self.elementCommandName, mediumName = self.elementCommandMediumName, sketch1 = self.elementCommandTypeCombinedDict[5], 
-           sketch2 = self.elementCommandTypeCombinedDict[6])
+    """.format(name = self.elementCommandName, mediumName = self.elementCommandMediumName, sketch1 = self.elementCommandTypeCombinedDict[bottomNumber], 
+                sketch2 = self.elementCommandTypeCombinedDict[coverNumber])
 
-            self.elementCommandTypeCombinedDict = {}
+                self.elementCommandTypeCombinedDict = {}
 
         if self.createPyFiles:
             self.globalData.writeToGeomMediaFile(content)

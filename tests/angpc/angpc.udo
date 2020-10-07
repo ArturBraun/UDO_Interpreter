@@ -7,7 +7,7 @@ PAR("outer radius b",rob,4);
 PAR("inner radius c",ric,3);
 PAR("outer radius c",roc,5);
 PAR("height (z-dir)",h,4);
-PAR("medium",med,"teflon");
+PAR("medium",med,"metal");
 PAR("start angle",stang,0);
 PAR("end angle",eang,90);
 PAR("step angle",step,10);

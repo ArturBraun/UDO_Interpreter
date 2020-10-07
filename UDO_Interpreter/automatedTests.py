@@ -71,6 +71,10 @@ class TestsUdoInterpreter(unittest.TestCase):
     Tests Udo Interpreter for simple mathematical equasions and simple loop, if statements etc.
     Checks also generated files corectness.
     """
+    def test_angpc(self):
+        result = testGeneratedFiles("angpc")
+        self.assertEqual(result, True)
+
     def test_cube(self):
         result = testGeneratedFiles("cube")
         self.assertEqual(result, True)
