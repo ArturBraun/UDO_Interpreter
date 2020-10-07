@@ -71,13 +71,32 @@ class TestsUdoInterpreter(unittest.TestCase):
     Tests Udo Interpreter for simple mathematical equasions and simple loop, if statements etc.
     Checks also generated files corectness.
     """
+    def test_cube(self):
+        result = testGeneratedFiles("cube")
+        self.assertEqual(result, True)
+
+    def test_cubeNested(self):
+        result = testGeneratedFiles("cubeNested")
+        self.assertEqual(result, True)
 
     def test_cylinder(self):
         result = testGeneratedFiles("cylinder")
         self.assertEqual(result, True)
 
-    def test_cube(self):
-        result = testGeneratedFiles("cube")
+    def test_cyv(self):
+        result = testGeneratedFiles("cyv")
+        self.assertEqual(result, True)
+
+    def test_cyvr(self):
+        result = testGeneratedFiles("cyvr")
+        self.assertEqual(result, True)
+
+    def test_tv(self):
+        result = testGeneratedFiles("tv")
+        self.assertEqual(result, True)
+
+    def test_vtape(self):
+        result = testGeneratedFiles("vtape")
         self.assertEqual(result, True)
 
     # UDO language unit tests

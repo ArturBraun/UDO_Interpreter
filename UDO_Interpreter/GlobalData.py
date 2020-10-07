@@ -43,6 +43,10 @@ class GlobalData:
             cls.UDO_filePath = kwargs["filePath"]
             cls.pathToGeneratePyFiles = kwargs["pathToGeneratePyFiles"]
 
+            cls.printMessages = True
+            if "printMessages" in kwargs:
+                cls.printMessages = kwargs["printMessages"]
+
             createPyFiles = True
             if "createPyFiles" in kwargs:
                 createPyFiles = kwargs["createPyFiles"]

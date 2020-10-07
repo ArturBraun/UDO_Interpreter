@@ -20,7 +20,7 @@ import FreeCADGui
 import QW_Modeller
 import FreeCAD
 
-from tv_proj import *
+from cubeNested_proj import *
 
 GUIMode = FreeCAD.ConfigGet("RunMode")
 
@@ -29,11 +29,11 @@ if not GUIMode:
 
 FreeCADGui.activateWorkbench("QW_ModellerWorkbench")
 
-qwm_doc = QW_Modeller.newQWDocument("tv")
+qwm_doc = QW_Modeller.newQWDocument("cubeNested")
 
 FreeCADGui.activeDocument().activeView().viewAxometric()
 
-proj = tv_Project(qwm_doc)
+proj = cubeNested_Project(qwm_doc)
 proj.set_Circuit_Parameters()
 proj.set_GeometryAndMedia()
 proj.set_Mesh()

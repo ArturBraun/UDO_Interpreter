@@ -10,6 +10,7 @@ This module include main function and functions describing parser grammar.
 # -stworzyc dokumentacje w pliku UDO_functions
 # -dodac string do zasad gramatycznych
 # -dodac funkcje zwiazane z meshem
+# -przesymulowac wszystkie dodane symulacje i dodac dla nich testy automatyczne
 #____________________________________________
 
 #--------------------------------------------
@@ -829,7 +830,8 @@ def set_Simulation(qwm_doc):
         Does CALL command from UDO language.
         """
         UDO_FilePath = self.globalData.UDO_filePath + argumentsList[0]
-        doNestedParsing(argumentsList[1:-1], UDO_FilePath, debug = False, interpreter_debug = False, showDotFile = False)
+        doNestedParsing(argumentsList[1:-1], UDO_FilePath, debug = False, interpreter_debug = False, 
+                        showDotFile = False, printMessages = self.globalData.printMessages)
 
 
 class GrammarRulesVisitor(PTNodeVisitor):
@@ -1108,7 +1110,8 @@ def doTestParsing(UDO_FileContent, createPyFiles = False):
     globalData = GlobalData(projectName = "testProject", 
                             filePath = "",
                             pathToGeneratePyFiles = "",
-                            createPyFiles = createPyFiles
+                            createPyFiles = createPyFiles,
+                            printMessages = False
                             )
     grammarRulesVistor = GrammarRulesVisitor(interpreter_debug = False, isNestedParsing = False, createPyFiles = createPyFiles)
 
@@ -1153,7 +1156,8 @@ def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGenerat
 
             globalData = GlobalData(projectName = projectName, 
                                     filePath = UDO_FilePath[:UDO_FilePath.rfind("\\")+1],
-                                    pathToGeneratePyFiles = pathToGeneratePyFiles[:pathToGeneratePyFiles.rfind("\\")+1]
+                                    pathToGeneratePyFiles = pathToGeneratePyFiles[:pathToGeneratePyFiles.rfind("\\")+1],
+                                    printMessages = printMessages
                                     )
             grammarRulesVistor = GrammarRulesVisitor(interpreter_debug = interpreter_debug, isNestedParsing = False)
 
@@ -1192,11 +1196,12 @@ def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGenerat
             print("Error -> File Path is empty!\n\n")
 
 
-def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_debug = False, showDotFile = False):
+def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_debug = False, showDotFile = False, printMessages = True):
     """
     Does nested parsing (when UDO command 'CALL' is executed). 
     """
-    print("Nested UDO Interpreter\n")
+    if printMessages:
+        print("Nested UDO Interpreter\n")
     
     try:
         UDO_File = open(UDO_FilePath)
@@ -1225,8 +1230,9 @@ def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_d
                 PTDOTExporter().exportFile(parse_tree,"UDO_InterpreterParseTree.dot")   # Nadpisuje pliki.dot !!! 
                 s = Source.from_file("UDO_InterpreterParseTree.dot")
                 s.view()
-
-            print("Nested parsing UDO file is completed!\n")
+            
+            if printMessages:
+                print("Nested parsing UDO file is completed!\n")
 
         except NestedParsingFileNotFoundError as e:
             raise NestedParsingFileNotFoundError(str(e))
@@ -1239,7 +1245,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "cube"
+    udoName = "vtape"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"

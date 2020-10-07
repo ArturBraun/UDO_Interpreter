@@ -20,11 +20,6 @@ import FreeCADGui
 import QW_Modeller
 import FreeCAD
 
-#sys.path.insert(0, os.path.dirname(__file__))
-#sys.path.append(os.path.dirname(__file__))
-#sys.path.append("..\tests\vtape\")
-#sys.path.insert(0, '..\tests\vtape\')
-
 from vtape_proj import *
 
 GUIMode = FreeCAD.ConfigGet("RunMode")

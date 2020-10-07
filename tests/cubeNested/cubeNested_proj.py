@@ -1,48 +1,48 @@
 
 import QW_Modeller, FreeCADGui
-from vtape_circuit import *
-from vtape_geom_media import *
-from vtape_mesh import *
-from vtape_excit import *
-from vtape_ppost import *
-from vtape_setsimul import *
-from vtape_runsimul import *
+from cubeNested_circuit import *
+from cubeNested_geom_media import *
+from cubeNested_mesh import *
+from cubeNested_excit import *
+from cubeNested_ppost import *
+from cubeNested_setsimul import *
+from cubeNested_runsimul import *
 
-class vtape_Project(QW_Project): # test
+class cubeNested_Project(QW_Project): # test
     def __init__(self, qwm_doc):
         self.qwm_doc = qwm_doc
         qwm_doc.Company = 'QWED SP. z o.o.'
         qwm_doc.CreatedBy = 'Automatically generated'
-        qwm_doc.Comment = 'vtape'
+        qwm_doc.Comment = 'cubeNested'
 
     def set_Circuit_Parameters(self):
         #most parameters are defaults taken from qw_project
-        super(vtape_Project, self).set_Circuit_Parameters()
+        super(cubeNested_Project, self).set_Circuit_Parameters()
         set_Circuit_Parameters(self.qwm_doc)
 
     def set_GeometryAndMedia(self):
-        super(vtape_Project, self).set_GeometryAndMedia()
+        super(cubeNested_Project, self).set_GeometryAndMedia()
         set_GeometryAndMedia(self.qwm_doc)
 
     def set_Mesh(self):
         #most parameters are defaults taken from qw_project
-        super(vtape_Project, self).set_Mesh()
+        super(cubeNested_Project, self).set_Mesh()
         set_Mesh(self.qwm_doc)
 
     def set_Excitation(self):
-        super(vtape_Project, self).set_Excitation()
+        super(cubeNested_Project, self).set_Excitation()
         set_Excitation(self.qwm_doc)
 
     def set_Postprocessing(self):
-        super(vtape_Project, self).set_Postprocessing()
+        super(cubeNested_Project, self).set_Postprocessing()
         set_Postprocessing(self.qwm_doc)
 
     def set_Simulation(self):
-        super(vtape_Project, self).set_Simulation()
+        super(cubeNested_Project, self).set_Simulation()
         set_Simulation(self.qwm_doc)
 
     def run_Simulation(self):
-        super(vtape_Project, self).run_Simulation()
+        super(cubeNested_Project, self).run_Simulation()
         run_Simulation(self.qwm_doc)
 
         
