@@ -10,7 +10,6 @@ This module include main function and functions describing parser grammar.
 # -stworzyc dokumentacje w pliku UDO_functions
 # -dodac string do zasad gramatycznych
 # -dodac funkcje zwiazane z meshem
-# -przesymulowac wszystkie dodane symulacje i dodac dla nich testy automatyczne
 #____________________________________________
 
 #--------------------------------------------
@@ -31,6 +30,9 @@ from Exceptions import *
 # GRAMMAR FUNCTIONS
 #--------------------------------------------
 def UDO_command():
+    """
+    Grammar rule for UDO command.
+    """
     return [
         "TEST",
         "ADDLINE",
@@ -41,12 +43,13 @@ def UDO_command():
         "ELEMENT",
         "ENDELEM",
         "CALL"
-        #], Optional("("),  ZeroOrMore([logicalExpression, stringExpression, expression, variable],","), Optional([logicalExpression, stringExpression, expression, variable]), Optional(")"), ";"
-        ], Optional("("),  ZeroOrMore([logicalExpression, string, expression, variable],","), Optional([logicalExpression, string, expression, variable]), Optional(")"), ";"
+        ], Optional("("),  ZeroOrMore([logicalExpression, expression, variable],","), Optional([logicalExpression, expression, variable]), Optional(")"), ";"
 
 def parameterDeclaration():
-    #return ["PAR"], "(",  ZeroOrMore([stringExpression, logicalExpression, expression, variable],","), Optional([stringExpression, logicalExpression, expression, variable]), ")", ";"
-    return ["PAR"], "(",  ZeroOrMore([string, logicalExpression, expression, variable],","), Optional([string, logicalExpression, expression, variable]), ")", ";"
+    """
+    Grammar rule for parameter declaration.
+    """
+    return ["PAR"], "(",  ZeroOrMore([logicalExpression, expression, variable],","), Optional([logicalExpression, expression, variable]), ")", ";"
 
 def whileLoop():
     """
@@ -94,8 +97,7 @@ def substitutionOperator():
     """
     Grammar rule for substitution operator.
     """
-    #return variable, OneOrMore(["="],[logicalExpression, stringExpression, expression, variable]), ";" 
-    return variable, OneOrMore(["="],[logicalExpression, string, expression, variable]), ";" 
+    return variable, OneOrMore(["="],[logicalExpression, expression, variable]), ";" 
 
 def functions():
     """
@@ -119,8 +121,7 @@ def logicalOperator():
     """
     Grammar rule for logical operator.
     """
-    #return [stringExpression, variable, expression, ("(", logicalExpression, ")")], OneOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[stringExpression, variable, expression, ("(", logicalExpression, ")")])
-    return [string, variable, expression, ("(", logicalExpression, ")")], OneOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[string, variable, expression, ("(", logicalExpression, ")")])
+    return [variable, expression, ("(", logicalExpression, ")")], OneOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[variable, expression, ("(", logicalExpression, ")")])
 
 def logicalExpression():
     """
@@ -165,12 +166,6 @@ def string():
     """
     return '"', apperggioRegEx(r'[ !#-~]*'), '"'
 
-def stringExpression():
-    """
-    Grammar rule for string concatenation.
-    """
-    return [string, variable], ZeroOrMore(("@", [string, variable]))
-
 def withSign():
     """
     Grammar rule to apply sign to expression.
@@ -193,7 +188,7 @@ def expression():
     """
     Grammar rule for expression.
     """
-    return multiplicationOrDivision, ZeroOrMore(["+","-"], multiplicationOrDivision)
+    return [multiplicationOrDivision, string], ZeroOrMore(["+","-", "@"], [multiplicationOrDivision, string])
 
 def program(): 
     """
@@ -923,7 +918,8 @@ class GrammarRulesVisitor(PTNodeVisitor):
         for i in range(2, len(children), 2):
             if children[i-1] == "-":
                 expression -= children[i]
-            elif children[i-1] == "+":
+            #elif children[i-1] == "+":
+            elif children[i-1] == "+" or children[i-1] == "@":
                 expression += children[i]
         if self.interpreter_debug:
             print("Expression {}.\nExpression = {}.".format(node.value.replace("|",""), expression))
@@ -1017,20 +1013,10 @@ class GrammarRulesVisitor(PTNodeVisitor):
         """
         if self.interpreter_debug:
             print("String {} = {}.".format(children, node.value))
-        return str(children[0])
-
-    def visit_stringExpression(self, node, children):
-        """
-        Returns string or concatenated string.
-        """
-        if self.interpreter_debug:
-            print("String {} = {}.".format(children, node.value))
-
-        finalString = ""
-        for i in range(0, len(children), 2):
-            finalString += children[i]
-
-        return finalString
+        if children:
+            return str(children[0])
+        else:
+            return ""
 
     def visit_parameterDeclaration(self, node, children):
         """

@@ -110,12 +110,12 @@ class TestsUdoInterpreter(unittest.TestCase):
                         a"""
         self.assertEqual(doTestParsing(udoFileStr), 2)
 
-    #def test2(self):
-    #    udoFileStr = """a = "abc";
-    #                    b = "cde";
-    #                    c = a @ "111" @ b;
-    #                    c"""
-    #    self.assertEqual(doTestParsing(udoFileStr), "abc111cde")
+    def test2(self):
+        udoFileStr = """a = "abc";
+                        b = "cde";
+                        c = a @ "111" @ b;
+                        c"""
+        self.assertEqual(doTestParsing(udoFileStr), "abc111cde")
 
     def test3(self):
         udoFileStr = """a = 2;
@@ -217,6 +217,63 @@ class TestsUdoInterpreter(unittest.TestCase):
                         x = ((a == b) || (b > a) || ((a+b) > b)) && b;
                         x"""
         self.assertEqual(doTestParsing(udoFileStr), 0)
+
+    def test17(self):
+        udoFileStr = """a = "abc";
+                        b = "cde";
+                        c = a @ b;
+                        c"""
+        self.assertEqual(doTestParsing(udoFileStr), "abccde")
+
+    def test18(self):
+        udoFileStr = """a = "abc";
+                        c = "1a1a" @ a;
+                        c"""
+        self.assertEqual(doTestParsing(udoFileStr), "1a1aabc")
+
+    def test19(self):
+        udoFileStr = """a = "abc";
+                        c = a @ "1a1a";
+                        c"""
+        self.assertEqual(doTestParsing(udoFileStr), "abc1a1a")
+
+    def test20(self):
+        udoFileStr = """c = "2222bbbb" @ "1a1a";
+                        c"""
+        self.assertEqual(doTestParsing(udoFileStr), "2222bbbb1a1a")
+
+    def test21(self):
+        udoFileStr = """a = "a";
+                        b = "b";
+                        d = "d";
+                        c = a @ b @ "111" @ d @ "111";
+                        c"""
+        self.assertEqual(doTestParsing(udoFileStr), "ab111d111")
+
+    def test22(self):
+        udoFileStr = """str = "abc";
+                        a = 2;
+                        if str do a = 10; endif;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 10)
+
+    def test23(self):
+        udoFileStr = """str = "";
+                        a = 2;
+                        if str do a = 10; endif;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 2)
+
+    def test24(self):
+        udoFileStr = """a = 0;
+                        if a do a = 10; endif;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 0)
+
+    def test25(self):
+        udoFileStr = """a = "str";
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), "str")
 
     #def test17(self):
     #    udoFileStr = """a = abs(2 - 2.5) < 1;
