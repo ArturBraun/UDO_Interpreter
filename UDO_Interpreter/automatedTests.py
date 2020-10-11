@@ -275,10 +275,20 @@ class TestsUdoInterpreter(unittest.TestCase):
                         a"""
         self.assertEqual(doTestParsing(udoFileStr), "str")
 
-    #def test17(self):
-    #    udoFileStr = """a = abs(2 - 2.5) < 1;
-    #                    a"""
-    #    self.assertEqual(doTestParsing(udoFileStr), 1)
+    def test26(self):
+        udoFileStr = """a = abs(2 - 2.5) < 1;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 1)
+
+    def test27(self):
+        udoFileStr = """a = sin(90) + cos(0.0) <= 1 + 1;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 1)
+
+    def test28(self):
+        udoFileStr = """a = sqrt(4) < 1;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 0)
 
 
 def main():

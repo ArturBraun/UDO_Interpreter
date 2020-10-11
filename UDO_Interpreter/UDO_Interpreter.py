@@ -6,9 +6,6 @@ This module include main function and functions describing parser grammar.
 
 #____________________________________________
 # TODO:
-# -dokonczyc pisac funkcje matematyczne w klasie MathematicalFunctions
-# -stworzyc dokumentacje w pliku UDO_functions
-# -dodac string do zasad gramatycznych
 # -dodac funkcje zwiazane z meshem
 #____________________________________________
 
@@ -21,6 +18,8 @@ from arpeggio import RegExMatch as apperggioRegEx
 from arpeggio.export import PTDOTExporter
 from graphviz import Source
 import math
+import random
+import sys
 
 # Written:
 from GlobalData import *
@@ -121,7 +120,7 @@ def logicalOperator():
     """
     Grammar rule for logical operator.
     """
-    return [variable, expression, ("(", logicalExpression, ")")], OneOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[variable, expression, ("(", logicalExpression, ")")])
+    return [expression, ("(", logicalExpression, ")")], OneOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[expression, ("(", logicalExpression, ")")])
 
 def logicalExpression():
     """
@@ -312,21 +311,48 @@ class MathematicalFunctions:
         return math.fabs(kwargs["arguments"][0])
 
     def do_sgn(self, **kwargs):
-        pass
+        """
+        Does sgn (signum function) operation.
+        """
+        if kwargs["arguments"][0] < 0:
+            return -1
+        elif kwargs["arguments"][0] == 0:
+            return 0
+        elif kwargs["arguments"][0] > 0:
+            return 1
 
     def do_int(self, **kwargs):
-        pass
+        """
+        Converts argument to integer number, truncates the fractional part.
+        """
+        return int(kwargs["arguments"][0])
 
     def do_frac(self, **kwargs):
-        pass
+        """
+        Get fractional part of number.
+        """
+        numStr = str(float(kwargs["arguments"][0]))
+        pos = numStr.rfind(".")
+        fractionalPart = float(numStr[pos:])
+        
+        return fractionalPart
 
     def do_rand(self, **kwargs):
-        pass
+        """
+        Generates random number in range <0; max number size allowed in user system>.
+        """
+        return random.randint(0, sys.maxsize)
 
     def do_srand(self, **kwargs):
+        """
+        Initializes pseudo rand number generator. It is not needed in python so the function does nothing.
+        """
         pass
 
 class LogicalOperators:
+    """
+    Class used for logical operations.
+    """
     def __init__(self):
         self.functionsNames = {
             "nothing" : "do_nothing",
@@ -343,33 +369,63 @@ class LogicalOperators:
             }
 
     def callFunction(self, stringWithLogicalOperator = "nothing", **kwargs):
+        """
+        Calls particular logical functions to get results.
+        """
         return getattr(self, self.functionsNames[stringWithLogicalOperator])(**kwargs)
 
     def do_nothing(self, **kwargs):
+        """
+        Function that does nothing. Used when the stringWithLogicalOperator doesn't match any particular function. 
+        """
         pass
 
     def do_logicalAnd(self, **kwargs):
+        """
+        Does logical AND operation.
+        """
         return bool(kwargs["variable1"]) and bool(kwargs["variable2"])
 
     def do_logicalOr(self, **kwargs):
+        """
+        Does logical OR operation.
+        """
         return bool(kwargs["variable1"]) or bool(kwargs["variable2"])
 
     def do_equalTo(self, **kwargs):
+        """
+        Does logical EQUAL TO operation.
+        """
         return kwargs["variable1"] == kwargs["variable2"]
 
     def do_differentThan(self, **kwargs):
+        """
+        Does logical DIFFERENT THAN operation.
+        """
         return kwargs["variable1"] != kwargs["variable2"]
 
     def do_lessThan(self, **kwargs):
+        """
+        Does logical LESS THAN operation.
+        """
         return kwargs["variable1"] < kwargs["variable2"]
 
     def do_greaterThan(self, **kwargs):
+        """
+        Does logical GREATER THAN operation.
+        """
         return kwargs["variable1"] > kwargs["variable2"]
 
     def do_lessOrEqualTo(self, **kwargs):
+        """
+        Does logical LESS OR EQUAL TO operation.
+        """
         return kwargs["variable1"] <= kwargs["variable2"]
 
     def do_greaterOrEqualTo(self, **kwargs):
+        """
+        Does logical GREATER OR EQUAL TO operation.
+        """
         return kwargs["variable1"] >= kwargs["variable2"]
 
 
