@@ -34,7 +34,34 @@ class GlobalData:
                                 "x":["", 0.0],
                                 "y":["", 0.0],
                                 "z":["", 0.0],
-                                "air":["", "air"]
+                                "air":["", "air"],
+                                "POINT":["", "POINT"],
+                                "PROBE":["", "PROBE"],
+                                "INPTEMPLATE":["", "INPTEMPLATE"],
+                                "OUTTEMPLATE":["", "OUTTEMPLATE"],
+                                "MUR":["", "MUR"],
+                                "MURBOX":["", "MURBOX"],
+                                "PML":["", "PML"],
+                                "PMLBOX":["", "PMLBOX"],
+                                "SHORT":["", "SHORT"],
+                                "OPEN":["", "OPEN"],
+                                "SPECIAL":["", "SPECIAL"],
+                                "NEUTRAL":["", "NEUTRAL"],
+                                "BETWEEN":["", "BETWEEN"],
+                                "REFERENCE":["", "REFERENCE"],
+                                "NEAR2FAR":["", "NEAR2FAR"],
+                                "PLANEWAVE":["", "PLANEWAVE"],
+                                "CONTOUR_E":["", "CONTOUR_E"],
+                                "CONTOUR_H":["", "CONTOUR_H"],
+                                "FDMONITOR":["", "FDMONITOR"],
+                                "MONITOR3D":["", "MONITOR3D"],
+                                "LUMPEDIMP":["", "LUMPEDIMP"],
+                                "BHMROTATIONAXIS":["", "BHMROTATIONAXIS"],
+                                "BHMMOVEMENTTRAJECTORY":["", "BHMMOVEMENTTRAJECTORY"],
+                                "UP":["", "UP"],
+                                "DOWN":["", "DOWN"],
+                                "NONE":["", "NONE"],
+                                "NULL":["", "NULL"],
                                 } 
             if re.fullmatch("[a-zA-Z]{1}[a-zA-Z0-9_]*", kwargs["projectName"]): cls._singleton.projectName = kwargs["projectName"]
             else: cls._singleton.projectName = "project"
@@ -42,6 +69,8 @@ class GlobalData:
             cls.objectsNames = []
             cls.UDO_filePath = kwargs["filePath"]
             cls.pathToGeneratePyFiles = kwargs["pathToGeneratePyFiles"]
+
+            cls.udoFileContent = kwargs["udoFileContent"]
 
             cls.printMessages = True
             if "printMessages" in kwargs:

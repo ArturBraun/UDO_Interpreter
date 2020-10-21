@@ -157,7 +157,7 @@ class TestsUdoInterpreter(unittest.TestCase):
     def test9(self):
         udoFileStr = """a = 0;
                         while a < 10 do
-                        a++;
+                            a++;
                         endwhile;
                         a"""
         self.assertEqual(doTestParsing(udoFileStr), 10)
@@ -166,8 +166,8 @@ class TestsUdoInterpreter(unittest.TestCase):
         udoFileStr = """a = 0;
                         b = 15;
                         while (a < 10) && (b > 11) do
-                        a++;
-                        b = b - 1;
+                            a++;
+                            b = b - 1;
                         endwhile;
                         b"""
         self.assertEqual(doTestParsing(udoFileStr), 11)
@@ -290,6 +290,86 @@ class TestsUdoInterpreter(unittest.TestCase):
                         a"""
         self.assertEqual(doTestParsing(udoFileStr), 0)
 
+    def test29(self):
+        udoFileStr = """a = 0;
+                        if a > 1 do 
+                            if a > 2 do
+                                a = 10; 
+                            endif;
+                        endif;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 0)
+
+    def test30(self):
+        udoFileStr = """a = 3;
+                        if a > 1 do 
+                            if a > 2 do
+                                a = 10; 
+                            endif;
+                        endif;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 10)
+
+    def test31(self):
+        udoFileStr = """a = 10;
+                        b = 10;
+                        while a > 0 do 
+                            a--;
+                            while b < 20 do
+                                b++;
+                            endwhile;
+                        endwhile;
+                        b"""
+        self.assertEqual(doTestParsing(udoFileStr), 20)
+
+    def test32(self):
+        udoFileStr = """a = 0;
+                        b = 0;
+                        c = 0;
+                        while a < 10 do 
+                            a++;
+                            while (b < 10) && (b != 5) do
+                                b++;
+                                while c < 10 do
+                                    c = c + 1;
+                                endwhile;
+                            endwhile;
+                        endwhile;
+                        b"""
+        self.assertEqual(doTestParsing(udoFileStr), 5)
+
+    def test33(self):
+        udoFileStr = """a = 2;
+                        if (a < 5) || (a > 1) do a = 10; endif;
+                        a = -a * a;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), -100)
+
+    def test34(self):
+        udoFileStr = """a = 0;
+                        if a do a = 10; endif;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 0)
+
+    def test35(self):
+        udoFileStr = """b = 5;
+                        a = (b < 10) && (b != 5);
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 0)
+
+    def test36(self):
+        udoFileStr = """a = 0;
+                        while a < 10 do
+	                        ADDLINE(2, 5); 
+                            a++;
+                        endwhile;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 10)
+
+    def test37(self):
+        udoFileStr = """a = .2;
+                        a"""
+        self.assertEqual(doTestParsing(udoFileStr), 0.2)
 
 def main():
     unittest.main()

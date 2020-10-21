@@ -7,6 +7,8 @@ This module include main function and functions describing parser grammar.
 #____________________________________________
 # TODO:
 # -dodac funkcje zwiazane z meshem
+# -poprawic content zapisywany do pliku w funkcji do_endport() !!! - poprawic orientacje i pobudzenie
+# -przetestowac interpretacje wgtocx1
 #____________________________________________
 
 #--------------------------------------------
@@ -28,6 +30,36 @@ from Exceptions import *
 #--------------------------------------------
 # GRAMMAR FUNCTIONS
 #--------------------------------------------
+
+# GENERAL RULES
+
+def header():
+    """
+    Grammar rule for header.
+    """
+    return OneOrMore([comment, parameterDeclaration, substitutionOperator]), "ENDHEADER;"
+
+def parameterDeclaration():
+    """
+    Grammar rule for parameter declaration.
+    """
+    return ["PAR"], "(",  ZeroOrMore(expression,","), Optional(expression), ")", ";"
+
+def comment():
+    """
+    Grammar rule for comment.
+    """
+    return apperggioRegEx(r'[#]{1}[ -~]*')
+
+def program(): 
+    """
+    Grammar rule for whole UDO file.
+    """
+    return Optional(header), OneOrMore([comment, UDO_command, statement, expression]), EOF
+
+
+# NORMAL GRAMMAR RULES
+
 def UDO_command():
     """
     Grammar rule for UDO command.
@@ -41,50 +73,13 @@ def UDO_command():
         "CLOSELINE",
         "ELEMENT",
         "ENDELEM",
-        "CALL"
-        ], Optional("("),  ZeroOrMore([logicalExpression, expression, variable],","), Optional([logicalExpression, expression, variable]), Optional(")"), ";"
-
-def parameterDeclaration():
-    """
-    Grammar rule for parameter declaration.
-    """
-    return ["PAR"], "(",  ZeroOrMore([logicalExpression, expression, variable],","), Optional([logicalExpression, expression, variable]), ")", ";"
-
-def whileLoop():
-    """
-    Grammar rule for while loop.
-    """
-    return ["while"], logicalContent, ["do"], whileLoopContent, ["endwhile"], ";"
-
-def whileLoopContent():
-    """
-    Grammar rule for while loop content.
-    """
-    return apperggioRegEx(r'[\S\s]+?(?=endwhile)')
-
-def ifStatement():
-    """
-    Grammar rule for if statement.
-    """
-    return ["if"], logicalContent, ["do"], ifStatementContent, ["endif"], ";"
-
-def ifStatementContent():
-    """
-    Grammar rule for if statement content.
-    """
-    return apperggioRegEx(r'[\S\s]+?(?=endif)')
-
-def logicalContent():
-    """
-    Grammar rule for content inside if statements and while loops.
-    """
-    return apperggioRegEx(r'[\S\s]+?(?=do)')
-
-def comment():
-    """
-    Grammar rule for comment.
-    """
-    return apperggioRegEx(r'[#]{1}[ -~]*')
+        "CALL",
+        "OPENOBJECT",
+        "CLOSEOBJ",
+        "PORT",
+        "ENDPORT",
+        "GETIOPAR"
+    ], Optional("("),  ZeroOrMore(expression,","), Optional(expression), Optional(")"), ";"
 
 def variable():
     """
@@ -96,7 +91,7 @@ def substitutionOperator():
     """
     Grammar rule for substitution operator.
     """
-    return variable, OneOrMore(["="],[logicalExpression, expression, variable]), ";" 
+    return variable, OneOrMore(["="], expression), ";" 
 
 def functions():
     """
@@ -115,18 +110,6 @@ def beforeVariableOperator():
     Grammar rule for operator that appears on left hand side of variable
     """
     return ["~"], variable
-
-def logicalOperator():
-    """
-    Grammar rule for logical operator.
-    """
-    return [expression, ("(", logicalExpression, ")")], OneOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"],[expression, ("(", logicalExpression, ")")])
-
-def logicalExpression():
-    """
-    Grammar rule for logical expression.
-    """
-    return logicalOperator
 
 def mathFunctions():
     """
@@ -155,9 +138,7 @@ def number():
     """
     Grammar rule for number.
     """
-    return apperggioRegEx(r'\d+\.\d+|\d+') 
-# Sprawdzic czy wedlug UDO .2 to tez liczba
-# Aktualnie dziala tylko dla liczb normalnych typu 0.2 itd.
+    return apperggioRegEx(r'\d*\.\d+|\d+') 
 
 def string():
     """
@@ -169,7 +150,7 @@ def withSign():
     """
     Grammar rule to apply sign to expression.
     """
-    return Optional(["+","-"]),[functions, variable, number, ("(", expression, ")")]
+    return Optional(["+","-"]),[functions, variable, number, string, ("(", expression, ")")]
 
 def power():
     """
@@ -183,17 +164,187 @@ def multiplicationOrDivision():
     """
     return power, ZeroOrMore(["*","/"], power)
 
+def simpleExpression():
+    """
+    Grammar rule for simple expression.
+    """
+    return multiplicationOrDivision, ZeroOrMore(["+","-", "@"], multiplicationOrDivision)
+
 def expression():
     """
-    Grammar rule for expression.
+    Grammar rule for expression
     """
-    return [multiplicationOrDivision, string], ZeroOrMore(["+","-", "@"], [multiplicationOrDivision, string])
+    return simpleExpression, ZeroOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"], simpleExpression)
 
-def program(): 
+def statement():
     """
-    Grammar rule for whole UDO file.
+    Grammar rule for UDO statements that should occur in body section.
     """
-    return OneOrMore([comment, parameterDeclaration, UDO_command, whileLoop, ifStatement, substitutionOperator, "ENDHEADER;", logicalExpression, (afterVariableOperator, ";"), expression]), EOF
+    return OneOrMore([compoundStatement, substitutionOperator, UDO_command, (afterVariableOperator, ";")])
+
+def compoundStatement():
+    """
+    Grammar rule for compound statement.
+    """
+    return [whileLoop, ifStatement]
+
+
+# SPECIAL STATEMENTS
+
+def whileLoop():
+    """
+    Grammar rule for while loop.
+    """
+    return "while", specialExpression, "do", specialStatement, "endwhile;"
+
+def ifStatement():
+    """
+    Grammar rule for if statement.
+    """
+    return "if", specialExpression, "do", specialStatement, "endif;"
+
+
+# GRAMMAR RULES THAT OCCUR ONLY IN "if" OR "while" STATEMENTS
+
+def specialUdoCommand():
+    """
+    Grammar rule for UDO command.
+    """
+    return [
+        "TEST",
+        "ADDLINE",
+        "ADDY",
+        "ADDX",
+        "NEWLINE",
+        "CLOSELINE",
+        "ELEMENT",
+        "ENDELEM",
+        "CALL",
+        "OPENOBJECT",
+        "CLOSEOBJ",
+        "PORT",
+        "ENDPORT",
+        "GETIOPAR"
+        ], Optional("("),  ZeroOrMore(specialExpression,","), Optional(specialExpression), Optional(")"), ";"
+
+def specialVariable():
+    """
+    Grammar rule for variable.
+    """
+    return apperggioRegEx(r'[a-zA-Z]{1}[a-zA-Z0-9_]*') 
+
+def specialSubstitutionOperator():
+    """
+    Grammar rule for substitution operator.
+    """
+    return specialVariable, OneOrMore(["="], specialExpression), ";" 
+
+def specialFunctions():
+    """
+    Grammar rule for functions.
+    """
+    return [specialMathFunctions, specialAfterVariableOperator, specialBeforeVariableOperator]
+
+def specialAfterVariableOperator():
+    """
+    Grammar rule for operator that appears on right hand side of variable in substitution operator.
+    """
+    return specialVariable, ["++", "--"]
+
+def specialBeforeVariableOperator():
+    """
+    Grammar rule for operator that appears on left hand side of variable
+    """
+    return ["~"], specialVariable
+
+def specialMathFunctions():
+    """
+    Grammar rule for mathematical functions.
+    """
+    return [
+        "sin",
+        "cos",
+        "tan",
+        "asin",
+        "acos",
+        "atan",
+        "atan2",
+        "log",
+        "logd",
+        "exp",
+        "sqrt",
+        "abs",
+        "sgn",
+        "int",
+        "frac",
+        "rand",
+        "srand"], "(", [specialExpression], ")"
+
+def specialNumber():
+    """
+    Grammar rule for number.
+    """
+    return apperggioRegEx(r'\d*\.\d+|\d+') 
+
+def specialString():
+    """
+    Grammar rule for string.
+    """
+    return '"', apperggioRegEx(r'[ !#-~]*'), '"'
+
+def specialWithSign():
+    """
+    Grammar rule to apply sign to expression.
+    """
+    return Optional(["+","-"]),[specialFunctions, specialVariable, specialNumber, specialString, ("(", specialExpression, ")")]
+
+def specialPower():
+    """
+    Grammar rule for exponentiation.
+    """
+    return specialWithSign, ZeroOrMore(["^"], specialWithSign)
+
+def specialMultiplicationOrDivision():
+    """
+    Grammar rule for multiplication or division.
+    """
+    return specialPower, ZeroOrMore(["*","/"], specialPower)
+
+def specialSimpleExpression():
+    """
+    Grammar rule for simple expression.
+    """
+    return specialMultiplicationOrDivision, ZeroOrMore(["+","-", "@"], specialMultiplicationOrDivision)
+
+def specialExpression():
+    """
+    Grammar rule for expression
+    """
+    return specialSimpleExpression, ZeroOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"], specialSimpleExpression)
+
+def specialStatement():
+    """
+    Grammar rule for UDO statements that should occur in body section.
+    """
+    return OneOrMore([specialCompoundStatement, specialSubstitutionOperator, specialUdoCommand, (specialAfterVariableOperator, ";"), comment])
+
+def specialCompoundStatement():
+    """
+    Grammar rule for compound statement.
+    """
+    return [specialWhileLoop, specialIfStatement]
+
+def specialWhileLoop():
+    """
+    Grammar rule for while loop.
+    """
+    return "while", specialExpression, "do", specialStatement, "endwhile;"
+
+def specialIfStatement():
+    """
+    Grammar rule for if statement.
+    """
+    return "if", specialExpression, "do", specialStatement, "endif;"
 
 
 #--------------------------------------------
@@ -449,7 +600,12 @@ class UDO_commands:
             "CLOSELINE":"do_closeline",
             "ADDY":"do_addy",
             "ADDX":"do_addx",
-            "CALL":"do_call"
+            "CALL":"do_call",
+            "OPENOBJECT":"do_openobject",
+            "CLOSEOBJ":"do_closeobj",
+            "PORT":"do_port",
+            "ENDPORT":"do_endport",
+            "GETIOPAR":"do_getiopar",
             }
         self.hasSomethingBeenAddedToFiles = {
             "circuitFile" : False,
@@ -461,6 +617,12 @@ class UDO_commands:
             "setsimulFile" : False
             }
 
+        # Says which command is analised at the moment
+        self.currentCommand = {
+            "element":False,
+            "port":False,
+            }
+
         # ELEMENT command variables
         self.elementCommandLevel = 0.0
         self.elementCommandHeight = 0.0
@@ -469,6 +631,28 @@ class UDO_commands:
         self.elementCommandMediumName = ""
         self.elementCommandName = ""
         self.elementCommandSpinWire = ""
+
+        # PORT command dict
+        self.portCommandDict = {
+            "level":None,
+            "height":None,
+            "type":None,
+            "activity":None,
+            "name":None,
+            "reference":None,
+            "x1":None,
+            "y1":None,
+            "x2":None,
+            "y2":None,
+            "x3":None,
+            "y3":None,
+            "x4":None,
+            "y4":None,
+            "currentPoint":1,
+            "excitationPointX":None,
+            "excitationPointY":None,
+            "excitationPointZ":None,
+            }
 
         # ***Line command variables
         self.newlineCommandFirstPoint = [0.0, 0.0]
@@ -719,6 +903,7 @@ def set_Simulation(qwm_doc):
         Does ELEMENT command from UDO language.
         """
         self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
+        self.currentCommand["element"] = True
 
         self.elementCommandLevel = argumentsList[0]
         self.elementCommandHeight = argumentsList[1]
@@ -737,11 +922,11 @@ def set_Simulation(qwm_doc):
         if self.elementCommandType in [5,6,15,16]:
             self.elementCommandTypeCombinedDict[self.elementCommandType] = "sketch_" + self.elementCommandName
         
-        content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
+        if self.createPyFiles:
+            content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
     qwm_doc.sketch_{name}.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,{level}),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
 """.format(name = self.elementCommandName, level = self.elementCommandLevel)
         
-        if self.createPyFiles:
             self.globalData.writeToGeomMediaFile(content)
 
     def do_endelem(self,argumentsList):
@@ -791,41 +976,44 @@ def set_Simulation(qwm_doc):
         if self.createPyFiles:
             self.globalData.writeToGeomMediaFile(content)
 
+        self.currentCommand["element"] = False
+
     def do_newline(self,argumentsList):
         """
         Does NEWLINE command from UDO language.
         """
-        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
 
         _x1 = argumentsList[0]
         _y1 = argumentsList[1]
         _x2 = argumentsList[2]
         _y2 = argumentsList[3]
 
-        content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+        if self.createPyFiles and self.currentCommand["element"]:
+            content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
-        
-        if self.createPyFiles:
+               
             self.globalData.writeToGeomMediaFile(content)
 
         self.newlineCommandFirstPoint = [_x1, _y1]
         self.lineCommandLastPoint = [_x2, _y2]
 
+        if self.currentCommand["port"]:       
+            self.addPortPoints(_x1, _y1, _x2, _y2, isNewLine = True)
+
     def do_closeline(self,argumentsList):
         """
         Does CLOSELINE command from UDO language.
         """
-        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
 
         _x1 = self.lineCommandLastPoint[0]
         _y1 = self.lineCommandLastPoint[1]
         _x2 = self.newlineCommandFirstPoint[0]
         _y2 = self.newlineCommandFirstPoint[1]
 
-        content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+        if self.createPyFiles and self.currentCommand["element"]:
+            content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
-        if self.createPyFiles:
             self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
@@ -834,58 +1022,91 @@ def set_Simulation(qwm_doc):
         """
         Does ADDY command from UDO language.
         """
-        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
 
         _x1 = self.lineCommandLastPoint[0]
         _y1 = self.lineCommandLastPoint[1]
         _x2 = self.lineCommandLastPoint[0]
         _y2 = self.lineCommandLastPoint[1] + argumentsList[0]
 
-        content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+        if self.createPyFiles and self.currentCommand["element"]:
+            content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
         
-        if self.createPyFiles:
             self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
+
+        if self.currentCommand["port"]:       
+            self.addPortPoints(_x1, _y1, _x2, _y2)
 
     def do_addx(self,argumentsList):
         """
         Does ADDX command from UDO language.
         """
-        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
 
         _x1 = self.lineCommandLastPoint[0]
         _y1 = self.lineCommandLastPoint[1]
         _x2 = self.lineCommandLastPoint[0] + argumentsList[0]
         _y2 = self.lineCommandLastPoint[1]
 
-        content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+        if self.createPyFiles and self.currentCommand["element"]:
+            content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
-        if self.createPyFiles:
             self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
+
+        if self.currentCommand["port"]:       
+            self.addPortPoints(_x1, _y1, _x2, _y2)
 
     def do_addline(self,argumentsList):
         """
         Does ADDLINE command from UDO language.
         """
-        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
 
         _x1 = self.lineCommandLastPoint[0]
         _y1 = self.lineCommandLastPoint[1] 
         _x2 = argumentsList[0]
         _y2 = argumentsList[1]
 
-        content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
+        if self.createPyFiles and self.currentCommand["element"]:
+            content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
 """.format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
-        if self.createPyFiles:
             self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
+
+        if self.currentCommand["port"]:       
+            self.addPortPoints(_x1, _y1, _x2, _y2)
+
+    def addPortPoints(self, _x1, _y1, _x2, _y2, isNewLine = False):
+        """
+        Remembers port's points coordinates.
+        """       
+        if self.portCommandDict["currentPoint"] > 4 or (self.portCommandDict["currentPoint"] >= 3 and self.portCommandDict["height"] != 0):
+            self.portCommandDict["excitationPointX"] = _x1
+            self.portCommandDict["excitationPointY"] = _y1
+        else:
+            if isNewLine:
+                p1 = self.portCommandDict["currentPoint"]
+                p2 = self.portCommandDict["currentPoint"] + 1
+
+                self.portCommandDict["x" + str(p1)] = _x1
+                self.portCommandDict["y" + str(p1)] = _y1
+
+                self.portCommandDict["x" + str(p2)] = _x2
+                self.portCommandDict["y" + str(p2)] = _y2
+
+                self.portCommandDict["currentPoint"] += 2
+            else:
+                p2 = self.portCommandDict["currentPoint"]
+
+                self.portCommandDict["x" + str(p2)] = _x2
+                self.portCommandDict["y" + str(p2)] = _y2
+
+                self.portCommandDict["currentPoint"] += 1
 
     def do_call(self,argumentsList):
         """
@@ -894,6 +1115,112 @@ def set_Simulation(qwm_doc):
         UDO_FilePath = self.globalData.UDO_filePath + argumentsList[0]
         doNestedParsing(argumentsList[1:-1], UDO_FilePath, debug = False, interpreter_debug = False, 
                         showDotFile = False, printMessages = self.globalData.printMessages)
+
+    def do_openobject(self,argumentsList):
+        """
+        Does OPENOBJECT command from UDO language.
+        """
+        pass
+
+    def do_closeobj(self,argumentsList):
+        """
+        Does CLOSEOBJ command from UDO language.
+        """
+        pass
+
+    def do_port(self, argumentsList):
+        """
+        Does PORT command from UDO language.
+        """
+        self.hasSomethingBeenAddedToFiles["excitFile"] = True
+        self.currentCommand["port"] = True
+
+        self.portCommandDict["level"] = argumentsList[0]
+        self.portCommandDict["height"] = argumentsList[1]
+        self.portCommandDict["type"] = argumentsList[2]
+        self.portCommandDict["activity"] = argumentsList[3]
+        self.portCommandDict["name"] = argumentsList[4]
+        self.portCommandDict["reference"] = argumentsList[5]
+
+        content = """    QW_Modeller.addQWObject("QW_Modeller::TemplatePort","{portName}")
+        """.format(portName = self.portCommandDict["name"])
+
+        if self.createPyFiles:
+            self.globalData.writeToExcitFile(content)
+
+    def do_endport(self, argumentsList):
+        """
+        Does ENDPORT command from UDO language.
+        """
+        length = None
+        width = None
+        excitationPointZ = None
+        portType = None
+        activityDirection = None
+
+        if self.portCommandDict["height"] == 0:
+            length = abs(self.portCommandDict["x1"] - self.portCommandDict["x2"])
+            width = abs(self.portCommandDict["y1"] - self.portCommandDict["y2"])
+            excitationPointZ = self.portCommandDict["level"]
+        else: 
+            length = self.portCommandDict["height"]
+            width = abs(self.portCommandDict["y1"] - self.portCommandDict["y2"])            
+            excitationPointZ = self.portCommandDict["level"] + self.portCommandDict["height"]/2
+
+        self.portCommandDict["excitationPointZ"] = excitationPointZ
+
+        if self.portCommandDict["type"] == "INPTEMPLATE":
+            portType = "Source"
+        elif self.portCommandDict["type"] == "OUTTEMPLATE":
+            portType = "Load"
+
+        if self.portCommandDict["activity"] == "UP":
+            activityDirection = "PLUS"
+        elif self.portCommandDict["activity"] == "DOWN":
+            activityDirection = "MINUS"
+        elif self.portCommandDict["activity"] == "NONE":
+            pass
+
+        if self.createPyFiles:
+            content = """    qwm_doc.{portName}.Length = {length}
+    qwm_doc.{portName}.Width = {width}
+    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}), Base.Rotation(0.00000,0.00000,0.00000,1.00000))
+    qwm_doc.{portName}.Orientation = "Z"
+    qwm_doc.{portName}.Position = {excitationPointZ}
+    qwm_doc.{portName}.Activity = {activityDirection}
+    qwm_doc.{portName}.Type = {portType}
+    qwm_doc.{portName}.ReferenceOffset = 3.5 * un.mm
+    qwm_doc.{portName}.SymmetryH = False
+    qwm_doc.{portName}.SymmetryV = False
+    qwm_doc.{portName}.PointCoordX = {excitationPointX}
+    qwm_doc.{portName}.PointCoordY = {excitationPointY}
+    qwm_doc.{portName}.PointCoordZ = {excitationPointZ}
+    qwm_doc.{portName}.effectivePermitivityMode = "AUTO"
+    qwm_doc.{portName}.Excitation = QW_Modeller.TemplateExcitation(QW_Modeller.DriveFunction(QW_Modeller.Waveform('delta'),1,0,1,0),'TEM','Ex',1,QW_Modeller.TemplateGenerationConf('Automatic',(10,0.2),(9,11,0.01),1,50,1,0))
+    qwm_doc.{portName}.MultiPointExcitation = QW_Modeller.MultiPointPortExcitation(0,"0.1")
+    qwm_doc.{portName}.Postprocessing = QW_Modeller.PortPostprocessing(0,0,1)
+    """.format(
+            portName = self.portCommandDict["name"],
+            length = length,
+            width = width,
+            excitationPointX = self.portCommandDict["excitationPointX"],
+            excitationPointY = self.portCommandDict["excitationPointY"],
+            excitationPointZ = self.portCommandDict["excitationPointZ"],
+            portType = portType,
+            activityDirection = activityDirection,
+            )
+
+            self.globalData.writeToExcitFile(content)
+
+
+        self.currentCommand["port"] = False
+        self.portCommandDict["currentPoint"] = 1
+
+    def do_getiopar(self, argumentsList):
+        """
+        Does GETIOPAR command from UDO language.
+        """
+        pass
 
 
 class GrammarRulesVisitor(PTNodeVisitor):
@@ -966,15 +1293,14 @@ class GrammarRulesVisitor(PTNodeVisitor):
             print("MultiplicationOrDivision {}.\nMultiplicationOrDivision = {}.".format(node.value.replace("|",""), multiplicationOrDivision))
         return multiplicationOrDivision
 
-    def visit_expression(self, node, children):
+    def visit_simpleExpression(self, node, children):
         """
-        Adds or substracts numbers.
+        Adds or substracts numbers or concatenates strings.
         """
         expression = children[0]
         for i in range(2, len(children), 2):
             if children[i-1] == "-":
                 expression -= children[i]
-            #elif children[i-1] == "+":
             elif children[i-1] == "+" or children[i-1] == "@":
                 expression += children[i]
         if self.interpreter_debug:
@@ -1045,23 +1371,20 @@ class GrammarRulesVisitor(PTNodeVisitor):
             print("BeforeVariableOperator {} = {}.".format(node.value.replace("|",""),self.globalData.variables[node[1].value]))
         return self.globalData.variables[node[1].value][1]
 
-    def visit_logicalOperator(self, node, children):
+    def visit_expression(self, node, children):
         """
-        Does logical operation.
+        Does expression operation.
         """
-        pass
-
-    def visit_logicalExpression(self, node, children):
-        """
-        Does logical expression operation.
-        """
-        result = float(self.logicalOperators.callFunction(stringWithLogicalOperator = children[1], variable1 = children[0], variable2 = children[2]))
-        if result:
-            for i in range(4,len(children),2):
-                result = float(self.logicalOperators.callFunction(stringWithLogicalOperator = children[i-1], variable1 = result, variable2 = children[i]))
-        if self.interpreter_debug:
-            print("LogicalOperator {} = {}.".format(node.value.replace("|",""),result))
-        return result
+        if len(children) == 1:
+            return children[0]
+        else:
+            result = float(self.logicalOperators.callFunction(stringWithLogicalOperator = children[1], variable1 = children[0], variable2 = children[2]))
+            if result:
+                for i in range(4,len(children),2):
+                    result = float(self.logicalOperators.callFunction(stringWithLogicalOperator = children[i-1], variable1 = result, variable2 = children[i]))
+            if self.interpreter_debug:
+                print("LogicalOperator {} = {}.".format(node.value.replace("|",""),result))
+            return result
 
     def visit_string(self, node, children):
         """
@@ -1096,57 +1419,67 @@ class GrammarRulesVisitor(PTNodeVisitor):
         """
         Does while loop operation.
         """
-        logicalContent = node[1].value
-        whileLoopContent = node[3].value
+        logicalContent = self.globalData.udoFileContent[node[1].position : node[1].position_end]
+        whileLoopContent = self.globalData.udoFileContent[node[3].position : node[3].position_end]
         
         grammarRulesVistor = GrammarRulesVisitor(isSpecialParsing = True, udoCommands = self.udoCommands)
         parser = ParserPython(program, debug=False)
 
+        currentUdoFileContent = self.globalData.udoFileContent
+
         while(True):
-            # Get value from logical content
+            self.globalData.udoFileContent = logicalContent
             parse_tree = parser.parse(logicalContent)
             logicalContentResult = visit_parse_tree(parse_tree, grammarRulesVistor)
 
             if not logicalContentResult: 
                 break
 
+            self.globalData.udoFileContent = whileLoopContent
             parse_tree = parser.parse(whileLoopContent)
             whileLoopContentResult = visit_parse_tree(parse_tree, grammarRulesVistor)
 
-
-    def visit_whileLoopContent(self, node, children):
-        """
-        Does nothing when visiting while loop content.
-        """
-        pass
+        self.globalData.udoFileContent = currentUdoFileContent
 
     def visit_ifStatement(self, node, children):
         """
         Does if statement operation.
         """
-        logicalContent = node[1].value
-        ifStatementContent = node[3].value
+        logicalContent = self.globalData.udoFileContent[node[1].position : node[1].position_end]
+        ifStatementContent = self.globalData.udoFileContent[node[3].position : node[3].position_end]
         
         grammarRulesVistor = GrammarRulesVisitor(isSpecialParsing = True, udoCommands = self.udoCommands)
         parser = ParserPython(program, debug=False)
+
+        currentUdoFileContent = self.globalData.udoFileContent
+        self.globalData.udoFileContent = logicalContent
 
         # Get value from logical content
         parse_tree = parser.parse(logicalContent)
         logicalContentResult = visit_parse_tree(parse_tree, grammarRulesVistor)
 
+        self.globalData.udoFileContent = ifStatementContent
         if logicalContentResult:            
             parse_tree = parser.parse(ifStatementContent)
             ifStatementContentResult = visit_parse_tree(parse_tree, grammarRulesVistor)
 
-    def visit_ifStatementContent(self, node, children):
+        self.globalData.udoFileContent = currentUdoFileContent
+
+    def visit_statement(self, node, children):
         """
-        Does nothing when visiting if statement content.
+        Does nothing when visiting statement.
         """
         pass
 
-    def visit_logicalContent(self, node, children):
+    def visit_compoundStatement(self, node, children):
         """
-        Does nothing when visiting logical content.
+        Does nothing when visiting compound statement.
+        """
+        pass
+
+    def visit_header(self, node, children):
+        """
+        Does nothing when visiting header.
         """
         pass
 
@@ -1156,6 +1489,118 @@ class GrammarRulesVisitor(PTNodeVisitor):
         """
         self.udoCommands.addLastLineToFilesIfRequired()
 
+
+    # GRAMMAR RULES THAT OCCUR ONLY IN "if" OR "while" STATEMENTS
+
+    def visit_specialUdoCommand(self, node, children):
+        """
+        Suppress node with UDO command.
+        """
+        return None
+
+    def visit_specialVariable(self, node, children):
+        """
+        Suppress node with variable.
+        """
+        return None
+
+    def visit_specialSubstitutionOperator(self, node, children):
+        """
+        Suppress node with substitution operator.
+        """
+        return None
+
+    def visit_specialFunctions(self, node, children):
+        """
+        Suppress node with functions.
+        """
+        return None
+
+    def visit_specialAfterVariableOperator(self, node, children):
+        """
+        Suppress node with operator that appears on right hand side of variable in substitution operator.
+        """
+        return None
+
+    def visit_specialBeforeVariableOperator(self, node, children):
+        """
+        Suppress node with for operator that appears on left hand side of variable
+        """
+        return None
+
+    def visit_specialMathFunctions(self, node, children):
+        """
+        Suppress node with for mathematical functions.
+        """
+        return None
+
+    def visit_specialNumber(self, node, children):
+        """
+        Suppress node with for number.
+        """
+        return None
+
+    def visit_specialString(self, node, children):
+        """
+        Suppress node with for string.
+        """
+        return None
+
+    def visit_specialWithSign(self, node, children):
+        """
+        Suppress node with sign to expression.
+        """
+        return None
+
+    def visit_specialPower(self, node, children):
+        """
+        Suppress node with exponentiation.
+        """
+        return None
+
+    def visit_specialMultiplicationOrDivision(self, node, children):
+        """
+        Suppress node with multiplication or division.
+        """
+        return None
+
+    def visit_specialSimpleExpression(self, node, children):
+        """
+        Suppress node with simple expression.
+        """
+        return None
+
+    def visit_specialExpression(self, node, children):
+        """
+        Suppress node with expression
+        """
+        return None
+
+    def visit_specialStatement(self, node, children):
+        """
+        Suppress node with UDO statements that should occur in body section.
+        """
+        return None
+
+    def visit_specialCompoundStatement(self, node, children):
+        """
+        Suppress node with compound statement.
+        """
+        return None
+
+    def visit_specialWhileLoop(self, node, children):
+        """
+        Suppress node with while loop.
+        """
+        return None
+
+    def visit_specialIfStatement(self, node, children):
+        """
+        Suppress node with if statement.
+        """
+        return None
+
+
 def doTestParsing(UDO_FileContent, createPyFiles = False):
     """
     Function that does parse UDO from string as a test and returns result to check for corectness.
@@ -1164,7 +1609,8 @@ def doTestParsing(UDO_FileContent, createPyFiles = False):
                             filePath = "",
                             pathToGeneratePyFiles = "",
                             createPyFiles = createPyFiles,
-                            printMessages = False
+                            printMessages = False,
+                            udoFileContent = UDO_FileContent,
                             )
     grammarRulesVistor = GrammarRulesVisitor(interpreter_debug = False, isNestedParsing = False, createPyFiles = createPyFiles)
 
@@ -1210,7 +1656,8 @@ def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGenerat
             globalData = GlobalData(projectName = projectName, 
                                     filePath = UDO_FilePath[:UDO_FilePath.rfind("\\")+1],
                                     pathToGeneratePyFiles = pathToGeneratePyFiles[:pathToGeneratePyFiles.rfind("\\")+1],
-                                    printMessages = printMessages
+                                    printMessages = printMessages,
+                                    udoFileContent = UDO_FileContent,
                                     )
             grammarRulesVistor = GrammarRulesVisitor(interpreter_debug = interpreter_debug, isNestedParsing = False)
 
@@ -1298,7 +1745,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "vtape"
+    udoName = "wgtocx1"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"
