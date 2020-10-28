@@ -14,7 +14,7 @@ setmmBaseGeomUnit()
 
 def set_GeometryAndMedia(qwm_doc):
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_tv')
-    qwm_doc.sketch_tv.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
+    qwm_doc.sketch_tv.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_tv.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,0.0,0), FreeCAD.Vector(3.695518130045147,1.5307337294603591,0)))
     qwm_doc.sketch_tv.addGeometry(Part.LineSegment(FreeCAD.Vector(3.695518130045147,1.5307337294603591,0), FreeCAD.Vector(2.8284271247461903,2.8284271247461903,0)))
     qwm_doc.sketch_tv.addGeometry(Part.LineSegment(FreeCAD.Vector(2.8284271247461903,2.8284271247461903,0), FreeCAD.Vector(1.5307337294603593,3.695518130045147,0)))
@@ -32,7 +32,7 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.sketch_tv.addGeometry(Part.LineSegment(FreeCAD.Vector(2.8284271247461894,-2.8284271247461907,0), FreeCAD.Vector(3.6955181300451474,-1.5307337294603582,0)))
     qwm_doc.sketch_tv.addGeometry(Part.LineSegment(FreeCAD.Vector(3.6955181300451474,-1.5307337294603582,0), FreeCAD.Vector(4.0,0.0,0)))
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_tv1')
-    qwm_doc.sketch_tv1.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
+    qwm_doc.sketch_tv1.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_tv1.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,0.0,0), FreeCAD.Vector(1.8477590650225735,0.7653668647301796,0)))
     qwm_doc.sketch_tv1.addGeometry(Part.LineSegment(FreeCAD.Vector(1.8477590650225735,0.7653668647301796,0), FreeCAD.Vector(1.4142135623730951,1.4142135623730951,0)))
     qwm_doc.sketch_tv1.addGeometry(Part.LineSegment(FreeCAD.Vector(1.4142135623730951,1.4142135623730951,0), FreeCAD.Vector(0.7653668647301797,1.8477590650225735,0)))

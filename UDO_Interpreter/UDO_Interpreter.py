@@ -607,15 +607,6 @@ class UDO_commands:
             "ENDPORT":"do_endport",
             "GETIOPAR":"do_getiopar",
             }
-        self.hasSomethingBeenAddedToFiles = {
-            "circuitFile" : False,
-            "excitFile" : False,
-            "geomMediaFile" : False,
-            "meshFile" : False,
-            "ppostFile" : False,
-            "runsimulFile" : False,
-            "setsimulFile" : False
-            }
 
         # Says which command is analised at the moment
         self.currentCommand = {
@@ -862,25 +853,25 @@ def set_Simulation(qwm_doc):
         """
         Adds 'pass' keyword to files if it is required -> if no content has been added to those files.
         """
-        if (not self.hasSomethingBeenAddedToFiles["circuitFile"]):
+        if (not self.globalData.hasSomethingBeenAddedToFiles["circuitFile"]):
             self.globalData.writeToCircuitFile("    pass\n")
 
-        if (not self.hasSomethingBeenAddedToFiles["excitFile"]):
+        if (not self.globalData.hasSomethingBeenAddedToFiles["excitFile"]):
             self.globalData.writeToExcitFile("    pass\n")
 
-        if (not self.hasSomethingBeenAddedToFiles["geomMediaFile"]):
+        if (not self.globalData.hasSomethingBeenAddedToFiles["geomMediaFile"]):
             self.globalData.writeToGeomMediaFile("    pass\n")
 
-        if (not self.hasSomethingBeenAddedToFiles["meshFile"]):
+        if (not self.globalData.hasSomethingBeenAddedToFiles["meshFile"]):
             self.globalData.writeToMeshFile("    pass\n")
 
-        if (not self.hasSomethingBeenAddedToFiles["ppostFile"]):
+        if (not self.globalData.hasSomethingBeenAddedToFiles["ppostFile"]):
             self.globalData.writeToPpostFile("    pass\n")
 
-        if (not self.hasSomethingBeenAddedToFiles["runsimulFile"]):
+        if (not self.globalData.hasSomethingBeenAddedToFiles["runsimulFile"]):
             self.globalData.writeToRunsimulFile("    pass\n")
 
-        if (not self.hasSomethingBeenAddedToFiles["setsimulFile"]):
+        if (not self.globalData.hasSomethingBeenAddedToFiles["setsimulFile"]):
             self.globalData.writeToSetsimulFile("    pass\n")
 
     def callFunction(self,stringWithUdoCommand,argumentsList):
@@ -902,7 +893,7 @@ def set_Simulation(qwm_doc):
         """
         Does ELEMENT command from UDO language.
         """
-        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
+        self.globalData.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
         self.currentCommand["element"] = True
 
         self.elementCommandLevel = argumentsList[0]
@@ -924,7 +915,7 @@ def set_Simulation(qwm_doc):
         
         if self.createPyFiles:
             content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
-    qwm_doc.sketch_{name}.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,{level}),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
+    qwm_doc.sketch_{name}.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,{level}),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
 """.format(name = self.elementCommandName, level = self.elementCommandLevel)
         
             self.globalData.writeToGeomMediaFile(content)
@@ -933,7 +924,7 @@ def set_Simulation(qwm_doc):
         """
         Does ENDELEM command from UDO language.
         """
-        self.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
+        self.globalData.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
         content = ""
 
         if self.elementCommandType == 0 or self.elementCommandType == 10:
@@ -1132,7 +1123,7 @@ def set_Simulation(qwm_doc):
         """
         Does PORT command from UDO language.
         """
-        self.hasSomethingBeenAddedToFiles["excitFile"] = True
+        self.globalData.hasSomethingBeenAddedToFiles["excitFile"] = True
         self.currentCommand["port"] = True
 
         self.portCommandDict["level"] = argumentsList[0]
@@ -1142,11 +1133,11 @@ def set_Simulation(qwm_doc):
         self.portCommandDict["name"] = argumentsList[4]
         self.portCommandDict["reference"] = argumentsList[5]
 
-        content = """    QW_Modeller.addQWObject("QW_Modeller::TemplatePort","{portName}")
-        """.format(portName = self.portCommandDict["name"])
-
-        if self.createPyFiles:
-            self.globalData.writeToExcitFile(content)
+        if self.portCommandDict["type"] != "REFERENCE":
+            content = """    QW_Modeller.addQWObject("QW_Modeller::TemplatePort","{portName}")\n""".format(portName = self.portCommandDict["name"])
+            
+            if self.createPyFiles:
+                self.globalData.writeToExcitFile(content)
 
     def do_endport(self, argumentsList):
         """
@@ -1156,40 +1147,67 @@ def set_Simulation(qwm_doc):
         width = None
         excitationPointZ = None
         portType = None
-        activityDirection = None
+        activity = None
+        orientation = None
+        position = None
+        rotation = None
 
         if self.portCommandDict["height"] == 0:
-            length = abs(self.portCommandDict["x1"] - self.portCommandDict["x2"])
-            width = abs(self.portCommandDict["y1"] - self.portCommandDict["y2"])
+            length = abs(self.portCommandDict["y1"] - self.portCommandDict["y3"])
+            width = abs(self.portCommandDict["x1"] - self.portCommandDict["x2"])
             excitationPointZ = self.portCommandDict["level"]
+            orientation = "Z"
+            position = excitationPointZ
+            rotation = "0.0, 0.0, 0.0, 1.0"
         else: 
-            length = self.portCommandDict["height"]
-            width = abs(self.portCommandDict["y1"] - self.portCommandDict["y2"])            
+            length = abs(self.portCommandDict["y1"] - self.portCommandDict["y2"])  
+            width = self.portCommandDict["height"]          
             excitationPointZ = self.portCommandDict["level"] + self.portCommandDict["height"]/2
+            orientation = "X"
+            position = self.portCommandDict["excitationPointX"]
+            rotation = "0.5, 0.5, 0.5, 0.5"
 
         self.portCommandDict["excitationPointZ"] = excitationPointZ
 
-        if self.portCommandDict["type"] == "INPTEMPLATE":
-            portType = "Source"
-        elif self.portCommandDict["type"] == "OUTTEMPLATE":
+        if self.portCommandDict["type"] == "OUTTEMPLATE":
             portType = "Load"
+        else:
+            portType = "Source"
+        #if self.portCommandDict["type"] == "INPTEMPLATE":
+        #    portType = "Source"
 
         if self.portCommandDict["activity"] == "UP":
-            activityDirection = "PLUS"
-        elif self.portCommandDict["activity"] == "DOWN":
-            activityDirection = "MINUS"
-        elif self.portCommandDict["activity"] == "NONE":
-            pass
+            activity = "PLUS"
+        else:
+            activity = "MINUS"
+        #elif self.portCommandDict["activity"] == "DOWN":
+        #    activitydirection = "MINUS"
+        #elif self.portCommandDict["activity"] == "NONE":
+        #    pass
 
         if self.createPyFiles:
-            content = """    qwm_doc.{portName}.Length = {length}
+            content = ""
+
+            if self.portCommandDict["type"] == "REFERENCE":
+                referenceValue = 0.0
+                if orientation == "X":
+                    referenceValue = self.portCommandDict["excitationPointX"]
+                elif orientation == "Z":
+                    referenceValue = self.portCommandDict["excitationPointZ"]
+
+                content = """    qwm_doc.{portName}.ReferenceOffset = abs(qwm_doc.{portName}.PointCoord{orientation} - {referenceValue})\n""".format(
+                    portName = self.portCommandDict["reference"],
+                    orientation = orientation,
+                    referenceValue = referenceValue)
+
+            else:
+                content = """    qwm_doc.{portName}.Length = {length}
     qwm_doc.{portName}.Width = {width}
-    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}), Base.Rotation(0.00000,0.00000,0.00000,1.00000))
-    qwm_doc.{portName}.Orientation = "Z"
-    qwm_doc.{portName}.Position = {excitationPointZ}
-    qwm_doc.{portName}.Activity = {activityDirection}
-    qwm_doc.{portName}.Type = {portType}
-    qwm_doc.{portName}.ReferenceOffset = 3.5 * un.mm
+    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}), Base.Rotation({rotation}))
+    qwm_doc.{portName}.Orientation = "{orientation}"
+    qwm_doc.{portName}.Position = {position}
+    qwm_doc.{portName}.Activity = "{activity}"
+    qwm_doc.{portName}.Type = "{portType}"
     qwm_doc.{portName}.SymmetryH = False
     qwm_doc.{portName}.SymmetryV = False
     qwm_doc.{portName}.PointCoordX = {excitationPointX}
@@ -1198,17 +1216,19 @@ def set_Simulation(qwm_doc):
     qwm_doc.{portName}.effectivePermitivityMode = "AUTO"
     qwm_doc.{portName}.Excitation = QW_Modeller.TemplateExcitation(QW_Modeller.DriveFunction(QW_Modeller.Waveform('delta'),1,0,1,0),'TEM','Ex',1,QW_Modeller.TemplateGenerationConf('Automatic',(10,0.2),(9,11,0.01),1,50,1,0))
     qwm_doc.{portName}.MultiPointExcitation = QW_Modeller.MultiPointPortExcitation(0,"0.1")
-    qwm_doc.{portName}.Postprocessing = QW_Modeller.PortPostprocessing(0,0,1)
-    """.format(
-            portName = self.portCommandDict["name"],
-            length = length,
-            width = width,
-            excitationPointX = self.portCommandDict["excitationPointX"],
-            excitationPointY = self.portCommandDict["excitationPointY"],
-            excitationPointZ = self.portCommandDict["excitationPointZ"],
-            portType = portType,
-            activityDirection = activityDirection,
-            )
+    qwm_doc.{portName}.Postprocessing = QW_Modeller.PortPostprocessing(0,0,1)\n""".format(
+                portName = self.portCommandDict["name"],
+                length = length,
+                width = width,
+                excitationPointX = self.portCommandDict["excitationPointX"],
+                excitationPointY = self.portCommandDict["excitationPointY"],
+                excitationPointZ = self.portCommandDict["excitationPointZ"],
+                portType = portType,
+                activity = activity,
+                orientation = orientation,
+                position = position,
+                rotation = rotation,
+                )
 
             self.globalData.writeToExcitFile(content)
 
@@ -1663,18 +1683,18 @@ def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGenerat
 
             parser = ParserPython(program, debug=debug)
             parse_tree = parser.parse(UDO_FileContent)
+
+            if showDotFile:
+                parseTreeVisualizationFileName = pathToGeneratePyFiles + globalData._singleton.projectName + "_ParseTreeVisualization.dot"
+                PTDOTExporter().exportFile(parse_tree, parseTreeVisualizationFileName)    
+                s = Source.from_file(parseTreeVisualizationFileName)
+                s.view()
             
             try:
                 result = visit_parse_tree(parse_tree, grammarRulesVistor)
 
                 if printMessages:
                     print("result = {result}\n\n".format(result = result))
-
-                if showDotFile:
-                    parseTreeVisualizationFileName = pathToGeneratePyFiles + globalData._singleton.projectName + "_ParseTreeVisualization.dot"
-                    PTDOTExporter().exportFile(parse_tree, parseTreeVisualizationFileName)    
-                    s = Source.from_file(parseTreeVisualizationFileName)
-                    s.view()
 
                 grammarRulesVistor.addLastLineToFilesIfRequired()
                 if printMessages:
@@ -1701,7 +1721,7 @@ def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_d
     Does nested parsing (when UDO command 'CALL' is executed). 
     """
     if printMessages:
-        print("Nested UDO Interpreter\n")
+        print("Nested UDO Interpreter -> {0}".format(UDO_FilePath))
     
     try:
         UDO_File = open(UDO_FilePath)
@@ -1712,6 +1732,10 @@ def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_d
     else:
         UDO_FileContent = UDO_File.read()
         globalData = GlobalData()
+
+        previousFileContent = globalData.udoFileContent
+        globalData.udoFileContent = UDO_FileContent
+
         variableStorage = globalData._singleton.variables
         globalData._singleton.variables = {
                                 "x":["", nestedParameters[-3]],
@@ -1739,7 +1763,9 @@ def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_d
 
         UDO_File.close()   
 
+    globalData.udoFileContent = previousFileContent
     globalData._singleton.variables = variableStorage
+
             
 def main():
     """

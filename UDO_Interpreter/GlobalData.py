@@ -63,6 +63,17 @@ class GlobalData:
                                 "NONE":["", "NONE"],
                                 "NULL":["", "NULL"],
                                 } 
+
+            cls.hasSomethingBeenAddedToFiles = {
+                "circuitFile" : False,
+                "excitFile" : False,
+                "geomMediaFile" : False,
+                "meshFile" : False,
+                "ppostFile" : False,
+                "runsimulFile" : False,
+                "setsimulFile" : False
+                }
+
             if re.fullmatch("[a-zA-Z]{1}[a-zA-Z0-9_]*", kwargs["projectName"]): cls._singleton.projectName = kwargs["projectName"]
             else: cls._singleton.projectName = "project"
 

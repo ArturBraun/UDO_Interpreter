@@ -14,7 +14,7 @@ setmmBaseGeomUnit()
 
 def set_GeometryAndMedia(qwm_doc):
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_cubic')
-    qwm_doc.sketch_cubic.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
+    qwm_doc.sketch_cubic.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_cubic.addGeometry(Part.LineSegment(FreeCAD.Vector(-5.0,-5.0,0), FreeCAD.Vector(5.0,-5.0,0)))
     qwm_doc.sketch_cubic.addGeometry(Part.LineSegment(FreeCAD.Vector(5.0,-5.0,0), FreeCAD.Vector(5.0,5.0,0)))
     qwm_doc.sketch_cubic.addGeometry(Part.LineSegment(FreeCAD.Vector(5.0,5.0,0), FreeCAD.Vector(-5.0,5.0,0)))

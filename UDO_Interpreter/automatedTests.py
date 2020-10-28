@@ -103,6 +103,10 @@ class TestsUdoInterpreter(unittest.TestCase):
         result = testGeneratedFiles("vtape")
         self.assertEqual(result, True)
 
+    def test_vtape(self):
+        result = testGeneratedFiles("wgtocx1")
+        self.assertEqual(result, True)
+
     # UDO language unit tests
 
     def test1(self):

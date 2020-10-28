@@ -14,7 +14,7 @@ setmmBaseGeomUnit()
 
 def set_GeometryAndMedia(qwm_doc):
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_angpc')
-    qwm_doc.sketch_angpc.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
+    qwm_doc.sketch_angpc.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_angpc.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,0.0,0), FreeCAD.Vector(4.0,0.0,0)))
     qwm_doc.sketch_angpc.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,0.0,0), FreeCAD.Vector(3.939231012048832,0.6945927106677213,0)))
     qwm_doc.sketch_angpc.addGeometry(Part.LineSegment(FreeCAD.Vector(3.939231012048832,0.6945927106677213,0), FreeCAD.Vector(3.7587704831436337,1.3680805733026749,0)))
@@ -36,7 +36,7 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.sketch_angpc.addGeometry(Part.LineSegment(FreeCAD.Vector(1.8793852415718169,0.6840402866513374,0), FreeCAD.Vector(1.969615506024416,0.34729635533386066,0)))
     qwm_doc.sketch_angpc.addGeometry(Part.LineSegment(FreeCAD.Vector(1.969615506024416,0.34729635533386066,0), FreeCAD.Vector(2.0,0.0,0)))
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_angpc1')
-    qwm_doc.sketch_angpc1.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.5,0.0,0.0,0.0))
+    qwm_doc.sketch_angpc1.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_angpc1.addGeometry(Part.LineSegment(FreeCAD.Vector(3.0,0.0,0), FreeCAD.Vector(5.0,0.0,0)))
     qwm_doc.sketch_angpc1.addGeometry(Part.LineSegment(FreeCAD.Vector(5.0,0.0,0), FreeCAD.Vector(4.92403876506104,0.8682408883346516,0)))
     qwm_doc.sketch_angpc1.addGeometry(Part.LineSegment(FreeCAD.Vector(4.92403876506104,0.8682408883346516,0), FreeCAD.Vector(4.698463103929543,1.7101007166283435,0)))
