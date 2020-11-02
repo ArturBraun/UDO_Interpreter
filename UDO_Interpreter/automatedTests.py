@@ -99,6 +99,14 @@ class TestsUdoInterpreter(unittest.TestCase):
         result = testGeneratedFiles("cyvr")
         self.assertEqual(result, True)
 
+    def test_horn1(self):
+        result = testGeneratedFiles("horn1")
+        self.assertEqual(result, True)
+
+    def test_patch2(self):
+        result = testGeneratedFiles("patch2")
+        self.assertEqual(result, True)
+
     def test_tv(self):
         result = testGeneratedFiles("tv")
         self.assertEqual(result, True)

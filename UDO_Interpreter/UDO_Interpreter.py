@@ -1194,7 +1194,9 @@ def set_Simulation(qwm_doc):
         #elif self.portCommandDict["activity"] == "NONE":
         #    pass
 
-        if self.createPyFiles:
+        isSpecialWithZeroHeight = not (self.portCommandDict["type"] == "SPECIAL" and self.portCommandDict["height"] == 0)
+
+        if self.createPyFiles and isSpecialWithZeroHeight:
             content = ""
 
             if self.portCommandDict["type"] == "REFERENCE":
@@ -1889,7 +1891,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "man8_kawalek"
+    udoName = "cube"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"
