@@ -83,6 +83,10 @@ class TestsUdoInterpreter(unittest.TestCase):
         result = testGeneratedFiles("cubeNested")
         self.assertEqual(result, True)
 
+    def test_cubeNNN(self):
+        result = testGeneratedFiles("cubeNNN")
+        self.assertEqual(result, True)
+
     def test_cylinder(self):
         result = testGeneratedFiles("cylinder")
         self.assertEqual(result, True)

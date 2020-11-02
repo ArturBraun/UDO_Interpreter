@@ -64,6 +64,8 @@ class GlobalData:
                                 "NULL":["", "NULL"],
                                 } 
 
+            cls.numberForEqualElementsNames = 0
+
             cls.hasSomethingBeenAddedToFiles = {
                 "circuitFile" : False,
                 "excitFile" : False,

@@ -78,7 +78,10 @@ def UDO_command():
         "CLOSEOBJ",
         "PORT",
         "ENDPORT",
-        "GETIOPAR"
+        "GETIOPAR",
+        "INSERTMEDIUM",        
+        "MEDIUMPAR",        
+        "MEDIUMCOL",        
     ], Optional("("),  ZeroOrMore(expression,","), Optional(expression), Optional(")"), ";"
 
 def variable():
@@ -224,7 +227,10 @@ def specialUdoCommand():
         "CLOSEOBJ",
         "PORT",
         "ENDPORT",
-        "GETIOPAR"
+        "GETIOPAR",
+        "INSERTMEDIUM",        
+        "MEDIUMPAR",        
+        "MEDIUMCOL",    
         ], Optional("("),  ZeroOrMore(specialExpression,","), Optional(specialExpression), Optional(")"), ";"
 
 def specialVariable():
@@ -606,6 +612,9 @@ class UDO_commands:
             "PORT":"do_port",
             "ENDPORT":"do_endport",
             "GETIOPAR":"do_getiopar",
+            "INSERTMEDIUM":"do_insertmedium",
+            "MEDIUMPAR":"do_mediumpar",
+            "MEDIUMCOL":"do_mediumcol",    
             }
 
         # Says which command is analised at the moment
@@ -905,7 +914,8 @@ def set_Simulation(qwm_doc):
 
         while True:
             if self.elementCommandName in self.globalData._singleton.objectsNames:
-                self.elementCommandName += "1"
+                self.globalData.numberForEqualElementsNames += 1
+                self.elementCommandName += str(self.globalData.numberForEqualElementsNames)
             else: 
                 break
         self.globalData._singleton.objectsNames.append(self.elementCommandName)
@@ -924,7 +934,6 @@ def set_Simulation(qwm_doc):
         """
         Does ENDELEM command from UDO language.
         """
-        self.globalData.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
         content = ""
 
         if self.elementCommandType == 0 or self.elementCommandType == 10:
@@ -1240,7 +1249,116 @@ def set_Simulation(qwm_doc):
         """
         Does GETIOPAR command from UDO language.
         """
-        pass
+        pass  
+
+    def do_insertmedium(self, argumentsList):
+        """
+        Does INSERTMEDIUM command from UDO language.
+        """
+        self.globalData.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
+
+        if self.createPyFiles:
+            mediumName = argumentsList[0]
+            mediumType = argumentsList[1]
+
+            mediumType = mediumType[0].upper() + mediumType[1:].lower() #first letter should stay uppercase, rest lowercase
+ 
+            content = """    {mediumName} = QW_Modeller.addQWMedium("{mediumName}")
+    {mediumName}.materialtype = "{mediumType}"\n""".format(
+                mediumName = mediumName,
+                mediumType = mediumType)
+
+            self.globalData.writeToGeomMediaFile(content)
+
+    def do_mediumpar(self, argumentsList):
+        """
+        Does MEDIUMPAR command from UDO language.
+        """
+        # MEDIUMPAR (<mediumname>, <epsx>, <mux>, <sigx>, <msigx>, <epsy>, <muy>, <sigy>, <msigy>, 
+        #           <epsz>, <muz>, <sigz>, <msigz>, <density>) 
+
+        if self.createPyFiles:
+
+            mediumName = argumentsList[0]
+            epsx    = argumentsList[1]
+            mux     = argumentsList[2]
+            sigx    = argumentsList[3]
+            msigx   = argumentsList[4]
+            epsy    = argumentsList[5]
+            muy     = argumentsList[6]
+            sigy    = argumentsList[7]
+            msigy   = argumentsList[8]
+            epsz    = argumentsList[9]
+            muz     = argumentsList[10]
+            sigz    = argumentsList[11]
+            msigz   = argumentsList[12]
+            density = argumentsList[13]
+
+            content = """    {mediumName}.Eps = [{epsx}, {epsy}, {epsz}]
+    {mediumName}.Mu = [{mux}, {muy}, {muz}]
+    {mediumName}.Sigma = [{sigx}, {sigy}, {sigz}]
+    {mediumName}.SigmaM = [{msigx}, {msigy}, {msigz}]
+    {mediumName}.density = {density}\n""".format(
+                mediumName = mediumName,
+                epsx    = epsx,
+                mux     = mux,
+                sigx    = sigx,
+                msigx   = msigx,
+                epsy    = epsy,
+                muy     = muy,
+                sigy    = sigy,
+                msigy   = msigy,
+                epsz    = epsz,
+                muz     = muz,
+                sigz    = sigz,
+                msigz   = msigz,
+                density = density)
+            
+            self.globalData.writeToGeomMediaFile(content)
+
+    def do_mediumcol(self, argumentsList):
+        """
+        Does MEDIUMCOL command from UDO language.
+        """
+        # MEDIUMCOL (<mediumname>, <pen_R>, <pen_G>, <pen_B>, <pen_style>, <pen_width>, <brush_pen_R>, 
+        #       <brush_pen_G>, <brush_pen_B>, <brush_bkg_R>, <brush_bkg_G>, <brush_bkg_B>, <brush_style>) 
+
+        if self.createPyFiles:
+            mediumName      = argumentsList[0]
+            pen_R           = argumentsList[1] / 255
+            pen_G           = argumentsList[2] / 255
+            pen_B           = argumentsList[3] / 255
+            pen_style       = int(argumentsList[4])
+            pen_width       = int(argumentsList[5])
+            brush_pen_R     = argumentsList[6] / 255
+            brush_pen_G     = argumentsList[7] / 255
+            brush_pen_B     = argumentsList[8] / 255
+            brush_bkg_R     = argumentsList[9] / 255
+            brush_bkg_G     = argumentsList[10] / 255
+            brush_bkg_B     = argumentsList[11] / 255
+            brush_style     = int(argumentsList[12])
+
+            content = """    {mediumName}.mcolor_PENPARAMS = ({pen_R},{pen_G},{pen_B},0.0)
+    {mediumName}.mstyle_PENPARAMS = {pen_style}
+    {mediumName}.mwidth_PENPARAMS = {pen_width}
+    {mediumName}.mpencolor_BRUSHPARAMS = ({brush_pen_R},{brush_pen_G},{brush_pen_B},0.0)
+    {mediumName}.mbkcolor_BRUSHPARAMS = ({brush_bkg_R},{brush_bkg_G},{brush_bkg_B},0.0)
+    {mediumName}.mstyle_BRUSHPARAMS = {brush_style}\n""".format(
+                mediumName      = mediumName,
+                pen_R           = pen_R,
+                pen_G           = pen_G,
+                pen_B           = pen_B,
+                pen_style       = pen_style,
+                pen_width       = pen_width,
+                brush_pen_R     = brush_pen_R,
+                brush_pen_G     = brush_pen_G,
+                brush_pen_B     = brush_pen_B,
+                brush_bkg_R     = brush_bkg_R,
+                brush_bkg_G     = brush_bkg_G,
+                brush_bkg_B     = brush_bkg_B,
+                brush_style     = brush_style)
+        
+            self.globalData.writeToGeomMediaFile(content)
 
 
 class GrammarRulesVisitor(PTNodeVisitor):
@@ -1771,7 +1889,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "wgtocx1"
+    udoName = "man8_kawalek"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"
