@@ -1563,7 +1563,7 @@ class GrammarRulesVisitor(PTNodeVisitor):
         whileLoopContent = self.globalData.udoFileContent[node[3].position : node[3].position_end]
         
         grammarRulesVistor = GrammarRulesVisitor(isSpecialParsing = True, udoCommands = self.udoCommands)
-        parser = ParserPython(program, debug=False)
+        parser = ParserPython(program, debug=False, reduce_tree=True)
 
         currentUdoFileContent = self.globalData.udoFileContent
 
@@ -1589,7 +1589,7 @@ class GrammarRulesVisitor(PTNodeVisitor):
         ifStatementContent = self.globalData.udoFileContent[node[3].position : node[3].position_end]
         
         grammarRulesVistor = GrammarRulesVisitor(isSpecialParsing = True, udoCommands = self.udoCommands)
-        parser = ParserPython(program, debug=False)
+        parser = ParserPython(program, debug=False, reduce_tree=True)
 
         currentUdoFileContent = self.globalData.udoFileContent
         self.globalData.udoFileContent = logicalContent
@@ -1754,7 +1754,7 @@ def doTestParsing(UDO_FileContent, createPyFiles = False):
                             )
     grammarRulesVistor = GrammarRulesVisitor(interpreter_debug = False, isNestedParsing = False, createPyFiles = createPyFiles)
 
-    parser = ParserPython(program, debug=False)
+    parser = ParserPython(program, debug=False, reduce_tree=True)
     parse_tree = parser.parse(UDO_FileContent)
             
     result = None
@@ -1801,7 +1801,7 @@ def doParsing(debug, interpreter_debug, showDotFile, UDO_FilePath, pathToGenerat
                                     )
             grammarRulesVistor = GrammarRulesVisitor(interpreter_debug = interpreter_debug, isNestedParsing = False)
 
-            parser = ParserPython(program, debug=debug)
+            parser = ParserPython(program, debug=debug, reduce_tree=True)
             parse_tree = parser.parse(UDO_FileContent)
 
             if showDotFile:
@@ -1865,7 +1865,7 @@ def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_d
                                 } 
         grammarRulesVistor = GrammarRulesVisitor(interpreter_debug = interpreter_debug, isNestedParsing = True, nestedParameters = nestedParameters)
 
-        parser = ParserPython(program, debug=debug)
+        parser = ParserPython(program, debug=debug, reduce_tree=True)
         parse_tree = parser.parse(UDO_FileContent)
            
         try:
@@ -1891,7 +1891,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "cube"
+    udoName = "man8_kawalek"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"
