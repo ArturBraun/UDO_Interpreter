@@ -33,5 +33,3 @@ def set_GeometryAndMedia(qwm_doc):
     vtape1_viewObject = qwm_doc.vtape1.ViewObject
     vtape1_viewObject.Transparency = 60
     qwm_doc.vtape1.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
-    

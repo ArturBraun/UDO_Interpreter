@@ -394,7 +394,6 @@ def set_GeometryAndMedia(qwm_doc):
     base_viewObject = qwm_doc.base.ViewObject
     base_viewObject.Transparency = 60
     qwm_doc.base.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_diel')
     qwm_doc.sketch_diel.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_diel.addGeometry(Part.LineSegment(FreeCAD.Vector(25.0,0.0,0), FreeCAD.Vector(24.996192378909782,0.4363101609320878,0)))
@@ -763,7 +762,6 @@ def set_GeometryAndMedia(qwm_doc):
     diel_viewObject = qwm_doc.diel.ViewObject
     diel_viewObject.Transparency = 60
     qwm_doc.diel.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_patch')
     qwm_doc.sketch_patch.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_patch.addGeometry(Part.LineSegment(FreeCAD.Vector(10.5,0.0,0), FreeCAD.Vector(10.498400799142109,0.18325026759147686,0)))
@@ -1132,4 +1130,3 @@ def set_GeometryAndMedia(qwm_doc):
     patch_viewObject = qwm_doc.patch.ViewObject
     patch_viewObject.Transparency = 60
     qwm_doc.patch.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.recompute()

@@ -32,7 +32,6 @@ def set_GeometryAndMedia(qwm_doc):
     wgu_viewObject = qwm_doc.wgu.ViewObject
     wgu_viewObject.Transparency = 60
     qwm_doc.wgu.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn')
     qwm_doc.sketch_horn.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.0,-4.5,0), FreeCAD.Vector(7.0,-4.5,0)))
@@ -65,5 +64,3 @@ def set_GeometryAndMedia(qwm_doc):
     horn1_viewObject = qwm_doc.horn1.ViewObject
     horn1_viewObject.Transparency = 60
     qwm_doc.horn1.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.recompute()
-    

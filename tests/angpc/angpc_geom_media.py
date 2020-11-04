@@ -65,5 +65,3 @@ def set_GeometryAndMedia(qwm_doc):
     angpc1_viewObject = qwm_doc.angpc1.ViewObject
     angpc1_viewObject.Transparency = 60
     qwm_doc.angpc1.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.recompute()
-    

@@ -26,7 +26,6 @@ def set_GeometryAndMedia(qwm_doc):
     cubic_viewObject = qwm_doc.cubic.ViewObject
     cubic_viewObject.Transparency = 60
     qwm_doc.cubic.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_cubic1')
     qwm_doc.sketch_cubic1.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,15.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_cubic1.addGeometry(Part.LineSegment(FreeCAD.Vector(10.0,10.0,0), FreeCAD.Vector(20.0,10.0,0)))
@@ -40,4 +39,3 @@ def set_GeometryAndMedia(qwm_doc):
     cubic1_viewObject = qwm_doc.cubic1.ViewObject
     cubic1_viewObject.Transparency = 60
     qwm_doc.cubic1.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()

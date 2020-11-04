@@ -26,7 +26,6 @@ def set_GeometryAndMedia(qwm_doc):
     p_viewObject = qwm_doc.p.ViewObject
     p_viewObject.Transparency = 60
     qwm_doc.p.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p1')
     qwm_doc.sketch_p1.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p1.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,0.0,0), FreeCAD.Vector(4.0,0.0,0)))
@@ -40,7 +39,6 @@ def set_GeometryAndMedia(qwm_doc):
     p1_viewObject = qwm_doc.p1.ViewObject
     p1_viewObject.Transparency = 60
     qwm_doc.p1.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p2')
     qwm_doc.sketch_p2.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p2.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,0.0,0), FreeCAD.Vector(6.0,0.0,0)))
@@ -54,7 +52,6 @@ def set_GeometryAndMedia(qwm_doc):
     p2_viewObject = qwm_doc.p2.ViewObject
     p2_viewObject.Transparency = 60
     qwm_doc.p2.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p3')
     qwm_doc.sketch_p3.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p3.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,0.0,0), FreeCAD.Vector(8.0,0.0,0)))
@@ -68,7 +65,6 @@ def set_GeometryAndMedia(qwm_doc):
     p3_viewObject = qwm_doc.p3.ViewObject
     p3_viewObject.Transparency = 60
     qwm_doc.p3.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p4')
     qwm_doc.sketch_p4.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p4.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,2.0,0), FreeCAD.Vector(2.0,2.0,0)))
@@ -82,7 +78,6 @@ def set_GeometryAndMedia(qwm_doc):
     p4_viewObject = qwm_doc.p4.ViewObject
     p4_viewObject.Transparency = 60
     qwm_doc.p4.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p5')
     qwm_doc.sketch_p5.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p5.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,2.0,0), FreeCAD.Vector(4.0,2.0,0)))
@@ -96,7 +91,6 @@ def set_GeometryAndMedia(qwm_doc):
     p5_viewObject = qwm_doc.p5.ViewObject
     p5_viewObject.Transparency = 60
     qwm_doc.p5.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p6')
     qwm_doc.sketch_p6.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p6.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,2.0,0), FreeCAD.Vector(6.0,2.0,0)))
@@ -110,7 +104,6 @@ def set_GeometryAndMedia(qwm_doc):
     p6_viewObject = qwm_doc.p6.ViewObject
     p6_viewObject.Transparency = 60
     qwm_doc.p6.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p7')
     qwm_doc.sketch_p7.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p7.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,2.0,0), FreeCAD.Vector(8.0,2.0,0)))
@@ -124,7 +117,6 @@ def set_GeometryAndMedia(qwm_doc):
     p7_viewObject = qwm_doc.p7.ViewObject
     p7_viewObject.Transparency = 60
     qwm_doc.p7.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p8')
     qwm_doc.sketch_p8.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p8.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.0,0), FreeCAD.Vector(2.0,4.0,0)))
@@ -138,7 +130,6 @@ def set_GeometryAndMedia(qwm_doc):
     p8_viewObject = qwm_doc.p8.ViewObject
     p8_viewObject.Transparency = 60
     qwm_doc.p8.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p9')
     qwm_doc.sketch_p9.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p9.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,4.0,0), FreeCAD.Vector(4.0,4.0,0)))
@@ -152,7 +143,6 @@ def set_GeometryAndMedia(qwm_doc):
     p9_viewObject = qwm_doc.p9.ViewObject
     p9_viewObject.Transparency = 60
     qwm_doc.p9.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p10')
     qwm_doc.sketch_p10.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p10.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,4.0,0), FreeCAD.Vector(6.0,4.0,0)))
@@ -166,7 +156,6 @@ def set_GeometryAndMedia(qwm_doc):
     p10_viewObject = qwm_doc.p10.ViewObject
     p10_viewObject.Transparency = 60
     qwm_doc.p10.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p11')
     qwm_doc.sketch_p11.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p11.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,4.0,0), FreeCAD.Vector(8.0,4.0,0)))
@@ -180,7 +169,6 @@ def set_GeometryAndMedia(qwm_doc):
     p11_viewObject = qwm_doc.p11.ViewObject
     p11_viewObject.Transparency = 60
     qwm_doc.p11.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p12')
     qwm_doc.sketch_p12.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p12.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,6.0,0), FreeCAD.Vector(2.0,6.0,0)))
@@ -194,7 +182,6 @@ def set_GeometryAndMedia(qwm_doc):
     p12_viewObject = qwm_doc.p12.ViewObject
     p12_viewObject.Transparency = 60
     qwm_doc.p12.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p13')
     qwm_doc.sketch_p13.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p13.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,6.0,0), FreeCAD.Vector(4.0,6.0,0)))
@@ -208,7 +195,6 @@ def set_GeometryAndMedia(qwm_doc):
     p13_viewObject = qwm_doc.p13.ViewObject
     p13_viewObject.Transparency = 60
     qwm_doc.p13.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p14')
     qwm_doc.sketch_p14.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p14.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,6.0,0), FreeCAD.Vector(6.0,6.0,0)))
@@ -222,7 +208,6 @@ def set_GeometryAndMedia(qwm_doc):
     p14_viewObject = qwm_doc.p14.ViewObject
     p14_viewObject.Transparency = 60
     qwm_doc.p14.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p15')
     qwm_doc.sketch_p15.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p15.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,6.0,0), FreeCAD.Vector(8.0,6.0,0)))
@@ -236,7 +221,6 @@ def set_GeometryAndMedia(qwm_doc):
     p15_viewObject = qwm_doc.p15.ViewObject
     p15_viewObject.Transparency = 60
     qwm_doc.p15.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p16')
     qwm_doc.sketch_p16.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p16.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,0.0,0), FreeCAD.Vector(2.0,0.0,0)))
@@ -250,7 +234,6 @@ def set_GeometryAndMedia(qwm_doc):
     p16_viewObject = qwm_doc.p16.ViewObject
     p16_viewObject.Transparency = 60
     qwm_doc.p16.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p17')
     qwm_doc.sketch_p17.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p17.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,0.0,0), FreeCAD.Vector(4.0,0.0,0)))
@@ -264,7 +247,6 @@ def set_GeometryAndMedia(qwm_doc):
     p17_viewObject = qwm_doc.p17.ViewObject
     p17_viewObject.Transparency = 60
     qwm_doc.p17.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p18')
     qwm_doc.sketch_p18.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p18.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,0.0,0), FreeCAD.Vector(6.0,0.0,0)))
@@ -278,7 +260,6 @@ def set_GeometryAndMedia(qwm_doc):
     p18_viewObject = qwm_doc.p18.ViewObject
     p18_viewObject.Transparency = 60
     qwm_doc.p18.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p19')
     qwm_doc.sketch_p19.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p19.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,0.0,0), FreeCAD.Vector(8.0,0.0,0)))
@@ -292,7 +273,6 @@ def set_GeometryAndMedia(qwm_doc):
     p19_viewObject = qwm_doc.p19.ViewObject
     p19_viewObject.Transparency = 60
     qwm_doc.p19.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p20')
     qwm_doc.sketch_p20.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p20.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,2.0,0), FreeCAD.Vector(2.0,2.0,0)))
@@ -306,7 +286,6 @@ def set_GeometryAndMedia(qwm_doc):
     p20_viewObject = qwm_doc.p20.ViewObject
     p20_viewObject.Transparency = 60
     qwm_doc.p20.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p21')
     qwm_doc.sketch_p21.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p21.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,2.0,0), FreeCAD.Vector(4.0,2.0,0)))
@@ -320,7 +299,6 @@ def set_GeometryAndMedia(qwm_doc):
     p21_viewObject = qwm_doc.p21.ViewObject
     p21_viewObject.Transparency = 60
     qwm_doc.p21.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p22')
     qwm_doc.sketch_p22.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p22.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,2.0,0), FreeCAD.Vector(6.0,2.0,0)))
@@ -334,7 +312,6 @@ def set_GeometryAndMedia(qwm_doc):
     p22_viewObject = qwm_doc.p22.ViewObject
     p22_viewObject.Transparency = 60
     qwm_doc.p22.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p23')
     qwm_doc.sketch_p23.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p23.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,2.0,0), FreeCAD.Vector(8.0,2.0,0)))
@@ -348,7 +325,6 @@ def set_GeometryAndMedia(qwm_doc):
     p23_viewObject = qwm_doc.p23.ViewObject
     p23_viewObject.Transparency = 60
     qwm_doc.p23.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p24')
     qwm_doc.sketch_p24.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p24.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.0,0), FreeCAD.Vector(2.0,4.0,0)))
@@ -362,7 +338,6 @@ def set_GeometryAndMedia(qwm_doc):
     p24_viewObject = qwm_doc.p24.ViewObject
     p24_viewObject.Transparency = 60
     qwm_doc.p24.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p25')
     qwm_doc.sketch_p25.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p25.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,4.0,0), FreeCAD.Vector(4.0,4.0,0)))
@@ -376,7 +351,6 @@ def set_GeometryAndMedia(qwm_doc):
     p25_viewObject = qwm_doc.p25.ViewObject
     p25_viewObject.Transparency = 60
     qwm_doc.p25.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p26')
     qwm_doc.sketch_p26.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p26.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,4.0,0), FreeCAD.Vector(6.0,4.0,0)))
@@ -390,7 +364,6 @@ def set_GeometryAndMedia(qwm_doc):
     p26_viewObject = qwm_doc.p26.ViewObject
     p26_viewObject.Transparency = 60
     qwm_doc.p26.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p27')
     qwm_doc.sketch_p27.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p27.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,4.0,0), FreeCAD.Vector(8.0,4.0,0)))
@@ -404,7 +377,6 @@ def set_GeometryAndMedia(qwm_doc):
     p27_viewObject = qwm_doc.p27.ViewObject
     p27_viewObject.Transparency = 60
     qwm_doc.p27.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p28')
     qwm_doc.sketch_p28.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p28.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,6.0,0), FreeCAD.Vector(2.0,6.0,0)))
@@ -418,7 +390,6 @@ def set_GeometryAndMedia(qwm_doc):
     p28_viewObject = qwm_doc.p28.ViewObject
     p28_viewObject.Transparency = 60
     qwm_doc.p28.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p29')
     qwm_doc.sketch_p29.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p29.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,6.0,0), FreeCAD.Vector(4.0,6.0,0)))
@@ -432,7 +403,6 @@ def set_GeometryAndMedia(qwm_doc):
     p29_viewObject = qwm_doc.p29.ViewObject
     p29_viewObject.Transparency = 60
     qwm_doc.p29.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p30')
     qwm_doc.sketch_p30.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p30.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,6.0,0), FreeCAD.Vector(6.0,6.0,0)))
@@ -446,7 +416,6 @@ def set_GeometryAndMedia(qwm_doc):
     p30_viewObject = qwm_doc.p30.ViewObject
     p30_viewObject.Transparency = 60
     qwm_doc.p30.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p31')
     qwm_doc.sketch_p31.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p31.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,6.0,0), FreeCAD.Vector(8.0,6.0,0)))
@@ -460,7 +429,6 @@ def set_GeometryAndMedia(qwm_doc):
     p31_viewObject = qwm_doc.p31.ViewObject
     p31_viewObject.Transparency = 60
     qwm_doc.p31.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p32')
     qwm_doc.sketch_p32.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p32.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,0.0,0), FreeCAD.Vector(2.0,0.0,0)))
@@ -474,7 +442,6 @@ def set_GeometryAndMedia(qwm_doc):
     p32_viewObject = qwm_doc.p32.ViewObject
     p32_viewObject.Transparency = 60
     qwm_doc.p32.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p33')
     qwm_doc.sketch_p33.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p33.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,0.0,0), FreeCAD.Vector(4.0,0.0,0)))
@@ -488,7 +455,6 @@ def set_GeometryAndMedia(qwm_doc):
     p33_viewObject = qwm_doc.p33.ViewObject
     p33_viewObject.Transparency = 60
     qwm_doc.p33.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p34')
     qwm_doc.sketch_p34.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p34.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,0.0,0), FreeCAD.Vector(6.0,0.0,0)))
@@ -502,7 +468,6 @@ def set_GeometryAndMedia(qwm_doc):
     p34_viewObject = qwm_doc.p34.ViewObject
     p34_viewObject.Transparency = 60
     qwm_doc.p34.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p35')
     qwm_doc.sketch_p35.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p35.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,0.0,0), FreeCAD.Vector(8.0,0.0,0)))
@@ -516,7 +481,6 @@ def set_GeometryAndMedia(qwm_doc):
     p35_viewObject = qwm_doc.p35.ViewObject
     p35_viewObject.Transparency = 60
     qwm_doc.p35.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p36')
     qwm_doc.sketch_p36.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p36.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,2.0,0), FreeCAD.Vector(2.0,2.0,0)))
@@ -530,7 +494,6 @@ def set_GeometryAndMedia(qwm_doc):
     p36_viewObject = qwm_doc.p36.ViewObject
     p36_viewObject.Transparency = 60
     qwm_doc.p36.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p37')
     qwm_doc.sketch_p37.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p37.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,2.0,0), FreeCAD.Vector(4.0,2.0,0)))
@@ -544,7 +507,6 @@ def set_GeometryAndMedia(qwm_doc):
     p37_viewObject = qwm_doc.p37.ViewObject
     p37_viewObject.Transparency = 60
     qwm_doc.p37.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p38')
     qwm_doc.sketch_p38.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p38.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,2.0,0), FreeCAD.Vector(6.0,2.0,0)))
@@ -558,7 +520,6 @@ def set_GeometryAndMedia(qwm_doc):
     p38_viewObject = qwm_doc.p38.ViewObject
     p38_viewObject.Transparency = 60
     qwm_doc.p38.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p39')
     qwm_doc.sketch_p39.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p39.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,2.0,0), FreeCAD.Vector(8.0,2.0,0)))
@@ -572,7 +533,6 @@ def set_GeometryAndMedia(qwm_doc):
     p39_viewObject = qwm_doc.p39.ViewObject
     p39_viewObject.Transparency = 60
     qwm_doc.p39.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p40')
     qwm_doc.sketch_p40.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p40.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.0,0), FreeCAD.Vector(2.0,4.0,0)))
@@ -586,7 +546,6 @@ def set_GeometryAndMedia(qwm_doc):
     p40_viewObject = qwm_doc.p40.ViewObject
     p40_viewObject.Transparency = 60
     qwm_doc.p40.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p41')
     qwm_doc.sketch_p41.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p41.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,4.0,0), FreeCAD.Vector(4.0,4.0,0)))
@@ -600,7 +559,6 @@ def set_GeometryAndMedia(qwm_doc):
     p41_viewObject = qwm_doc.p41.ViewObject
     p41_viewObject.Transparency = 60
     qwm_doc.p41.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p42')
     qwm_doc.sketch_p42.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p42.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,4.0,0), FreeCAD.Vector(6.0,4.0,0)))
@@ -614,7 +572,6 @@ def set_GeometryAndMedia(qwm_doc):
     p42_viewObject = qwm_doc.p42.ViewObject
     p42_viewObject.Transparency = 60
     qwm_doc.p42.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p43')
     qwm_doc.sketch_p43.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p43.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,4.0,0), FreeCAD.Vector(8.0,4.0,0)))
@@ -628,7 +585,6 @@ def set_GeometryAndMedia(qwm_doc):
     p43_viewObject = qwm_doc.p43.ViewObject
     p43_viewObject.Transparency = 60
     qwm_doc.p43.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p44')
     qwm_doc.sketch_p44.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p44.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,6.0,0), FreeCAD.Vector(2.0,6.0,0)))
@@ -642,7 +598,6 @@ def set_GeometryAndMedia(qwm_doc):
     p44_viewObject = qwm_doc.p44.ViewObject
     p44_viewObject.Transparency = 60
     qwm_doc.p44.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p45')
     qwm_doc.sketch_p45.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p45.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,6.0,0), FreeCAD.Vector(4.0,6.0,0)))
@@ -656,7 +611,6 @@ def set_GeometryAndMedia(qwm_doc):
     p45_viewObject = qwm_doc.p45.ViewObject
     p45_viewObject.Transparency = 60
     qwm_doc.p45.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p46')
     qwm_doc.sketch_p46.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p46.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,6.0,0), FreeCAD.Vector(6.0,6.0,0)))
@@ -670,7 +624,6 @@ def set_GeometryAndMedia(qwm_doc):
     p46_viewObject = qwm_doc.p46.ViewObject
     p46_viewObject.Transparency = 60
     qwm_doc.p46.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p47')
     qwm_doc.sketch_p47.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p47.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,6.0,0), FreeCAD.Vector(8.0,6.0,0)))
@@ -684,7 +637,6 @@ def set_GeometryAndMedia(qwm_doc):
     p47_viewObject = qwm_doc.p47.ViewObject
     p47_viewObject.Transparency = 60
     qwm_doc.p47.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p48')
     qwm_doc.sketch_p48.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p48.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,0.0,0), FreeCAD.Vector(2.0,0.0,0)))
@@ -698,7 +650,6 @@ def set_GeometryAndMedia(qwm_doc):
     p48_viewObject = qwm_doc.p48.ViewObject
     p48_viewObject.Transparency = 60
     qwm_doc.p48.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p49')
     qwm_doc.sketch_p49.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p49.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,0.0,0), FreeCAD.Vector(4.0,0.0,0)))
@@ -712,7 +663,6 @@ def set_GeometryAndMedia(qwm_doc):
     p49_viewObject = qwm_doc.p49.ViewObject
     p49_viewObject.Transparency = 60
     qwm_doc.p49.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p50')
     qwm_doc.sketch_p50.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p50.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,0.0,0), FreeCAD.Vector(6.0,0.0,0)))
@@ -726,7 +676,6 @@ def set_GeometryAndMedia(qwm_doc):
     p50_viewObject = qwm_doc.p50.ViewObject
     p50_viewObject.Transparency = 60
     qwm_doc.p50.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p51')
     qwm_doc.sketch_p51.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p51.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,0.0,0), FreeCAD.Vector(8.0,0.0,0)))
@@ -740,7 +689,6 @@ def set_GeometryAndMedia(qwm_doc):
     p51_viewObject = qwm_doc.p51.ViewObject
     p51_viewObject.Transparency = 60
     qwm_doc.p51.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p52')
     qwm_doc.sketch_p52.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p52.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,2.0,0), FreeCAD.Vector(2.0,2.0,0)))
@@ -754,7 +702,6 @@ def set_GeometryAndMedia(qwm_doc):
     p52_viewObject = qwm_doc.p52.ViewObject
     p52_viewObject.Transparency = 60
     qwm_doc.p52.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p53')
     qwm_doc.sketch_p53.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p53.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,2.0,0), FreeCAD.Vector(4.0,2.0,0)))
@@ -768,7 +715,6 @@ def set_GeometryAndMedia(qwm_doc):
     p53_viewObject = qwm_doc.p53.ViewObject
     p53_viewObject.Transparency = 60
     qwm_doc.p53.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p54')
     qwm_doc.sketch_p54.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p54.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,2.0,0), FreeCAD.Vector(6.0,2.0,0)))
@@ -782,7 +728,6 @@ def set_GeometryAndMedia(qwm_doc):
     p54_viewObject = qwm_doc.p54.ViewObject
     p54_viewObject.Transparency = 60
     qwm_doc.p54.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p55')
     qwm_doc.sketch_p55.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p55.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,2.0,0), FreeCAD.Vector(8.0,2.0,0)))
@@ -796,7 +741,6 @@ def set_GeometryAndMedia(qwm_doc):
     p55_viewObject = qwm_doc.p55.ViewObject
     p55_viewObject.Transparency = 60
     qwm_doc.p55.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p56')
     qwm_doc.sketch_p56.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p56.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.0,0), FreeCAD.Vector(2.0,4.0,0)))
@@ -810,7 +754,6 @@ def set_GeometryAndMedia(qwm_doc):
     p56_viewObject = qwm_doc.p56.ViewObject
     p56_viewObject.Transparency = 60
     qwm_doc.p56.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p57')
     qwm_doc.sketch_p57.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p57.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,4.0,0), FreeCAD.Vector(4.0,4.0,0)))
@@ -824,7 +767,6 @@ def set_GeometryAndMedia(qwm_doc):
     p57_viewObject = qwm_doc.p57.ViewObject
     p57_viewObject.Transparency = 60
     qwm_doc.p57.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p58')
     qwm_doc.sketch_p58.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p58.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,4.0,0), FreeCAD.Vector(6.0,4.0,0)))
@@ -838,7 +780,6 @@ def set_GeometryAndMedia(qwm_doc):
     p58_viewObject = qwm_doc.p58.ViewObject
     p58_viewObject.Transparency = 60
     qwm_doc.p58.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p59')
     qwm_doc.sketch_p59.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p59.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,4.0,0), FreeCAD.Vector(8.0,4.0,0)))
@@ -852,7 +793,6 @@ def set_GeometryAndMedia(qwm_doc):
     p59_viewObject = qwm_doc.p59.ViewObject
     p59_viewObject.Transparency = 60
     qwm_doc.p59.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p60')
     qwm_doc.sketch_p60.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p60.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,6.0,0), FreeCAD.Vector(2.0,6.0,0)))
@@ -866,7 +806,6 @@ def set_GeometryAndMedia(qwm_doc):
     p60_viewObject = qwm_doc.p60.ViewObject
     p60_viewObject.Transparency = 60
     qwm_doc.p60.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p61')
     qwm_doc.sketch_p61.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p61.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,6.0,0), FreeCAD.Vector(4.0,6.0,0)))
@@ -880,7 +819,6 @@ def set_GeometryAndMedia(qwm_doc):
     p61_viewObject = qwm_doc.p61.ViewObject
     p61_viewObject.Transparency = 60
     qwm_doc.p61.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p62')
     qwm_doc.sketch_p62.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p62.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,6.0,0), FreeCAD.Vector(6.0,6.0,0)))
@@ -894,7 +832,6 @@ def set_GeometryAndMedia(qwm_doc):
     p62_viewObject = qwm_doc.p62.ViewObject
     p62_viewObject.Transparency = 60
     qwm_doc.p62.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p63')
     qwm_doc.sketch_p63.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_p63.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,6.0,0), FreeCAD.Vector(8.0,6.0,0)))
@@ -908,4 +845,3 @@ def set_GeometryAndMedia(qwm_doc):
     p63_viewObject = qwm_doc.p63.ViewObject
     p63_viewObject.Transparency = 60
     qwm_doc.p63.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()

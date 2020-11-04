@@ -26,4 +26,3 @@ def set_GeometryAndMedia(qwm_doc):
     cubic_viewObject = qwm_doc.cubic.ViewObject
     cubic_viewObject.Transparency = 60
     qwm_doc.cubic.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()

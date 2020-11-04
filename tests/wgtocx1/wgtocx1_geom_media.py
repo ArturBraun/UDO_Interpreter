@@ -26,7 +26,6 @@ def set_GeometryAndMedia(qwm_doc):
     waveguid_viewObject = qwm_doc.waveguid.ViewObject
     waveguid_viewObject.Transparency = 60
     qwm_doc.waveguid.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_antenna')
     qwm_doc.sketch_antenna.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_antenna.addGeometry(Part.LineSegment(FreeCAD.Vector(20.6,5.0,0), FreeCAD.Vector(20.580785280403234,5.195090322016128,0)))
@@ -68,7 +67,6 @@ def set_GeometryAndMedia(qwm_doc):
     antenna_viewObject = qwm_doc.antenna.ViewObject
     antenna_viewObject.Transparency = 60
     qwm_doc.antenna.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.recompute()
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_coaxair')
     qwm_doc.sketch_coaxair.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_coaxair.addGeometry(Part.LineSegment(FreeCAD.Vector(22.1,5.0,0), FreeCAD.Vector(22.05196320100808,5.487725805040321,0)))
@@ -110,4 +108,3 @@ def set_GeometryAndMedia(qwm_doc):
     coaxair_viewObject = qwm_doc.coaxair.ViewObject
     coaxair_viewObject.Transparency = 60
     qwm_doc.coaxair.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()

@@ -943,9 +943,10 @@ def set_Simulation(qwm_doc):
     qwm_doc.{name}.Solid = True
     {name}_viewObject = qwm_doc.{name}.ViewObject
     {name}_viewObject.Transparency = 60
-    qwm_doc.{name}.Medium = QW_Modeller.getQWMedium("{mediumName}")
-    qwm_doc.recompute()
-""".format(name = self.elementCommandName, height = self.elementCommandHeight, mediumName = self.elementCommandMediumName)
+    qwm_doc.{name}.Medium = QW_Modeller.getQWMedium("{mediumName}")\n""".format(
+        name = self.elementCommandName, 
+        height = self.elementCommandHeight, 
+        mediumName = self.elementCommandMediumName)
 
         else:
             isCombinedElement = 5 in self.elementCommandTypeCombinedDict and 6 in self.elementCommandTypeCombinedDict
@@ -966,10 +967,11 @@ def set_Simulation(qwm_doc):
     qwm_doc.{name}.Closed=False
     {name}_viewObject = qwm_doc.{name}.ViewObject
     {name}_viewObject.Transparency = 60
-    qwm_doc.{name}.Medium = QW_Modeller.getQWMedium("{mediumName}")
-    qwm_doc.recompute()
-    """.format(name = self.elementCommandName, mediumName = self.elementCommandMediumName, sketch1 = self.elementCommandTypeCombinedDict[bottomNumber], 
-                sketch2 = self.elementCommandTypeCombinedDict[coverNumber])
+    qwm_doc.{name}.Medium = QW_Modeller.getQWMedium("{mediumName}")\n""".format(
+                    name = self.elementCommandName, 
+                    mediumName = self.elementCommandMediumName,
+                    sketch1 = self.elementCommandTypeCombinedDict[bottomNumber], 
+                    sketch2 = self.elementCommandTypeCombinedDict[coverNumber])
 
                 self.elementCommandTypeCombinedDict = {}
 
@@ -1891,7 +1893,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "man8_kawalek"
+    udoName = "wgtocx1"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"

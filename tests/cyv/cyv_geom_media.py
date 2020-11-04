@@ -38,4 +38,3 @@ def set_GeometryAndMedia(qwm_doc):
     cyv_viewObject = qwm_doc.cyv.ViewObject
     cyv_viewObject.Transparency = 60
     qwm_doc.cyv.Medium = QW_Modeller.getQWMedium("air")
-    qwm_doc.recompute()
