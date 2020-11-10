@@ -30,41 +30,12 @@ class GlobalData:
         if not cls._singleton:
             cls._singleton = super(GlobalData, cls).__new__(cls)
             # Content of class:
-            cls._singleton.variables = {
-                                "x":["", 0.0],
-                                "y":["", 0.0],
-                                "z":["", 0.0],
-                                "air":["", "air"],
-                                "POINT":["", "POINT"],
-                                "PROBE":["", "PROBE"],
-                                "INPTEMPLATE":["", "INPTEMPLATE"],
-                                "OUTTEMPLATE":["", "OUTTEMPLATE"],
-                                "MUR":["", "MUR"],
-                                "MURBOX":["", "MURBOX"],
-                                "PML":["", "PML"],
-                                "PMLBOX":["", "PMLBOX"],
-                                "SHORT":["", "SHORT"],
-                                "OPEN":["", "OPEN"],
-                                "SPECIAL":["", "SPECIAL"],
-                                "NEUTRAL":["", "NEUTRAL"],
-                                "BETWEEN":["", "BETWEEN"],
-                                "REFERENCE":["", "REFERENCE"],
-                                "NEAR2FAR":["", "NEAR2FAR"],
-                                "PLANEWAVE":["", "PLANEWAVE"],
-                                "CONTOUR_E":["", "CONTOUR_E"],
-                                "CONTOUR_H":["", "CONTOUR_H"],
-                                "FDMONITOR":["", "FDMONITOR"],
-                                "MONITOR3D":["", "MONITOR3D"],
-                                "LUMPEDIMP":["", "LUMPEDIMP"],
-                                "BHMROTATIONAXIS":["", "BHMROTATIONAXIS"],
-                                "BHMMOVEMENTTRAJECTORY":["", "BHMMOVEMENTTRAJECTORY"],
-                                "UP":["", "UP"],
-                                "DOWN":["", "DOWN"],
-                                "NONE":["", "NONE"],
-                                "NULL":["", "NULL"],
-                                } 
+            cls._singleton.variables = createStandardVariables()
 
             cls.numberForEqualElementsNames = 0
+
+            cls.currentElements = set()
+            cls.lastCreatedElement = ""
 
             cls.hasSomethingBeenAddedToFiles = {
                 "circuitFile" : False,
@@ -174,3 +145,57 @@ class GlobalData:
         """
         self._singleton.setsimulFile.write(content)
 
+
+def createStandardVariables():
+    """
+    Function that creates standard variables common for all files.
+    """
+    variables = {
+            "x":["", 0.0],
+            "y":["", 0.0],
+            "z":["", 0.0],
+            "air":["", "air"],
+            "POINT":["", "POINT"],
+            "PROBE":["", "PROBE"],
+            "INPTEMPLATE":["", "INPTEMPLATE"],
+            "OUTTEMPLATE":["", "OUTTEMPLATE"],
+            "MUR":["", "MUR"],
+            "MURBOX":["", "MURBOX"],
+            "PML":["", "PML"],
+            "PMLBOX":["", "PMLBOX"],
+            "SHORT":["", "SHORT"],
+            "OPEN":["", "OPEN"],
+            "SPECIAL":["", "SPECIAL"],
+            "NEUTRAL":["", "NEUTRAL"],
+            "BETWEEN":["", "BETWEEN"],
+            "REFERENCE":["", "REFERENCE"],
+            "NEAR2FAR":["", "NEAR2FAR"],
+            "PLANEWAVE":["", "PLANEWAVE"],
+            "CONTOUR_E":["", "CONTOUR_E"],
+            "CONTOUR_H":["", "CONTOUR_H"],
+            "FDMONITOR":["", "FDMONITOR"],
+            "MONITOR3D":["", "MONITOR3D"],
+            "LUMPEDIMP":["", "LUMPEDIMP"],
+            "BHMROTATIONAXIS":["", "BHMROTATIONAXIS"],
+            "BHMMOVEMENTTRAJECTORY":["", "BHMMOVEMENTTRAJECTORY"],
+            "UP":["", "UP"],
+            "DOWN":["", "DOWN"],
+            "NONE":["", "NONE"],
+            "NULL":["", "NULL"],
+            "ELEM":["", "ELEM"],
+            "ELEML":["", "ELEML"],
+            "OBJECT":["", "OBJECT"],
+            "OBJECTL":["", "OBJECTL"],
+            "ALL":["", "ALL"],
+            "ALLACTIVE":["", "ALLACTIVE"],
+            "ALLPASSIVE":["", "ALLPASSIVE"],
+            "LAST":["", "LAST"],
+            "ACTIVE":["", "ACTIVE"],
+            "PASSIVE":["", "PASSIVE"],
+            "RESET":["", "RESET"],
+            "SET":["", "SET"],
+            "CUT":["", "CUT"],
+            "INTERSECT":["", "INTERSECT"],
+            "GLUE":["", "GLUE"],
+            } 
+    return variables

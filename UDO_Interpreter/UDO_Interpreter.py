@@ -7,8 +7,8 @@ This module include main function and functions describing parser grammar.
 #____________________________________________
 # TODO:
 # -dodac funkcje zwiazane z meshem
-# -poprawic content zapisywany do pliku w funkcji do_endport() !!! - poprawic orientacje i pobudzenie
-# -przetestowac interpretacje wgtocx1
+# -istnieje problem z materialami, Editor ma jakies domyslne materialy jak np telfon i ich uzywa
+#           a dla Modellera teflon jest nieznanym materialem np jest tak w przypadku "dielf1" !
 #____________________________________________
 
 #--------------------------------------------
@@ -64,7 +64,7 @@ def UDO_command():
     """
     Grammar rule for UDO command.
     """
-    return [
+    return [ 
         "TEST",
         "ADDLINE",
         "ADDY",
@@ -76,12 +76,19 @@ def UDO_command():
         "CALL",
         "OPENOBJECT",
         "CLOSEOBJ",
-        "PORT",
-        "ENDPORT",
         "GETIOPAR",
         "INSERTMEDIUM",        
         "MEDIUMPAR",        
-        "MEDIUMCOL",        
+        "MEDIUMCOL",  
+        "PORTEXC",
+        "PORT",
+        "ENDPORT",
+        "MARKFJ",
+        "MARK",
+        "JOIN",
+        "ROTATE",
+        "RENAME",
+        "DELETE",
     ], Optional("("),  ZeroOrMore(expression,","), Optional(expression), Optional(")"), ";"
 
 def variable():
@@ -225,12 +232,19 @@ def specialUdoCommand():
         "CALL",
         "OPENOBJECT",
         "CLOSEOBJ",
-        "PORT",
-        "ENDPORT",
         "GETIOPAR",
         "INSERTMEDIUM",        
         "MEDIUMPAR",        
         "MEDIUMCOL",    
+        "PORTEXC",
+        "PORT",
+        "ENDPORT",
+        "MARKFJ",
+        "MARK",
+        "JOIN",
+        "ROTATE",
+        "RENAME",
+        "DELETE",
         ], Optional("("),  ZeroOrMore(specialExpression,","), Optional(specialExpression), Optional(")"), ";"
 
 def specialVariable():
@@ -615,6 +629,13 @@ class UDO_commands:
             "INSERTMEDIUM":"do_insertmedium",
             "MEDIUMPAR":"do_mediumpar",
             "MEDIUMCOL":"do_mediumcol",    
+            "PORTEXC":"do_portexc",
+            "MARKFJ":"do_markfj",
+            "MARK":"do_mark",
+            "JOIN":"do_join",
+            "ROTATE":"do_rotate",
+            "RENAME":"do_rename",
+            "DELETE":"do_delete",
             }
 
         # Says which command is analised at the moment
@@ -652,11 +673,17 @@ class UDO_commands:
             "excitationPointX":None,
             "excitationPointY":None,
             "excitationPointZ":None,
+            "portexcPointZ":None,
             }
 
         # ***Line command variables
         self.newlineCommandFirstPoint = [0.0, 0.0]
         self.lineCommandLastPoint = [0.0, 0.0]
+
+        # Boolean 3D operations variables
+        self.markedElements = set()
+        self.activeElements = set()
+        self.passiveElements = set()
 
     def writeBasicScriptsToFiles(self):
         """
@@ -979,6 +1006,8 @@ def set_Simulation(qwm_doc):
             self.globalData.writeToGeomMediaFile(content)
 
         self.currentCommand["element"] = False
+        self.globalData.currentElements.add(self.elementCommandName)
+        self.globalData.lastCreatedElement = self.elementCommandName
 
     def do_newline(self,argumentsList):
         """
@@ -1177,8 +1206,12 @@ def set_Simulation(qwm_doc):
             orientation = "X"
             position = self.portCommandDict["excitationPointX"]
             rotation = "0.5, 0.5, 0.5, 0.5"
-
-        self.portCommandDict["excitationPointZ"] = excitationPointZ
+        
+        if self.portCommandDict["portexcPointZ"]:
+            self.portCommandDict["excitationPointZ"] = self.portCommandDict["portexcPointZ"]
+            self.portCommandDict["portexcPointZ"] = None
+        else:
+            self.portCommandDict["excitationPointZ"] = excitationPointZ
 
         if self.portCommandDict["type"] == "OUTTEMPLATE":
             portType = "Load"
@@ -1363,6 +1396,130 @@ def set_Simulation(qwm_doc):
                 brush_style     = brush_style)
         
             self.globalData.writeToGeomMediaFile(content)
+
+    def do_portexc(self, argumentsList):
+        """
+        Does PORTEXC command from UDO language.
+        """
+        self.portCommandDict["portexcPointZ"] = argumentsList[1]
+
+    def do_markfj(self, argumentsList):
+        """
+        Does MARKFJ command from UDO language.
+        """
+        # MARKFJ (<item_type>,<range>,<command>)
+
+        itemType = argumentsList[0]
+        rangeOfOperation = argumentsList[1]
+        command = argumentsList[2]
+
+        if rangeOfOperation == "ALL":
+            if command == "ACTIVE":
+                self.activeElements = self.globalData.currentElements
+            elif command == "PASSIVE":
+                self.passiveElements = self.globalData.currentElements
+            else: # command == "RESET":
+                self.activeElements = set()
+                self.passiveElements = set()
+
+        elif rangeOfOperation == "ALLACTIVE":
+            if command == "ACTIVE":
+                self.activeElements = self.globalData.currentElements
+            else: # command == "RESET":
+                self.activeElements = set()
+
+        elif rangeOfOperation == "ALLPASSIVE":
+            if command == "PASSIVE":
+                self.passiveElements = self.globalData.currentElements
+            else: # command == "RESET":
+                self.passiveElements = set()
+
+        elif rangeOfOperation == "LAST":
+            if command == "ACTIVE":
+                self.activeElements.add(self.globalData.lastCreatedElement)
+            elif command == "PASSIVE":
+                self.passiveElements.add(self.globalData.lastCreatedElement)
+            else: # command == "RESET":
+                if self.globalData.lastCreatedElement in self.activeElements:
+                    self.activeElements.remove(self.globalData.lastCreatedElement)
+                else: # self.globalData.lastCreatedElement in self.passiveElements
+                    self.passiveElements.remove(self.globalData.lastCreatedElement)
+
+        else:
+            if command == "ACTIVE":
+                self.activeElements.add(rangeOfOperation)
+            elif command == "PASSIVE":
+                self.passiveElements.add(rangeOfOperation)
+            else: # command == "RESET":
+                if rangeOfOperation in self.activeElements:
+                    self.activeElements.remove(rangeOfOperation)
+                else: # rangeOfOperation in self.passiveElements
+                    self.passiveElements.remove(rangeOfOperation)
+
+
+    def do_mark(self, argumentsList):
+        """
+        Does MARK command from UDO language.
+        """
+
+        itemType = argumentsList[0]
+        rangeOfOperation = argumentsList[1]
+        command = argumentsList[2]
+
+        if rangeOfOperation == "ALL":
+            if command == "SET":
+                self.markedElements = self.globalData.currentElements
+            else: # command == "RESET":
+                self.markedElements = set()
+
+        elif rangeOfOperation == "ALLACTIVE":
+            if command == "SET":
+                for elem in self.activeElements:
+                    self.markedElements.add(elem)
+            else: # command == "RESET":
+                for elem in self.activeElements:
+                    self.markedElements.remove(elem)
+
+        elif rangeOfOperation == "ALLPASSIVE":
+            if command == "SET":
+                for elem in self.passiveElements:
+                    self.markedElements.add(elem)
+            else: # command == "RESET":
+                for elem in self.passiveElements:
+                    self.markedElements.remove(elem)
+
+        elif rangeOfOperation == "LAST":
+            if command == "SET":
+                self.markedElements.add(self.globalData.lastCreatedElement)
+            else: # command == "RESET":
+                self.markedElements.remove(self.globalData.lastCreatedElement)
+
+        else:
+            if command == "SET":
+                self.markedElements.add(rangeOfOperation)
+            else: # command == "RESET":
+                self.markedElements.remove(rangeOfOperation)
+
+    def do_join(self, argumentsList):
+        """
+        Does JOIN command from UDO language.
+        """
+
+    def do_rotate(self, argumentsList):
+        """
+        Does ROTATE command from UDO language.
+        """
+
+    def do_rename(self, argumentsList):
+        """
+        Does RENAME command from UDO language.
+        """
+
+    def do_delete(self, argumentsList):
+        """
+        Does DELETE command from UDO language.
+        """
+
 
 
 class GrammarRulesVisitor(PTNodeVisitor):
@@ -1858,13 +2015,12 @@ def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_d
         previousFileContent = globalData.udoFileContent
         globalData.udoFileContent = UDO_FileContent
 
-        variableStorage = globalData._singleton.variables
-        globalData._singleton.variables = {
-                                "x":["", nestedParameters[-3]],
-                                "y":["", nestedParameters[-2]],
-                                "z":["", nestedParameters[-1]],
-                                "air":["", "air"]
-                                } 
+        variableStorage = globalData.variables
+        globalData.variables = createStandardVariables()
+        globalData.variables["x"] = ["", nestedParameters[-3]]
+        globalData.variables["y"] = ["", nestedParameters[-2]]
+        globalData.variables["z"] = ["", nestedParameters[-1]]
+
         grammarRulesVistor = GrammarRulesVisitor(interpreter_debug = interpreter_debug, isNestedParsing = True, nestedParameters = nestedParameters)
 
         parser = ParserPython(program, debug=debug, reduce_tree=True)
@@ -1885,15 +2041,15 @@ def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_d
 
         UDO_File.close()   
 
-    globalData.udoFileContent = previousFileContent
-    globalData._singleton.variables = variableStorage
+        globalData.udoFileContent = previousFileContent
+        globalData.variables = variableStorage
 
             
 def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "wgtocx1"
+    udoName = "cwgheat"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"
