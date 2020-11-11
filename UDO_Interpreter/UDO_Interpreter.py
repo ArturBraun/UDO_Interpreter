@@ -2191,7 +2191,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "rx"
+    udoName = "rt2w"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"

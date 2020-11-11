@@ -72,7 +72,7 @@ class TestsUdoInterpreter(unittest.TestCase):
     Checks also generated files corectness.
     """
 
-    # dielf1, cwgheat, rx
+    # dielf1, cwgheat, rx, threeel, rt2w
 
     def test_angpc(self):
         result = testGeneratedFiles("angpc")
@@ -108,6 +108,18 @@ class TestsUdoInterpreter(unittest.TestCase):
 
     def test_patch2(self):
         result = testGeneratedFiles("patch2")
+        self.assertEqual(result, True)
+
+    def test_rt2w(self):
+        result = testGeneratedFiles("rt2w")
+        self.assertEqual(result, True)
+
+    def test_rx(self):
+        result = testGeneratedFiles("rx")
+        self.assertEqual(result, True)
+
+    def test_threeel(self):
+        result = testGeneratedFiles("threeel")
         self.assertEqual(result, True)
 
     def test_tv(self):
