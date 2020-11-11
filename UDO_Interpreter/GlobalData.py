@@ -34,7 +34,7 @@ class GlobalData:
 
             cls.numberForEqualElementsNames = 0
 
-            cls.currentElements = set()
+            cls.currentElementsNamesDict = {}  # Key -> currentName, Value -> originalName
             cls.lastCreatedElement = ""
 
             cls.hasSomethingBeenAddedToFiles = {

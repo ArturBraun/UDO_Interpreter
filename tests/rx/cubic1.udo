@@ -22,7 +22,7 @@ if type == "N" do #neutral
 endif;
 
 # Normal element
-if type ==  "E" || type == "N" do
+if (type ==  "E") || (type == "N") do
 	ELEMENT( z-h/2, h, 0, med, ename, strtype);
 		NEWLINE(x, y-b/2, x+a, y-b/2 );
 		ADDY(b);

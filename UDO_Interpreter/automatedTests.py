@@ -389,6 +389,14 @@ class TestsUdoInterpreter(unittest.TestCase):
         udoFileStr = """a = .2;
                         a"""
         self.assertEqual(doTestParsing(udoFileStr), 0.2)
+
+    #def test38(self):
+    #    udoFileStr = """a = 2;
+    #                    if a > 1 || a < 0 do
+    #                        a = 5;
+    #                    endif;
+    #                    a"""
+    #    self.assertEqual(doTestParsing(udoFileStr), 5)
         
 
 def main():

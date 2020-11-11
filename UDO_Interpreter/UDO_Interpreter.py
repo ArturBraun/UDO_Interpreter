@@ -1006,7 +1006,7 @@ def set_Simulation(qwm_doc):
             self.globalData.writeToGeomMediaFile(content)
 
         self.currentCommand["element"] = False
-        self.globalData.currentElements.add(self.elementCommandName)
+        self.globalData.currentElementsNamesDict[self.elementCommandName] = self.elementCommandName
         self.globalData.lastCreatedElement = self.elementCommandName
 
     def do_newline(self,argumentsList):
@@ -1413,24 +1413,26 @@ def set_Simulation(qwm_doc):
         rangeOfOperation = argumentsList[1]
         command = argumentsList[2]
 
+        currentElementsSet = set(self.globalData.currentElementsNamesDict.values())
+
         if rangeOfOperation == "ALL":
             if command == "ACTIVE":
-                self.activeElements = self.globalData.currentElements
+                self.activeElements = currentElementsSet
             elif command == "PASSIVE":
-                self.passiveElements = self.globalData.currentElements
+                self.passiveElements = currentElementsSet
             else: # command == "RESET":
                 self.activeElements = set()
                 self.passiveElements = set()
 
         elif rangeOfOperation == "ALLACTIVE":
             if command == "ACTIVE":
-                self.activeElements = self.globalData.currentElements
+                self.activeElements = currentElementsSet
             else: # command == "RESET":
                 self.activeElements = set()
 
         elif rangeOfOperation == "ALLPASSIVE":
             if command == "PASSIVE":
-                self.passiveElements = self.globalData.currentElements
+                self.passiveElements = currentElementsSet
             else: # command == "RESET":
                 self.passiveElements = set()
 
@@ -1466,9 +1468,11 @@ def set_Simulation(qwm_doc):
         rangeOfOperation = argumentsList[1]
         command = argumentsList[2]
 
+        currentElementsSet = set(self.globalData.currentElementsNamesDict.values())
+
         if rangeOfOperation == "ALL":
             if command == "SET":
-                self.markedElements = self.globalData.currentElements
+                self.markedElements = currentElementsSet
             else: # command == "RESET":
                 self.markedElements = set()
 
@@ -1506,19 +1510,22 @@ def set_Simulation(qwm_doc):
         """
         operationType = argumentsList[0]
         content = ""
+        self.globalData.numberForEqualElementsNames += 1
+
+        shapesList = list(self.activeElements) + list(self.passiveElements)
+        shapesListStr = "["
+        for i in range(len(shapesList)):
+            shapesList[i] = self.globalData.currentElementsNamesDict[shapesList[i]]
+            shapesListStr += "qwm_doc." + shapesList[i] + ","
+        shapesListStr += "]"
 
         if operationType == "CUT":
-            shapesList = list(self.activeElements) + list(self.passiveElements)
-            for i in range(len(shapesList)):
-                shapesList[i] = "qwm_doc." + shapesList[i]
-
-            self.globalData.numberForEqualElementsNames += 1
-            objectName = "Cut" + self.globalData.numberForEqualElementsNames
+            objectName = "Cut" + str(self.globalData.numberForEqualElementsNames)
 
             content = """    qwm_doc.addObject("Part::Cut","{objectName}")
     qwm_doc.{objectName}.Base = {base}
     qwm_doc.{objectName}.Tool = {tool}
-    qwm_doc.{objectName}.Medium = qwm_doc.{firstElementName}.Medium""".format(
+    qwm_doc.{objectName}.Medium = qwm_doc.{firstElementName}.Medium\n""".format(
                         objectName = objectName,
                         firstElementName = shapesList[0],
                         base = shapesList[-1],
@@ -1526,50 +1533,41 @@ def set_Simulation(qwm_doc):
                         )
         
             for elem in shapesList:
-                content += "Gui.activeDocument().hide('" + elem[8:] + "')\n"
+                content += "    FreeCAD.Gui.activeDocument().hide('" + elem + "')\n"
         
 
         elif operationType == "INTERSECT":
-            shapesList = list(self.activeElements) + list(self.passiveElements)
-            for i in range(len(shapesList)):
-                shapesList[i] = "qwm_doc." + shapesList[i]
-
-            self.globalData.numberForEqualElementsNames += 1
-            objectName = "Common" + self.globalData.numberForEqualElementsNames
+            objectName = "Common" + str(self.globalData.numberForEqualElementsNames)
 
             content = """    qwm_doc.addObject("Part::MultiCommon","{objectName}")
     qwm_doc.{objectName}.Shapes = {shapesList}
-    qwm_doc.{objectName}.Medium = qwm_doc.{firstElementName}.Medium""".format(
-                        shapesList = shapesList,
+    qwm_doc.{objectName}.Medium = qwm_doc.{firstElementName}.Medium\n""".format(
+                        shapesList = shapesListStr,
                         objectName = objectName,
                         firstElementName = shapesList[0],
                         )
         
             for elem in shapesList:
-                content += "Gui.activeDocument()." + elem + ".Visibility = False\n"
+                content += "    FreeCAD.Gui.activeDocument()." + elem + ".Visibility = False\n"
 
 
         elif operationType == "GLUE":
-            shapesList = list(self.activeElements) + list(self.passiveElements)
-            for i in range(len(shapesList)):
-                shapesList[i] = "qwm_doc." + shapesList[i]
-
-            self.globalData.numberForEqualElementsNames += 1
-            objectName = "Fusion" + self.globalData.numberForEqualElementsNames
+            objectName = "Fusion" + str(self.globalData.numberForEqualElementsNames)
 
             content = """    qwm_doc.addObject("Part::MultiFuse","{objectName}")
     qwm_doc.{objectName}.Shapes = {shapesList}
-    qwm_doc.{objectName}.Medium = qwm_doc.{firstElementName}.Medium""".format(
-                        shapesList = shapesList,
+    qwm_doc.{objectName}.Medium = qwm_doc.{firstElementName}.Medium\n""".format(
+                        shapesList = shapesListStr,
                         objectName = objectName,
                         firstElementName = shapesList[0],
                         )
         
             for elem in shapesList:
-                content += "Gui.activeDocument()." + elem + ".Visibility = False\n"
+                content += "    FreeCAD.Gui.activeDocument()." + elem + ".Visibility = False\n"
 
 
         self.globalData.writeToGeomMediaFile(content)
+        self.globalData.currentElementsNamesDict[objectName] = objectName
         self.globalData.lastCreatedElement = objectName
 
     def do_rotate(self, argumentsList):
@@ -1577,15 +1575,15 @@ def set_Simulation(qwm_doc):
         Does ROTATE command from UDO language.
         """
         angle = argumentsList[0]
-        x0 = argumentsList[0]
-        y0 = argumentsList[0]
+        x0 = argumentsList[1]
+        y0 = argumentsList[2]
 
         content = ""
 
         for elem in self.markedElements:
-            content += """    qwm_doc.{elemName}.Placement=App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,0,1),{angle}), App.Vector({x0},{y0},0))\n""".format(
-                elemName = elem,
-                angle = angle,
+            content += """    qwm_doc.{elemName}.Placement=FreeCAD.Placement(FreeCAD.Vector(0,0,0), FreeCAD.Rotation(FreeCAD.Vector(0,0,1),{angle}), FreeCAD.Vector({x0},{y0},0))\n""".format(
+                elemName = self.globalData.currentElementsNamesDict[elem],
+                angle = (-1) * angle,
                 x0 = x0,
                 y0 = y0,
                 )
@@ -1596,12 +1594,69 @@ def set_Simulation(qwm_doc):
         """
         Does RENAME command from UDO language.
         """
+        rangeOfOperation = argumentsList[1]
+        newName = argumentsList[2]
+        oldName = ""
+        content = ""
+
+        if rangeOfOperation == "LAST":
+            oldName = self.globalData.lastCreatedElement
+
+            self.globalData.currentElementsNamesDict[newName] = self.globalData.currentElementsNamesDict.pop(oldName)
+            self.globalData.lastCreatedElement = newName
+
+            content = "    qwm_doc.{originalName}.Label = '{newName}'\n".format(
+                originalName = self.globalData.currentElementsNamesDict[newName],
+                newName = newName,
+                )
+
+        else:
+            oldName = rangeOfOperation
+
+            self.globalData.currentElementsNamesDict[newName] = self.globalData.currentElementsNamesDict.pop(oldName)
+
+            content = "    qwm_doc.{originalName}.Label = '{newName}'\n".format(
+                originalName = self.globalData.currentElementsNamesDict[newName],
+                newName = newName,
+                )
+
+        if oldName in self.markedElements:
+            self.markedElements.remove(oldName)
+            self.markedElements.add(newName)
+        if oldName in self.activeElements:
+            self.activeElements.remove(oldName)
+            self.activeElements.add(newName)
+        if oldName in self.passiveElements:
+            self.passiveElements.remove(oldName)
+            self.passiveElements.add(newName)
+
+        self.globalData.writeToGeomMediaFile(content)
 
     def do_delete(self, argumentsList):
         """
         Does DELETE command from UDO language.
         """
+        rangeOfOperation = argumentsList[1]
 
+        if rangeOfOperation == "ALLACTIVE":
+            for elem in self.activeElements:
+                if elem in self.markedElements:
+                    self.markedElements.remove(elem)
+            self.activeElements = set()
+
+        elif rangeOfOperation == "ALLPASSIVE":
+            for elem in self.passiveElements:
+                if elem in self.markedElements:
+                    self.markedElements.remove(elem)
+            self.passiveElements = set()
+
+        elif rangeOfOperation == "LAST":
+            if self.globalData.lastCreatedElement in self.activeElements:
+                self.activeElements.remove(self.globalData.lastCreatedElement)
+            elif self.globalData.lastCreatedElement in self.passiveElements:
+                self.passiveElements.remove(self.globalData.lastCreatedElement)
+            elif self.globalData.lastCreatedElement in self.markedElements:
+                self.markedElements.remove(self.globalData.lastCreatedElement)
 
 
 class GrammarRulesVisitor(PTNodeVisitor):
@@ -2097,6 +2152,9 @@ def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_d
         previousFileContent = globalData.udoFileContent
         globalData.udoFileContent = UDO_FileContent
 
+        currentElementsNamesDictStorage = globalData.currentElementsNamesDict
+        globalData.currentElementsNamesDict = {}
+
         variableStorage = globalData.variables
         globalData.variables = createStandardVariables()
         globalData.variables["x"] = ["", nestedParameters[-3]]
@@ -2123,6 +2181,8 @@ def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_d
 
         UDO_File.close()   
 
+        currentElementsNamesDictStorage.update(globalData.currentElementsNamesDict)
+        globalData.currentElementsNamesDict = currentElementsNamesDictStorage
         globalData.udoFileContent = previousFileContent
         globalData.variables = variableStorage
 
@@ -2131,7 +2191,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "cwgheat"
+    udoName = "rx"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"
