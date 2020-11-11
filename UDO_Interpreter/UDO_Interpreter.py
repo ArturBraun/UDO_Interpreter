@@ -1504,11 +1504,93 @@ def set_Simulation(qwm_doc):
         """
         Does JOIN command from UDO language.
         """
+        operationType = argumentsList[0]
+        content = ""
+
+        if operationType == "CUT":
+            shapesList = list(self.activeElements) + list(self.passiveElements)
+            for i in range(len(shapesList)):
+                shapesList[i] = "qwm_doc." + shapesList[i]
+
+            self.globalData.numberForEqualElementsNames += 1
+            objectName = "Cut" + self.globalData.numberForEqualElementsNames
+
+            content = """    qwm_doc.addObject("Part::Cut","{objectName}")
+    qwm_doc.{objectName}.Base = {base}
+    qwm_doc.{objectName}.Tool = {tool}
+    qwm_doc.{objectName}.Medium = qwm_doc.{firstElementName}.Medium""".format(
+                        objectName = objectName,
+                        firstElementName = shapesList[0],
+                        base = shapesList[-1],
+                        tool = shapesList[0],
+                        )
+        
+            for elem in shapesList:
+                content += "Gui.activeDocument().hide('" + elem[8:] + "')\n"
+        
+
+        elif operationType == "INTERSECT":
+            shapesList = list(self.activeElements) + list(self.passiveElements)
+            for i in range(len(shapesList)):
+                shapesList[i] = "qwm_doc." + shapesList[i]
+
+            self.globalData.numberForEqualElementsNames += 1
+            objectName = "Common" + self.globalData.numberForEqualElementsNames
+
+            content = """    qwm_doc.addObject("Part::MultiCommon","{objectName}")
+    qwm_doc.{objectName}.Shapes = {shapesList}
+    qwm_doc.{objectName}.Medium = qwm_doc.{firstElementName}.Medium""".format(
+                        shapesList = shapesList,
+                        objectName = objectName,
+                        firstElementName = shapesList[0],
+                        )
+        
+            for elem in shapesList:
+                content += "Gui.activeDocument()." + elem + ".Visibility = False\n"
+
+
+        elif operationType == "GLUE":
+            shapesList = list(self.activeElements) + list(self.passiveElements)
+            for i in range(len(shapesList)):
+                shapesList[i] = "qwm_doc." + shapesList[i]
+
+            self.globalData.numberForEqualElementsNames += 1
+            objectName = "Fusion" + self.globalData.numberForEqualElementsNames
+
+            content = """    qwm_doc.addObject("Part::MultiFuse","{objectName}")
+    qwm_doc.{objectName}.Shapes = {shapesList}
+    qwm_doc.{objectName}.Medium = qwm_doc.{firstElementName}.Medium""".format(
+                        shapesList = shapesList,
+                        objectName = objectName,
+                        firstElementName = shapesList[0],
+                        )
+        
+            for elem in shapesList:
+                content += "Gui.activeDocument()." + elem + ".Visibility = False\n"
+
+
+        self.globalData.writeToGeomMediaFile(content)
+        self.globalData.lastCreatedElement = objectName
 
     def do_rotate(self, argumentsList):
         """
         Does ROTATE command from UDO language.
         """
+        angle = argumentsList[0]
+        x0 = argumentsList[0]
+        y0 = argumentsList[0]
+
+        content = ""
+
+        for elem in self.markedElements:
+            content += """    qwm_doc.{elemName}.Placement=App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,0,1),{angle}), App.Vector({x0},{y0},0))\n""".format(
+                elemName = elem,
+                angle = angle,
+                x0 = x0,
+                y0 = y0,
+                )
+
+        self.globalData.writeToGeomMediaFile(content)
 
     def do_rename(self, argumentsList):
         """
