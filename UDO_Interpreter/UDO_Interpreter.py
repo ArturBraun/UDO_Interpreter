@@ -93,6 +93,12 @@ def UDO_command():
         "FERRITEPAR",
         "THERMALPAR",
         "VISCOSITY",
+        "SETSUSPFLAGS",
+        "CIRTYPE",
+        "LOSSES",
+        "EXPOPT",
+        "UNITS",
+        "MESHPAR",
     ], Optional("("),  ZeroOrMore(expression,","), Optional(expression), Optional(")"), ";"
 
 def variable():
@@ -252,6 +258,12 @@ def specialUdoCommand():
         "FERRITEPAR",
         "THERMALPAR",
         "VISCOSITY",
+        "SETSUSPFLAGS",
+        "CIRTYPE",
+        "LOSSES",
+        "EXPOPT",
+        "UNITS",
+        "MESHPAR",
         ], Optional("("),  ZeroOrMore(specialExpression,","), Optional(specialExpression), Optional(")"), ";"
 
 def specialVariable():

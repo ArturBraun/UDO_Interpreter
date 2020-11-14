@@ -289,6 +289,12 @@ class UDO_commands:
             "FERRITEPAR":"do_ferritepar",
             "THERMALPAR":"do_thermalpar",
             "VISCOSITY":"do_viscosity",
+            "SETSUSPFLAGS":"do_setsuspflags",
+            "CIRTYPE":"do_cirtype",
+            "LOSSES":"do_losses",
+            "EXPOPT":"do_expopt",
+            "UNITS":"do_units",
+            "MESHPAR":"do_meshpar",
             }
 
         # Says which command is analised at the moment
@@ -1315,13 +1321,241 @@ def set_Simulation(qwm_doc):
         """
         Does FERRITEPAR command from UDO language.
         """
+        # FERRITEPAR (<mediumname>, <eps>, <mu>, <sigma>, <sigmaM>, <alpha>, <Ms>, <Hi>, <dens>)
+        
+        if self.createPyFiles:
+            mediumName  = argumentsList[0]
+            eps         = argumentsList[1]
+            mu          = argumentsList[2]
+            sigma       = argumentsList[3]
+            sigmaM      = argumentsList[4]
+            alpha       = argumentsList[5]
+            Ms          = argumentsList[6]
+            Hi          = argumentsList[7]
+            dens        = argumentsList[8]
+            
+            content = """    {mediumName}.materialtype = "Ferrite"
+    {mediumName}.Eps = {eps}
+    {mediumName}.Mu = {mu}
+    {mediumName}.Sigma = {sigma}
+    {mediumName}.SigmaM = {sigmaM}
+    {mediumName}.Fer_alfa = {alpha}
+    {mediumName}.Fer_Ms = {Ms}
+    {mediumName}.Fer_Hi = {Hi}
+    {mediumName}.density = {dens}\n""".format(
+                mediumName  = mediumName,
+                eps         = eps,
+                mu          = mu,
+                sigma       = sigma,
+                sigmaM      = sigmaM,
+                alpha       = alpha,
+                Ms          = Ms,
+                Hi          = Hi,
+                dens        = dens,
+                )
+            
+            self.globalData.writeToGeomMediaFile(content)
 
     def do_thermalpar(self, argumentsList):
         """
         Does THERMALPAR command from UDO language.
         """
+        # THERMALPAR (<mediumname>, <ini_temp>, <spec_heat>, <therm_cond_X>, <therm_cond_Y>, <therm_cond_Z>)
+
+        if self.createPyFiles:
+            mediumName  = argumentsList[0]
+            ini_temp    = argumentsList[1]
+            spec_heat   = argumentsList[2]
+            therm_cond_X= argumentsList[3]
+            therm_cond_Y= argumentsList[4]
+            therm_cond_Z= argumentsList[5]
+
+            content = """    {mediumName}.initemp = {ini_temp}
+    {mediumName}.specheat = {spec_heat}
+    {mediumName}.thermcond = [{therm_cond_X},{therm_cond_Y},{therm_cond_Z}]\n""".format(
+                mediumName  = mediumName,
+                ini_temp    = ini_temp,
+                spec_heat   = spec_heat,
+                therm_cond_X= therm_cond_X,
+                therm_cond_Y= therm_cond_Y,
+                therm_cond_Z= therm_cond_Z,
+                )
+            
+            self.globalData.writeToGeomMediaFile(content)
 
     def do_viscosity(self, argumentsList):
         """
         Does VISCOSITY command from UDO language.
         """
+        # VISCOSITY (<mediumname>, <viscosity>) 
+
+        if self.createPyFiles:
+            mediumName  = argumentsList[0]
+            viscosity   = argumentsList[1]
+
+            content = """    {mediumName}.viscosity = {viscosity}\n""".format(
+                mediumName  = mediumName,
+                viscosity   = viscosity,
+                )
+            
+            self.globalData.writeToGeomMediaFile(content)
+
+    def do_setsuspflags(self, argumentsList):
+        """
+        Does SETSUSPFLAGS command from UDO language.
+        """
+        pass
+
+    def do_cirtype(self, argumentsList):
+        """
+        Does CIRTYPE command from UDO language.
+        """
+        if self.createPyFiles:
+            self.globalData.hasSomethingBeenAddedToFiles["circuitFile"] = True
+
+            type = argumentsList[0]
+            defaultMedium = argumentsList[1]
+
+            typeStr = ""
+            if type == 0:
+                typeStr = "2DV"
+            elif type == 2:
+                typeStr = "3DP"
+            elif type == 4:
+                typeStr = "BOR"
+            else:
+                typeStr = "3D"
+
+            content = """    qwm_doc.QW_Circuit.CircuitType = "{typeStr}"\n""".format(
+                typeStr = typeStr,
+                )
+            
+            self.globalData.writeToCircuitFile(content)
+
+
+    def do_losses(self, argumentsList):
+        """
+        Does LOSSES command from UDO language.
+        """
+        if self.createPyFiles:
+            controlStr = argumentsList[0]
+
+            suppressMagneticLosses = "-M" in controlstr
+            suppressElectricLosses = "-E" in controlStr
+            suppressMetalLosses = "-P" in controlStr
+
+            metalLossesBandWidth = ""
+            if "BN" in controlStr:
+                metalLossesBandWidth = "Narrow"
+            elif "BD" in controlStr:
+                metalLossesBandWidth = "Decade"
+            elif "BT" in controlStr:
+                metalLossesBandWidth = "Two-Decades"
+
+            content = """    qwm_doc.QW_Circuit.MetalLossesBandwidth = "{metalLossesBandWidth}"
+    qwm_doc.QW_Circuit.SuppressLossesDielectric = {suppressElectricLosses}
+    qwm_doc.QW_Circuit.SuppressLossesMetal = {suppressMetalLosses}
+    qwm_doc.QW_Circuit.SuppressLossesMagnetic = {suppressMagneticLosses}\n""".format(
+                suppressMagneticLosses = suppressMagneticLosses,
+                suppressElectricLosses = suppressElectricLosses,
+                suppressMetalLosses = suppressMetalLosses,
+                metalLossesBandWidth = metalLossesBandWidth,
+                )
+            
+            self.globalData.writeToCircuitFile(content)
+
+
+    def do_expopt(self, argumentsList):
+        """
+        Does EXPOPT command from UDO language.
+        """
+        # EXPOPT (<Suppress singularity corrections>, <Suppress density/SAR>, <Allow BHM>) - Sets export options. Parameters: 1 – check option (on), 0 – uncheck option (off), 
+        if self.createPyFiles:
+            suppressSingularityCorrections  = bool(argumentsList[0])
+            suppressDensitySar              = bool(argumentsList[1])
+            allowBhm                        = argumentsList[2]
+
+            content = """    qwm_doc.QW_Circuit.SuppressSingularityCorrections = {suppressSingularityCorrections}
+    qwm_doc.QW_Circuit.SuppressDensity_SAR = {suppressDensitySar}
+    qwm_doc.QW_BHM.AllowBHM = {allowBhm}\n""".format(
+                suppressSingularityCorrections = suppressSingularityCorrections,
+                suppressDensitySar = suppressDensitySar,
+                allowBhm = allowBhm,
+                )
+            
+            self.globalData.writeToCircuitFile(content)
+
+    def do_units(self, argumentsList):
+        """
+        Does UNITS command from UDO language.
+        """
+        # UNITS (<space>,<frequency>) – Sets project units (space options: 0 - milimeters, 1 – micrometers, 2 - inches, 3 – mils, 4 – meters, 5 - nanometers; frequency always GHz)        
+        if self.createPyFiles:
+            geometryUnits  = argumentsList[0]
+            
+            geometryUnitsStr = ""
+            if geometryUnits == 0:
+                geometryUnitsStr = "mm"
+            elif geometryUnits == 1:
+                geometryUnitsStr = "um"
+            elif geometryUnits == 2:
+                geometryUnitsStr = "inch"
+            elif geometryUnits == 3:
+                geometryUnitsStr = "mils"
+            elif geometryUnits == 4:
+                geometryUnitsStr = "m"
+            elif geometryUnits == 5:
+                geometryUnitsStr = "nm"
+
+            content = """    qwm_doc.QW_Circuit.Units = "{geometryUnitsStr}"
+    qwm_doc.QW_Circuit.FrequencyUnits = "GHz"\n""".format(
+                geometryUnitsStr = geometryUnitsStr,
+                )
+            
+            self.globalData.writeToCircuitFile(content)
+
+    def do_meshpar(self, argumentsList):
+        """
+        Does MESHPAR command from UDO language.
+        """
+        # MESHPAR (<arg1>, ...,<arg10>)
+        if self.createPyFiles:
+            self.globalData.hasSomethingBeenAddedToFiles["meshFile"] = True
+
+            cellX = argumentsList[0]
+            cellY = argumentsList[1]
+            cellZ = argumentsList[2]
+            
+
+    #        content = """    qwm_doc.QW_Circuit.SuppressSingularityCorrections = {suppressSingularityCorrections}
+    #qwm_doc.QW_Circuit.SuppressDensity_SAR = {suppressDensitySar}
+    #qwm_doc.QW_BHM.AllowBHM = {allowBhm}\n""".format(
+    #            suppressSingularityCorrections = suppressSingularityCorrections,
+    #            suppressDensitySar = suppressDensitySar,
+    #            allowBhm = allowBhm,
+    #            )
+            
+    #        self.globalData.writeToMeshFile(content)
+ 
+"""
+MeshBox = QW_Modeller.addQWObject("QW_Modeller::MeshBox","MeshBox")
+MeshBox.Length = 30.00000
+MeshBox.Width = 30.00000
+MeshBox.Height = 30.00000
+MeshBox.Placement = Base.Placement(Base.Vector(5.0000000,5.0000000,5.0000000),Base.Rotation(0.0000000,0.0000000,0.0000000,1.0000000))
+MeshBox.MeshX = True
+MeshBox.MeshY = True
+MeshBox.MeshZ = True
+MeshBox.MeshXCellSize = 1.00000
+MeshBox.MeshYCellSize = 1.00000
+MeshBox.MeshZCellSize = 1.00000
+MeshBox.SnapToXMinus = False
+MeshBox.SnapToXPlus = False
+MeshBox.SnapToYMinus = False
+MeshBox.SnapToYPlus = False
+MeshBox.SnapToZMinus = False
+MeshBox.SnapToZPlus = False
+App.ActiveDocument.recompute()
+
+moze cos z tym ? -> FreeCADGui.ActiveDocument.QW_Mesh
+"""
