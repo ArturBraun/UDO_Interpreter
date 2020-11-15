@@ -295,12 +295,15 @@ class UDO_commands:
             "EXPOPT":"do_expopt",
             "UNITS":"do_units",
             "MESHPAR":"do_meshpar",
+            "SECTION":"do_section",
+            "ENDSECTION":"do_endsection",
             }
 
-        # Says which command is analised at the moment
+        # Says which command is analysed at the moment
         self.currentCommand = {
             "element":False,
             "port":False,
+            "selection":False,
             }
 
         # ELEMENT command variables
@@ -343,6 +346,17 @@ class UDO_commands:
         self.markedElements = set()
         self.activeElements = set()
         self.passiveElements = set()
+
+        # Selection command dict 
+        self.selectionCommandDict = {
+            "level":None,
+            "height":None,
+            "height2":None,
+            "mediumName":None,
+            "name":None,
+            "upperName":None,
+            "lowerName":None,
+            }
 
     def writeBasicScriptsToFiles(self):
         """
@@ -599,12 +613,12 @@ def set_Simulation(qwm_doc):
         self.elementCommandSpinWire = argumentsList[5]
 
         while True:
-            if self.elementCommandName in self.globalData._singleton.objectsNames:
+            if self.elementCommandName in self.globalData.objectsNames:
                 self.globalData.numberForEqualElementsNames += 1
                 self.elementCommandName += str(self.globalData.numberForEqualElementsNames)
             else: 
                 break
-        self.globalData._singleton.objectsNames.append(self.elementCommandName)
+        self.globalData.objectsNames.append(self.elementCommandName)
 
         if self.elementCommandType in [5,6,15,16]:
             self.elementCommandTypeCombinedDict[self.elementCommandType] = "sketch_" + self.elementCommandName
@@ -678,9 +692,15 @@ def set_Simulation(qwm_doc):
         _x2 = argumentsList[2]
         _y2 = argumentsList[3]
 
-        if self.createPyFiles and self.currentCommand["element"]:
+        if self.createPyFiles and (self.currentCommand["element"] or self.currentCommand["selection"]):
+            name = ""
+            if self.currentCommand["element"]:
+                name = self.elementCommandName
+            elif self.currentCommand["selection"]:
+                name = self.selectionCommandDict["name"]
+
             content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
-""".format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+""".format(name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
                
             self.globalData.writeToGeomMediaFile(content)
 
@@ -700,9 +720,15 @@ def set_Simulation(qwm_doc):
         _x2 = self.newlineCommandFirstPoint[0]
         _y2 = self.newlineCommandFirstPoint[1]
 
-        if self.createPyFiles and self.currentCommand["element"]:
+        if self.createPyFiles and (self.currentCommand["element"] or self.currentCommand["selection"]):
+            name = ""
+            if self.currentCommand["element"]:
+                name = self.elementCommandName
+            elif self.currentCommand["selection"]:
+                name = self.selectionCommandDict["name"]
+
             content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
-""".format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+""".format(name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
             self.globalData.writeToGeomMediaFile(content)
 
@@ -718,9 +744,15 @@ def set_Simulation(qwm_doc):
         _x2 = self.lineCommandLastPoint[0]
         _y2 = self.lineCommandLastPoint[1] + argumentsList[0]
 
-        if self.createPyFiles and self.currentCommand["element"]:
+        if self.createPyFiles and (self.currentCommand["element"] or self.currentCommand["selection"]):
+            name = ""
+            if self.currentCommand["element"]:
+                name = self.elementCommandName
+            elif self.currentCommand["selection"]:
+                name = self.selectionCommandDict["name"]
+
             content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
-""".format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+""".format(name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
         
             self.globalData.writeToGeomMediaFile(content)
 
@@ -739,9 +771,15 @@ def set_Simulation(qwm_doc):
         _x2 = self.lineCommandLastPoint[0] + argumentsList[0]
         _y2 = self.lineCommandLastPoint[1]
 
-        if self.createPyFiles and self.currentCommand["element"]:
+        if self.createPyFiles and (self.currentCommand["element"] or self.currentCommand["selection"]):
+            name = ""
+            if self.currentCommand["element"]:
+                name = self.elementCommandName
+            elif self.currentCommand["selection"]:
+                name = self.selectionCommandDict["name"]
+
             content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
-""".format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+""".format(name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
             self.globalData.writeToGeomMediaFile(content)
 
@@ -760,9 +798,15 @@ def set_Simulation(qwm_doc):
         _x2 = argumentsList[0]
         _y2 = argumentsList[1]
 
-        if self.createPyFiles and self.currentCommand["element"]:
+        if self.createPyFiles and (self.currentCommand["element"] or self.currentCommand["selection"]):
+            name = ""
+            if self.currentCommand["element"]:
+                name = self.elementCommandName
+            elif self.currentCommand["selection"]:
+                name = self.selectionCommandDict["name"]
+
             content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
-""".format(name = self.elementCommandName, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+""".format(name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
             self.globalData.writeToGeomMediaFile(content)
 
@@ -1522,40 +1566,127 @@ def set_Simulation(qwm_doc):
         if self.createPyFiles:
             self.globalData.hasSomethingBeenAddedToFiles["meshFile"] = True
 
-            cellX = argumentsList[0]
-            cellY = argumentsList[1]
-            cellZ = argumentsList[2]
-            
+            cellX           = argumentsList[0]
+            cellY           = argumentsList[1]
+            cellZ           = argumentsList[2]
+            lowerLimX       = argumentsList[3]
+            upperLimX       = argumentsList[4]
+            lowerLimY       = argumentsList[5]
+            upperLimY       = argumentsList[6]
+            lowerLimZ       = argumentsList[7]
+            upperLimZ       = argumentsList[8]
+            adjustToObjects = argumentsList[9]
 
-    #        content = """    qwm_doc.QW_Circuit.SuppressSingularityCorrections = {suppressSingularityCorrections}
-    #qwm_doc.QW_Circuit.SuppressDensity_SAR = {suppressDensitySar}
-    #qwm_doc.QW_BHM.AllowBHM = {allowBhm}\n""".format(
-    #            suppressSingularityCorrections = suppressSingularityCorrections,
-    #            suppressDensitySar = suppressDensitySar,
-    #            allowBhm = allowBhm,
-    #            )
-            
-    #        self.globalData.writeToMeshFile(content)
- 
-"""
-MeshBox = QW_Modeller.addQWObject("QW_Modeller::MeshBox","MeshBox")
-MeshBox.Length = 30.00000
-MeshBox.Width = 30.00000
-MeshBox.Height = 30.00000
-MeshBox.Placement = Base.Placement(Base.Vector(5.0000000,5.0000000,5.0000000),Base.Rotation(0.0000000,0.0000000,0.0000000,1.0000000))
-MeshBox.MeshX = True
-MeshBox.MeshY = True
-MeshBox.MeshZ = True
-MeshBox.MeshXCellSize = 1.00000
-MeshBox.MeshYCellSize = 1.00000
-MeshBox.MeshZCellSize = 1.00000
-MeshBox.SnapToXMinus = False
-MeshBox.SnapToXPlus = False
-MeshBox.SnapToYMinus = False
-MeshBox.SnapToYPlus = False
-MeshBox.SnapToZMinus = False
-MeshBox.SnapToZPlus = False
-App.ActiveDocument.recompute()
+            length = upperLimX - lowerLimX
+            width = upperLimY - lowerLimY
+            height = upperLimZ - lowerLimZ
 
-moze cos z tym ? -> FreeCADGui.ActiveDocument.QW_Mesh
-"""
+            locationX = (upperLimX + lowerLimX) / 2
+            locationY = (upperLimY + lowerLimY) / 2
+            locationZ = (upperLimZ + lowerLimZ) / 2
+            
+            self.globalData.numberForEqualElementsNames += 1
+            objectName = "MeshBox" + str(self.globalData.numberForEqualElementsNames)
+
+            content = """    {objectName} = QW_Modeller.addQWObject("QW_Modeller::MeshBox","{objectName}")
+    {objectName}.Length = {length}
+    {objectName}.Width = {width}
+    {objectName}.Height = {height}
+    {objectName}.Placement = Base.Placement(Base.Vector({locationX},{locationY},{locationZ}),Base.Rotation(0.0000000,0.0000000,0.0000000,1.0000000))
+    {objectName}.MeshX = True
+    {objectName}.MeshY = True
+    {objectName}.MeshZ = True
+    {objectName}.MeshXCellSize = {cellX}
+    {objectName}.MeshYCellSize = {cellY}
+    {objectName}.MeshZCellSize = {cellZ}
+    {objectName}.SnapToXMinus = False
+    {objectName}.SnapToXPlus = False
+    {objectName}.SnapToYMinus = False
+    {objectName}.SnapToYPlus = False
+    {objectName}.SnapToZMinus = False
+    {objectName}.SnapToZPlus = False\n""".format(
+                objectName      = objectName,
+                cellX           = cellX,
+                cellY           = cellY,
+                cellZ           = cellZ,
+                locationX       = locationX,
+                locationY       = locationY,
+                locationZ       = locationZ,
+                length          = length,
+                width           = width,
+                height          = height,
+                )
+            
+            self.globalData.writeToMeshFile(content)
+
+
+    def do_section(self, argumentsList):
+        """
+        Does SECTION command from UDO language.
+        """
+        self.globalData.hasSomethingBeenAddedToFiles["geomMediaFile"] = True
+        self.currentCommand["selection"] = True
+
+        self.selectionCommandDict["level"]      = argumentsList[0]
+        self.selectionCommandDict["height"]     = argumentsList[1]
+        self.selectionCommandDict["height2"]    = argumentsList[2]
+        self.selectionCommandDict["mediumName"] = argumentsList[3]
+        self.selectionCommandDict["name"]       = argumentsList[4]
+
+        while True:
+            if self.selectionCommandDict["name"] in self.globalData.objectsNames:
+                self.globalData.numberForEqualElementsNames += 1
+                self.selectionCommandDict["name"] += str(self.globalData.numberForEqualElementsNames)
+            else: 
+                break
+        self.selectionCommandDict["upperName"] = self.selectionCommandDict["name"] + "U"
+        self.selectionCommandDict["lowerName"] = self.selectionCommandDict["name"] + "D"
+        self.globalData.objectsNames.append(self.selectionCommandDict["upperName"])
+        self.globalData.objectsNames.append(self.selectionCommandDict["lowerName"])
+        
+        if self.createPyFiles:
+            content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
+    qwm_doc.sketch_{name}.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,{level}),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))\n""".format(
+                name = self.selectionCommandDict["name"], 
+                level = self.selectionCommandDict["level"],
+                )
+        
+            self.globalData.writeToGeomMediaFile(content)
+
+    def do_endsection(self, argumentsList):
+        """
+        Does ENDSECTION command from UDO language.
+        """
+
+        if self.createPyFiles:
+            content = """    qwm_doc.addObject("Part::Extrusion", "{upperName}")
+    qwm_doc.{upperName}.Base = qwm_doc.sketch_{name}
+    qwm_doc.{upperName}.Dir = (0, 0, {height})
+    qwm_doc.{upperName}.Solid = True
+    qwm_doc.{upperName}.ViewObject.Transparency = 60
+    qwm_doc.{upperName}.Medium = QW_Modeller.getQWMedium("{mediumName}")
+    qwm_doc.addObject("Part::Extrusion", "{lowerName}")
+    qwm_doc.{lowerName}.Base = qwm_doc.sketch_{name}
+    qwm_doc.{lowerName}.Dir = (0, 0, {height2})
+    qwm_doc.{lowerName}.Solid = True
+    qwm_doc.{lowerName}.ViewObject.Transparency = 60
+    qwm_doc.{lowerName}.Medium = QW_Modeller.getQWMedium("{mediumName}")
+    qwm_doc.addObject("Part::MultiFuse","{name}")
+    qwm_doc.{name}.Shapes = [qwm_doc.{upperName}, qwm_doc.{lowerName}]
+    qwm_doc.{name}.Medium = qwm_doc.{upperName}.Medium\n""".format(
+                upperName   = self.selectionCommandDict["upperName"],
+                lowerName   = self.selectionCommandDict["lowerName"],
+                name        = self.selectionCommandDict["name"],
+                height      = self.selectionCommandDict["height"],
+                height2     = self.selectionCommandDict["height2"],
+                mediumName  = self.selectionCommandDict["mediumName"],
+                )
+
+            self.globalData.writeToGeomMediaFile(content)
+
+        self.currentCommand["selection"] = False
+        self.globalData.currentElementsNamesDict[self.selectionCommandDict["upperName"]] = self.selectionCommandDict["upperName"]
+        self.globalData.currentElementsNamesDict[self.selectionCommandDict["lowerName"]] = self.selectionCommandDict["lowerName"]
+        self.globalData.currentElementsNamesDict[self.selectionCommandDict["name"]] = self.selectionCommandDict["name"]
+        self.globalData.lastCreatedElement = self.selectionCommandDict["name"]
+

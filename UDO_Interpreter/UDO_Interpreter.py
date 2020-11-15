@@ -99,6 +99,8 @@ def UDO_command():
         "EXPOPT",
         "UNITS",
         "MESHPAR",
+        "SECTION",
+        "ENDSECTION",
     ], Optional("("),  ZeroOrMore(expression,","), Optional(expression), Optional(")"), ";"
 
 def variable():
@@ -264,6 +266,8 @@ def specialUdoCommand():
         "EXPOPT",
         "UNITS",
         "MESHPAR",
+        "SECTION",
+        "ENDSECTION",
         ], Optional("("),  ZeroOrMore(specialExpression,","), Optional(specialExpression), Optional(")"), ";"
 
 def specialVariable():
