@@ -302,6 +302,7 @@ class UDO_commands:
             "WAVEFORM":"do_waveform",
             "TEMPDP":"do_tempdp",
             "MULTIPOINT":"do_multipoint",
+            "PORTPAR":"do_portpar",
             }
 
         # Says which command is analysed at the moment
@@ -945,10 +946,8 @@ def set_Simulation(qwm_doc):
 
         if self.portCommandDict["type"] == "OUTTEMPLATE":
             portType = "Load"
-        else:
+        if self.portCommandDict["type"] == "INPTEMPLATE":
             portType = "Source"
-        #if self.portCommandDict["type"] == "INPTEMPLATE":
-        #    portType = "Source"
 
         if self.portCommandDict["activity"] == "UP":
             activity = "PLUS"
@@ -976,7 +975,7 @@ def set_Simulation(qwm_doc):
                     orientation = orientation,
                     referenceValue = referenceValue)
 
-            else:
+            elif self.portCommandDict["type"] == "INPTEMPLATE" or self.portCommandDict["type"] == "OUTTEMPLATE":
                 content = """    qwm_doc.{portName}.Length = {length}
     qwm_doc.{portName}.Width = {width}
     qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}), Base.Rotation({rotation}))
@@ -1846,6 +1845,12 @@ def set_Simulation(qwm_doc):
         self.portCommandDict["multipointEnable"] = argumentsList[0]
         self.portCommandDict["multipointSizeShape"] = argumentsList[1]
 
+
+    def do_portpar(self, argumentsList):
+        """
+        Does PORTPAR command from UDO language.
+        """
+        pass
 
 
 

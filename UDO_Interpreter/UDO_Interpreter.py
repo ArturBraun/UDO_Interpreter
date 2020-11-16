@@ -6,9 +6,8 @@ This module include main function and functions describing parser grammar.
 
 #____________________________________________
 # TODO:
-# -dodac funkcje zwiazane z meshem
-# -istnieje problem z materialami, Editor ma jakies domyslne materialy jak np telfon i ich uzywa
-#           a dla Modellera teflon jest nieznanym materialem np jest tak w przypadku "dielf1" !
+# - dodac funkcje zwiazane z meshem
+# - co oznacza w udo PORTPAR?
 #____________________________________________
 
 #--------------------------------------------
@@ -106,6 +105,7 @@ def UDO_command():
         "WAVEFORM",
         "TEMPDP",
         "MULTIPOINT",
+        "PORTPAR",
     ], Optional("("),  ZeroOrMore(expression,","), Optional(expression), Optional(")"), ";"
 
 def variable():
@@ -278,6 +278,7 @@ def specialUdoCommand():
         "WAVEFORM",
         "TEMPDP",
         "MULTIPOINT",
+        "PORTPAR",
         ], Optional("("),  ZeroOrMore(specialExpression,","), Optional(specialExpression), Optional(")"), ";"
 
 def specialVariable():
