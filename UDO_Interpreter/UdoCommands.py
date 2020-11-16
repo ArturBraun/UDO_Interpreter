@@ -297,6 +297,11 @@ class UDO_commands:
             "MESHPAR":"do_meshpar",
             "SECTION":"do_section",
             "ENDSECTION":"do_endsection",
+            "EPSEFF":"do_epseff",
+            "MODE":"do_mode",
+            "WAVEFORM":"do_waveform",
+            "TEMPDP":"do_tempdp",
+            "MULTIPOINT":"do_multipoint",
             }
 
         # Says which command is analysed at the moment
@@ -316,27 +321,7 @@ class UDO_commands:
         self.elementCommandSpinWire = ""
 
         # PORT command dict
-        self.portCommandDict = {
-            "level":None,
-            "height":None,
-            "type":None,
-            "activity":None,
-            "name":None,
-            "reference":None,
-            "x1":None,
-            "y1":None,
-            "x2":None,
-            "y2":None,
-            "x3":None,
-            "y3":None,
-            "x4":None,
-            "y4":None,
-            "currentPoint":1,
-            "excitationPointX":None,
-            "excitationPointY":None,
-            "excitationPointZ":None,
-            "portexcPointZ":None,
-            }
+        self.portCommandDict = self.initPortCommandDict()
 
         # ***Line command variables
         self.newlineCommandFirstPoint = [0.0, 0.0]
@@ -357,6 +342,48 @@ class UDO_commands:
             "upperName":None,
             "lowerName":None,
             }
+
+    def initPortCommandDict(self):
+        """
+        Returns port command dictionary default content.
+        """
+        return {
+            "level":None,
+            "height":None,
+            "type":None,
+            "activity":None,
+            "name":None,
+            "reference":None,
+            "x1":None,
+            "y1":None,
+            "x2":None,
+            "y2":None,
+            "x3":None,
+            "y3":None,
+            "x4":None,
+            "y4":None,
+            "currentPoint":1,
+            "excitationPointX":None,
+            "excitationPointY":None,
+            "excitationPointZ":None,
+            "portexcPointZ":None,
+            "effectivePermittivity":1,
+            "mode":"TEM",
+            "waveform":"'delta'",
+            "amplitude":1,
+            "delay":0,
+            "tempMethod":"Automatic",
+            "tempMatchFreq":10,
+            "tempWithin":0.2,
+            "tempFrom":9,
+            "tempTo":11,
+            "tempStep":0.01,
+            "tempComponent":"Ex",
+            "tempPeriods":50,
+            "multipointEnable":0,
+            "multipointSizeShape":"0.1",
+            }
+
 
     def writeBasicScriptsToFiles(self):
         """
@@ -963,8 +990,8 @@ def set_Simulation(qwm_doc):
     qwm_doc.{portName}.PointCoordY = {excitationPointY}
     qwm_doc.{portName}.PointCoordZ = {excitationPointZ}
     qwm_doc.{portName}.effectivePermitivityMode = "AUTO"
-    qwm_doc.{portName}.Excitation = QW_Modeller.TemplateExcitation(QW_Modeller.DriveFunction(QW_Modeller.Waveform('delta'),1,0,1,0),'TEM','Ex',1,QW_Modeller.TemplateGenerationConf('Automatic',(10,0.2),(9,11,0.01),1,50,1,0))
-    qwm_doc.{portName}.MultiPointExcitation = QW_Modeller.MultiPointPortExcitation(0,"0.1")
+    qwm_doc.{portName}.Excitation = QW_Modeller.TemplateExcitation(QW_Modeller.DriveFunction(QW_Modeller.Waveform({waveform}),{amplitude},{delay},1,0),'{mode}','{tempComponent}',1,QW_Modeller.TemplateGenerationConf('{tempMethod}',({tempMatchFreq},{tempWithin}),({tempFrom},{tempTo},{tempStep}),{effectivePermittivity},{tempPeriods},1,0))
+    qwm_doc.{portName}.MultiPointExcitation = QW_Modeller.MultiPointPortExcitation({multipointEnable},"{multipointSizeShape}")
     qwm_doc.{portName}.Postprocessing = QW_Modeller.PortPostprocessing(0,0,1)\n""".format(
                 portName = self.portCommandDict["name"],
                 length = length,
@@ -977,13 +1004,28 @@ def set_Simulation(qwm_doc):
                 orientation = orientation,
                 position = position,
                 rotation = rotation,
+                effectivePermittivity = self.portCommandDict["effectivePermittivity"],
+                mode = self.portCommandDict["mode"],
+                waveform = self.portCommandDict["waveform"],
+                amplitude = self.portCommandDict["amplitude"],
+                delay = self.portCommandDict["delay"],
+                tempMethod = self.portCommandDict["tempMethod"],
+                tempMatchFreq = self.portCommandDict["tempMatchFreq"],
+                tempWithin = self.portCommandDict["tempWithin"],
+                tempFrom = self.portCommandDict["tempFrom"],
+                tempTo = self.portCommandDict["tempTo"],
+                tempStep = self.portCommandDict["tempStep"],
+                tempComponent = self.portCommandDict["tempComponent"],
+                tempPeriods = self.portCommandDict["tempPeriods"],
+                multipointEnable = self.portCommandDict["multipointEnable"],
+                multipointSizeShape = self.portCommandDict["multipointSizeShape"],
                 )
 
             self.globalData.writeToExcitFile(content)
 
 
         self.currentCommand["port"] = False
-        self.portCommandDict["currentPoint"] = 1
+        self.portCommandDict = self.initPortCommandDict()
 
     def do_getiopar(self, argumentsList):
         """
@@ -1689,4 +1731,121 @@ def set_Simulation(qwm_doc):
         self.globalData.currentElementsNamesDict[self.selectionCommandDict["lowerName"]] = self.selectionCommandDict["lowerName"]
         self.globalData.currentElementsNamesDict[self.selectionCommandDict["name"]] = self.selectionCommandDict["name"]
         self.globalData.lastCreatedElement = self.selectionCommandDict["name"]
+
+    def do_epseff(self, argumentsList):
+        """
+        Does EPSEFF command from UDO language.
+        """
+        self.portCommandDict["effectivePermittivity"] = argumentsList[0]
+
+    def do_mode(self, argumentsList):
+        """
+        Does MODE command from UDO language.
+        """
+        modeIndex = argumentsList[0]
+        
+        # (0 – Dynamic, 1 – TEM (Quasistatic), 2 – R_TE10 (TE10 mode in rectangular waveguide), 3- R_TE01 (TE01 mode in rectangular waveguide), 4 - R_TE11 (TE11 mode in rectangular waveguide), 5 - R_TM11 (TM11 mode in rectangular waveguide), 6 - C_TE11 (TE11 mode in circular waveguide), 7 - C_TM01 (TM01 mode in circular waveguide), 8 – multiTEM, 9 – planeTEM) 
+
+        self.portCommandDict["mode"] = {
+            0:"Arbitrary",
+            1:"TEM",
+            2:"R_TE10",
+            3:"R_TE01",
+            4:"R_TE11",
+            5:"R_TM11",
+            6:"C_TE11",
+            7:"C_TM01",
+            8:"TEM",
+            9:"planeTEM",
+            }[modeIndex]
+
+    def do_waveform(self, argumentsList):
+        """
+        Does WAVEFORM command from UDO language.
+        """
+        # (<shape>,<f1>,<f2>,<duration>,<amplitude>,<delay>,<file_name>)
+
+        shape       = argumentsList[0]
+        f1          = argumentsList[1]
+        f2          = argumentsList[2]
+        duration    = argumentsList[3]
+        fileName    = argumentsList[6]
+
+        self.portCommandDict["amplitude"] = argumentsList[4]
+        self.portCommandDict["delay"] = argumentsList[5]
+
+        if shape == -1:
+            self.portCommandDict["waveform"] = "'no excitation'"
+        elif shape == 0:
+            self.portCommandDict["waveform"] = "'delta'"
+        elif shape == 1:
+            self.portCommandDict["waveform"] = "'sinusoidal'," + str(f1)
+        elif shape == 2:
+            self.portCommandDict["waveform"] = "'pulse of spectrum f<f2',{f2},{duration}".format(
+                f2          = f2,
+                duration    = duration,
+                )
+        elif shape == 3:
+            self.portCommandDict["waveform"] = "'pulse of spectrum f1<f<f2',{f1},{f2},{duration}".format(
+                f1          = f1,
+                f2          = f2,
+                duration    = duration,
+                )
+        elif shape == 4:
+            self.portCommandDict["waveform"] = "'Gauss of spectrum f=f1(-/+f2)',{f1},{f2},{duration}".format(
+                f1          = f1,
+                f2          = f2,
+                duration    = duration,
+                )
+        elif shape == 5:
+            self.portCommandDict["waveform"] = "'step pulse'"
+        elif shape == 6:
+            self.portCommandDict["waveform"] = "'step with finite rise time tr=1/f2'," + str(f2)
+        elif shape == 7:
+            self.portCommandDict["waveform"] = "'defined by user text file','{file}'".format(file = fileName)
+
+
+    def do_tempdp(self, argumentsList):
+        """
+        Does TEMPDP command from UDO language.
+        """
+        # (<method>,<match_freq>,<within>,<from>,<to>,<step>,<component>,<periods>)
+
+        if argumentsList[0] == 0:
+            self.portCommandDict["tempMethod"] = "Automatic"
+        elif argumentsList[0] == 1:
+            self.portCommandDict["tempMethod"] = "Manual"
+
+        self.portCommandDict["tempMatchFreq"] = argumentsList[1]
+        self.portCommandDict["tempWithin"] = argumentsList[2]
+        self.portCommandDict["tempFrom"] = argumentsList[3]
+        self.portCommandDict["tempTo"] = argumentsList[4]
+        self.portCommandDict["tempStep"] = argumentsList[5]
+
+        if argumentsList[6] == 0:
+            self.portCommandDict["tempComponent"] = "Ex"
+        elif argumentsList[6] == 1:
+            self.portCommandDict["tempComponent"] = "Ey"
+        elif argumentsList[6] == 2:
+            self.portCommandDict["tempComponent"] = "Ez"
+        elif argumentsList[6] == 3:
+            self.portCommandDict["tempComponent"] = "Hx"
+        elif argumentsList[6] == 4:
+            self.portCommandDict["tempComponent"] = "Hy"
+        elif argumentsList[6] == 5:
+            self.portCommandDict["tempComponent"] = "Hz"
+
+        self.portCommandDict["tempPeriods"] = argumentsList[7]
+
+
+    def do_multipoint(self, argumentsList):
+        """
+        Does MULTIPOINT command from UDO language.
+        """
+        
+        self.portCommandDict["multipointEnable"] = argumentsList[0]
+        self.portCommandDict["multipointSizeShape"] = argumentsList[1]
+
+
+
 

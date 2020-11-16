@@ -74,6 +74,8 @@ def UDO_command():
         "CLOSELINE",
         "ELEMENT",
         "ENDELEM",
+        "SECTION",
+        "ENDSECTION",
         "CALL",
         "OPENOBJECT",
         "CLOSEOBJ",
@@ -99,8 +101,11 @@ def UDO_command():
         "EXPOPT",
         "UNITS",
         "MESHPAR",
-        "SECTION",
-        "ENDSECTION",
+        "EPSEFF",
+        "MODE",
+        "WAVEFORM",
+        "TEMPDP",
+        "MULTIPOINT",
     ], Optional("("),  ZeroOrMore(expression,","), Optional(expression), Optional(")"), ";"
 
 def variable():
@@ -241,6 +246,8 @@ def specialUdoCommand():
         "CLOSELINE",
         "ELEMENT",
         "ENDELEM",
+        "SECTION",
+        "ENDSECTION",
         "CALL",
         "OPENOBJECT",
         "CLOSEOBJ",
@@ -266,8 +273,11 @@ def specialUdoCommand():
         "EXPOPT",
         "UNITS",
         "MESHPAR",
-        "SECTION",
-        "ENDSECTION",
+        "EPSEFF",
+        "MODE",
+        "WAVEFORM",
+        "TEMPDP",
+        "MULTIPOINT",
         ], Optional("("),  ZeroOrMore(specialExpression,","), Optional(specialExpression), Optional(")"), ";"
 
 def specialVariable():
