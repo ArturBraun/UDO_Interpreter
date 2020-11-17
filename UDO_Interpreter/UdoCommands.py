@@ -303,6 +303,9 @@ class UDO_commands:
             "TEMPDP":"do_tempdp",
             "MULTIPOINT":"do_multipoint",
             "PORTPAR":"do_portpar",
+            "SK1DIFF":"do_sk1diff",
+            "NTF":"do_ntf",
+            "NTFBKG":"do_ntfbkg",
             }
 
         # Says which command is analysed at the moment
@@ -613,7 +616,7 @@ def set_Simulation(qwm_doc):
 
     def callFunction(self,stringWithUdoCommand,argumentsList):
         """
-        Function that uses dictionary to math and call appropriate function from given string with math function name. 
+        Function that uses dictionary to match and call appropriate function from given string with math function name. 
         """
         return getattr(self, self.functionsNames[stringWithUdoCommand])(argumentsList)
 
@@ -904,11 +907,19 @@ def set_Simulation(qwm_doc):
         self.portCommandDict["name"] = argumentsList[4]
         self.portCommandDict["reference"] = argumentsList[5]
 
-        if self.portCommandDict["type"] != "REFERENCE":
+        content = ""
+
+        if self.portCommandDict["type"] == "INPTEMPLATE" or self.portCommandDict["type"] == "OUTTEMPLATE":
             content = """    QW_Modeller.addQWObject("QW_Modeller::TemplatePort","{portName}")\n""".format(portName = self.portCommandDict["name"])
-            
-            if self.createPyFiles:
-                self.globalData.writeToExcitFile(content)
+        elif self.portCommandDict["type"] == "MUR":
+            content = """    QW_Modeller.addQWObject("QW_Modeller::AbsorbingWall","{portName}")\n""".format(portName = self.portCommandDict["name"])
+        elif self.portCommandDict["type"] == "NEAR2FAR": 
+            content = """    QW_Modeller.addQWObject("QW_Modeller::NTFBox","{portName}")\n""".format(portName = self.portCommandDict["name"])
+        elif self.portCommandDict["type"] == "SPECIAL": 
+            content = """    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","{portName}")\n""".format(portName = self.portCommandDict["name"])
+
+        if self.createPyFiles and content:
+            self.globalData.writeToExcitFile(content)
 
     def do_endport(self, argumentsList):
         """
@@ -951,12 +962,18 @@ def set_Simulation(qwm_doc):
 
         if self.portCommandDict["activity"] == "UP":
             activity = "PLUS"
-        else:
+        elif self.portCommandDict["activity"] == "DOWN":
             activity = "MINUS"
-        #elif self.portCommandDict["activity"] == "DOWN":
-        #    activitydirection = "MINUS"
-        #elif self.portCommandDict["activity"] == "NONE":
-        #    pass
+        elif self.portCommandDict["activity"] == "NONE":
+            activity = "NONE"
+
+        length = 0
+        width = 0 
+        height = 0
+        if self.portCommandDict["currentPoint"] > 3:    # TUTAJ POPRAWIC
+            length = self.portCommandDict["x2"] - self.portCommandDict["x1"]
+            width = self.portCommandDict["y3"] - self.portCommandDict["y1"]
+            height = self.portCommandDict["height"]
 
         isSpecialWithZeroHeight = not (self.portCommandDict["type"] == "SPECIAL" and self.portCommandDict["height"] == 0)
 
@@ -1019,7 +1036,70 @@ def set_Simulation(qwm_doc):
                 multipointEnable = self.portCommandDict["multipointEnable"],
                 multipointSizeShape = self.portCommandDict["multipointSizeShape"],
                 )
+        
+            elif self.portCommandDict["type"] == "MUR":
+                content = """    qwm_doc.{portName}.Orientation = "{orientation}"
+    qwm_doc.{portName}.Length = {length}
+    qwm_doc.{portName}.Width = {width}
+    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),Base.Rotation({rotation}))
+    qwm_doc.{portName}.Position = {position}
+    qwm_doc.{portName}.Activity = "{activity}"
+    qwm_doc.{portName}.AbsorberDepth = 1.00000
+    FreeCAD.Gui.ActiveDocument.{portName}.ShowText = True
+    FreeCAD.Gui.ActiveDocument.{portName}.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.{portName}.TextPlace = 3
+    qwm_doc.{portName}.Type = "MUR"
+    qwm_doc.{portName}.EffectivePermittivity = {effectivePermittivity}\n""".format(
+                    portName                = portName,
+                    orientation             = orientation,
+                    length                  = length,
+                    width                   = width,
+                    excitationPointX        = self.portCommandDict["excitationPointX"],
+                    excitationPointY        = self.portCommandDict["excitationPointY"],
+                    excitationPointZ        = self.portCommandDict["excitationPointZ"],
+                    rotation                = rotation,
+                    position                = position,
+                    activity                = activity,
+                    effectivePermittivity   = effectivePermittivity,
+                    )
+            elif self.portCommandDict["type"] == "NEAR2FAR":
+                content = """    qwm_doc.{portName}.Length = {length}
+    qwm_doc.{portName}.Width = {width}
+    qwm_doc.{portName}.Height = {height}
+    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),Base.Rotation({rotation}))
+    FreeCAD.Gui.ActiveDocument.{portName}.ShowText = True
+    FreeCAD.Gui.ActiveDocument.{portName}.TextSize = 14\n""".format(
+                    portName                = portName,
+                    length                  = length,
+                    width                   = width,
+                    height                  = height,
+                    excitationPointX        = self.portCommandDict["excitationPointX"],
+                    excitationPointY        = self.portCommandDict["excitationPointY"],
+                    excitationPointZ        = self.portCommandDict["excitationPointZ"],
+                    rotation                = rotation,
+                    )
+        
+            elif self.portCommandDict["type"] == "SPECIAL": 
+                content = """    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),Base.Rotation({rotation}))
+    qwm_doc.{portName}.SPX.Orientation = {orientation}
+    qwm_doc.{portName}.SPX.Position = {position}
+    qwm_doc.{portName}.SPX.Length = {length}
+    qwm_doc.{portName}.SPX.Width = {width}
+    FreeCAD.Gui.ActiveDocument.{portName}.ShowText = False
+    FreeCAD.Gui.ActiveDocument.{portName}.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.{portName}.TextPlace = 3\n""".format(
+                    portName                = portName,
+                    excitationPointX        = self.portCommandDict["excitationPointX"],
+                    excitationPointY        = self.portCommandDict["excitationPointY"],
+                    excitationPointZ        = self.portCommandDict["excitationPointZ"],
+                    rotation                = rotation,
+                    orientation             = orientation,
+                    position                = position,
+                    length                  = length,
+                    width                   = width,
+                    )
 
+            
             self.globalData.writeToExcitFile(content)
 
 
@@ -1851,6 +1931,74 @@ def set_Simulation(qwm_doc):
         Does PORTPAR command from UDO language.
         """
         pass
+
+    def do_sk1diff(self, argumentsList):
+        """
+        Does SK1DIFF command from UDO language.
+        """
+        if self.createPyFiles:
+            # (<lower_freq>,<upper_freq>,<freq_step>,<assumptions>)
+            lowerFreq           = argumentsList[0]
+            upperFreq           = argumentsList[1]
+            freqStep            = argumentsList[2]
+            assumptionsIndex    = argumentsList[3]
+
+            reciprocalNport = False
+            reciprocalLossless2port = False
+
+            if assumptionsIndex == 1:
+                reciprocalNport = True
+            elif assumptionsIndex == 2:
+                reciprocalLossless2port = True
+
+            content = """    qwm_doc.QW_PostprocessingS.From = {lowerFreq}
+    qwm_doc.QW_PostprocessingS.To = {upperFreq}
+    qwm_doc.QW_PostprocessingS.Step = {freqStep}
+    qwm_doc.QW_PostprocessingS.ReciprocalNport = {reciprocalNport}
+    qwm_doc.QW_PostprocessingS.ReciprocalLossless2port = {reciprocalLossless2port}\n""".format(
+                lowerFreq               = lowerFreq,
+                upperFreq               = upperFreq,
+                freqStep                = freqStep,
+                reciprocalNport         = reciprocalNport,
+                reciprocalLossless2port = reciprocalLossless2port,
+                )
+        
+            self.globalData.writeToPpostFile(content)
+
+    def do_ntf(self, argumentsList):
+        """
+        Does NTF command from UDO language.
+        """
+        if self.createPyFiles:
+            strWithFreq = argumentsList[0]
+            freqList = [float(elem) for elem in strWithFreq.split()]
+
+            content = """    qwm_doc.QW_PostprocessingNTF.Active = True
+    qwm_doc.QW_PostprocessingNTF.Frequencies = {freqList}\n""".format(
+                freqList = freqList,
+                )
+
+            self.globalData.writeToPpostFile(content)
+
+
+    def do_ntfbkg(self, argumentsList):
+        """
+        Does NTFBKG command from UDO language.
+        """
+        if self.createPyFiles:
+            # (<eps>,<mu>,<sig>,<msig>) 
+
+            content = """    qwm_doc.QW_PostprocessingNTF.Eps = {eps}
+    qwm_doc.QW_PostprocessingNTF.Mu = {mu}
+    qwm_doc.QW_PostprocessingNTF.Sigma = {sigma}
+    qwm_doc.QW_PostprocessingNTF.SigmaM = {sigmaM}\n""".format(
+                eps     = argumentsList[0],
+                mu      = argumentsList[1],
+                sigma   = argumentsList[2],
+                sigmaM  = argumentsList[3],
+                )
+
+            self.globalData.writeToPpostFile(content)
 
 
 

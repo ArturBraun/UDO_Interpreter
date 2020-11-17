@@ -7,8 +7,8 @@ from qw_units import *
 
 def set_Excitation(qwm_doc):
     QW_Modeller.addQWObject("QW_Modeller::TemplatePort","guideinp")
-    qwm_doc.guideinp.Length = 10.0
-    qwm_doc.guideinp.Width = 5.0
+    qwm_doc.guideinp.Length = 0
+    qwm_doc.guideinp.Width = 0
     qwm_doc.guideinp.Placement = Base.Placement(Base.Vector(0.0, 5.0, 2.5), Base.Rotation(0.5, 0.5, 0.5, 0.5))
     qwm_doc.guideinp.Orientation = "X"
     qwm_doc.guideinp.Position = 0.0

@@ -25,7 +25,7 @@ import sys
 # Written:
 from GlobalData import *
 from Exceptions import *
-from UdoCommands import *
+import UdoCommands
 
 #--------------------------------------------
 # GRAMMAR FUNCTIONS
@@ -106,6 +106,9 @@ def UDO_command():
         "TEMPDP",
         "MULTIPOINT",
         "PORTPAR",
+        "SK1DIFF",
+        "NTF",
+        "NTFBKG",
     ], Optional("("),  ZeroOrMore(expression,","), Optional(expression), Optional(")"), ";"
 
 def variable():
@@ -279,6 +282,9 @@ def specialUdoCommand():
         "TEMPDP",
         "MULTIPOINT",
         "PORTPAR",
+        "SK1DIFF",
+        "NTF",
+        "NTFBKG",
         ], Optional("("),  ZeroOrMore(specialExpression,","), Optional(specialExpression), Optional(")"), ";"
 
 def specialVariable():
@@ -422,12 +428,12 @@ class GrammarRulesVisitor(PTNodeVisitor):
             self.nestedParameters = nestedParameters
         self.createPyFiles = createPyFiles
         self.globalData = GlobalData()
-        self.mathFunctions = MathematicalFunctions()
-        self.logicalOperators = LogicalOperators()
+        self.mathFunctions = UdoCommands.MathematicalFunctions()
+        self.logicalOperators = UdoCommands.LogicalOperators()
         if udoCommands:
             self.udoCommands = udoCommands
         else:
-            self.udoCommands = UDO_commands(isForNestedParsing = isNestedParsing, isSpecialParsing = isSpecialParsing, createPyFiles = createPyFiles)
+            self.udoCommands = UdoCommands.UDO_commands(isForNestedParsing = isNestedParsing, isSpecialParsing = isSpecialParsing, createPyFiles = createPyFiles)
         
     def visit_number(self, node, children):
         """
@@ -937,7 +943,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "rt2w"
+    udoName = "wgtocx1"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"

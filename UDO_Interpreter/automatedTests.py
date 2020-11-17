@@ -75,64 +75,79 @@ class TestsUdoInterpreter(unittest.TestCase):
     # dielf1, cwgheat, rx, threeel, rt2w
 
     def test_angpc(self):
+        print("\nTest of -> angpc")
         result = testGeneratedFiles("angpc")
         self.assertEqual(result, True)
 
     def test_cube(self):
+        print("Test of -> cube")
         result = testGeneratedFiles("cube")
         self.assertEqual(result, True)
 
     def test_cubeNested(self):
+        print("Test of -> cubeNested")
         result = testGeneratedFiles("cubeNested")
         self.assertEqual(result, True)
 
     def test_cubeNNN(self):
+        print("Test of -> cubeNNN")
         result = testGeneratedFiles("cubeNNN")
         self.assertEqual(result, True)
 
     def test_cylinder(self):
+        print("Test of -> cylinder")
         result = testGeneratedFiles("cylinder")
         self.assertEqual(result, True)
 
     def test_cyv(self):
+        print("Test of -> cyv")
         result = testGeneratedFiles("cyv")
         self.assertEqual(result, True)
 
     def test_cyvr(self):
+        print("Test of -> cyvr")
         result = testGeneratedFiles("cyvr")
         self.assertEqual(result, True)
 
-    def test_horn1(self):
-        result = testGeneratedFiles("horn1")
-        self.assertEqual(result, True)
+    #def test_horn1(self):
+    #    print("Test of -> horn1")
+    #    result = testGeneratedFiles("horn1")
+    #    self.assertEqual(result, True)
 
     def test_patch2(self):
+        print("Test of -> patch2")
         result = testGeneratedFiles("patch2")
         self.assertEqual(result, True)
 
     def test_rt2w(self):
+        print("Test of -> rt2w")
         result = testGeneratedFiles("rt2w")
         self.assertEqual(result, True)
 
     def test_rx(self):
+        print("Test of -> rx")
         result = testGeneratedFiles("rx")
         self.assertEqual(result, True)
 
     def test_threeel(self):
+        print("Test of -> threeel")
         result = testGeneratedFiles("threeel")
         self.assertEqual(result, True)
 
     def test_tv(self):
+        print("Test of -> tv")
         result = testGeneratedFiles("tv")
         self.assertEqual(result, True)
 
     def test_vtape(self):
+        print("Test of -> vtape")
         result = testGeneratedFiles("vtape")
         self.assertEqual(result, True)
 
-    def test_vtape(self):
-        result = testGeneratedFiles("wgtocx1")
-        self.assertEqual(result, True)
+    #def test_wgtocx1(self):
+    #    print("Test of -> wgtcox1")
+    #    result = testGeneratedFiles("wgtocx1")
+    #    self.assertEqual(result, True)
 
     # UDO language unit tests
 
