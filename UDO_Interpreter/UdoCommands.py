@@ -850,7 +850,9 @@ def set_Simulation(qwm_doc):
         """
         Remembers port's points coordinates.
         """       
-        if self.portCommandDict["currentPoint"] > 4 or (self.portCommandDict["currentPoint"] >= 3 and self.portCommandDict["height"] != 0):
+        isSpecialPortOrPortWithHeight = self.portCommandDict["height"] != 0 or self.portCommandDict["type"] == "SPECIAL"
+        
+        if self.portCommandDict["currentPoint"] > 4 or (self.portCommandDict["currentPoint"] >= 3 and isSpecialPortOrPortWithHeight):
             self.portCommandDict["excitationPointX"] = _x1
             self.portCommandDict["excitationPointY"] = _y1
         else:
@@ -967,17 +969,7 @@ def set_Simulation(qwm_doc):
         elif self.portCommandDict["activity"] == "NONE":
             activity = "NONE"
 
-        length = 0
-        width = 0 
-        height = 0
-        if self.portCommandDict["currentPoint"] > 3:    # TUTAJ POPRAWIC
-            length = self.portCommandDict["x2"] - self.portCommandDict["x1"]
-            width = self.portCommandDict["y3"] - self.portCommandDict["y1"]
-            height = self.portCommandDict["height"]
-
-        isSpecialWithZeroHeight = not (self.portCommandDict["type"] == "SPECIAL" and self.portCommandDict["height"] == 0)
-
-        if self.createPyFiles and isSpecialWithZeroHeight:
+        if self.createPyFiles:
             content = ""
 
             if self.portCommandDict["type"] == "REFERENCE":
@@ -1050,7 +1042,7 @@ def set_Simulation(qwm_doc):
     FreeCAD.Gui.ActiveDocument.{portName}.TextPlace = 3
     qwm_doc.{portName}.Type = "MUR"
     qwm_doc.{portName}.EffectivePermittivity = {effectivePermittivity}\n""".format(
-                    portName                = portName,
+                    portName                = self.portCommandDict["name"],
                     orientation             = orientation,
                     length                  = length,
                     width                   = width,
@@ -1069,17 +1061,17 @@ def set_Simulation(qwm_doc):
     qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),Base.Rotation({rotation}))
     FreeCAD.Gui.ActiveDocument.{portName}.ShowText = True
     FreeCAD.Gui.ActiveDocument.{portName}.TextSize = 14\n""".format(
-                    portName                = portName,
+                    portName                = self.portCommandDict["name"],
                     length                  = length,
                     width                   = width,
-                    height                  = height,
+                    height                  = self.portCommandDict["height"],
                     excitationPointX        = self.portCommandDict["excitationPointX"],
                     excitationPointY        = self.portCommandDict["excitationPointY"],
                     excitationPointZ        = self.portCommandDict["excitationPointZ"],
                     rotation                = rotation,
                     )
         
-            elif self.portCommandDict["type"] == "SPECIAL": 
+            elif self.portCommandDict["type"] == "SPECIAL": # TUTAJ trzeba poprawic - inna budowa content dla roznych orientacji
                 content = """    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),Base.Rotation({rotation}))
     qwm_doc.{portName}.SPX.Orientation = {orientation}
     qwm_doc.{portName}.SPX.Position = {position}
@@ -1088,7 +1080,7 @@ def set_Simulation(qwm_doc):
     FreeCAD.Gui.ActiveDocument.{portName}.ShowText = False
     FreeCAD.Gui.ActiveDocument.{portName}.TextSize = 14
     FreeCAD.Gui.ActiveDocument.{portName}.TextPlace = 3\n""".format(
-                    portName                = portName,
+                    portName                = self.portCommandDict["name"],
                     excitationPointX        = self.portCommandDict["excitationPointX"],
                     excitationPointY        = self.portCommandDict["excitationPointY"],
                     excitationPointZ        = self.portCommandDict["excitationPointZ"],
