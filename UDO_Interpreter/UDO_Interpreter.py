@@ -943,7 +943,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "wgtocx1"
+    udoName = "horn1"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"

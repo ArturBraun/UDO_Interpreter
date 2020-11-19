@@ -936,9 +936,9 @@ def set_Simulation(qwm_doc):
         position = None
         rotation = None
 
-        if self.portCommandDict["height"] == 0:
-            length = abs(self.portCommandDict["y1"] - self.portCommandDict["y3"])
-            width = abs(self.portCommandDict["x1"] - self.portCommandDict["x2"])
+        if self.portCommandDict["height"] == 0 and self.portCommandDict["currentPoint"] > 3:
+            length = abs(self.portCommandDict["x1"] - self.portCommandDict["x3"])
+            width = abs(self.portCommandDict["y1"] - self.portCommandDict["y3"])
             excitationPointZ = self.portCommandDict["level"]
             orientation = "Z"
             position = excitationPointZ
@@ -1071,19 +1071,19 @@ def set_Simulation(qwm_doc):
                     rotation                = rotation,
                     )
         
-            elif self.portCommandDict["type"] == "SPECIAL": # TUTAJ trzeba poprawic - inna budowa content dla roznych orientacji
+            elif self.portCommandDict["type"] == "SPECIAL" and self.portCommandDict["currentPoint"] > 4:
                 content = """    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),Base.Rotation({rotation}))
-    qwm_doc.{portName}.SPX.Orientation = {orientation}
-    qwm_doc.{portName}.SPX.Position = {position}
-    qwm_doc.{portName}.SPX.Length = {length}
-    qwm_doc.{portName}.SPX.Width = {width}
+    qwm_doc.{portName}.Orientation = "{orientation}"
+    qwm_doc.{portName}.Position = {position}
+    qwm_doc.{portName}.Length = {length}
+    qwm_doc.{portName}.Width = {width}
     FreeCAD.Gui.ActiveDocument.{portName}.ShowText = False
     FreeCAD.Gui.ActiveDocument.{portName}.TextSize = 14
     FreeCAD.Gui.ActiveDocument.{portName}.TextPlace = 3\n""".format(
                     portName                = self.portCommandDict["name"],
                     excitationPointX        = self.portCommandDict["excitationPointX"],
                     excitationPointY        = self.portCommandDict["excitationPointY"],
-                    excitationPointZ        = self.portCommandDict["excitationPointZ"],
+                    excitationPointZ        = self.globalData.variables["z"],
                     rotation                = rotation,
                     orientation             = orientation,
                     position                = position,
@@ -1091,6 +1091,52 @@ def set_Simulation(qwm_doc):
                     width                   = width,
                     )
 
+            elif self.portCommandDict["type"] == "SPECIAL" and self.portCommandDict["currentPoint"] <= 4:
+                placementX = self.portCommandDict["excitationPointX"]
+                placementY = self.portCommandDict["excitationPointY"]
+
+                if self.portCommandDict["x1"] != self.portCommandDict["x2"]:
+                    orientation = "Y"
+                    placementX = (self.portCommandDict["x1"] + self.portCommandDict["x2"]) / 2
+
+                    content = """    boundingBox = QW_Modeller.getProjectBoundingBoxAll()    
+    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, boundingBox.Center[2]),Base.Rotation({rotation}))
+    qwm_doc.{portName}.Orientation = "{orientation}"
+    qwm_doc.{portName}.Position = {position}
+    qwm_doc.{portName}.Length = boundingBox.YLength
+    qwm_doc.{portName}.Width = boundingBox.ZLength
+    FreeCAD.Gui.ActiveDocument.{portName}.ShowText = False
+    FreeCAD.Gui.ActiveDocument.{portName}.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.{portName}.TextPlace = 3\n""".format(
+                        portName                = self.portCommandDict["name"],
+                        excitationPointX        = placementX,
+                        excitationPointY        = placementY,
+                        rotation                = rotation,
+                        orientation             = orientation,
+                        position                = placementY,
+                        length                  = length,
+                        width                   = width,
+                        )
+                else:
+                    placementY = (self.portCommandDict["y1"] + self.portCommandDict["y2"]) / 2
+                    content = """    boundingBox = QW_Modeller.getProjectBoundingBoxAll()    
+    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, boundingBox.Center[2]),Base.Rotation({rotation}))
+    qwm_doc.{portName}.Orientation = "{orientation}"
+    qwm_doc.{portName}.Position = {excitationPointX}
+    qwm_doc.{portName}.Length = boundingBox.XLength
+    qwm_doc.{portName}.Width = boundingBox.ZLength
+    FreeCAD.Gui.ActiveDocument.{portName}.ShowText = False
+    FreeCAD.Gui.ActiveDocument.{portName}.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.{portName}.TextPlace = 3\n""".format(
+                        portName                = self.portCommandDict["name"],
+                        excitationPointX        = placementX,
+                        excitationPointY        = placementY,
+                        rotation                = rotation,
+                        orientation             = orientation,
+                        position                = position,
+                        length                  = length,
+                        width                   = width,
+                        )
             
             self.globalData.writeToExcitFile(content)
 
