@@ -247,3 +247,120 @@ def set_GeometryAndMedia(qwm_doc):
     p17_viewObject = qwm_doc.p17.ViewObject
     p17_viewObject.Transparency = 60
     qwm_doc.p17.Medium = QW_Modeller.getQWMedium("air")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p18')
+    qwm_doc.sketch_p18.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_p18.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,0.0,0), FreeCAD.Vector(6.0,0.0,0)))
+    qwm_doc.sketch_p18.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,0.0,0), FreeCAD.Vector(6.0,2.0,0)))
+    qwm_doc.sketch_p18.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,2.0,0), FreeCAD.Vector(4.0,2.0,0)))
+    qwm_doc.sketch_p18.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,2.0,0), FreeCAD.Vector(4.0,0.0,0)))
+    qwm_doc.addObject("Part::Extrusion", "p18")
+    qwm_doc.p18.Base = qwm_doc.sketch_p18
+    qwm_doc.p18.Dir = (0, 0, 2.0)
+    qwm_doc.p18.Solid = True
+    p18_viewObject = qwm_doc.p18.ViewObject
+    p18_viewObject.Transparency = 60
+    qwm_doc.p18.Medium = QW_Modeller.getQWMedium("air")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p19')
+    qwm_doc.sketch_p19.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_p19.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,0.0,0), FreeCAD.Vector(8.0,0.0,0)))
+    qwm_doc.sketch_p19.addGeometry(Part.LineSegment(FreeCAD.Vector(8.0,0.0,0), FreeCAD.Vector(8.0,2.0,0)))
+    qwm_doc.sketch_p19.addGeometry(Part.LineSegment(FreeCAD.Vector(8.0,2.0,0), FreeCAD.Vector(6.0,2.0,0)))
+    qwm_doc.sketch_p19.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,2.0,0), FreeCAD.Vector(6.0,0.0,0)))
+    qwm_doc.addObject("Part::Extrusion", "p19")
+    qwm_doc.p19.Base = qwm_doc.sketch_p19
+    qwm_doc.p19.Dir = (0, 0, 2.0)
+    qwm_doc.p19.Solid = True
+    p19_viewObject = qwm_doc.p19.ViewObject
+    p19_viewObject.Transparency = 60
+    qwm_doc.p19.Medium = QW_Modeller.getQWMedium("air")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p20')
+    qwm_doc.sketch_p20.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_p20.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,2.0,0), FreeCAD.Vector(2.0,2.0,0)))
+    qwm_doc.sketch_p20.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,2.0,0), FreeCAD.Vector(2.0,4.0,0)))
+    qwm_doc.sketch_p20.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,4.0,0), FreeCAD.Vector(0.0,4.0,0)))
+    qwm_doc.sketch_p20.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.0,0), FreeCAD.Vector(0.0,2.0,0)))
+    qwm_doc.addObject("Part::Extrusion", "p20")
+    qwm_doc.p20.Base = qwm_doc.sketch_p20
+    qwm_doc.p20.Dir = (0, 0, 2.0)
+    qwm_doc.p20.Solid = True
+    p20_viewObject = qwm_doc.p20.ViewObject
+    p20_viewObject.Transparency = 60
+    qwm_doc.p20.Medium = QW_Modeller.getQWMedium("air")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p21')
+    qwm_doc.sketch_p21.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_p21.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,2.0,0), FreeCAD.Vector(4.0,2.0,0)))
+    qwm_doc.sketch_p21.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,2.0,0), FreeCAD.Vector(4.0,4.0,0)))
+    qwm_doc.sketch_p21.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,4.0,0), FreeCAD.Vector(2.0,4.0,0)))
+    qwm_doc.sketch_p21.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,4.0,0), FreeCAD.Vector(2.0,2.0,0)))
+    qwm_doc.addObject("Part::Extrusion", "p21")
+    qwm_doc.p21.Base = qwm_doc.sketch_p21
+    qwm_doc.p21.Dir = (0, 0, 2.0)
+    qwm_doc.p21.Solid = True
+    p21_viewObject = qwm_doc.p21.ViewObject
+    p21_viewObject.Transparency = 60
+    qwm_doc.p21.Medium = QW_Modeller.getQWMedium("air")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p22')
+    qwm_doc.sketch_p22.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_p22.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,2.0,0), FreeCAD.Vector(6.0,2.0,0)))
+    qwm_doc.sketch_p22.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,2.0,0), FreeCAD.Vector(6.0,4.0,0)))
+    qwm_doc.sketch_p22.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,4.0,0), FreeCAD.Vector(4.0,4.0,0)))
+    qwm_doc.sketch_p22.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,4.0,0), FreeCAD.Vector(4.0,2.0,0)))
+    qwm_doc.addObject("Part::Extrusion", "p22")
+    qwm_doc.p22.Base = qwm_doc.sketch_p22
+    qwm_doc.p22.Dir = (0, 0, 2.0)
+    qwm_doc.p22.Solid = True
+    p22_viewObject = qwm_doc.p22.ViewObject
+    p22_viewObject.Transparency = 60
+    qwm_doc.p22.Medium = QW_Modeller.getQWMedium("air")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p23')
+    qwm_doc.sketch_p23.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_p23.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,2.0,0), FreeCAD.Vector(8.0,2.0,0)))
+    qwm_doc.sketch_p23.addGeometry(Part.LineSegment(FreeCAD.Vector(8.0,2.0,0), FreeCAD.Vector(8.0,4.0,0)))
+    qwm_doc.sketch_p23.addGeometry(Part.LineSegment(FreeCAD.Vector(8.0,4.0,0), FreeCAD.Vector(6.0,4.0,0)))
+    qwm_doc.sketch_p23.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,4.0,0), FreeCAD.Vector(6.0,2.0,0)))
+    qwm_doc.addObject("Part::Extrusion", "p23")
+    qwm_doc.p23.Base = qwm_doc.sketch_p23
+    qwm_doc.p23.Dir = (0, 0, 2.0)
+    qwm_doc.p23.Solid = True
+    p23_viewObject = qwm_doc.p23.ViewObject
+    p23_viewObject.Transparency = 60
+    qwm_doc.p23.Medium = QW_Modeller.getQWMedium("air")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p24')
+    qwm_doc.sketch_p24.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_p24.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.0,0), FreeCAD.Vector(2.0,4.0,0)))
+    qwm_doc.sketch_p24.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,4.0,0), FreeCAD.Vector(2.0,6.0,0)))
+    qwm_doc.sketch_p24.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,6.0,0), FreeCAD.Vector(0.0,6.0,0)))
+    qwm_doc.sketch_p24.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,6.0,0), FreeCAD.Vector(0.0,4.0,0)))
+    qwm_doc.addObject("Part::Extrusion", "p24")
+    qwm_doc.p24.Base = qwm_doc.sketch_p24
+    qwm_doc.p24.Dir = (0, 0, 2.0)
+    qwm_doc.p24.Solid = True
+    p24_viewObject = qwm_doc.p24.ViewObject
+    p24_viewObject.Transparency = 60
+    qwm_doc.p24.Medium = QW_Modeller.getQWMedium("air")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p25')
+    qwm_doc.sketch_p25.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_p25.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,4.0,0), FreeCAD.Vector(4.0,4.0,0)))
+    qwm_doc.sketch_p25.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,4.0,0), FreeCAD.Vector(4.0,6.0,0)))
+    qwm_doc.sketch_p25.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,6.0,0), FreeCAD.Vector(2.0,6.0,0)))
+    qwm_doc.sketch_p25.addGeometry(Part.LineSegment(FreeCAD.Vector(2.0,6.0,0), FreeCAD.Vector(2.0,4.0,0)))
+    qwm_doc.addObject("Part::Extrusion", "p25")
+    qwm_doc.p25.Base = qwm_doc.sketch_p25
+    qwm_doc.p25.Dir = (0, 0, 2.0)
+    qwm_doc.p25.Solid = True
+    p25_viewObject = qwm_doc.p25.ViewObject
+    p25_viewObject.Transparency = 60
+    qwm_doc.p25.Medium = QW_Modeller.getQWMedium("air")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_p26')
+    qwm_doc.sketch_p26.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_p26.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,4.0,0), FreeCAD.Vector(6.0,4.0,0)))
+    qwm_doc.sketch_p26.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,4.0,0), FreeCAD.Vector(6.0,6.0,0)))
+    qwm_doc.sketch_p26.addGeometry(Part.LineSegment(FreeCAD.Vector(6.0,6.0,0), FreeCAD.Vector(4.0,6.0,0)))
+    qwm_doc.sketch_p26.addGeometry(Part.LineSegment(FreeCAD.Vector(4.0,6.0,0), FreeCAD.Vector(4.0,4.0,0)))
+    qwm_doc.addObject("Part::Extrusion", "p26")
+    qwm_doc.p26.Base = qwm_doc.sketch_p26
+    qwm_doc.p26.Dir = (0, 0, 2.0)
+    qwm_doc.p26.Solid = True
+    p26_viewObject = qwm_doc.p26.ViewObject
+    p26_viewObject.Transparency = 60
+    qwm_doc.p26.Medium = QW_Modeller.getQWMedium("air")

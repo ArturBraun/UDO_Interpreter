@@ -7,7 +7,6 @@ This module include main function and functions describing parser grammar.
 #____________________________________________
 # TODO:
 # - dodac funkcje zwiazane z meshem
-# - co oznacza w udo PORTPAR?
 #____________________________________________
 
 #--------------------------------------------
@@ -82,6 +81,7 @@ def UDO_command():
         "INSERTMEDIUM",        
         "MEDIUMPAR",        
         "MEDIUMCOL",  
+        "PORTPAR",
         "PORTEXC",
         "PORT",
         "ENDPORT",
@@ -105,10 +105,9 @@ def UDO_command():
         "WAVEFORM",
         "TEMPDP",
         "MULTIPOINT",
-        "PORTPAR",
         "SK1DIFF",
-        "NTF",
         "NTFBKG",
+        "NTF",
     ], Optional("("),  ZeroOrMore(expression,","), Optional(expression), Optional(")"), ";"
 
 def variable():
@@ -257,7 +256,8 @@ def specialUdoCommand():
         "GETIOPAR",
         "INSERTMEDIUM",        
         "MEDIUMPAR",        
-        "MEDIUMCOL",    
+        "MEDIUMCOL", 
+        "PORTPAR",
         "PORTEXC",
         "PORT",
         "ENDPORT",
@@ -281,10 +281,9 @@ def specialUdoCommand():
         "WAVEFORM",
         "TEMPDP",
         "MULTIPOINT",
-        "PORTPAR",
         "SK1DIFF",
-        "NTF",
         "NTFBKG",
+        "NTF",
         ], Optional("("),  ZeroOrMore(specialExpression,","), Optional(specialExpression), Optional(")"), ";"
 
 def specialVariable():
@@ -943,7 +942,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "horn1"
+    udoName = "holen1"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"

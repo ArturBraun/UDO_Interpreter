@@ -11,6 +11,7 @@ This module conducts UDO commands operations, when the specific action is needed
 import math
 import random
 import sys
+import re
 
 # Written:
 from GlobalData import *
@@ -388,6 +389,26 @@ class UDO_commands:
             "multipointSizeShape":"0.1",
             }
 
+    def isValidVariableName(self, string):
+        """
+        Checks if string is valid variable name.
+        """
+        result = re.fullmatch('[a-zA-Z]{1}[a-zA-Z0-9_]*', string)
+        return bool(result)
+
+    def createVariableName(self):
+        """
+        Returns valid not used variable name.
+        """
+        self.globalData.numberForEqualElementsNames += 1
+        variableName = "var_" + str(self.globalData.numberForEqualElementsNames)
+        while True:
+            if variableName in self.globalData.objectsNames or variableName in self.globalData.variables:
+                self.globalData.numberForEqualElementsNames += 1
+                variableName = "var_" + str(self.globalData.numberForEqualElementsNames)
+            else: 
+                break
+        return variableName
 
     def writeBasicScriptsToFiles(self):
         """
@@ -493,7 +514,7 @@ def set_GeometryAndMedia(qwm_doc):
 
         # mesh file
         content = """
-import FreeCADGui,QW_Modeller
+import FreeCADGui,QW_Modeller,FreeCAD
 #from qw_project import *
 from qw_units import *
 
@@ -643,10 +664,11 @@ def set_Simulation(qwm_doc):
         self.elementCommandName = argumentsList[4]
         self.elementCommandSpinWire = argumentsList[5]
 
+        tmpName = self.elementCommandName
         while True:
             if self.elementCommandName in self.globalData.objectsNames:
                 self.globalData.numberForEqualElementsNames += 1
-                self.elementCommandName += str(self.globalData.numberForEqualElementsNames)
+                self.elementCommandName = tmpName + str(self.globalData.numberForEqualElementsNames)
             else: 
                 break
         self.globalData.objectsNames.append(self.elementCommandName)
@@ -909,6 +931,9 @@ def set_Simulation(qwm_doc):
         self.portCommandDict["name"] = argumentsList[4]
         self.portCommandDict["reference"] = argumentsList[5]
 
+        if not self.isValidVariableName(self.portCommandDict["name"]):
+            self.portCommandDict["name"] = self.createVariableName()
+
         content = ""
 
         if self.portCommandDict["type"] == "INPTEMPLATE" or self.portCommandDict["type"] == "OUTTEMPLATE":
@@ -987,7 +1012,7 @@ def set_Simulation(qwm_doc):
             elif self.portCommandDict["type"] == "INPTEMPLATE" or self.portCommandDict["type"] == "OUTTEMPLATE":
                 content = """    qwm_doc.{portName}.Length = {length}
     qwm_doc.{portName}.Width = {width}
-    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}), Base.Rotation({rotation}))
+    qwm_doc.{portName}.Placement = FreeCAD.Placement(FreeCAD.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}), FreeCAD.Rotation({rotation}))
     qwm_doc.{portName}.Orientation = "{orientation}"
     qwm_doc.{portName}.Position = {position}
     qwm_doc.{portName}.Activity = "{activity}"
@@ -1024,8 +1049,8 @@ def set_Simulation(qwm_doc):
                 tempTo = self.portCommandDict["tempTo"],
                 tempStep = self.portCommandDict["tempStep"],
                 tempComponent = self.portCommandDict["tempComponent"],
-                tempPeriods = self.portCommandDict["tempPeriods"],
-                multipointEnable = self.portCommandDict["multipointEnable"],
+                tempPeriods = int(self.portCommandDict["tempPeriods"]),
+                multipointEnable = int(self.portCommandDict["multipointEnable"]),
                 multipointSizeShape = self.portCommandDict["multipointSizeShape"],
                 )
         
@@ -1033,10 +1058,10 @@ def set_Simulation(qwm_doc):
                 content = """    qwm_doc.{portName}.Orientation = "{orientation}"
     qwm_doc.{portName}.Length = {length}
     qwm_doc.{portName}.Width = {width}
-    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),Base.Rotation({rotation}))
+    qwm_doc.{portName}.Placement = FreeCAD.Placement(FreeCAD.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),FreeCAD.Rotation({rotation}))
     qwm_doc.{portName}.Position = {position}
     qwm_doc.{portName}.Activity = "{activity}"
-    qwm_doc.{portName}.AbsorberDepth = 1.00000
+    FreeCAD.Gui.ActiveDocument.{portName}.AbsorberDepth = 1.00000
     FreeCAD.Gui.ActiveDocument.{portName}.ShowText = True
     FreeCAD.Gui.ActiveDocument.{portName}.TextSize = 14
     FreeCAD.Gui.ActiveDocument.{portName}.TextPlace = 3
@@ -1052,13 +1077,13 @@ def set_Simulation(qwm_doc):
                     rotation                = rotation,
                     position                = position,
                     activity                = activity,
-                    effectivePermittivity   = effectivePermittivity,
+                    effectivePermittivity   = self.portCommandDict["effectivePermittivity"],
                     )
             elif self.portCommandDict["type"] == "NEAR2FAR":
                 content = """    qwm_doc.{portName}.Length = {length}
     qwm_doc.{portName}.Width = {width}
     qwm_doc.{portName}.Height = {height}
-    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),Base.Rotation({rotation}))
+    qwm_doc.{portName}.Placement = FreeCAD.Placement(FreeCAD.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),FreeCAD.Rotation({rotation}))
     FreeCAD.Gui.ActiveDocument.{portName}.ShowText = True
     FreeCAD.Gui.ActiveDocument.{portName}.TextSize = 14\n""".format(
                     portName                = self.portCommandDict["name"],
@@ -1072,7 +1097,7 @@ def set_Simulation(qwm_doc):
                     )
         
             elif self.portCommandDict["type"] == "SPECIAL" and self.portCommandDict["currentPoint"] > 4:
-                content = """    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),Base.Rotation({rotation}))
+                content = """    qwm_doc.{portName}.Placement = FreeCAD.Placement(FreeCAD.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),FreeCAD.Rotation({rotation}))
     qwm_doc.{portName}.Orientation = "{orientation}"
     qwm_doc.{portName}.Position = {position}
     qwm_doc.{portName}.Length = {length}
@@ -1100,7 +1125,7 @@ def set_Simulation(qwm_doc):
                     placementX = (self.portCommandDict["x1"] + self.portCommandDict["x2"]) / 2
 
                     content = """    boundingBox = QW_Modeller.getProjectBoundingBoxAll()    
-    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, boundingBox.Center[2]),Base.Rotation({rotation}))
+    qwm_doc.{portName}.Placement = FreeCAD.Placement(FreeCAD.Vector({excitationPointX}, {excitationPointY}, boundingBox.Center[2]),FreeCAD.Rotation({rotation}))
     qwm_doc.{portName}.Orientation = "{orientation}"
     qwm_doc.{portName}.Position = {position}
     qwm_doc.{portName}.Length = boundingBox.YLength
@@ -1120,7 +1145,7 @@ def set_Simulation(qwm_doc):
                 else:
                     placementY = (self.portCommandDict["y1"] + self.portCommandDict["y2"]) / 2
                     content = """    boundingBox = QW_Modeller.getProjectBoundingBoxAll()    
-    qwm_doc.{portName}.Placement = Base.Placement(Base.Vector({excitationPointX}, {excitationPointY}, boundingBox.Center[2]),Base.Rotation({rotation}))
+    qwm_doc.{portName}.Placement = FreeCAD.Placement(FreeCAD.Vector({excitationPointX}, {excitationPointY}, boundingBox.Center[2]),FreeCAD.Rotation({rotation}))
     qwm_doc.{portName}.Orientation = "{orientation}"
     qwm_doc.{portName}.Position = {excitationPointX}
     qwm_doc.{portName}.Length = boundingBox.XLength
@@ -1161,6 +1186,10 @@ def set_Simulation(qwm_doc):
             mediumType = argumentsList[1]
 
             mediumType = mediumType[0].upper() + mediumType[1:].lower() #first letter should stay uppercase, rest lowercase
+            if mediumType == "Pec":
+                mediumType = "PEC"
+            elif mediumType == "Pmc":
+                mediumType = "PMC"
  
             content = """    {mediumName} = QW_Modeller.addQWMedium("{mediumName}")
     {mediumName}.materialtype = "{mediumType}"\n""".format(
@@ -1643,7 +1672,7 @@ def set_Simulation(qwm_doc):
         if self.createPyFiles:
             controlStr = argumentsList[0]
 
-            suppressMagneticLosses = "-M" in controlstr
+            suppressMagneticLosses = "-M" in controlStr
             suppressElectricLosses = "-E" in controlStr
             suppressMetalLosses = "-P" in controlStr
 
@@ -1676,7 +1705,7 @@ def set_Simulation(qwm_doc):
         if self.createPyFiles:
             suppressSingularityCorrections  = bool(argumentsList[0])
             suppressDensitySar              = bool(argumentsList[1])
-            allowBhm                        = argumentsList[2]
+            allowBhm                        = bool(argumentsList[2])
 
             content = """    qwm_doc.QW_Circuit.SuppressSingularityCorrections = {suppressSingularityCorrections}
     qwm_doc.QW_Circuit.SuppressDensity_SAR = {suppressDensitySar}
@@ -1751,7 +1780,7 @@ def set_Simulation(qwm_doc):
     {objectName}.Length = {length}
     {objectName}.Width = {width}
     {objectName}.Height = {height}
-    {objectName}.Placement = Base.Placement(Base.Vector({locationX},{locationY},{locationZ}),Base.Rotation(0.0000000,0.0000000,0.0000000,1.0000000))
+    {objectName}.Placement = FreeCAD.Placement(FreeCAD.Vector({locationX},{locationY},{locationZ}),FreeCAD.Rotation(0.0000000,0.0000000,0.0000000,1.0000000))
     {objectName}.MeshX = True
     {objectName}.MeshY = True
     {objectName}.MeshZ = True
@@ -1792,10 +1821,11 @@ def set_Simulation(qwm_doc):
         self.selectionCommandDict["mediumName"] = argumentsList[3]
         self.selectionCommandDict["name"]       = argumentsList[4]
 
+        tmpName = self.selectionCommandDict["name"]
         while True:
             if self.selectionCommandDict["name"] in self.globalData.objectsNames:
                 self.globalData.numberForEqualElementsNames += 1
-                self.selectionCommandDict["name"] += str(self.globalData.numberForEqualElementsNames)
+                self.selectionCommandDict["name"] = tmpName + str(self.globalData.numberForEqualElementsNames)
             else: 
                 break
         self.selectionCommandDict["upperName"] = self.selectionCommandDict["name"] + "U"
@@ -1818,28 +1848,33 @@ def set_Simulation(qwm_doc):
         """
 
         if self.createPyFiles:
-            content = """    qwm_doc.addObject("Part::Extrusion", "{upperName}")
+            content = ""
+
+            if self.selectionCommandDict["height"] > 0:
+                content += """    qwm_doc.addObject("Part::Extrusion", "{upperName}")
     qwm_doc.{upperName}.Base = qwm_doc.sketch_{name}
     qwm_doc.{upperName}.Dir = (0, 0, {height})
     qwm_doc.{upperName}.Solid = True
     qwm_doc.{upperName}.ViewObject.Transparency = 60
-    qwm_doc.{upperName}.Medium = QW_Modeller.getQWMedium("{mediumName}")
-    qwm_doc.addObject("Part::Extrusion", "{lowerName}")
+    qwm_doc.{upperName}.Medium = QW_Modeller.getQWMedium("{mediumName}")\n""".format(
+                    upperName   = self.selectionCommandDict["upperName"],
+                    name        = self.selectionCommandDict["name"],
+                    height      = self.selectionCommandDict["height"],
+                    mediumName  = self.selectionCommandDict["mediumName"],
+                    )
+            
+            if self.selectionCommandDict["height2"] > 0:
+                content += """    qwm_doc.addObject("Part::Extrusion", "{lowerName}")
     qwm_doc.{lowerName}.Base = qwm_doc.sketch_{name}
-    qwm_doc.{lowerName}.Dir = (0, 0, {height2})
+    qwm_doc.{lowerName}.Dir = (0, 0, -{height2})
     qwm_doc.{lowerName}.Solid = True
     qwm_doc.{lowerName}.ViewObject.Transparency = 60
-    qwm_doc.{lowerName}.Medium = QW_Modeller.getQWMedium("{mediumName}")
-    qwm_doc.addObject("Part::MultiFuse","{name}")
-    qwm_doc.{name}.Shapes = [qwm_doc.{upperName}, qwm_doc.{lowerName}]
-    qwm_doc.{name}.Medium = qwm_doc.{upperName}.Medium\n""".format(
-                upperName   = self.selectionCommandDict["upperName"],
-                lowerName   = self.selectionCommandDict["lowerName"],
-                name        = self.selectionCommandDict["name"],
-                height      = self.selectionCommandDict["height"],
-                height2     = self.selectionCommandDict["height2"],
-                mediumName  = self.selectionCommandDict["mediumName"],
-                )
+    qwm_doc.{lowerName}.Medium = QW_Modeller.getQWMedium("{mediumName}")\n""".format(
+                    lowerName   = self.selectionCommandDict["lowerName"],
+                    name        = self.selectionCommandDict["name"],
+                    height2     = self.selectionCommandDict["height2"],
+                    mediumName  = self.selectionCommandDict["mediumName"],
+                    )
 
             self.globalData.writeToGeomMediaFile(content)
 
