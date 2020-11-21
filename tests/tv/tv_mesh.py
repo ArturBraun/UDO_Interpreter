@@ -1,5 +1,5 @@
 
-import FreeCADGui,QW_Modeller
+import FreeCADGui,QW_Modeller,FreeCAD
 #from qw_project import *
 from qw_units import *
 

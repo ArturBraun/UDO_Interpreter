@@ -20,7 +20,7 @@ import FreeCADGui
 import QW_Modeller
 import FreeCAD
 
-from cube_proj import *
+from wgtocx1_proj import *
 
 GUIMode = FreeCAD.ConfigGet("RunMode")
 
@@ -29,11 +29,11 @@ if not GUIMode:
 
 FreeCADGui.activateWorkbench("QW_ModellerWorkbench")
 
-qwm_doc = QW_Modeller.newQWDocument("cube")
+qwm_doc = QW_Modeller.newQWDocument("wgtocx1")
 
 FreeCADGui.activeDocument().activeView().viewAxometric()
 
-proj = cube_Project(qwm_doc)
+proj = wgtocx1_Project(qwm_doc)
 proj.set_Circuit_Parameters()
 proj.set_GeometryAndMedia()
 proj.set_Mesh()

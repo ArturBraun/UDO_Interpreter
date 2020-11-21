@@ -42,7 +42,7 @@ def parameterDeclaration():
     """
     Grammar rule for parameter declaration.
     """
-    return ["PAR"], "(",  ZeroOrMore(expression,","), Optional(expression), ")", ";"
+    return ["PAR"], "(",  ZeroOrMore(extendedExpression,","), Optional(extendedExpression), ")", ";"
 
 def comment():
     """
@@ -54,7 +54,7 @@ def program():
     """
     Grammar rule for whole UDO file.
     """
-    return Optional(header), OneOrMore([comment, UDO_command, statement, expression]), EOF
+    return Optional(header), OneOrMore([comment, UDO_command, statement, extendedExpression]), EOF
 
 
 # NORMAL GRAMMAR RULES
@@ -108,7 +108,7 @@ def UDO_command():
         "SK1DIFF",
         "NTFBKG",
         "NTF",
-    ], Optional("("),  ZeroOrMore(expression,","), Optional(expression), Optional(")"), ";"
+    ], Optional("("),  ZeroOrMore(extendedExpression,","), Optional(extendedExpression), Optional(")"), ";"
 
 def variable():
     """
@@ -120,7 +120,7 @@ def substitutionOperator():
     """
     Grammar rule for substitution operator.
     """
-    return variable, OneOrMore(["="], expression), ";" 
+    return variable, OneOrMore(["="], extendedExpression), ";" 
 
 def functions():
     """
@@ -161,7 +161,7 @@ def mathFunctions():
         "int",
         "frac",
         "rand",
-        "srand"], "(", [expression], ")"
+        "srand"], "(", [extendedExpression], ")"
 
 def number():
     """
@@ -179,7 +179,7 @@ def withSign():
     """
     Grammar rule to apply sign to expression.
     """
-    return Optional(["+","-"]),[functions, variable, number, string, ("(", expression, ")")]
+    return Optional(["+","-"]),[functions, variable, number, string, ("(", extendedExpression, ")")]
 
 def power():
     """
@@ -201,9 +201,15 @@ def simpleExpression():
 
 def expression():
     """
-    Grammar rule for expression
+    Grammar rule for expression.
     """
-    return simpleExpression, ZeroOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"], simpleExpression)
+    return simpleExpression, ZeroOrMore(["<=", "=<", ">=", "=>", "==", "!=", ">", "<"], simpleExpression)
+
+def extendedExpression():
+    """
+    Grammar rule for extended expression with "||" or "&&".
+    """
+    return expression, ZeroOrMore(["||", "&&"], expression)
 
 def statement():
     """
@@ -224,13 +230,13 @@ def whileLoop():
     """
     Grammar rule for while loop.
     """
-    return "while", specialExpression, "do", specialStatement, "endwhile;"
+    return "while", specialExtendedExpression, "do", specialStatement, "endwhile;"
 
 def ifStatement():
     """
     Grammar rule for if statement.
     """
-    return "if", specialExpression, "do", specialStatement, "endif;"
+    return "if", specialExtendedExpression, "do", specialStatement, "endif;"
 
 
 # GRAMMAR RULES THAT OCCUR ONLY IN "if" OR "while" STATEMENTS
@@ -284,7 +290,7 @@ def specialUdoCommand():
         "SK1DIFF",
         "NTFBKG",
         "NTF",
-        ], Optional("("),  ZeroOrMore(specialExpression,","), Optional(specialExpression), Optional(")"), ";"
+        ], Optional("("),  ZeroOrMore(specialExtendedExpression,","), Optional(specialExtendedExpression), Optional(")"), ";"
 
 def specialVariable():
     """
@@ -296,7 +302,7 @@ def specialSubstitutionOperator():
     """
     Grammar rule for substitution operator.
     """
-    return specialVariable, OneOrMore(["="], specialExpression), ";" 
+    return specialVariable, OneOrMore(["="], specialExtendedExpression), ";" 
 
 def specialFunctions():
     """
@@ -337,7 +343,7 @@ def specialMathFunctions():
         "int",
         "frac",
         "rand",
-        "srand"], "(", [specialExpression], ")"
+        "srand"], "(", [specialExtendedExpression], ")"
 
 def specialNumber():
     """
@@ -355,7 +361,7 @@ def specialWithSign():
     """
     Grammar rule to apply sign to expression.
     """
-    return Optional(["+","-"]),[specialFunctions, specialVariable, specialNumber, specialString, ("(", specialExpression, ")")]
+    return Optional(["+","-"]),[specialFunctions, specialVariable, specialNumber, specialString, ("(", specialExtendedExpression, ")")]
 
 def specialPower():
     """
@@ -379,7 +385,13 @@ def specialExpression():
     """
     Grammar rule for expression
     """
-    return specialSimpleExpression, ZeroOrMore(["<=", "=<", ">=", "=>", "&&", "||", "==", "!=", ">", "<"], specialSimpleExpression)
+    return specialSimpleExpression, ZeroOrMore(["<=", "=<", ">=", "=>", "==", "!=", ">", "<"], specialSimpleExpression)
+
+def specialExtendedExpression():
+    """
+    Grammar rule for extended expression with "||" or "&&".
+    """
+    return specialExpression, ZeroOrMore(["||", "&&"], specialExpression)
 
 def specialStatement():
     """
@@ -397,13 +409,13 @@ def specialWhileLoop():
     """
     Grammar rule for while loop.
     """
-    return "while", specialExpression, "do", specialStatement, "endwhile;"
+    return "while", specialExtendedExpression, "do", specialStatement, "endwhile;"
 
 def specialIfStatement():
     """
     Grammar rule for if statement.
     """
-    return "if", specialExpression, "do", specialStatement, "endif;"
+    return "if", specialExtendedExpression, "do", specialStatement, "endif;"
 
 
 #--------------------------------------------
@@ -469,7 +481,7 @@ class GrammarRulesVisitor(PTNodeVisitor):
     def visit_multiplicationOrDivision(self, node, children):
         """
         Divides or Multiplies number.
-        """
+        """        
         multiplicationOrDivision = children[0]
         for i in range(2, len(children), 2):
             if children[i-1] == "*":
@@ -561,6 +573,21 @@ class GrammarRulesVisitor(PTNodeVisitor):
     def visit_expression(self, node, children):
         """
         Does expression operation.
+        """
+        if len(children) == 1:
+            return children[0]
+        else:
+            result = float(self.logicalOperators.callFunction(stringWithLogicalOperator = children[1], variable1 = children[0], variable2 = children[2]))
+            if result:
+                for i in range(4,len(children),2):
+                    result = float(self.logicalOperators.callFunction(stringWithLogicalOperator = children[i-1], variable1 = result, variable2 = children[i]))
+            if self.interpreter_debug:
+                print("LogicalOperator {} = {}.".format(node.value.replace("|",""),result))
+            return result
+
+    def visit_extendedExpression(self, node, children):
+        """
+        Does extended expression operation.
         """
         if len(children) == 1:
             return children[0]
@@ -942,7 +969,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "holen1"
+    udoName = "wgtocx1"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"

@@ -7,49 +7,45 @@ from qw_units import *
 
 def set_Excitation(qwm_doc):
     QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","spx1")
-    boundingBox = QW_Modeller.getProjectBoundingBoxAll()    
-    qwm_doc.spx1.Placement = Base.Placement(Base.Vector(-10.0, 0.05, boundingBox.Center[2]),Base.Rotation(0.5, 0.5, 0.5, 0.5))
+    qwm_doc.spx1.Placement = FreeCAD.Placement(FreeCAD.Vector(-10.0, 0.05, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, 0.5))
     qwm_doc.spx1.Orientation = "X"
     qwm_doc.spx1.Position = -10.0
-    qwm_doc.spx1.Length = boundingBox.XLength
-    qwm_doc.spx1.Width = boundingBox.ZLength
+    qwm_doc.spx1.Length = 0.1
+    qwm_doc.spx1.Width = 0.0
     FreeCAD.Gui.ActiveDocument.spx1.ShowText = False
     FreeCAD.Gui.ActiveDocument.spx1.TextSize = 14
     FreeCAD.Gui.ActiveDocument.spx1.TextPlace = 3
     QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","spx2")
-    boundingBox = QW_Modeller.getProjectBoundingBoxAll()    
-    qwm_doc.spx2.Placement = Base.Placement(Base.Vector(10.0, 0.05, boundingBox.Center[2]),Base.Rotation(0.5, 0.5, 0.5, 0.5))
+    qwm_doc.spx2.Placement = FreeCAD.Placement(FreeCAD.Vector(10.0, 0.05, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, 0.5))
     qwm_doc.spx2.Orientation = "X"
     qwm_doc.spx2.Position = 10.0
-    qwm_doc.spx2.Length = boundingBox.XLength
-    qwm_doc.spx2.Width = boundingBox.ZLength
+    qwm_doc.spx2.Length = 0.1
+    qwm_doc.spx2.Width = 0.0
     FreeCAD.Gui.ActiveDocument.spx2.ShowText = False
     FreeCAD.Gui.ActiveDocument.spx2.TextSize = 14
     FreeCAD.Gui.ActiveDocument.spx2.TextPlace = 3
     QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","spy1")
-    boundingBox = QW_Modeller.getProjectBoundingBoxAll()    
-    qwm_doc.spy1.Placement = Base.Placement(Base.Vector(0.05, -7.5, boundingBox.Center[2]),Base.Rotation(0.5, 0.5, 0.5, 0.5))
+    qwm_doc.spy1.Placement = FreeCAD.Placement(FreeCAD.Vector(0.05, -7.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
     qwm_doc.spy1.Orientation = "Y"
     qwm_doc.spy1.Position = -7.5
-    qwm_doc.spy1.Length = boundingBox.YLength
-    qwm_doc.spy1.Width = boundingBox.ZLength
+    qwm_doc.spy1.Length = 0.0
+    qwm_doc.spy1.Width = 0.1
     FreeCAD.Gui.ActiveDocument.spy1.ShowText = False
     FreeCAD.Gui.ActiveDocument.spy1.TextSize = 14
     FreeCAD.Gui.ActiveDocument.spy1.TextPlace = 3
     QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","spy2")
-    boundingBox = QW_Modeller.getProjectBoundingBoxAll()    
-    qwm_doc.spy2.Placement = Base.Placement(Base.Vector(0.05, 7.5, boundingBox.Center[2]),Base.Rotation(0.5, 0.5, 0.5, 0.5))
+    qwm_doc.spy2.Placement = FreeCAD.Placement(FreeCAD.Vector(0.05, 7.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
     qwm_doc.spy2.Orientation = "Y"
     qwm_doc.spy2.Position = 7.5
-    qwm_doc.spy2.Length = boundingBox.YLength
-    qwm_doc.spy2.Width = boundingBox.ZLength
+    qwm_doc.spy2.Length = 0.0
+    qwm_doc.spy2.Width = 0.1
     FreeCAD.Gui.ActiveDocument.spy2.ShowText = False
     FreeCAD.Gui.ActiveDocument.spy2.TextSize = 14
     FreeCAD.Gui.ActiveDocument.spy2.TextPlace = 3
     QW_Modeller.addQWObject("QW_Modeller::TemplatePort","inp")
     qwm_doc.inp.Length = 10.0
     qwm_doc.inp.Width = 5.0
-    qwm_doc.inp.Placement = Base.Placement(Base.Vector(0.0, 0.0, -20.0), Base.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.inp.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0, 0.0, -20.0), FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.inp.Orientation = "Z"
     qwm_doc.inp.Position = -20.0
     qwm_doc.inp.Activity = "PLUS"

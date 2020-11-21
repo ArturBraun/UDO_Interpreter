@@ -9,7 +9,7 @@ def set_Excitation(qwm_doc):
     QW_Modeller.addQWObject("QW_Modeller::TemplatePort","guideinp")
     qwm_doc.guideinp.Length = 10.0
     qwm_doc.guideinp.Width = 5.0
-    qwm_doc.guideinp.Placement = Base.Placement(Base.Vector(0.0, 5.0, 2.5), Base.Rotation(0.5, 0.5, 0.5, 0.5))
+    qwm_doc.guideinp.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0, 5.0, 2.5), FreeCAD.Rotation(0.5, 0.5, 0.5, 0.5))
     qwm_doc.guideinp.Orientation = "X"
     qwm_doc.guideinp.Position = 0.0
     qwm_doc.guideinp.Activity = "PLUS"
@@ -27,7 +27,7 @@ def set_Excitation(qwm_doc):
     QW_Modeller.addQWObject("QW_Modeller::TemplatePort","coaxout")
     qwm_doc.coaxout.Length = 5.0
     qwm_doc.coaxout.Width = 5.0
-    qwm_doc.coaxout.Placement = Base.Placement(Base.Vector(19.6, 5.0, 14.0), Base.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.coaxout.Placement = FreeCAD.Placement(FreeCAD.Vector(19.6, 5.0, 14.0), FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.coaxout.Orientation = "Z"
     qwm_doc.coaxout.Position = 14.0
     qwm_doc.coaxout.Activity = "MINUS"
