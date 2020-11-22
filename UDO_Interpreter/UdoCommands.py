@@ -293,6 +293,7 @@ class UDO_commands:
             "SETSUSPFLAGS":"do_setsuspflags",
             "CIRTYPE":"do_cirtype",
             "LOSSES":"do_losses",
+            "EXPOPT2":"do_expopt2",
             "EXPOPT":"do_expopt",
             "UNITS":"do_units",
             "MESHPAR":"do_meshpar",
@@ -307,6 +308,19 @@ class UDO_commands:
             "SK1DIFF":"do_sk1diff",
             "NTF":"do_ntf",
             "NTFBKG":"do_ntfbkg",
+            "UNITSGEOMETRY":"do_unitsgeometry",
+            "UNITSFREQUENCY":"do_unitsfrequency",
+            "ENERGYALLOW":"do_energyallow",
+            "ENERGYPAR":"do_energypar",
+            "ENERGYOPT":"do_energyopt",
+            "BHMOPT":"do_bhmopt",
+            "HTIMES":"do_htimes",
+            "BHMHTIMES":"do_htimes", # Equivalent to HTIMES
+            "BHMAFTER":"do_bhmafter", 
+            "BHMCOMPFORMAT":"do_bhmcompformat", 
+            "TEMPA":"do_tempa", 
+            "SYMMETRY":"do_symmetry", 
+            "SMNDIFF":"do_smndiff", 
             }
 
         # Says which command is analysed at the moment
@@ -387,6 +401,8 @@ class UDO_commands:
             "tempPeriods":50,
             "multipointEnable":0,
             "multipointSizeShape":"0.1",
+            "symmetryH":False,
+            "symmetryV":False,
             }
 
     def isValidVariableName(self, string):
@@ -1028,8 +1044,8 @@ def set_Simulation(qwm_doc):
     qwm_doc.{portName}.Position = {position}
     qwm_doc.{portName}.Activity = "{activity}"
     qwm_doc.{portName}.Type = "{portType}"
-    qwm_doc.{portName}.SymmetryH = False
-    qwm_doc.{portName}.SymmetryV = False
+    qwm_doc.{portName}.SymmetryH = {symmetryH}
+    qwm_doc.{portName}.SymmetryV = {symmetryV}
     qwm_doc.{portName}.PointCoordX = {excitationPointX}
     qwm_doc.{portName}.PointCoordY = {excitationPointY}
     qwm_doc.{portName}.PointCoordZ = {excitationPointZ}
@@ -1063,6 +1079,8 @@ def set_Simulation(qwm_doc):
                 tempPeriods = int(self.portCommandDict["tempPeriods"]),
                 multipointEnable = int(self.portCommandDict["multipointEnable"]),
                 multipointSizeShape = self.portCommandDict["multipointSizeShape"],
+                symmetryH = self.portCommandDict["symmetryH"],
+                symmetryV = self.portCommandDict["symmetryV"],
                 )
         
             elif self.portCommandDict["type"] == "MUR":
@@ -1723,6 +1741,27 @@ def set_Simulation(qwm_doc):
             
             self.globalData.writeToCircuitFile(content)
 
+    def do_expopt2(self, argumentsList):
+        """
+        Does EXPOPT2 command from UDO language.
+        """
+        # EXPOPT2 (<what>, <OnOff>)
+        # 0 - <Suppress singularity corrections>
+        # 1 - <Suppress density/SAR>
+        # 2 - <Allow BHM>
+        # 3 - <Suppress subregions export>
+        # 4 - <Allow Template QS Test>
+
+        #if self.createPyFiles:
+        #    what = argumentsList[0]
+        #    isOn = argumentsList[1]
+
+        #    content = """ """
+            
+        #    self.globalData.writeToCircuitFile(content)
+        pass
+
+
     def do_units(self, argumentsList):
         """
         Does UNITS command from UDO language.
@@ -1748,6 +1787,67 @@ def set_Simulation(qwm_doc):
             content = """    qwm_doc.QW_Circuit.Units = "{geometryUnitsStr}"
     qwm_doc.QW_Circuit.FrequencyUnits = "GHz"\n""".format(
                 geometryUnitsStr = geometryUnitsStr,
+                )
+            
+            self.globalData.writeToCircuitFile(content)
+
+    def do_unitsgeometry(self, argumentsList):
+        """
+        Does UNITSGEOMETRY command from UDO language.
+        """
+        # UNITSGEOMETRY (<space>) – Sets project’s geometry units (space values: 0 - milimeters, 1 – micrometers, 2 - inches, 3 – mils, 4 – meters, 5 – nanometers, other - milimeters)
+       
+        if self.createPyFiles:
+            geometryUnits  = argumentsList[0]
+            
+            geometryUnitsStr = ""
+            if geometryUnits == 0:
+                geometryUnitsStr = "mm"
+            elif geometryUnits == 1:
+                geometryUnitsStr = "um"
+            elif geometryUnits == 2:
+                geometryUnitsStr = "inch"
+            elif geometryUnits == 3:
+                geometryUnitsStr = "mils"
+            elif geometryUnits == 4:
+                geometryUnitsStr = "m"
+            elif geometryUnits == 5:
+                geometryUnitsStr = "nm"
+            else:
+                geometryUnitsStr = "mm"
+
+            content = """    qwm_doc.QW_Circuit.Units = "{geometryUnitsStr}"\n""".format(
+                geometryUnitsStr = geometryUnitsStr,
+                )
+            
+            self.globalData.writeToCircuitFile(content)
+
+    def do_unitsfrequency(self, argumentsList):
+        """
+        Does UNITSFREQUENCY command from UDO language.
+        """
+        # UNITSFREQUENCY (<frequency>) – Sets project’s frequency units (frequency values: 0 - GHz, 1 – Hz, 2 - kHz, 3 – MHz, 4 – THz, 5 – PHz, other - GHz)
+        if self.createPyFiles:
+            frequencyUnits  = argumentsList[0]
+            
+            frequencyUnitsStr = ""
+            if frequencyUnits == 0:
+                frequencyUnitsStr = "GHz"
+            elif frequencyUnits == 1:
+                frequencyUnitsStr = "Hz"
+            elif frequencyUnits == 2:
+                frequencyUnitsStr = "kHz"
+            elif frequencyUnits == 3:
+                frequencyUnitsStr = "MHz"
+            elif frequencyUnits == 4:
+                frequencyUnitsStr = "THz"
+            elif frequencyUnits == 5:
+                frequencyUnitsStr = "PHz"
+            else:
+                frequencyUnitsStr = "GHz"
+
+            content = """    qwm_doc.QW_Circuit.FrequencyUnits = "{frequencyUnits}"\n""".format(
+                frequencyUnits = frequencyUnitsStr,
                 )
             
             self.globalData.writeToCircuitFile(content)
@@ -2080,4 +2180,250 @@ def set_Simulation(qwm_doc):
             self.globalData.writeToPpostFile(content)
 
 
+    def do_energyallow(self, argumentsList):
+        """
+        Does ENERGYALLOW command from UDO language.
+        """
+        #  (<Allow>) – Switches on or off energy stop criterion that will be used in simulation: <Allow>: 0 – off, 1 – on
+        if self.createPyFiles:
+            isAllowed = bool(argumentsList[0])
 
+            content = "    qwm_doc.QW_Circuit.UseEnergyLevel = {isAllowed}\n".format(isAllowed = isAllowed)
+            
+            self.globalData.writeToCircuitFile(content)
+
+
+    def do_energypar(self, argumentsList):
+        """
+        Does ENERGYPAR command from UDO language.
+        """
+        #  (<energyLevelDescentDB>, <energyLevelLogEveryDB>, <energyProbingEvery>, <sParametersAccuracy>, <pulsesNbLimit>) – Sets parameters for energy stop criterion
+        if self.createPyFiles:
+            energyLevelDescentDB    = argumentsList[0]
+            energyLevelLogEveryDB   = argumentsList[1]
+            energyProbingEvery      = argumentsList[2]
+            sParametersAccuracy     = argumentsList[3]
+            pulsesNbLimit           = int(argumentsList[4])
+
+            content = """    qwm_doc.QW_Circuit.EnergyLevelDescentDB = {energyLevelDescentDB}
+    qwm_doc.QW_Circuit.EnergyLevelLogEveryDB = {energyLevelLogEveryDB}
+    qwm_doc.QW_Circuit.EnergyProbingEvery = {energyProbingEvery}
+    qwm_doc.QW_Circuit.SParametrsAccuracy = {sParametersAccuracy}
+    qwm_doc.QW_Circuit.PulsesNbLimit = {pulsesNbLimit}\n""".format(
+                energyLevelDescentDB    = energyLevelDescentDB,
+                energyLevelLogEveryDB   = energyLevelLogEveryDB,
+                energyProbingEvery      = energyProbingEvery,
+                sParametersAccuracy     = sParametersAccuracy,
+                pulsesNbLimit           = pulsesNbLimit,
+                )
+            
+            self.globalData.writeToCircuitFile(content)
+
+
+    def do_energyopt(self, argumentsList):
+        """
+        Does ENERGYOPT command from UDO language.
+        """
+        #  ENERGYOPT (<saveSParametersWhenFinished> ,<freezeWhenFinished>, <suspendWhenFinished>, <continueAfterPulsesNbLimit>)
+        if self.createPyFiles:
+            saveSParametersWhenFinished     = bool(argumentsList[0])
+            freezeWhenFinished              = bool(argumentsList[1])
+            suspendWhenFinished             = bool(argumentsList[2])
+            continueAfterPulsesNbLimit      = bool(argumentsList[3])
+
+            content = """    qwm_doc.QW_Circuit.SaveSParametrsWhenFinished = {saveSParametersWhenFinished}
+    qwm_doc.QW_Circuit.FreezeWhenFinished = {freezeWhenFinished}
+    qwm_doc.QW_Circuit.SuspendWhenFinished = {suspendWhenFinished}
+    qwm_doc.QW_Circuit.ContinueAfterPulsesNbLimit = {continueAfterPulsesNbLimit}\n""".format(
+                saveSParametersWhenFinished     = saveSParametersWhenFinished,
+                freezeWhenFinished              = freezeWhenFinished,
+                suspendWhenFinished             = suspendWhenFinished,
+                continueAfterPulsesNbLimit      = continueAfterPulsesNbLimit,
+                )
+            
+            self.globalData.writeToCircuitFile(content)
+
+    def do_bhmopt(self, argumentsList):
+        """
+        Does BHMOPT command from UDO language.
+        """
+        #  BHMOPT (<Allow heat flow>, <Allow rotation>, <Movement>)
+        if self.createPyFiles:
+            allowHeatFlow               = argumentsList[0]
+            allowMovementAndRotation    = argumentsList[1] and argumentsList[2]
+
+            content = """    qwm_doc.QW_BHM.AllowHFM = {allowHeatFlow}
+    qwm_doc.QW_BHM.AllowMovementAndRotation = {allowMovementAndRotation}\n""".format(
+                allowHeatFlow               = allowHeatFlow,
+                allowMovementAndRotation    = allowMovementAndRotation,
+                )
+            
+            self.globalData.writeToCircuitFile(content)
+
+
+    def do_htimes(self, argumentsList):
+        """
+        Does HTIMES command from UDO language.
+        """
+        #  HTIMES (<First EM steady state>, <Consecutive EM steady states>, <Heating pattern construction>, <Total heating time>, <Heating time step>)
+        if self.createPyFiles:
+            firtsEmSteadyState          = int(argumentsList[0])
+            consecutiveEmSteadyStates   = int(argumentsList[1])
+            heatingPatternConstruction  = int(argumentsList[2])
+            totalHeatingTime            = argumentsList[3]
+            totalHeatingTimeStep        = argumentsList[4]
+
+            content = """    qwm_doc.QW_BHM.FirstEmSteadyState = {firtsEmSteadyState}
+    qwm_doc.QW_BHM.NextEmSteadyState = {consecutiveEmSteadyStates}
+    qwm_doc.QW_BHM.HeatingPatternConstruction = {heatingPatternConstruction}
+    qwm_doc.QW_BHM.TotalHeatingTime = {totalHeatingTime}
+    qwm_doc.QW_BHM.HeatingTimeStep = {totalHeatingTimeStep}\n""".format(
+                firtsEmSteadyState          = firtsEmSteadyState,
+                consecutiveEmSteadyStates   = consecutiveEmSteadyStates,
+                heatingPatternConstruction  = heatingPatternConstruction,
+                totalHeatingTime            = totalHeatingTime,
+                totalHeatingTimeStep        = totalHeatingTimeStep,
+                )
+            
+            self.globalData.writeToCircuitFile(content)
+
+
+    def do_bhmafter(self, argumentsList):
+        """
+        Does BHMAFTER command from UDO language.
+        """
+        #  BHMAFTER (<what>, <after each>, <after step>) – Sets Suspend or Freeze for BHM steps:
+        if self.createPyFiles:
+            if argumentsList[0] == 0: # Suspend
+                suspendAfterEach = bool(argumentsList[1])
+                afterStep = argumentsList[2]
+
+                suspendAfterStep = False
+                suspendStep = 1
+                if afterStep > 0:
+                    suspendAfterStep = True
+                    suspendStep = afterStep
+
+                content = """    qwm_doc.QW_BHM.SuspendAfterEach = {suspendAfterEach}
+    qwm_doc.QW_BHM.SuspendAfterStep = {suspendAfterStep}
+    qwm_doc.QW_BHM.SuspendStep = {suspendStep}
+    qwm_doc.QW_BHM.FreezeAfterEach = False
+    qwm_doc.QW_BHM.FreezeAfterStep = False
+    qwm_doc.QW_BHM.FreezeStep = 1\n""".format(
+                    suspendAfterEach    = suspendAfterEach,
+                    suspendAfterStep    = suspendAfterStep,
+                    suspendStep         = suspendStep,
+                    )
+
+            elif argumentsList[0] == 1: # Freeze
+                freezeAfterEach = bool(argumentsList[1])
+                afterStep = argumentsList[2]
+
+                freezeAfterStep = False
+                freezeStep = 1
+                if afterStep > 0:
+                    freezeAfterStep = True
+                    freezeStep = afterStep
+
+                content = """    qwm_doc.QW_BHM.SuspendAfterEach = False
+    qwm_doc.QW_BHM.SuspendAfterStep = False
+    qwm_doc.QW_BHM.SuspendStep = 1
+    qwm_doc.QW_BHM.FreezeAfterEach = {freezeAfterEach}
+    qwm_doc.QW_BHM.FreezeAfterStep = {freezeAfterStep}
+    qwm_doc.QW_BHM.FreezeStep = {freezeStep}\n""".format(
+                    freezeAfterEach    = freezeAfterEach,
+                    freezeAfterStep    = freezeAfterStep,
+                    freezeStep         = freezeStep,
+                    )
+            
+            self.globalData.writeToCircuitFile(content)
+
+
+    def do_bhmcompformat(self, argumentsList):
+        """
+        Does BHMCOMPFORMAT command from UDO language.
+        """
+        #  BHMCOMPFORMAT (<Data Format>, <Include Shape Data>, <Include FDTD Mesh>) 
+        if self.createPyFiles:
+            dataFormat          = int(argumentsList[0])
+            includeShapeData    = bool(argumentsList[1])
+            includeFdtdMesh     = bool(argumentsList[2])
+
+            content = """    qwm_doc.QW_BHM.ComponentsListFormat = {dataFormat}
+    qwm_doc.QW_BHM.IncludeShapeData = {includeShapeData}
+    qwm_doc.QW_BHM.IncludeFDTDMesh = {includeFdtdMesh}\n""".format(
+                dataFormat          = dataFormat,
+                includeShapeData    = includeShapeData,
+                includeFdtdMesh     = includeFdtdMesh,
+                )
+            
+            self.globalData.writeToCircuitFile(content)
+
+
+    def do_tempa(self, argumentsList):
+        """
+        Does TEMPA command from UDO language.
+        """
+        # TEMPA (<mode>,<m>,<n>,<match_freq>,<dummy>)
+        # <mode> - template mode (0 - rectangular TE, 1 - rectangular TM, 2 - circular TE, 3 - circular TM)
+        # <m>, <n> - indices of the mode
+        # <match_freq> - matching frequency for template generation
+
+        #if self.createPyFiles:
+
+        #    content = """    """
+
+        #    self.globalData.writeToExcitFile(content)
+        pass
+
+
+    def do_symmetry(self, argumentsList):
+        """
+        Does SYMMETRY command from UDO language.
+        """
+        self.portCommandDict["symmetryH"] = bool(argumentsList[0])
+        self.portCommandDict["symmetryV"] = bool(argumentsList[1])
+
+
+    def do_smndiff(self, argumentsList):
+        """
+        Does SMNDIFF command from UDO language.
+        """
+        # SMNDIFF (<lower_freq>,<upper_freq>,<freq_step>,<assumptions>,<mode>,<IterForS>)
+        if self.createPyFiles:
+            lowerFreq           = argumentsList[0]
+            upperFreq           = argumentsList[1]
+            freqStep            = argumentsList[2]
+            assumptionsIndex    = argumentsList[3]
+            mode                = argumentsList[4]
+            iterForS            = int(argumentsList[5])
+
+            reciprocalNport = False
+            reciprocalLossless2port = False
+
+            if assumptionsIndex == 1:
+                reciprocalNport = True
+            elif assumptionsIndex == 2:
+                reciprocalLossless2port = True
+
+            smnType = "Sequential"
+            if mode == 1:
+                smnType = "Multi simulator"
+
+            content = """    qwm_doc.QW_PostprocessingS.From = {lowerFreq}
+    qwm_doc.QW_PostprocessingS.To = {upperFreq}
+    qwm_doc.QW_PostprocessingS.Step = {freqStep}
+    qwm_doc.QW_PostprocessingS.ReciprocalNport = {reciprocalNport}
+    qwm_doc.QW_PostprocessingS.ReciprocalLossless2port = {reciprocalLossless2port}
+    qwm_doc.QW_PostprocessingS.SmnIterationsPerPort = {iterForS}
+    qwm_doc.QW_PostprocessingS.SmnType = "{smnType}"\n""".format(
+                lowerFreq               = lowerFreq,
+                upperFreq               = upperFreq,
+                freqStep                = freqStep,
+                reciprocalNport         = reciprocalNport,
+                reciprocalLossless2port = reciprocalLossless2port,
+                iterForS                = iterForS,
+                smnType                 = smnType,
+                )
+        
+            self.globalData.writeToPpostFile(content)
