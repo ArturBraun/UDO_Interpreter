@@ -34,7 +34,8 @@ class GlobalData:
 
             cls.numberForEqualElementsNames = 0
 
-            cls.currentElementsNamesDict = {}  # Key -> currentName, Value -> originalName
+            cls.elementsInThisFile = {} # Elements created in this file.
+            cls.currentElementsNamesDict = {}  # Key -> currentName, Value -> originalName | All elements in project.
             cls.lastCreatedElement = ""
 
             cls.hasSomethingBeenAddedToFiles = {
@@ -50,7 +51,6 @@ class GlobalData:
             if re.fullmatch("[a-zA-Z]{1}[a-zA-Z0-9_]*", kwargs["projectName"]): cls._singleton.projectName = kwargs["projectName"]
             else: cls._singleton.projectName = "project"
 
-            cls.objectsNames = []
             cls.UDO_filePath = kwargs["filePath"]
             cls.pathToGeneratePyFiles = kwargs["pathToGeneratePyFiles"]
 

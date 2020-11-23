@@ -128,7 +128,7 @@ def variable():
     """
     Grammar rule for variable.
     """
-    return apperggioRegEx(r'[a-zA-Z]{1}[a-zA-Z0-9_]*') 
+    return apperggioRegEx(r'[a-zA-Z]{1}[a-zA-Z0-9_.]*') 
 
 def substitutionOperator():
     """
@@ -324,7 +324,7 @@ def specialVariable():
     """
     Grammar rule for variable.
     """
-    return apperggioRegEx(r'[a-zA-Z]{1}[a-zA-Z0-9_]*') 
+    return apperggioRegEx(r'[a-zA-Z]{1}[a-zA-Z0-9_.]*') 
 
 def specialSubstitutionOperator():
     """
@@ -958,8 +958,8 @@ def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_d
         previousFileContent = globalData.udoFileContent
         globalData.udoFileContent = UDO_FileContent
 
-        currentElementsNamesDictStorage = globalData.currentElementsNamesDict
-        globalData.currentElementsNamesDict = {}
+        elementsInThisFileStorage = globalData.elementsInThisFile
+        globalData.elementsInThisFile = {}
 
         variableStorage = globalData.variables
         globalData.variables = createStandardVariables()
@@ -987,8 +987,8 @@ def doNestedParsing(nestedParameters, UDO_FilePath, debug = False, interpreter_d
 
         UDO_File.close()   
 
-        currentElementsNamesDictStorage.update(globalData.currentElementsNamesDict)
-        globalData.currentElementsNamesDict = currentElementsNamesDictStorage
+        elementsInThisFileStorage.update(globalData.elementsInThisFile)
+        globalData.elementsInThisFile = elementsInThisFileStorage
         globalData.udoFileContent = previousFileContent
         globalData.variables = variableStorage
 
@@ -997,7 +997,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "wgtocx1"
+    udoName = "magict"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"

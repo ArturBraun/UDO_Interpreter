@@ -419,7 +419,7 @@ class UDO_commands:
         self.globalData.numberForEqualElementsNames += 1
         variableName = "var_" + str(self.globalData.numberForEqualElementsNames)
         while True:
-            if variableName in self.globalData.objectsNames or variableName in self.globalData.variables:
+            if variableName in self.globalData.currentElementsNamesDict or variableName in self.globalData.variables:
                 self.globalData.numberForEqualElementsNames += 1
                 variableName = "var_" + str(self.globalData.numberForEqualElementsNames)
             else: 
@@ -682,12 +682,13 @@ def set_Simulation(qwm_doc):
 
         tmpName = self.elementCommandName
         while True:
-            if self.elementCommandName in self.globalData.objectsNames:
+            if self.elementCommandName in self.globalData.currentElementsNamesDict:
                 self.globalData.numberForEqualElementsNames += 1
                 self.elementCommandName = tmpName + str(self.globalData.numberForEqualElementsNames)
             else: 
                 break
-        self.globalData.objectsNames.append(self.elementCommandName)
+        self.globalData.currentElementsNamesDict[self.elementCommandName] = self.elementCommandName
+        self.globalData.elementsInThisFile[self.elementCommandName] = self.elementCommandName
 
         if self.elementCommandType in [5,6,15,16]:
             self.elementCommandTypeCombinedDict[self.elementCommandType] = "sketch_" + self.elementCommandName
@@ -749,6 +750,7 @@ def set_Simulation(qwm_doc):
 
         self.currentCommand["element"] = False
         self.globalData.currentElementsNamesDict[self.elementCommandName] = self.elementCommandName
+        self.globalData.elementsInThisFile[self.elementCommandName] = self.elementCommandName
         self.globalData.lastCreatedElement = self.elementCommandName
 
     def do_newline(self,argumentsList):
@@ -1328,7 +1330,7 @@ def set_Simulation(qwm_doc):
         rangeOfOperation = argumentsList[1]
         command = argumentsList[2]
 
-        currentElementsSet = set(self.globalData.currentElementsNamesDict.values())
+        currentElementsSet = set(self.globalData.elementsInThisFile.values())
 
         if rangeOfOperation == "ALL":
             if command == "ACTIVE":
@@ -1383,7 +1385,7 @@ def set_Simulation(qwm_doc):
         rangeOfOperation = argumentsList[1]
         command = argumentsList[2]
 
-        currentElementsSet = set(self.globalData.currentElementsNamesDict.values())
+        currentElementsSet = set(self.globalData.elementsInThisFile.values())
 
         if rangeOfOperation == "ALL":
             if command == "SET":
@@ -1430,7 +1432,7 @@ def set_Simulation(qwm_doc):
         shapesList = list(self.activeElements) + list(self.passiveElements)
         shapesListStr = "["
         for i in range(len(shapesList)):
-            shapesList[i] = self.globalData.currentElementsNamesDict[shapesList[i]]
+            shapesList[i] = self.globalData.elementsInThisFile[shapesList[i]]
             shapesListStr += "qwm_doc." + shapesList[i] + ","
         shapesListStr += "]"
 
@@ -1483,6 +1485,7 @@ def set_Simulation(qwm_doc):
 
         self.globalData.writeToGeomMediaFile(content)
         self.globalData.currentElementsNamesDict[objectName] = objectName
+        self.globalData.elementsInThisFile[objectName] = objectName
         self.globalData.lastCreatedElement = objectName
 
     def do_rotate(self, argumentsList):
@@ -1518,6 +1521,7 @@ def set_Simulation(qwm_doc):
             oldName = self.globalData.lastCreatedElement
 
             self.globalData.currentElementsNamesDict[newName] = self.globalData.currentElementsNamesDict.pop(oldName)
+            self.globalData.elementsInThisFile[newName] = self.globalData.elementsInThisFile.pop(oldName)
             self.globalData.lastCreatedElement = newName
 
             content = "    qwm_doc.{originalName}.Label = '{newName}'\n".format(
@@ -1529,6 +1533,7 @@ def set_Simulation(qwm_doc):
             oldName = rangeOfOperation
 
             self.globalData.currentElementsNamesDict[newName] = self.globalData.currentElementsNamesDict.pop(oldName)
+            self.globalData.elementsInThisFile[newName] = self.globalData.elementsInThisFile.pop(oldName)
 
             content = "    qwm_doc.{originalName}.Label = '{newName}'\n".format(
                 originalName = self.globalData.currentElementsNamesDict[newName],
@@ -1929,15 +1934,17 @@ def set_Simulation(qwm_doc):
 
         tmpName = self.selectionCommandDict["name"]
         while True:
-            if self.selectionCommandDict["name"] in self.globalData.objectsNames:
+            if self.selectionCommandDict["name"] in self.globalData.currentElementsNamesDict:
                 self.globalData.numberForEqualElementsNames += 1
                 self.selectionCommandDict["name"] = tmpName + str(self.globalData.numberForEqualElementsNames)
             else: 
                 break
         self.selectionCommandDict["upperName"] = self.selectionCommandDict["name"] + "U"
         self.selectionCommandDict["lowerName"] = self.selectionCommandDict["name"] + "D"
-        self.globalData.objectsNames.append(self.selectionCommandDict["upperName"])
-        self.globalData.objectsNames.append(self.selectionCommandDict["lowerName"])
+        self.globalData.currentElementsNamesDict[self.selectionCommandDict["upperName"]] = self.selectionCommandDict["upperName"]
+        self.globalData.elementsInThisFile[self.selectionCommandDict["upperName"]] = self.selectionCommandDict["upperName"]
+        self.globalData.currentElementsNamesDict[self.selectionCommandDict["lowerName"]] = self.selectionCommandDict["lowerName"]
+        self.globalData.elementsInThisFile[self.selectionCommandDict["lowerName"]] = self.selectionCommandDict["lowerName"]
         
         if self.createPyFiles:
             content = """    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_{name}')
@@ -1986,8 +1993,11 @@ def set_Simulation(qwm_doc):
 
         self.currentCommand["selection"] = False
         self.globalData.currentElementsNamesDict[self.selectionCommandDict["upperName"]] = self.selectionCommandDict["upperName"]
+        self.globalData.elementsInThisFile[self.selectionCommandDict["upperName"]] = self.selectionCommandDict["upperName"]
         self.globalData.currentElementsNamesDict[self.selectionCommandDict["lowerName"]] = self.selectionCommandDict["lowerName"]
+        self.globalData.elementsInThisFile[self.selectionCommandDict["lowerName"]] = self.selectionCommandDict["lowerName"]
         self.globalData.currentElementsNamesDict[self.selectionCommandDict["name"]] = self.selectionCommandDict["name"]
+        self.globalData.elementsInThisFile[self.selectionCommandDict["name"]] = self.selectionCommandDict["name"]
         self.globalData.lastCreatedElement = self.selectionCommandDict["name"]
 
     def do_epseff(self, argumentsList):
@@ -2249,8 +2259,8 @@ def set_Simulation(qwm_doc):
         """
         #  BHMOPT (<Allow heat flow>, <Allow rotation>, <Movement>)
         if self.createPyFiles:
-            allowHeatFlow               = argumentsList[0]
-            allowMovementAndRotation    = argumentsList[1] and argumentsList[2]
+            allowHeatFlow               = bool(argumentsList[0])
+            allowMovementAndRotation    = bool(argumentsList[1] and argumentsList[2])
 
             content = """    qwm_doc.QW_BHM.AllowHFM = {allowHeatFlow}
     qwm_doc.QW_BHM.AllowMovementAndRotation = {allowMovementAndRotation}\n""".format(

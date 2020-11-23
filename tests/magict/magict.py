@@ -20,12 +20,7 @@ import FreeCADGui
 import QW_Modeller
 import FreeCAD
 
-#sys.path.insert(0, os.path.dirname(__file__))
-#sys.path.append(os.path.dirname(__file__))
-#sys.path.append("..\tests\cubeNested\")
-#sys.path.insert(0, '..\tests\cubeNested\')
-
-from cubeNested3_proj import *
+from magict_proj import *
 
 GUIMode = FreeCAD.ConfigGet("RunMode")
 
@@ -34,11 +29,11 @@ if not GUIMode:
 
 FreeCADGui.activateWorkbench("QW_ModellerWorkbench")
 
-qwm_doc = QW_Modeller.newQWDocument("cubeNested3")
+qwm_doc = QW_Modeller.newQWDocument("magict")
 
 FreeCADGui.activeDocument().activeView().viewAxometric()
 
-proj = cubeNested3_Project(qwm_doc)
+proj = magict_Project(qwm_doc)
 proj.set_Circuit_Parameters()
 proj.set_GeometryAndMedia()
 proj.set_Mesh()
