@@ -997,7 +997,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "magict"
+    udoName = "ant2R"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"

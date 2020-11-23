@@ -770,10 +770,11 @@ def set_Simulation(qwm_doc):
             elif self.currentCommand["selection"]:
                 name = self.selectionCommandDict["name"]
 
-            content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
-""".format(name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+            if _x1 != _x2 or _y1 != _y2:
+                content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))\n""".format(
+                    name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
                
-            self.globalData.writeToGeomMediaFile(content)
+                self.globalData.writeToGeomMediaFile(content)
 
         self.newlineCommandFirstPoint = [_x1, _y1]
         self.lineCommandLastPoint = [_x2, _y2]
@@ -798,10 +799,11 @@ def set_Simulation(qwm_doc):
             elif self.currentCommand["selection"]:
                 name = self.selectionCommandDict["name"]
 
-            content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
-""".format(name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+            if _x1 != _x2 or _y1 != _y2:
+                content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))\n""".format(
+                    name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
-            self.globalData.writeToGeomMediaFile(content)
+                self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
 
@@ -822,10 +824,11 @@ def set_Simulation(qwm_doc):
             elif self.currentCommand["selection"]:
                 name = self.selectionCommandDict["name"]
 
-            content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
-""".format(name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
+            if _x1 != _x2 or _y1 != _y2:
+                content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))\n""".format(
+                    name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
         
-            self.globalData.writeToGeomMediaFile(content)
+                self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
 
@@ -848,11 +851,12 @@ def set_Simulation(qwm_doc):
                 name = self.elementCommandName
             elif self.currentCommand["selection"]:
                 name = self.selectionCommandDict["name"]
+    
+            if _x1 != _x2 or _y1 != _y2:
+                content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))\n""".format(
+                    name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
-            content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
-""".format(name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
-
-            self.globalData.writeToGeomMediaFile(content)
+                self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
 
@@ -875,11 +879,12 @@ def set_Simulation(qwm_doc):
                 name = self.elementCommandName
             elif self.currentCommand["selection"]:
                 name = self.selectionCommandDict["name"]
+    
+            if _x1 != _x2 or _y1 != _y2:
+                content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))\n""".format(
+                    name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
 
-            content = """    qwm_doc.sketch_{name}.addGeometry(Part.LineSegment(FreeCAD.Vector({x1},{y1},0), FreeCAD.Vector({x2},{y2},0)))
-""".format(name = name, x1 = _x1, y1 = _y1, x2 = _x2, y2 = _y2)
-
-            self.globalData.writeToGeomMediaFile(content)
+                self.globalData.writeToGeomMediaFile(content)
 
         self.lineCommandLastPoint = [_x2, _y2]
 
@@ -1188,6 +1193,50 @@ def set_Simulation(qwm_doc):
                         length                  = length,
                         width                   = width,
                         )
+            
+            elif self.portCommandDict["type"] == "OPEN":
+
+                if orientation == "X":
+                    content = """    qwm_doc.QW_Mesh_Borders.BorderXMin = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderXMax = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderYMin = "PMC"
+    qwm_doc.QW_Mesh_Borders.BorderYMax = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderZMin = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderZMax = "PEC"
+    qwm_doc.QW_Mesh.AutoAdjustMeshBoundaryCheck = False
+    qwm_doc.QW_Mesh.bboxminY = {bboxMin}
+    qwm_doc.QW_Mesh.bboxmaxY = {bboxMax}\n""".format(
+                    bboxMin = self.portCommandDict["y1"],
+                    bboxMax = self.portCommandDict["y2"],
+                    )
+
+                elif orientation == "Y":
+                    content = """    qwm_doc.QW_Mesh_Borders.BorderXMin = "PMC"
+    qwm_doc.QW_Mesh_Borders.BorderXMax = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderYMin = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderYMax = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderZMin = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderZMax = "PEC"
+    qwm_doc.QW_Mesh.AutoAdjustMeshBoundaryCheck = False
+    qwm_doc.QW_Mesh.bboxminX = {bboxMin}
+    qwm_doc.QW_Mesh.bboxmaxX = {bboxMax}\n""".format(
+                    bboxMin = self.portCommandDict["x1"],
+                    bboxMax = self.portCommandDict["x2"],
+                    )
+
+                elif orientation == "Z":
+                    content = """    qwm_doc.QW_Mesh_Borders.BorderXMin = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderXMax = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderYMin = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderYMax = "PEC"
+    qwm_doc.QW_Mesh_Borders.BorderZMin = "PMC"
+    qwm_doc.QW_Mesh_Borders.BorderZMax = "PEC"
+    qwm_doc.QW_Mesh.AutoAdjustMeshBoundaryCheck = False
+    qwm_doc.QW_Mesh.bboxminZ = {bboxMin}
+    qwm_doc.QW_Mesh.bboxmaxZ = {bboxMax}\n""".format(
+                    bboxMin = self.portCommandDict["level"],
+                    bboxMax = self.portCommandDict["level"] + self.portCommandDict["height"],
+                    )
 
             self.globalData.writeToExcitFile(content)
 
@@ -1440,8 +1489,8 @@ def set_Simulation(qwm_doc):
             objectName = "Cut" + str(self.globalData.numberForEqualElementsNames)
 
             content = """    qwm_doc.addObject("Part::Cut","{objectName}")
-    qwm_doc.{objectName}.Base = {base}
-    qwm_doc.{objectName}.Tool = {tool}
+    qwm_doc.{objectName}.Base = qwm_doc.{base}
+    qwm_doc.{objectName}.Tool = qwm_doc.{tool}
     qwm_doc.{objectName}.Medium = qwm_doc.{firstElementName}.Medium\n""".format(
                         objectName = objectName,
                         firstElementName = shapesList[0],
