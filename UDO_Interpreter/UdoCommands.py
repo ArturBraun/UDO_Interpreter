@@ -321,6 +321,7 @@ class UDO_commands:
             "TEMPA":"do_tempa", 
             "SYMMETRY":"do_symmetry", 
             "SMNDIFF":"do_smndiff", 
+            "MIRROR":"do_mirror", 
             }
 
         # Says which command is analysed at the moment
@@ -2486,3 +2487,38 @@ def set_Simulation(qwm_doc):
                 )
         
             self.globalData.writeToPpostFile(content)
+
+
+    def do_mirror(self, argumentsList):
+        """
+        Does MIRROR command from UDO language.
+        """
+        # MIRROR (<xy>,<xz>,<yz>) - Performs a mirror reflection of all the marked elements or objects with respect to the planes z=0 or/and y=0 or/and x=0.
+        mirrorX = int(argumentsList[0])
+        mirrorY = int(argumentsList[1])
+        mirrorZ = int(argumentsList[2])
+
+        content = ""
+        tmpName = ""
+
+        for elem in self.markedElements:
+            content += """    qwm_doc.addObject("Part::Mirroring", "{sourceName}_mirror")
+    qwm_doc.{sourceName}_mirror.Source=qwm_doc.{sourceName}
+    qwm_doc.ActiveObject.Normal=(0,0,1)
+    qwm_doc.ActiveObject.Base=({mirrorX},{mirrorY},{mirrorZ})
+    FreeCAD.Gui.ActiveDocument.{sourceName}_mirror.ShapeColor=FreeCAD.Gui.ActiveDocument.{sourceName}.ShapeColor
+    FreeCAD.Gui.ActiveDocument.{sourceName}_mirror.LineColor=FreeCAD.Gui.ActiveDocument.{sourceName}.LineColor
+    FreeCAD.Gui.ActiveDocument.{sourceName}_mirror.PointColor=FreeCAD.Gui.ActiveDocument.{sourceName}.PointColor\n""".format(
+                sourceName = elem,
+                mirrorX = mirrorX,
+                mirrorY = mirrorY,
+                mirrorZ = mirrorZ,
+                )
+            tmpName = elem + "_mirror"
+            self.globalData.currentElementsNamesDict[tmpName] = tmpName
+            self.globalData.elementsInThisFile[tmpName] = tmpName
+
+        self.globalData.writeToGeomMediaFile(content)
+        self.globalData.lastCreatedElement = tmpName
+
+

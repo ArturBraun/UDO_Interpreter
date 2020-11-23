@@ -122,6 +122,7 @@ def UDO_command():
         "TEMPA",
         "SYMMETRY",
         "SMNDIFF",
+        "MIRROR",
     ], Optional("("),  ZeroOrMore(extendedExpression,","), Optional(extendedExpression), Optional(")"), ";"
 
 def variable():
@@ -318,6 +319,7 @@ def specialUdoCommand():
         "TEMPA",
         "SYMMETRY",
         "SMNDIFF",
+        "MIRROR",
         ], Optional("("),  ZeroOrMore(specialExtendedExpression,","), Optional(specialExtendedExpression), Optional(")"), ";"
 
 def specialVariable():
@@ -669,17 +671,18 @@ class GrammarRulesVisitor(PTNodeVisitor):
 
         currentUdoFileContent = self.globalData.udoFileContent
 
+        logicalContentParseTree = parser.parse(logicalContent)
+        whileLoopContentParseTree = parser.parse(whileLoopContent)
+
         while(True):
             self.globalData.udoFileContent = logicalContent
-            parse_tree = parser.parse(logicalContent)
-            logicalContentResult = visit_parse_tree(parse_tree, grammarRulesVistor)
+            logicalContentResult = visit_parse_tree(logicalContentParseTree, grammarRulesVistor)
 
             if not logicalContentResult: 
                 break
 
             self.globalData.udoFileContent = whileLoopContent
-            parse_tree = parser.parse(whileLoopContent)
-            whileLoopContentResult = visit_parse_tree(parse_tree, grammarRulesVistor)
+            whileLoopContentResult = visit_parse_tree(whileLoopContentParseTree, grammarRulesVistor)
 
         self.globalData.udoFileContent = currentUdoFileContent
 
