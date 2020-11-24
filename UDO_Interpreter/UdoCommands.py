@@ -897,7 +897,7 @@ def set_Simulation(qwm_doc):
         Remembers port's points coordinates.
         """       
         isDirectionZ = self.portCommandDict["currentPoint"] > 4
-        isDirectionXY = self.portCommandDict["currentPoint"] >= 3 and self.portCommandDict["height"] != 0
+        isDirectionXY = self.portCommandDict["currentPoint"] >= 3 and self.portCommandDict["height"] != 0 and self.portCommandDict["type"] != "NEAR2FAR"
         isDirectionXYAndSpecialWithZeroHeight = self.portCommandDict["type"] == "SPECIAL" and self.portCommandDict["currentPoint"] >= 3 and self.portCommandDict["height"] == 0 and _x1 == _x2 and _y1 == _y2
         
         if isDirectionZ or isDirectionXY or isDirectionXYAndSpecialWithZeroHeight:
@@ -964,7 +964,7 @@ def set_Simulation(qwm_doc):
 
         if self.portCommandDict["type"] == "INPTEMPLATE" or self.portCommandDict["type"] == "OUTTEMPLATE":
             content = """    QW_Modeller.addQWObject("QW_Modeller::TemplatePort","{portName}")\n""".format(portName = self.portCommandDict["name"])
-        elif self.portCommandDict["type"] == "MUR":
+        elif self.portCommandDict["type"] == "MUR" or self.portCommandDict["type"] == "PML":
             content = """    QW_Modeller.addQWObject("QW_Modeller::AbsorbingWall","{portName}")\n""".format(portName = self.portCommandDict["name"])
         elif self.portCommandDict["type"] == "NEAR2FAR": 
             content = """    QW_Modeller.addQWObject("QW_Modeller::NTFBox","{portName}")\n""".format(portName = self.portCommandDict["name"])
@@ -987,7 +987,7 @@ def set_Simulation(qwm_doc):
         position = None
         rotation = None
 
-        if self.portCommandDict["height"] == 0 and self.portCommandDict["currentPoint"] > 3:
+        if (self.portCommandDict["height"] == 0 and self.portCommandDict["currentPoint"] > 3) or self.portCommandDict["type"] == "NEAR2FAR":
             length = abs(self.portCommandDict["x1"] - self.portCommandDict["x3"])
             width = abs(self.portCommandDict["y1"] - self.portCommandDict["y3"])
             excitationPointZ = self.portCommandDict["level"]
@@ -1116,6 +1116,33 @@ def set_Simulation(qwm_doc):
                     activity                = activity,
                     effectivePermittivity   = self.portCommandDict["effectivePermittivity"],
                     )
+            elif self.portCommandDict["type"] == "PML":
+                content = """    qwm_doc.{portName}.Orientation = "{orientation}"
+    qwm_doc.{portName}.Length = {length}
+    qwm_doc.{portName}.Width = {width}
+    qwm_doc.{portName}.Placement = FreeCAD.Placement(FreeCAD.Vector({excitationPointX}, {excitationPointY}, {excitationPointZ}),FreeCAD.Rotation({rotation}))
+    qwm_doc.{portName}.Position = {position}
+    qwm_doc.{portName}.Activity = "{activity}"
+    FreeCAD.Gui.ActiveDocument.{portName}.AbsorberDepth = 2.00000
+    FreeCAD.Gui.ActiveDocument.{portName}.ShowText = True
+    FreeCAD.Gui.ActiveDocument.{portName}.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.{portName}.TextPlace = 3
+    qwm_doc.{portName}.Type = "PML"
+    qwm_doc.{portName}.PMLProfile = "Parabolic"
+    qwm_doc.{portName}.Thickness = 8
+    qwm_doc.{portName}.ParabolicA = 1.00000\n""".format(
+                    portName                = self.portCommandDict["name"],
+                    orientation             = orientation,
+                    length                  = length,
+                    width                   = width,
+                    excitationPointX        = self.portCommandDict["excitationPointX"],
+                    excitationPointY        = self.portCommandDict["excitationPointY"],
+                    excitationPointZ        = self.portCommandDict["excitationPointZ"],
+                    rotation                = rotation,
+                    position                = position,
+                    activity                = activity,
+                    effectivePermittivity   = self.portCommandDict["effectivePermittivity"],
+                    )
             elif self.portCommandDict["type"] == "NEAR2FAR":
                 content = """    qwm_doc.{portName}.Length = {length}
     qwm_doc.{portName}.Width = {width}
@@ -1129,7 +1156,7 @@ def set_Simulation(qwm_doc):
                     height                  = self.portCommandDict["height"],
                     excitationPointX        = self.portCommandDict["excitationPointX"],
                     excitationPointY        = self.portCommandDict["excitationPointY"],
-                    excitationPointZ        = self.portCommandDict["excitationPointZ"],
+                    excitationPointZ        = self.portCommandDict["level"],
                     rotation                = rotation,
                     )
         
@@ -1416,14 +1443,14 @@ def set_Simulation(qwm_doc):
 
         else:
             if command == "ACTIVE":
-                self.activeElements.add(rangeOfOperation)
+                self.activeElements.add(self.globalData.currentElementsNamesDict[rangeOfOperation])
             elif command == "PASSIVE":
-                self.passiveElements.add(rangeOfOperation)
+                self.passiveElements.add(self.globalData.currentElementsNamesDict[rangeOfOperation])
             else: # command == "RESET":
                 if rangeOfOperation in self.activeElements:
-                    self.activeElements.remove(rangeOfOperation)
+                    self.activeElements.remove(self.globalData.currentElementsNamesDict[rangeOfOperation])
                 else: # rangeOfOperation in self.passiveElements
-                    self.passiveElements.remove(rangeOfOperation)
+                    self.passiveElements.remove(self.globalData.currentElementsNamesDict[rangeOfOperation])
 
 
     def do_mark(self, argumentsList):
@@ -2494,9 +2521,9 @@ def set_Simulation(qwm_doc):
         Does MIRROR command from UDO language.
         """
         # MIRROR (<xy>,<xz>,<yz>) - Performs a mirror reflection of all the marked elements or objects with respect to the planes z=0 or/and y=0 or/and x=0.
-        mirrorX = int(argumentsList[0])
-        mirrorY = int(argumentsList[1])
-        mirrorZ = int(argumentsList[2])
+        xy = int(argumentsList[0])
+        xz = int(argumentsList[1])
+        yz = int(argumentsList[2])
 
         content = ""
         tmpName = ""
@@ -2504,15 +2531,16 @@ def set_Simulation(qwm_doc):
         for elem in self.markedElements:
             content += """    qwm_doc.addObject("Part::Mirroring", "{sourceName}_mirror")
     qwm_doc.{sourceName}_mirror.Source=qwm_doc.{sourceName}
-    qwm_doc.ActiveObject.Normal=(0,0,1)
-    qwm_doc.ActiveObject.Base=({mirrorX},{mirrorY},{mirrorZ})
+    qwm_doc.ActiveObject.Normal=({yz},{xz},{xy})
+    qwm_doc.ActiveObject.Base=(0,0,0)
     FreeCAD.Gui.ActiveDocument.{sourceName}_mirror.ShapeColor=FreeCAD.Gui.ActiveDocument.{sourceName}.ShapeColor
     FreeCAD.Gui.ActiveDocument.{sourceName}_mirror.LineColor=FreeCAD.Gui.ActiveDocument.{sourceName}.LineColor
-    FreeCAD.Gui.ActiveDocument.{sourceName}_mirror.PointColor=FreeCAD.Gui.ActiveDocument.{sourceName}.PointColor\n""".format(
+    FreeCAD.Gui.ActiveDocument.{sourceName}_mirror.PointColor=FreeCAD.Gui.ActiveDocument.{sourceName}.PointColor
+    FreeCAD.Gui.ActiveDocument.{sourceName}.Visibility = False\n""".format(
                 sourceName = elem,
-                mirrorX = mirrorX,
-                mirrorY = mirrorY,
-                mirrorZ = mirrorZ,
+                xy = xy,
+                xz = xz,
+                yz = yz,
                 )
             tmpName = elem + "_mirror"
             self.globalData.currentElementsNamesDict[tmpName] = tmpName

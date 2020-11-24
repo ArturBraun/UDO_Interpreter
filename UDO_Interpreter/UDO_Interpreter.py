@@ -1000,7 +1000,7 @@ def main():
     """
     Main function of UDO_Interpreter project.
     """
-    udoName = "ant2R"
+    udoName = "vivaldi"
 
     pathToFolder = "..\\tests\\" + udoName + "\\"
     fileToInterpret = udoName + ".udo"
