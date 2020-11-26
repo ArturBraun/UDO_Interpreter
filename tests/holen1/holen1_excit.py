@@ -103,138 +103,138 @@ def set_Excitation(qwm_doc):
     qwm_doc.AbsorbingBox_1_Y_UP.Type = "MUR"
     qwm_doc.AbsorbingBox_1_Y_UP.EffectivePermittivity = 1.0
     QW_Modeller.addQWObject("QW_Modeller::NTFBox","NTFBox_1")
-    qwm_doc.NTFBox_1.Length = 31.37716
-    qwm_doc.NTFBox_1.Width = 38.0
+    qwm_doc.NTFBox_1.Length = 38.0
+    qwm_doc.NTFBox_1.Width = 31.37716
     qwm_doc.NTFBox_1.Height = 31.37716
-    qwm_doc.NTFBox_1.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
+    qwm_doc.NTFBox_1.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, 0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     FreeCAD.Gui.ActiveDocument.NTFBox_1.ShowText = True
     FreeCAD.Gui.ActiveDocument.NTFBox_1.TextSize = 14
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_2")
-    qwm_doc.var_2.Placement = FreeCAD.Placement(FreeCAD.Vector(-25.0, 0.0, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, 0.5))
-    qwm_doc.var_2.Orientation = "X"
-    qwm_doc.var_2.Position = -25.0
-    qwm_doc.var_2.Length = 48.43812
-    qwm_doc.var_2.Width = 48.43812
-    FreeCAD.Gui.ActiveDocument.var_2.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_2.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_2.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_3")
-    qwm_doc.var_3.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0, 0.0, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, 0.5))
-    qwm_doc.var_3.Orientation = "X"
-    qwm_doc.var_3.Position = 0.0
-    qwm_doc.var_3.Length = 48.43812
-    qwm_doc.var_3.Width = 48.43812
-    FreeCAD.Gui.ActiveDocument.var_3.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_3.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_3.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_4")
-    qwm_doc.var_4.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, -4.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
-    qwm_doc.var_4.Orientation = "Y"
-    qwm_doc.var_4.Position = -4.5
-    qwm_doc.var_4.Length = 48.43812
-    qwm_doc.var_4.Width = 55.060959999999994
-    FreeCAD.Gui.ActiveDocument.var_4.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_4.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_4.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_5")
-    qwm_doc.var_5.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, -2.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
-    qwm_doc.var_5.Orientation = "Y"
-    qwm_doc.var_5.Position = -2.5
-    qwm_doc.var_5.Length = 48.43812
-    qwm_doc.var_5.Width = 55.060959999999994
-    FreeCAD.Gui.ActiveDocument.var_5.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_5.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_5.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_6")
-    qwm_doc.var_6.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, -1.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
-    qwm_doc.var_6.Orientation = "Y"
-    qwm_doc.var_6.Position = -1.5
-    qwm_doc.var_6.Length = 48.43812
-    qwm_doc.var_6.Width = 55.060959999999994
-    FreeCAD.Gui.ActiveDocument.var_6.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_6.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_6.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_7")
-    qwm_doc.var_7.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 1.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
-    qwm_doc.var_7.Orientation = "Y"
-    qwm_doc.var_7.Position = 1.5
-    qwm_doc.var_7.Length = 48.43812
-    qwm_doc.var_7.Width = 55.060959999999994
-    FreeCAD.Gui.ActiveDocument.var_7.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_7.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_7.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_8")
-    qwm_doc.var_8.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 2.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
-    qwm_doc.var_8.Orientation = "Y"
-    qwm_doc.var_8.Position = 2.5
-    qwm_doc.var_8.Length = 48.43812
-    qwm_doc.var_8.Width = 55.060959999999994
-    FreeCAD.Gui.ActiveDocument.var_8.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_8.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_8.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_9")
-    qwm_doc.var_9.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 4.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
-    qwm_doc.var_9.Orientation = "Y"
-    qwm_doc.var_9.Position = 4.5
-    qwm_doc.var_9.Length = 48.43812
-    qwm_doc.var_9.Width = 55.060959999999994
-    FreeCAD.Gui.ActiveDocument.var_9.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_9.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_9.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_10")
-    qwm_doc.var_10.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, -7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.var_10.Orientation = "Z"
-    qwm_doc.var_10.Position = -7.0
-    qwm_doc.var_10.Length = 55.060959999999994
-    qwm_doc.var_10.Width = 48.43812
-    FreeCAD.Gui.ActiveDocument.var_10.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_10.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_10.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_11")
-    qwm_doc.var_11.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, -5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.var_11.Orientation = "Z"
-    qwm_doc.var_11.Position = -5.0
-    qwm_doc.var_11.Length = 55.060959999999994
-    qwm_doc.var_11.Width = 48.43812
-    FreeCAD.Gui.ActiveDocument.var_11.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_11.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_11.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_12")
-    qwm_doc.var_12.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, -0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.var_12.Orientation = "Z"
-    qwm_doc.var_12.Position = -0.5
-    qwm_doc.var_12.Length = 55.060959999999994
-    qwm_doc.var_12.Width = 48.43812
-    FreeCAD.Gui.ActiveDocument.var_12.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_12.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_12.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_13")
-    qwm_doc.var_13.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, 0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.var_13.Orientation = "Z"
-    qwm_doc.var_13.Position = 0.5
-    qwm_doc.var_13.Length = 55.060959999999994
-    qwm_doc.var_13.Width = 48.43812
-    FreeCAD.Gui.ActiveDocument.var_13.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_13.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_13.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_14")
-    qwm_doc.var_14.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, 5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.var_14.Orientation = "Z"
-    qwm_doc.var_14.Position = 5.0
-    qwm_doc.var_14.Length = 55.060959999999994
-    qwm_doc.var_14.Width = 48.43812
-    FreeCAD.Gui.ActiveDocument.var_14.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_14.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_14.TextPlace = 3
-    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_15")
-    qwm_doc.var_15.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, 7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.var_15.Orientation = "Z"
-    qwm_doc.var_15.Position = 7.0
-    qwm_doc.var_15.Length = 55.060959999999994
-    qwm_doc.var_15.Width = 48.43812
-    FreeCAD.Gui.ActiveDocument.var_15.ShowText = False
-    FreeCAD.Gui.ActiveDocument.var_15.TextSize = 14
-    FreeCAD.Gui.ActiveDocument.var_15.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_106")
+    qwm_doc.var_106.Placement = FreeCAD.Placement(FreeCAD.Vector(-25.0, 0.0, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, 0.5))
+    qwm_doc.var_106.Orientation = "X"
+    qwm_doc.var_106.Position = -25.0
+    qwm_doc.var_106.Length = 48.43812
+    qwm_doc.var_106.Width = 48.43812
+    FreeCAD.Gui.ActiveDocument.var_106.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_106.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_106.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_107")
+    qwm_doc.var_107.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0, 0.0, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, 0.5))
+    qwm_doc.var_107.Orientation = "X"
+    qwm_doc.var_107.Position = 0.0
+    qwm_doc.var_107.Length = 48.43812
+    qwm_doc.var_107.Width = 48.43812
+    FreeCAD.Gui.ActiveDocument.var_107.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_107.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_107.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_108")
+    qwm_doc.var_108.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, -4.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
+    qwm_doc.var_108.Orientation = "Y"
+    qwm_doc.var_108.Position = -4.5
+    qwm_doc.var_108.Length = 48.43812
+    qwm_doc.var_108.Width = 55.060959999999994
+    FreeCAD.Gui.ActiveDocument.var_108.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_108.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_108.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_109")
+    qwm_doc.var_109.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, -2.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
+    qwm_doc.var_109.Orientation = "Y"
+    qwm_doc.var_109.Position = -2.5
+    qwm_doc.var_109.Length = 48.43812
+    qwm_doc.var_109.Width = 55.060959999999994
+    FreeCAD.Gui.ActiveDocument.var_109.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_109.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_109.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_110")
+    qwm_doc.var_110.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, -1.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
+    qwm_doc.var_110.Orientation = "Y"
+    qwm_doc.var_110.Position = -1.5
+    qwm_doc.var_110.Length = 48.43812
+    qwm_doc.var_110.Width = 55.060959999999994
+    FreeCAD.Gui.ActiveDocument.var_110.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_110.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_110.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_111")
+    qwm_doc.var_111.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 1.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
+    qwm_doc.var_111.Orientation = "Y"
+    qwm_doc.var_111.Position = 1.5
+    qwm_doc.var_111.Length = 48.43812
+    qwm_doc.var_111.Width = 55.060959999999994
+    FreeCAD.Gui.ActiveDocument.var_111.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_111.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_111.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_112")
+    qwm_doc.var_112.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 2.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
+    qwm_doc.var_112.Orientation = "Y"
+    qwm_doc.var_112.Position = 2.5
+    qwm_doc.var_112.Length = 48.43812
+    qwm_doc.var_112.Width = 55.060959999999994
+    FreeCAD.Gui.ActiveDocument.var_112.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_112.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_112.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_113")
+    qwm_doc.var_113.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 4.5, 0.0),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
+    qwm_doc.var_113.Orientation = "Y"
+    qwm_doc.var_113.Position = 4.5
+    qwm_doc.var_113.Length = 48.43812
+    qwm_doc.var_113.Width = 55.060959999999994
+    FreeCAD.Gui.ActiveDocument.var_113.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_113.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_113.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_114")
+    qwm_doc.var_114.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, -7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.var_114.Orientation = "Z"
+    qwm_doc.var_114.Position = -7.0
+    qwm_doc.var_114.Length = 55.060959999999994
+    qwm_doc.var_114.Width = 48.43812
+    FreeCAD.Gui.ActiveDocument.var_114.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_114.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_114.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_115")
+    qwm_doc.var_115.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, -5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.var_115.Orientation = "Z"
+    qwm_doc.var_115.Position = -5.0
+    qwm_doc.var_115.Length = 55.060959999999994
+    qwm_doc.var_115.Width = 48.43812
+    FreeCAD.Gui.ActiveDocument.var_115.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_115.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_115.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_116")
+    qwm_doc.var_116.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, -0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.var_116.Orientation = "Z"
+    qwm_doc.var_116.Position = -0.5
+    qwm_doc.var_116.Length = 55.060959999999994
+    qwm_doc.var_116.Width = 48.43812
+    FreeCAD.Gui.ActiveDocument.var_116.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_116.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_116.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_117")
+    qwm_doc.var_117.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, 0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.var_117.Orientation = "Z"
+    qwm_doc.var_117.Position = 0.5
+    qwm_doc.var_117.Length = 55.060959999999994
+    qwm_doc.var_117.Width = 48.43812
+    FreeCAD.Gui.ActiveDocument.var_117.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_117.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_117.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_118")
+    qwm_doc.var_118.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, 5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.var_118.Orientation = "Z"
+    qwm_doc.var_118.Position = 5.0
+    qwm_doc.var_118.Length = 55.060959999999994
+    qwm_doc.var_118.Width = 48.43812
+    FreeCAD.Gui.ActiveDocument.var_118.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_118.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_118.TextPlace = 3
+    QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","var_119")
+    qwm_doc.var_119.Placement = FreeCAD.Placement(FreeCAD.Vector(-9.0, 0.0, 7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.var_119.Orientation = "Z"
+    qwm_doc.var_119.Position = 7.0
+    qwm_doc.var_119.Length = 55.060959999999994
+    qwm_doc.var_119.Width = 48.43812
+    FreeCAD.Gui.ActiveDocument.var_119.ShowText = False
+    FreeCAD.Gui.ActiveDocument.var_119.TextSize = 14
+    FreeCAD.Gui.ActiveDocument.var_119.TextPlace = 3
     QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","specX_E_2")
     qwm_doc.specX_E_2.Placement = FreeCAD.Placement(FreeCAD.Vector(-35.56961, -23.71906, -23.71906),FreeCAD.Rotation(0.5, 0.5, 0.5, 0.5))
     qwm_doc.specX_E_2.Orientation = "X"

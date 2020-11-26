@@ -100,7 +100,7 @@ def set_Excitation(qwm_doc):
     qwm_doc.ntfbox.Length = 50.0
     qwm_doc.ntfbox.Width = 100.0
     qwm_doc.ntfbox.Height = 13.1496
-    qwm_doc.ntfbox.Placement = FreeCAD.Placement(FreeCAD.Vector(20.0, 45.0, -6.5748),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.ntfbox.Placement = FreeCAD.Placement(FreeCAD.Vector(20.0, 45.0, 0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     FreeCAD.Gui.ActiveDocument.ntfbox.ShowText = True
     FreeCAD.Gui.ActiveDocument.ntfbox.TextSize = 14
     QW_Modeller.addQWObject("QW_Modeller::SnappingPlane","spxl1")

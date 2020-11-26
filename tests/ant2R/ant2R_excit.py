@@ -73,9 +73,9 @@ def set_Excitation(qwm_doc):
     qwm_doc.abs_up.Type = "MUR"
     qwm_doc.abs_up.EffectivePermittivity = 1
     QW_Modeller.addQWObject("QW_Modeller::NTFBox","ntfbox")
-    qwm_doc.ntfbox.Length = 0.5
-    qwm_doc.ntfbox.Width = 512.0
+    qwm_doc.ntfbox.Length = 512.0
+    qwm_doc.ntfbox.Width = 617.8187226079011
     qwm_doc.ntfbox.Height = 0.5
-    qwm_doc.ntfbox.Placement = FreeCAD.Placement(FreeCAD.Vector(236.0, 308.90936130395056, 0.5),FreeCAD.Rotation(0.5, 0.5, 0.5, -0.5))
+    qwm_doc.ntfbox.Placement = FreeCAD.Placement(FreeCAD.Vector(236.0, 308.90936130395056, 0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     FreeCAD.Gui.ActiveDocument.ntfbox.ShowText = True
     FreeCAD.Gui.ActiveDocument.ntfbox.TextSize = 14

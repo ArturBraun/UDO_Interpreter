@@ -89,18 +89,18 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_25U.Solid = True
     qwm_doc.lens_section_25U.ViewObject.Transparency = 60
     qwm_doc.lens_section_25U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_25')
-    qwm_doc.sketch_lens_section_25.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-12.26138),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_25.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-3.30933,0), FreeCAD.Vector(0.58357,-1.12869,0)))
-    qwm_doc.sketch_lens_section_25.addGeometry(Part.LineSegment(FreeCAD.Vector(0.58357,-1.12869,0), FreeCAD.Vector(0.58357,1.12869,0)))
-    qwm_doc.sketch_lens_section_25.addGeometry(Part.LineSegment(FreeCAD.Vector(0.58357,1.12869,0), FreeCAD.Vector(0.0,3.30933,0)))
-    qwm_doc.sketch_lens_section_25.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,3.30933,0), FreeCAD.Vector(0.0,-3.30933,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_25D")
-    qwm_doc.lens_section_25D.Base = qwm_doc.sketch_lens_section_25
-    qwm_doc.lens_section_25D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_25D.Solid = True
-    qwm_doc.lens_section_25D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_25D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_252')
+    qwm_doc.sketch_lens_section_252.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-12.26138),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_252.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-3.30933,0), FreeCAD.Vector(0.58357,-1.12869,0)))
+    qwm_doc.sketch_lens_section_252.addGeometry(Part.LineSegment(FreeCAD.Vector(0.58357,-1.12869,0), FreeCAD.Vector(0.58357,1.12869,0)))
+    qwm_doc.sketch_lens_section_252.addGeometry(Part.LineSegment(FreeCAD.Vector(0.58357,1.12869,0), FreeCAD.Vector(0.0,3.30933,0)))
+    qwm_doc.sketch_lens_section_252.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,3.30933,0), FreeCAD.Vector(0.0,-3.30933,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_252D")
+    qwm_doc.lens_section_252D.Base = qwm_doc.sketch_lens_section_252
+    qwm_doc.lens_section_252D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_252D.Solid = True
+    qwm_doc.lens_section_252D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_252D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_26')
     qwm_doc.sketch_lens_section_26.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_26.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-4.67731,0), FreeCAD.Vector(0.94464,-2.42294,0)))
@@ -114,19 +114,19 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_26U.Solid = True
     qwm_doc.lens_section_26U.ViewObject.Transparency = 60
     qwm_doc.lens_section_26U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_26')
-    qwm_doc.sketch_lens_section_26.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_26.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-4.73718,0), FreeCAD.Vector(0.96715,-2.45581,0)))
-    qwm_doc.sketch_lens_section_26.addGeometry(Part.LineSegment(FreeCAD.Vector(0.96715,-2.45581,0), FreeCAD.Vector(1.29736,0.0,0)))
-    qwm_doc.sketch_lens_section_26.addGeometry(Part.LineSegment(FreeCAD.Vector(1.29736,0.0,0), FreeCAD.Vector(0.96715,2.45581,0)))
-    qwm_doc.sketch_lens_section_26.addGeometry(Part.LineSegment(FreeCAD.Vector(0.96715,2.45581,0), FreeCAD.Vector(0.0,4.73718,0)))
-    qwm_doc.sketch_lens_section_26.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.73718,0), FreeCAD.Vector(0.0,-4.73718,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_26D")
-    qwm_doc.lens_section_26D.Base = qwm_doc.sketch_lens_section_26
-    qwm_doc.lens_section_26D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_26D.Solid = True
-    qwm_doc.lens_section_26D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_26D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_263')
+    qwm_doc.sketch_lens_section_263.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_263.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-4.73718,0), FreeCAD.Vector(0.96715,-2.45581,0)))
+    qwm_doc.sketch_lens_section_263.addGeometry(Part.LineSegment(FreeCAD.Vector(0.96715,-2.45581,0), FreeCAD.Vector(1.29736,0.0,0)))
+    qwm_doc.sketch_lens_section_263.addGeometry(Part.LineSegment(FreeCAD.Vector(1.29736,0.0,0), FreeCAD.Vector(0.96715,2.45581,0)))
+    qwm_doc.sketch_lens_section_263.addGeometry(Part.LineSegment(FreeCAD.Vector(0.96715,2.45581,0), FreeCAD.Vector(0.0,4.73718,0)))
+    qwm_doc.sketch_lens_section_263.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.73718,0), FreeCAD.Vector(0.0,-4.73718,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_263D")
+    qwm_doc.lens_section_263D.Base = qwm_doc.sketch_lens_section_263
+    qwm_doc.lens_section_263D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_263D.Solid = True
+    qwm_doc.lens_section_263D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_263D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_27')
     qwm_doc.sketch_lens_section_27.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-5.73862,0), FreeCAD.Vector(1.16713,-3.59104,0)))
@@ -141,20 +141,20 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_27U.Solid = True
     qwm_doc.lens_section_27U.ViewObject.Transparency = 60
     qwm_doc.lens_section_27U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_27')
-    qwm_doc.sketch_lens_section_27.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-5.78554,0), FreeCAD.Vector(1.18429,-3.62233,0)))
-    qwm_doc.sketch_lens_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(1.18429,-3.62233,0), FreeCAD.Vector(1.79551,-1.23309,0)))
-    qwm_doc.sketch_lens_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(1.79551,-1.23309,0), FreeCAD.Vector(1.79551,1.23309,0)))
-    qwm_doc.sketch_lens_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(1.79551,1.23309,0), FreeCAD.Vector(1.18429,3.62233,0)))
-    qwm_doc.sketch_lens_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(1.18429,3.62233,0), FreeCAD.Vector(0.0,5.78554,0)))
-    qwm_doc.sketch_lens_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,5.78554,0), FreeCAD.Vector(0.0,-5.78554,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_27D")
-    qwm_doc.lens_section_27D.Base = qwm_doc.sketch_lens_section_27
-    qwm_doc.lens_section_27D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_27D.Solid = True
-    qwm_doc.lens_section_27D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_27D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_274')
+    qwm_doc.sketch_lens_section_274.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_274.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-5.78554,0), FreeCAD.Vector(1.18429,-3.62233,0)))
+    qwm_doc.sketch_lens_section_274.addGeometry(Part.LineSegment(FreeCAD.Vector(1.18429,-3.62233,0), FreeCAD.Vector(1.79551,-1.23309,0)))
+    qwm_doc.sketch_lens_section_274.addGeometry(Part.LineSegment(FreeCAD.Vector(1.79551,-1.23309,0), FreeCAD.Vector(1.79551,1.23309,0)))
+    qwm_doc.sketch_lens_section_274.addGeometry(Part.LineSegment(FreeCAD.Vector(1.79551,1.23309,0), FreeCAD.Vector(1.18429,3.62233,0)))
+    qwm_doc.sketch_lens_section_274.addGeometry(Part.LineSegment(FreeCAD.Vector(1.18429,3.62233,0), FreeCAD.Vector(0.0,5.78554,0)))
+    qwm_doc.sketch_lens_section_274.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,5.78554,0), FreeCAD.Vector(0.0,-5.78554,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_274D")
+    qwm_doc.lens_section_274D.Base = qwm_doc.sketch_lens_section_274
+    qwm_doc.lens_section_274D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_274D.Solid = True
+    qwm_doc.lens_section_274D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_274D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_28')
     qwm_doc.sketch_lens_section_28.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-6.59763,0), FreeCAD.Vector(1.29287,-4.60124,0)))
@@ -170,21 +170,21 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_28U.Solid = True
     qwm_doc.lens_section_28U.ViewObject.Transparency = 60
     qwm_doc.lens_section_28U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_28')
-    qwm_doc.sketch_lens_section_28.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-6.63676,0), FreeCAD.Vector(1.30627,-4.63033,0)))
-    qwm_doc.sketch_lens_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(1.30627,-4.63033,0), FreeCAD.Vector(2.11882,-2.37825,0)))
-    qwm_doc.sketch_lens_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(2.11882,-2.37825,0), FreeCAD.Vector(2.39455,0.0,0)))
-    qwm_doc.sketch_lens_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(2.39455,0.0,0), FreeCAD.Vector(2.11882,2.37825,0)))
-    qwm_doc.sketch_lens_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(2.11882,2.37825,0), FreeCAD.Vector(1.30627,4.63033,0)))
-    qwm_doc.sketch_lens_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(1.30627,4.63033,0), FreeCAD.Vector(0.0,6.63676,0)))
-    qwm_doc.sketch_lens_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,6.63676,0), FreeCAD.Vector(0.0,-6.63676,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_28D")
-    qwm_doc.lens_section_28D.Base = qwm_doc.sketch_lens_section_28
-    qwm_doc.lens_section_28D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_28D.Solid = True
-    qwm_doc.lens_section_28D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_28D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_285')
+    qwm_doc.sketch_lens_section_285.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_285.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-6.63676,0), FreeCAD.Vector(1.30627,-4.63033,0)))
+    qwm_doc.sketch_lens_section_285.addGeometry(Part.LineSegment(FreeCAD.Vector(1.30627,-4.63033,0), FreeCAD.Vector(2.11882,-2.37825,0)))
+    qwm_doc.sketch_lens_section_285.addGeometry(Part.LineSegment(FreeCAD.Vector(2.11882,-2.37825,0), FreeCAD.Vector(2.39455,0.0,0)))
+    qwm_doc.sketch_lens_section_285.addGeometry(Part.LineSegment(FreeCAD.Vector(2.39455,0.0,0), FreeCAD.Vector(2.11882,2.37825,0)))
+    qwm_doc.sketch_lens_section_285.addGeometry(Part.LineSegment(FreeCAD.Vector(2.11882,2.37825,0), FreeCAD.Vector(1.30627,4.63033,0)))
+    qwm_doc.sketch_lens_section_285.addGeometry(Part.LineSegment(FreeCAD.Vector(1.30627,4.63033,0), FreeCAD.Vector(0.0,6.63676,0)))
+    qwm_doc.sketch_lens_section_285.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,6.63676,0), FreeCAD.Vector(0.0,-6.63676,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_285D")
+    qwm_doc.lens_section_285D.Base = qwm_doc.sketch_lens_section_285
+    qwm_doc.lens_section_285D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_285D.Solid = True
+    qwm_doc.lens_section_285D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_285D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_29')
     qwm_doc.sketch_lens_section_29.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.32586,0), FreeCAD.Vector(1.5491,-5.14615,0)))
@@ -200,21 +200,21 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_29U.Solid = True
     qwm_doc.lens_section_29U.ViewObject.Transparency = 60
     qwm_doc.lens_section_29U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_29')
-    qwm_doc.sketch_lens_section_29.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.35956,0), FreeCAD.Vector(1.56129,-5.17154,0)))
-    qwm_doc.sketch_lens_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(1.56129,-5.17154,0), FreeCAD.Vector(2.53796,-2.66732,0)))
-    qwm_doc.sketch_lens_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(2.53796,-2.66732,0), FreeCAD.Vector(2.87029,0.0,0)))
-    qwm_doc.sketch_lens_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(2.87029,0.0,0), FreeCAD.Vector(2.53796,2.66732,0)))
-    qwm_doc.sketch_lens_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(2.53796,2.66732,0), FreeCAD.Vector(1.56129,5.17154,0)))
-    qwm_doc.sketch_lens_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(1.56129,5.17154,0), FreeCAD.Vector(0.0,7.35956,0)))
-    qwm_doc.sketch_lens_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.35956,0), FreeCAD.Vector(0.0,-7.35956,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_29D")
-    qwm_doc.lens_section_29D.Base = qwm_doc.sketch_lens_section_29
-    qwm_doc.lens_section_29D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_29D.Solid = True
-    qwm_doc.lens_section_29D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_29D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_296')
+    qwm_doc.sketch_lens_section_296.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_296.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.35956,0), FreeCAD.Vector(1.56129,-5.17154,0)))
+    qwm_doc.sketch_lens_section_296.addGeometry(Part.LineSegment(FreeCAD.Vector(1.56129,-5.17154,0), FreeCAD.Vector(2.53796,-2.66732,0)))
+    qwm_doc.sketch_lens_section_296.addGeometry(Part.LineSegment(FreeCAD.Vector(2.53796,-2.66732,0), FreeCAD.Vector(2.87029,0.0,0)))
+    qwm_doc.sketch_lens_section_296.addGeometry(Part.LineSegment(FreeCAD.Vector(2.87029,0.0,0), FreeCAD.Vector(2.53796,2.66732,0)))
+    qwm_doc.sketch_lens_section_296.addGeometry(Part.LineSegment(FreeCAD.Vector(2.53796,2.66732,0), FreeCAD.Vector(1.56129,5.17154,0)))
+    qwm_doc.sketch_lens_section_296.addGeometry(Part.LineSegment(FreeCAD.Vector(1.56129,5.17154,0), FreeCAD.Vector(0.0,7.35956,0)))
+    qwm_doc.sketch_lens_section_296.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.35956,0), FreeCAD.Vector(0.0,-7.35956,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_296D")
+    qwm_doc.lens_section_296D.Base = qwm_doc.sketch_lens_section_296
+    qwm_doc.lens_section_296D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_296D.Solid = True
+    qwm_doc.lens_section_296D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_296D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_30')
     qwm_doc.sketch_lens_section_30.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.95927,0), FreeCAD.Vector(1.56617,-5.98653,0)))
@@ -231,22 +231,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_30U.Solid = True
     qwm_doc.lens_section_30U.ViewObject.Transparency = 60
     qwm_doc.lens_section_30U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_30')
-    qwm_doc.sketch_lens_section_30.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.98887,0), FreeCAD.Vector(1.57592,-6.01031,0)))
-    qwm_doc.sketch_lens_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(1.57592,-6.01031,0), FreeCAD.Vector(2.67251,-3.7309,0)))
-    qwm_doc.sketch_lens_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(2.67251,-3.7309,0), FreeCAD.Vector(3.23488,-1.26474,0)))
-    qwm_doc.sketch_lens_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(3.23488,-1.26474,0), FreeCAD.Vector(3.23488,1.26474,0)))
-    qwm_doc.sketch_lens_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(3.23488,1.26474,0), FreeCAD.Vector(2.67251,3.7309,0)))
-    qwm_doc.sketch_lens_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(2.67251,3.7309,0), FreeCAD.Vector(1.57592,6.01031,0)))
-    qwm_doc.sketch_lens_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(1.57592,6.01031,0), FreeCAD.Vector(0.0,7.98887,0)))
-    qwm_doc.sketch_lens_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.98887,0), FreeCAD.Vector(0.0,-7.98887,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_30D")
-    qwm_doc.lens_section_30D.Base = qwm_doc.sketch_lens_section_30
-    qwm_doc.lens_section_30D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_30D.Solid = True
-    qwm_doc.lens_section_30D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_30D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_307')
+    qwm_doc.sketch_lens_section_307.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_307.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.98887,0), FreeCAD.Vector(1.57592,-6.01031,0)))
+    qwm_doc.sketch_lens_section_307.addGeometry(Part.LineSegment(FreeCAD.Vector(1.57592,-6.01031,0), FreeCAD.Vector(2.67251,-3.7309,0)))
+    qwm_doc.sketch_lens_section_307.addGeometry(Part.LineSegment(FreeCAD.Vector(2.67251,-3.7309,0), FreeCAD.Vector(3.23488,-1.26474,0)))
+    qwm_doc.sketch_lens_section_307.addGeometry(Part.LineSegment(FreeCAD.Vector(3.23488,-1.26474,0), FreeCAD.Vector(3.23488,1.26474,0)))
+    qwm_doc.sketch_lens_section_307.addGeometry(Part.LineSegment(FreeCAD.Vector(3.23488,1.26474,0), FreeCAD.Vector(2.67251,3.7309,0)))
+    qwm_doc.sketch_lens_section_307.addGeometry(Part.LineSegment(FreeCAD.Vector(2.67251,3.7309,0), FreeCAD.Vector(1.57592,6.01031,0)))
+    qwm_doc.sketch_lens_section_307.addGeometry(Part.LineSegment(FreeCAD.Vector(1.57592,6.01031,0), FreeCAD.Vector(0.0,7.98887,0)))
+    qwm_doc.sketch_lens_section_307.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.98887,0), FreeCAD.Vector(0.0,-7.98887,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_307D")
+    qwm_doc.lens_section_307D.Base = qwm_doc.sketch_lens_section_307
+    qwm_doc.lens_section_307D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_307D.Solid = True
+    qwm_doc.lens_section_307D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_307D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_31')
     qwm_doc.sketch_lens_section_31.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-8.51906,0), FreeCAD.Vector(1.75326,-6.43803,0)))
@@ -263,22 +263,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_31U.Solid = True
     qwm_doc.lens_section_31U.ViewObject.Transparency = 60
     qwm_doc.lens_section_31U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_31')
-    qwm_doc.sketch_lens_section_31.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-8.54538,0), FreeCAD.Vector(1.76219,-6.45934,0)))
-    qwm_doc.sketch_lens_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(1.76219,-6.45934,0), FreeCAD.Vector(2.99312,-4.02179,0)))
-    qwm_doc.sketch_lens_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(2.99312,-4.02179,0), FreeCAD.Vector(3.6258,-1.36536,0)))
-    qwm_doc.sketch_lens_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(3.6258,-1.36536,0), FreeCAD.Vector(3.6258,1.36536,0)))
-    qwm_doc.sketch_lens_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(3.6258,1.36536,0), FreeCAD.Vector(2.99312,4.02179,0)))
-    qwm_doc.sketch_lens_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(2.99312,4.02179,0), FreeCAD.Vector(1.76219,6.45934,0)))
-    qwm_doc.sketch_lens_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(1.76219,6.45934,0), FreeCAD.Vector(0.0,8.54538,0)))
-    qwm_doc.sketch_lens_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,8.54538,0), FreeCAD.Vector(0.0,-8.54538,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_31D")
-    qwm_doc.lens_section_31D.Base = qwm_doc.sketch_lens_section_31
-    qwm_doc.lens_section_31D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_31D.Solid = True
-    qwm_doc.lens_section_31D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_31D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_318')
+    qwm_doc.sketch_lens_section_318.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_318.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-8.54538,0), FreeCAD.Vector(1.76219,-6.45934,0)))
+    qwm_doc.sketch_lens_section_318.addGeometry(Part.LineSegment(FreeCAD.Vector(1.76219,-6.45934,0), FreeCAD.Vector(2.99312,-4.02179,0)))
+    qwm_doc.sketch_lens_section_318.addGeometry(Part.LineSegment(FreeCAD.Vector(2.99312,-4.02179,0), FreeCAD.Vector(3.6258,-1.36536,0)))
+    qwm_doc.sketch_lens_section_318.addGeometry(Part.LineSegment(FreeCAD.Vector(3.6258,-1.36536,0), FreeCAD.Vector(3.6258,1.36536,0)))
+    qwm_doc.sketch_lens_section_318.addGeometry(Part.LineSegment(FreeCAD.Vector(3.6258,1.36536,0), FreeCAD.Vector(2.99312,4.02179,0)))
+    qwm_doc.sketch_lens_section_318.addGeometry(Part.LineSegment(FreeCAD.Vector(2.99312,4.02179,0), FreeCAD.Vector(1.76219,6.45934,0)))
+    qwm_doc.sketch_lens_section_318.addGeometry(Part.LineSegment(FreeCAD.Vector(1.76219,6.45934,0), FreeCAD.Vector(0.0,8.54538,0)))
+    qwm_doc.sketch_lens_section_318.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,8.54538,0), FreeCAD.Vector(0.0,-8.54538,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_318D")
+    qwm_doc.lens_section_318D.Base = qwm_doc.sketch_lens_section_318
+    qwm_doc.lens_section_318D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_318D.Solid = True
+    qwm_doc.lens_section_318D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_318D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_32')
     qwm_doc.sketch_lens_section_32.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.01893,0), FreeCAD.Vector(1.9247,-6.84408,0)))
@@ -295,22 +295,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_32U.Solid = True
     qwm_doc.lens_section_32U.ViewObject.Transparency = 60
     qwm_doc.lens_section_32U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_32')
-    qwm_doc.sketch_lens_section_32.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.04253,0), FreeCAD.Vector(1.93289,-6.86331,0)))
-    qwm_doc.sketch_lens_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(1.93289,-6.86331,0), FreeCAD.Vector(3.28759,-4.28459,0)))
-    qwm_doc.sketch_lens_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(3.28759,-4.28459,0), FreeCAD.Vector(3.98525,-1.45646,0)))
-    qwm_doc.sketch_lens_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(3.98525,-1.45646,0), FreeCAD.Vector(3.98525,1.45646,0)))
-    qwm_doc.sketch_lens_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(3.98525,1.45646,0), FreeCAD.Vector(3.28759,4.28459,0)))
-    qwm_doc.sketch_lens_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(3.28759,4.28459,0), FreeCAD.Vector(1.93289,6.86331,0)))
-    qwm_doc.sketch_lens_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(1.93289,6.86331,0), FreeCAD.Vector(0.0,9.04253,0)))
-    qwm_doc.sketch_lens_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.04253,0), FreeCAD.Vector(0.0,-9.04253,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_32D")
-    qwm_doc.lens_section_32D.Base = qwm_doc.sketch_lens_section_32
-    qwm_doc.lens_section_32D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_32D.Solid = True
-    qwm_doc.lens_section_32D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_32D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_329')
+    qwm_doc.sketch_lens_section_329.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_329.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.04253,0), FreeCAD.Vector(1.93289,-6.86331,0)))
+    qwm_doc.sketch_lens_section_329.addGeometry(Part.LineSegment(FreeCAD.Vector(1.93289,-6.86331,0), FreeCAD.Vector(3.28759,-4.28459,0)))
+    qwm_doc.sketch_lens_section_329.addGeometry(Part.LineSegment(FreeCAD.Vector(3.28759,-4.28459,0), FreeCAD.Vector(3.98525,-1.45646,0)))
+    qwm_doc.sketch_lens_section_329.addGeometry(Part.LineSegment(FreeCAD.Vector(3.98525,-1.45646,0), FreeCAD.Vector(3.98525,1.45646,0)))
+    qwm_doc.sketch_lens_section_329.addGeometry(Part.LineSegment(FreeCAD.Vector(3.98525,1.45646,0), FreeCAD.Vector(3.28759,4.28459,0)))
+    qwm_doc.sketch_lens_section_329.addGeometry(Part.LineSegment(FreeCAD.Vector(3.28759,4.28459,0), FreeCAD.Vector(1.93289,6.86331,0)))
+    qwm_doc.sketch_lens_section_329.addGeometry(Part.LineSegment(FreeCAD.Vector(1.93289,6.86331,0), FreeCAD.Vector(0.0,9.04253,0)))
+    qwm_doc.sketch_lens_section_329.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.04253,0), FreeCAD.Vector(0.0,-9.04253,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_329D")
+    qwm_doc.lens_section_329D.Base = qwm_doc.sketch_lens_section_329
+    qwm_doc.lens_section_329D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_329D.Solid = True
+    qwm_doc.lens_section_329D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_329D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_33')
     qwm_doc.sketch_lens_section_33.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.46838,0), FreeCAD.Vector(1.8533,-7.52081,0)))
@@ -328,23 +328,23 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_33U.Solid = True
     qwm_doc.lens_section_33U.ViewObject.Transparency = 60
     qwm_doc.lens_section_33U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_33')
-    qwm_doc.sketch_lens_section_33.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.48966,0), FreeCAD.Vector(1.85998,-7.53887,0)))
-    qwm_doc.sketch_lens_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(1.85998,-7.53887,0), FreeCAD.Vector(3.25496,-5.23254,0)))
-    qwm_doc.sketch_lens_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(3.25496,-5.23254,0), FreeCAD.Vector(4.11917,-2.67945,0)))
-    qwm_doc.sketch_lens_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(4.11917,-2.67945,0), FreeCAD.Vector(4.41184,0.0,0)))
-    qwm_doc.sketch_lens_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(4.41184,0.0,0), FreeCAD.Vector(4.11917,2.67945,0)))
-    qwm_doc.sketch_lens_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(4.11917,2.67945,0), FreeCAD.Vector(3.25496,5.23254,0)))
-    qwm_doc.sketch_lens_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(3.25496,5.23254,0), FreeCAD.Vector(1.85998,7.53887,0)))
-    qwm_doc.sketch_lens_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(1.85998,7.53887,0), FreeCAD.Vector(0.0,9.48966,0)))
-    qwm_doc.sketch_lens_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.48966,0), FreeCAD.Vector(0.0,-9.48966,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_33D")
-    qwm_doc.lens_section_33D.Base = qwm_doc.sketch_lens_section_33
-    qwm_doc.lens_section_33D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_33D.Solid = True
-    qwm_doc.lens_section_33D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_33D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_3310')
+    qwm_doc.sketch_lens_section_3310.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_3310.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.48966,0), FreeCAD.Vector(1.85998,-7.53887,0)))
+    qwm_doc.sketch_lens_section_3310.addGeometry(Part.LineSegment(FreeCAD.Vector(1.85998,-7.53887,0), FreeCAD.Vector(3.25496,-5.23254,0)))
+    qwm_doc.sketch_lens_section_3310.addGeometry(Part.LineSegment(FreeCAD.Vector(3.25496,-5.23254,0), FreeCAD.Vector(4.11917,-2.67945,0)))
+    qwm_doc.sketch_lens_section_3310.addGeometry(Part.LineSegment(FreeCAD.Vector(4.11917,-2.67945,0), FreeCAD.Vector(4.41184,0.0,0)))
+    qwm_doc.sketch_lens_section_3310.addGeometry(Part.LineSegment(FreeCAD.Vector(4.41184,0.0,0), FreeCAD.Vector(4.11917,2.67945,0)))
+    qwm_doc.sketch_lens_section_3310.addGeometry(Part.LineSegment(FreeCAD.Vector(4.11917,2.67945,0), FreeCAD.Vector(3.25496,5.23254,0)))
+    qwm_doc.sketch_lens_section_3310.addGeometry(Part.LineSegment(FreeCAD.Vector(3.25496,5.23254,0), FreeCAD.Vector(1.85998,7.53887,0)))
+    qwm_doc.sketch_lens_section_3310.addGeometry(Part.LineSegment(FreeCAD.Vector(1.85998,7.53887,0), FreeCAD.Vector(0.0,9.48966,0)))
+    qwm_doc.sketch_lens_section_3310.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.48966,0), FreeCAD.Vector(0.0,-9.48966,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_3310D")
+    qwm_doc.lens_section_3310D.Base = qwm_doc.sketch_lens_section_3310
+    qwm_doc.lens_section_3310D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_3310D.Solid = True
+    qwm_doc.lens_section_3310D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_3310D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_34')
     qwm_doc.sketch_lens_section_34.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.8743,0), FreeCAD.Vector(1.9815,-7.86585,0)))
@@ -362,23 +362,23 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_34U.Solid = True
     qwm_doc.lens_section_34U.ViewObject.Transparency = 60
     qwm_doc.lens_section_34U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_34')
-    qwm_doc.sketch_lens_section_34.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.89355,0), FreeCAD.Vector(1.98762,-7.88225,0)))
-    qwm_doc.sketch_lens_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(1.98762,-7.88225,0), FreeCAD.Vector(3.48192,-5.48161,0)))
-    qwm_doc.sketch_lens_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(3.48192,-5.48161,0), FreeCAD.Vector(4.40908,-2.81021,0)))
-    qwm_doc.sketch_lens_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(4.40908,-2.81021,0), FreeCAD.Vector(4.7233,0.0,0)))
-    qwm_doc.sketch_lens_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(4.7233,0.0,0), FreeCAD.Vector(4.40908,2.81021,0)))
-    qwm_doc.sketch_lens_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(4.40908,2.81021,0), FreeCAD.Vector(3.48192,5.48161,0)))
-    qwm_doc.sketch_lens_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(3.48192,5.48161,0), FreeCAD.Vector(1.98762,7.88225,0)))
-    qwm_doc.sketch_lens_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(1.98762,7.88225,0), FreeCAD.Vector(0.0,9.89355,0)))
-    qwm_doc.sketch_lens_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.89355,0), FreeCAD.Vector(0.0,-9.89355,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_34D")
-    qwm_doc.lens_section_34D.Base = qwm_doc.sketch_lens_section_34
-    qwm_doc.lens_section_34D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_34D.Solid = True
-    qwm_doc.lens_section_34D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_34D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_3411')
+    qwm_doc.sketch_lens_section_3411.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_3411.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.89355,0), FreeCAD.Vector(1.98762,-7.88225,0)))
+    qwm_doc.sketch_lens_section_3411.addGeometry(Part.LineSegment(FreeCAD.Vector(1.98762,-7.88225,0), FreeCAD.Vector(3.48192,-5.48161,0)))
+    qwm_doc.sketch_lens_section_3411.addGeometry(Part.LineSegment(FreeCAD.Vector(3.48192,-5.48161,0), FreeCAD.Vector(4.40908,-2.81021,0)))
+    qwm_doc.sketch_lens_section_3411.addGeometry(Part.LineSegment(FreeCAD.Vector(4.40908,-2.81021,0), FreeCAD.Vector(4.7233,0.0,0)))
+    qwm_doc.sketch_lens_section_3411.addGeometry(Part.LineSegment(FreeCAD.Vector(4.7233,0.0,0), FreeCAD.Vector(4.40908,2.81021,0)))
+    qwm_doc.sketch_lens_section_3411.addGeometry(Part.LineSegment(FreeCAD.Vector(4.40908,2.81021,0), FreeCAD.Vector(3.48192,5.48161,0)))
+    qwm_doc.sketch_lens_section_3411.addGeometry(Part.LineSegment(FreeCAD.Vector(3.48192,5.48161,0), FreeCAD.Vector(1.98762,7.88225,0)))
+    qwm_doc.sketch_lens_section_3411.addGeometry(Part.LineSegment(FreeCAD.Vector(1.98762,7.88225,0), FreeCAD.Vector(0.0,9.89355,0)))
+    qwm_doc.sketch_lens_section_3411.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.89355,0), FreeCAD.Vector(0.0,-9.89355,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_3411D")
+    qwm_doc.lens_section_3411D.Base = qwm_doc.sketch_lens_section_3411
+    qwm_doc.lens_section_3411D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_3411D.Solid = True
+    qwm_doc.lens_section_3411D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_3411D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_35')
     qwm_doc.sketch_lens_section_35.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.24187,0), FreeCAD.Vector(2.09911,-8.17948,0)))
@@ -396,23 +396,23 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_35U.Solid = True
     qwm_doc.lens_section_35U.ViewObject.Transparency = 60
     qwm_doc.lens_section_35U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_35')
-    qwm_doc.sketch_lens_section_35.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.25932,0), FreeCAD.Vector(2.10472,-8.1944,0)))
-    qwm_doc.sketch_lens_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(2.10472,-8.1944,0), FreeCAD.Vector(3.69042,-5.70857,0)))
-    qwm_doc.sketch_lens_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(3.69042,-5.70857,0), FreeCAD.Vector(4.67563,-2.92952,0)))
-    qwm_doc.sketch_lens_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(4.67563,-2.92952,0), FreeCAD.Vector(5.00975,0.0,0)))
-    qwm_doc.sketch_lens_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(5.00975,0.0,0), FreeCAD.Vector(4.67563,2.92952,0)))
-    qwm_doc.sketch_lens_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(4.67563,2.92952,0), FreeCAD.Vector(3.69042,5.70857,0)))
-    qwm_doc.sketch_lens_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(3.69042,5.70857,0), FreeCAD.Vector(2.10472,8.1944,0)))
-    qwm_doc.sketch_lens_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(2.10472,8.1944,0), FreeCAD.Vector(0.0,10.25932,0)))
-    qwm_doc.sketch_lens_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.25932,0), FreeCAD.Vector(0.0,-10.25932,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_35D")
-    qwm_doc.lens_section_35D.Base = qwm_doc.sketch_lens_section_35
-    qwm_doc.lens_section_35D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_35D.Solid = True
-    qwm_doc.lens_section_35D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_35D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_3512')
+    qwm_doc.sketch_lens_section_3512.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_3512.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.25932,0), FreeCAD.Vector(2.10472,-8.1944,0)))
+    qwm_doc.sketch_lens_section_3512.addGeometry(Part.LineSegment(FreeCAD.Vector(2.10472,-8.1944,0), FreeCAD.Vector(3.69042,-5.70857,0)))
+    qwm_doc.sketch_lens_section_3512.addGeometry(Part.LineSegment(FreeCAD.Vector(3.69042,-5.70857,0), FreeCAD.Vector(4.67563,-2.92952,0)))
+    qwm_doc.sketch_lens_section_3512.addGeometry(Part.LineSegment(FreeCAD.Vector(4.67563,-2.92952,0), FreeCAD.Vector(5.00975,0.0,0)))
+    qwm_doc.sketch_lens_section_3512.addGeometry(Part.LineSegment(FreeCAD.Vector(5.00975,0.0,0), FreeCAD.Vector(4.67563,2.92952,0)))
+    qwm_doc.sketch_lens_section_3512.addGeometry(Part.LineSegment(FreeCAD.Vector(4.67563,2.92952,0), FreeCAD.Vector(3.69042,5.70857,0)))
+    qwm_doc.sketch_lens_section_3512.addGeometry(Part.LineSegment(FreeCAD.Vector(3.69042,5.70857,0), FreeCAD.Vector(2.10472,8.1944,0)))
+    qwm_doc.sketch_lens_section_3512.addGeometry(Part.LineSegment(FreeCAD.Vector(2.10472,8.1944,0), FreeCAD.Vector(0.0,10.25932,0)))
+    qwm_doc.sketch_lens_section_3512.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.25932,0), FreeCAD.Vector(0.0,-10.25932,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_3512D")
+    qwm_doc.lens_section_3512D.Base = qwm_doc.sketch_lens_section_3512
+    qwm_doc.lens_section_3512D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_3512D.Solid = True
+    qwm_doc.lens_section_3512D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_3512D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_36')
     qwm_doc.sketch_lens_section_36.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.57509,0), FreeCAD.Vector(2.20689,-8.46475,0)))
@@ -430,23 +430,23 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_36U.Solid = True
     qwm_doc.lens_section_36U.ViewObject.Transparency = 60
     qwm_doc.lens_section_36U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_36')
-    qwm_doc.sketch_lens_section_36.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.59126,0), FreeCAD.Vector(2.21214,-8.47862,0)))
-    qwm_doc.sketch_lens_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(2.21214,-8.47862,0), FreeCAD.Vector(3.88191,-5.91566,0)))
-    qwm_doc.sketch_lens_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(3.88191,-5.91566,0), FreeCAD.Vector(4.92061,-3.03852,0)))
-    qwm_doc.sketch_lens_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(4.92061,-3.03852,0), FreeCAD.Vector(5.27309,0.0,0)))
-    qwm_doc.sketch_lens_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(5.27309,0.0,0), FreeCAD.Vector(4.92061,3.03852,0)))
-    qwm_doc.sketch_lens_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(4.92061,3.03852,0), FreeCAD.Vector(3.88191,5.91566,0)))
-    qwm_doc.sketch_lens_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(3.88191,5.91566,0), FreeCAD.Vector(2.21214,8.47862,0)))
-    qwm_doc.sketch_lens_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(2.21214,8.47862,0), FreeCAD.Vector(0.0,10.59126,0)))
-    qwm_doc.sketch_lens_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.59126,0), FreeCAD.Vector(0.0,-10.59126,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_36D")
-    qwm_doc.lens_section_36D.Base = qwm_doc.sketch_lens_section_36
-    qwm_doc.lens_section_36D.Dir = (0, 0, -0.25)
-    qwm_doc.lens_section_36D.Solid = True
-    qwm_doc.lens_section_36D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_36D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_3613')
+    qwm_doc.sketch_lens_section_3613.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_3613.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.59126,0), FreeCAD.Vector(2.21214,-8.47862,0)))
+    qwm_doc.sketch_lens_section_3613.addGeometry(Part.LineSegment(FreeCAD.Vector(2.21214,-8.47862,0), FreeCAD.Vector(3.88191,-5.91566,0)))
+    qwm_doc.sketch_lens_section_3613.addGeometry(Part.LineSegment(FreeCAD.Vector(3.88191,-5.91566,0), FreeCAD.Vector(4.92061,-3.03852,0)))
+    qwm_doc.sketch_lens_section_3613.addGeometry(Part.LineSegment(FreeCAD.Vector(4.92061,-3.03852,0), FreeCAD.Vector(5.27309,0.0,0)))
+    qwm_doc.sketch_lens_section_3613.addGeometry(Part.LineSegment(FreeCAD.Vector(5.27309,0.0,0), FreeCAD.Vector(4.92061,3.03852,0)))
+    qwm_doc.sketch_lens_section_3613.addGeometry(Part.LineSegment(FreeCAD.Vector(4.92061,3.03852,0), FreeCAD.Vector(3.88191,5.91566,0)))
+    qwm_doc.sketch_lens_section_3613.addGeometry(Part.LineSegment(FreeCAD.Vector(3.88191,5.91566,0), FreeCAD.Vector(2.21214,8.47862,0)))
+    qwm_doc.sketch_lens_section_3613.addGeometry(Part.LineSegment(FreeCAD.Vector(2.21214,8.47862,0), FreeCAD.Vector(0.0,10.59126,0)))
+    qwm_doc.sketch_lens_section_3613.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.59126,0), FreeCAD.Vector(0.0,-10.59126,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_3613D")
+    qwm_doc.lens_section_3613D.Base = qwm_doc.sketch_lens_section_3613
+    qwm_doc.lens_section_3613D.Dir = (0, 0, -0.25)
+    qwm_doc.lens_section_3613D.Solid = True
+    qwm_doc.lens_section_3613D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_3613D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_37')
     qwm_doc.sketch_lens_section_37.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.88978,0), FreeCAD.Vector(2.07875,-9.00034,0)))
@@ -465,24 +465,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_37U.Solid = True
     qwm_doc.lens_section_37U.ViewObject.Transparency = 60
     qwm_doc.lens_section_37U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_37')
-    qwm_doc.sketch_lens_section_37.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.90469,0), FreeCAD.Vector(2.08314,-9.01347,0)))
-    qwm_doc.sketch_lens_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(2.08314,-9.01347,0), FreeCAD.Vector(3.7299,-6.73215,0)))
-    qwm_doc.sketch_lens_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(3.7299,-6.73215,0), FreeCAD.Vector(4.869,-4.15948,0)))
-    qwm_doc.sketch_lens_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(4.869,-4.15948,0), FreeCAD.Vector(5.45114,-1.40679,0)))
-    qwm_doc.sketch_lens_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(5.45114,-1.40679,0), FreeCAD.Vector(5.45114,1.40679,0)))
-    qwm_doc.sketch_lens_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(5.45114,1.40679,0), FreeCAD.Vector(4.869,4.15948,0)))
-    qwm_doc.sketch_lens_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(4.869,4.15948,0), FreeCAD.Vector(3.7299,6.73215,0)))
-    qwm_doc.sketch_lens_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(3.7299,6.73215,0), FreeCAD.Vector(2.08314,9.01347,0)))
-    qwm_doc.sketch_lens_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(2.08314,9.01347,0), FreeCAD.Vector(0.0,10.90469,0)))
-    qwm_doc.sketch_lens_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.90469,0), FreeCAD.Vector(0.0,-10.90469,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_37D")
-    qwm_doc.lens_section_37D.Base = qwm_doc.sketch_lens_section_37
-    qwm_doc.lens_section_37D.Dir = (0, 0, -0.25)
-    qwm_doc.lens_section_37D.Solid = True
-    qwm_doc.lens_section_37D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_37D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_3714')
+    qwm_doc.sketch_lens_section_3714.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_3714.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.90469,0), FreeCAD.Vector(2.08314,-9.01347,0)))
+    qwm_doc.sketch_lens_section_3714.addGeometry(Part.LineSegment(FreeCAD.Vector(2.08314,-9.01347,0), FreeCAD.Vector(3.7299,-6.73215,0)))
+    qwm_doc.sketch_lens_section_3714.addGeometry(Part.LineSegment(FreeCAD.Vector(3.7299,-6.73215,0), FreeCAD.Vector(4.869,-4.15948,0)))
+    qwm_doc.sketch_lens_section_3714.addGeometry(Part.LineSegment(FreeCAD.Vector(4.869,-4.15948,0), FreeCAD.Vector(5.45114,-1.40679,0)))
+    qwm_doc.sketch_lens_section_3714.addGeometry(Part.LineSegment(FreeCAD.Vector(5.45114,-1.40679,0), FreeCAD.Vector(5.45114,1.40679,0)))
+    qwm_doc.sketch_lens_section_3714.addGeometry(Part.LineSegment(FreeCAD.Vector(5.45114,1.40679,0), FreeCAD.Vector(4.869,4.15948,0)))
+    qwm_doc.sketch_lens_section_3714.addGeometry(Part.LineSegment(FreeCAD.Vector(4.869,4.15948,0), FreeCAD.Vector(3.7299,6.73215,0)))
+    qwm_doc.sketch_lens_section_3714.addGeometry(Part.LineSegment(FreeCAD.Vector(3.7299,6.73215,0), FreeCAD.Vector(2.08314,9.01347,0)))
+    qwm_doc.sketch_lens_section_3714.addGeometry(Part.LineSegment(FreeCAD.Vector(2.08314,9.01347,0), FreeCAD.Vector(0.0,10.90469,0)))
+    qwm_doc.sketch_lens_section_3714.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.90469,0), FreeCAD.Vector(0.0,-10.90469,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_3714D")
+    qwm_doc.lens_section_3714D.Base = qwm_doc.sketch_lens_section_3714
+    qwm_doc.lens_section_3714D.Dir = (0, 0, -0.25)
+    qwm_doc.lens_section_3714D.Solid = True
+    qwm_doc.lens_section_3714D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_3714D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_38')
     qwm_doc.sketch_lens_section_38.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.17362,0), FreeCAD.Vector(2.16261,-9.25047,0)))
@@ -501,24 +501,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_38U.Solid = True
     qwm_doc.lens_section_38U.ViewObject.Transparency = 60
     qwm_doc.lens_section_38U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_38')
-    qwm_doc.sketch_lens_section_38.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.18704,0), FreeCAD.Vector(2.16659,-9.2623,0)))
-    qwm_doc.sketch_lens_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(2.16659,-9.2623,0), FreeCAD.Vector(3.88176,-6.9263,0)))
-    qwm_doc.sketch_lens_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(3.88176,-6.9263,0), FreeCAD.Vector(5.06935,-4.28274,0)))
-    qwm_doc.sketch_lens_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(5.06935,-4.28274,0), FreeCAD.Vector(5.67663,-1.44903,0)))
-    qwm_doc.sketch_lens_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(5.67663,-1.44903,0), FreeCAD.Vector(5.67663,1.44903,0)))
-    qwm_doc.sketch_lens_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(5.67663,1.44903,0), FreeCAD.Vector(5.06935,4.28274,0)))
-    qwm_doc.sketch_lens_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(5.06935,4.28274,0), FreeCAD.Vector(3.88176,6.9263,0)))
-    qwm_doc.sketch_lens_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(3.88176,6.9263,0), FreeCAD.Vector(2.16659,9.2623,0)))
-    qwm_doc.sketch_lens_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(2.16659,9.2623,0), FreeCAD.Vector(0.0,11.18704,0)))
-    qwm_doc.sketch_lens_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.18704,0), FreeCAD.Vector(0.0,-11.18704,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_38D")
-    qwm_doc.lens_section_38D.Base = qwm_doc.sketch_lens_section_38
-    qwm_doc.lens_section_38D.Dir = (0, 0, -0.25)
-    qwm_doc.lens_section_38D.Solid = True
-    qwm_doc.lens_section_38D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_38D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_3815')
+    qwm_doc.sketch_lens_section_3815.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_3815.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.18704,0), FreeCAD.Vector(2.16659,-9.2623,0)))
+    qwm_doc.sketch_lens_section_3815.addGeometry(Part.LineSegment(FreeCAD.Vector(2.16659,-9.2623,0), FreeCAD.Vector(3.88176,-6.9263,0)))
+    qwm_doc.sketch_lens_section_3815.addGeometry(Part.LineSegment(FreeCAD.Vector(3.88176,-6.9263,0), FreeCAD.Vector(5.06935,-4.28274,0)))
+    qwm_doc.sketch_lens_section_3815.addGeometry(Part.LineSegment(FreeCAD.Vector(5.06935,-4.28274,0), FreeCAD.Vector(5.67663,-1.44903,0)))
+    qwm_doc.sketch_lens_section_3815.addGeometry(Part.LineSegment(FreeCAD.Vector(5.67663,-1.44903,0), FreeCAD.Vector(5.67663,1.44903,0)))
+    qwm_doc.sketch_lens_section_3815.addGeometry(Part.LineSegment(FreeCAD.Vector(5.67663,1.44903,0), FreeCAD.Vector(5.06935,4.28274,0)))
+    qwm_doc.sketch_lens_section_3815.addGeometry(Part.LineSegment(FreeCAD.Vector(5.06935,4.28274,0), FreeCAD.Vector(3.88176,6.9263,0)))
+    qwm_doc.sketch_lens_section_3815.addGeometry(Part.LineSegment(FreeCAD.Vector(3.88176,6.9263,0), FreeCAD.Vector(2.16659,9.2623,0)))
+    qwm_doc.sketch_lens_section_3815.addGeometry(Part.LineSegment(FreeCAD.Vector(2.16659,9.2623,0), FreeCAD.Vector(0.0,11.18704,0)))
+    qwm_doc.sketch_lens_section_3815.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.18704,0), FreeCAD.Vector(0.0,-11.18704,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_3815D")
+    qwm_doc.lens_section_3815D.Base = qwm_doc.sketch_lens_section_3815
+    qwm_doc.lens_section_3815D.Dir = (0, 0, -0.25)
+    qwm_doc.lens_section_3815D.Solid = True
+    qwm_doc.lens_section_3815D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_3815D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_39')
     qwm_doc.sketch_lens_section_39.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.42858,0), FreeCAD.Vector(2.23844,-9.47559,0)))
@@ -537,24 +537,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_39U.Solid = True
     qwm_doc.lens_section_39U.ViewObject.Transparency = 60
     qwm_doc.lens_section_39U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_39')
-    qwm_doc.sketch_lens_section_39.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.4406,0), FreeCAD.Vector(2.24203,-9.48621,0)))
-    qwm_doc.sketch_lens_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(2.24203,-9.48621,0), FreeCAD.Vector(4.01915,-7.10123,0)))
-    qwm_doc.sketch_lens_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(4.01915,-7.10123,0), FreeCAD.Vector(5.2507,-4.39391,0)))
-    qwm_doc.sketch_lens_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(5.2507,-4.39391,0), FreeCAD.Vector(5.88077,-1.48714,0)))
-    qwm_doc.sketch_lens_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(5.88077,-1.48714,0), FreeCAD.Vector(5.88077,1.48714,0)))
-    qwm_doc.sketch_lens_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(5.88077,1.48714,0), FreeCAD.Vector(5.2507,4.39391,0)))
-    qwm_doc.sketch_lens_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(5.2507,4.39391,0), FreeCAD.Vector(4.01915,7.10123,0)))
-    qwm_doc.sketch_lens_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(4.01915,7.10123,0), FreeCAD.Vector(2.24203,9.48621,0)))
-    qwm_doc.sketch_lens_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(2.24203,9.48621,0), FreeCAD.Vector(0.0,11.4406,0)))
-    qwm_doc.sketch_lens_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.4406,0), FreeCAD.Vector(0.0,-11.4406,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_39D")
-    qwm_doc.lens_section_39D.Base = qwm_doc.sketch_lens_section_39
-    qwm_doc.lens_section_39D.Dir = (0, 0, -0.25)
-    qwm_doc.lens_section_39D.Solid = True
-    qwm_doc.lens_section_39D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_39D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_3916')
+    qwm_doc.sketch_lens_section_3916.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_3916.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.4406,0), FreeCAD.Vector(2.24203,-9.48621,0)))
+    qwm_doc.sketch_lens_section_3916.addGeometry(Part.LineSegment(FreeCAD.Vector(2.24203,-9.48621,0), FreeCAD.Vector(4.01915,-7.10123,0)))
+    qwm_doc.sketch_lens_section_3916.addGeometry(Part.LineSegment(FreeCAD.Vector(4.01915,-7.10123,0), FreeCAD.Vector(5.2507,-4.39391,0)))
+    qwm_doc.sketch_lens_section_3916.addGeometry(Part.LineSegment(FreeCAD.Vector(5.2507,-4.39391,0), FreeCAD.Vector(5.88077,-1.48714,0)))
+    qwm_doc.sketch_lens_section_3916.addGeometry(Part.LineSegment(FreeCAD.Vector(5.88077,-1.48714,0), FreeCAD.Vector(5.88077,1.48714,0)))
+    qwm_doc.sketch_lens_section_3916.addGeometry(Part.LineSegment(FreeCAD.Vector(5.88077,1.48714,0), FreeCAD.Vector(5.2507,4.39391,0)))
+    qwm_doc.sketch_lens_section_3916.addGeometry(Part.LineSegment(FreeCAD.Vector(5.2507,4.39391,0), FreeCAD.Vector(4.01915,7.10123,0)))
+    qwm_doc.sketch_lens_section_3916.addGeometry(Part.LineSegment(FreeCAD.Vector(4.01915,7.10123,0), FreeCAD.Vector(2.24203,9.48621,0)))
+    qwm_doc.sketch_lens_section_3916.addGeometry(Part.LineSegment(FreeCAD.Vector(2.24203,9.48621,0), FreeCAD.Vector(0.0,11.4406,0)))
+    qwm_doc.sketch_lens_section_3916.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.4406,0), FreeCAD.Vector(0.0,-11.4406,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_3916D")
+    qwm_doc.lens_section_3916D.Base = qwm_doc.sketch_lens_section_3916
+    qwm_doc.lens_section_3916D.Dir = (0, 0, -0.25)
+    qwm_doc.lens_section_3916D.Solid = True
+    qwm_doc.lens_section_3916D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_3916D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_40')
     qwm_doc.sketch_lens_section_40.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.65654,0), FreeCAD.Vector(2.30661,-9.67722,0)))
@@ -573,24 +573,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_40U.Solid = True
     qwm_doc.lens_section_40U.ViewObject.Transparency = 60
     qwm_doc.lens_section_40U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_40')
-    qwm_doc.sketch_lens_section_40.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.66672,0), FreeCAD.Vector(2.30967,-9.68624,0)))
-    qwm_doc.sketch_lens_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(2.30967,-9.68624,0), FreeCAD.Vector(4.14242,-7.25768,0)))
-    qwm_doc.sketch_lens_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(4.14242,-7.25768,0), FreeCAD.Vector(5.41349,-4.4934,0)))
-    qwm_doc.sketch_lens_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(5.41349,-4.4934,0), FreeCAD.Vector(6.06407,-1.52126,0)))
-    qwm_doc.sketch_lens_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(6.06407,-1.52126,0), FreeCAD.Vector(6.06407,1.52126,0)))
-    qwm_doc.sketch_lens_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(6.06407,1.52126,0), FreeCAD.Vector(5.41349,4.4934,0)))
-    qwm_doc.sketch_lens_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(5.41349,4.4934,0), FreeCAD.Vector(4.14242,7.25768,0)))
-    qwm_doc.sketch_lens_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(4.14242,7.25768,0), FreeCAD.Vector(2.30967,9.68624,0)))
-    qwm_doc.sketch_lens_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(2.30967,9.68624,0), FreeCAD.Vector(0.0,11.66672,0)))
-    qwm_doc.sketch_lens_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.66672,0), FreeCAD.Vector(0.0,-11.66672,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_40D")
-    qwm_doc.lens_section_40D.Base = qwm_doc.sketch_lens_section_40
-    qwm_doc.lens_section_40D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_40D.Solid = True
-    qwm_doc.lens_section_40D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_40D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_4017')
+    qwm_doc.sketch_lens_section_4017.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_4017.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.66672,0), FreeCAD.Vector(2.30967,-9.68624,0)))
+    qwm_doc.sketch_lens_section_4017.addGeometry(Part.LineSegment(FreeCAD.Vector(2.30967,-9.68624,0), FreeCAD.Vector(4.14242,-7.25768,0)))
+    qwm_doc.sketch_lens_section_4017.addGeometry(Part.LineSegment(FreeCAD.Vector(4.14242,-7.25768,0), FreeCAD.Vector(5.41349,-4.4934,0)))
+    qwm_doc.sketch_lens_section_4017.addGeometry(Part.LineSegment(FreeCAD.Vector(5.41349,-4.4934,0), FreeCAD.Vector(6.06407,-1.52126,0)))
+    qwm_doc.sketch_lens_section_4017.addGeometry(Part.LineSegment(FreeCAD.Vector(6.06407,-1.52126,0), FreeCAD.Vector(6.06407,1.52126,0)))
+    qwm_doc.sketch_lens_section_4017.addGeometry(Part.LineSegment(FreeCAD.Vector(6.06407,1.52126,0), FreeCAD.Vector(5.41349,4.4934,0)))
+    qwm_doc.sketch_lens_section_4017.addGeometry(Part.LineSegment(FreeCAD.Vector(5.41349,4.4934,0), FreeCAD.Vector(4.14242,7.25768,0)))
+    qwm_doc.sketch_lens_section_4017.addGeometry(Part.LineSegment(FreeCAD.Vector(4.14242,7.25768,0), FreeCAD.Vector(2.30967,9.68624,0)))
+    qwm_doc.sketch_lens_section_4017.addGeometry(Part.LineSegment(FreeCAD.Vector(2.30967,9.68624,0), FreeCAD.Vector(0.0,11.66672,0)))
+    qwm_doc.sketch_lens_section_4017.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.66672,0), FreeCAD.Vector(0.0,-11.66672,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_4017D")
+    qwm_doc.lens_section_4017D.Base = qwm_doc.sketch_lens_section_4017
+    qwm_doc.lens_section_4017D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_4017D.Solid = True
+    qwm_doc.lens_section_4017D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_4017D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_41')
     qwm_doc.sketch_lens_section_41.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.8404,0), FreeCAD.Vector(2.36185,-9.84008,0)))
@@ -609,24 +609,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_41U.Solid = True
     qwm_doc.lens_section_41U.ViewObject.Transparency = 60
     qwm_doc.lens_section_41U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_41')
-    qwm_doc.sketch_lens_section_41.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.84904,0), FreeCAD.Vector(2.36445,-9.84774,0)))
-    qwm_doc.sketch_lens_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36445,-9.84774,0), FreeCAD.Vector(4.24232,-7.38413,0)))
-    qwm_doc.sketch_lens_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(4.24232,-7.38413,0), FreeCAD.Vector(5.54546,-4.57385,0)))
-    qwm_doc.sketch_lens_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(5.54546,-4.57385,0), FreeCAD.Vector(6.2127,-1.54886,0)))
-    qwm_doc.sketch_lens_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(6.2127,-1.54886,0), FreeCAD.Vector(6.2127,1.54886,0)))
-    qwm_doc.sketch_lens_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(6.2127,1.54886,0), FreeCAD.Vector(5.54546,4.57385,0)))
-    qwm_doc.sketch_lens_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(5.54546,4.57385,0), FreeCAD.Vector(4.24232,7.38413,0)))
-    qwm_doc.sketch_lens_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(4.24232,7.38413,0), FreeCAD.Vector(2.36445,9.84774,0)))
-    qwm_doc.sketch_lens_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36445,9.84774,0), FreeCAD.Vector(0.0,11.84904,0)))
-    qwm_doc.sketch_lens_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.84904,0), FreeCAD.Vector(0.0,-11.84904,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_41D")
-    qwm_doc.lens_section_41D.Base = qwm_doc.sketch_lens_section_41
-    qwm_doc.lens_section_41D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_41D.Solid = True
-    qwm_doc.lens_section_41D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_41D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_4118')
+    qwm_doc.sketch_lens_section_4118.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_4118.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.84904,0), FreeCAD.Vector(2.36445,-9.84774,0)))
+    qwm_doc.sketch_lens_section_4118.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36445,-9.84774,0), FreeCAD.Vector(4.24232,-7.38413,0)))
+    qwm_doc.sketch_lens_section_4118.addGeometry(Part.LineSegment(FreeCAD.Vector(4.24232,-7.38413,0), FreeCAD.Vector(5.54546,-4.57385,0)))
+    qwm_doc.sketch_lens_section_4118.addGeometry(Part.LineSegment(FreeCAD.Vector(5.54546,-4.57385,0), FreeCAD.Vector(6.2127,-1.54886,0)))
+    qwm_doc.sketch_lens_section_4118.addGeometry(Part.LineSegment(FreeCAD.Vector(6.2127,-1.54886,0), FreeCAD.Vector(6.2127,1.54886,0)))
+    qwm_doc.sketch_lens_section_4118.addGeometry(Part.LineSegment(FreeCAD.Vector(6.2127,1.54886,0), FreeCAD.Vector(5.54546,4.57385,0)))
+    qwm_doc.sketch_lens_section_4118.addGeometry(Part.LineSegment(FreeCAD.Vector(5.54546,4.57385,0), FreeCAD.Vector(4.24232,7.38413,0)))
+    qwm_doc.sketch_lens_section_4118.addGeometry(Part.LineSegment(FreeCAD.Vector(4.24232,7.38413,0), FreeCAD.Vector(2.36445,9.84774,0)))
+    qwm_doc.sketch_lens_section_4118.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36445,9.84774,0), FreeCAD.Vector(0.0,11.84904,0)))
+    qwm_doc.sketch_lens_section_4118.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.84904,0), FreeCAD.Vector(0.0,-11.84904,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_4118D")
+    qwm_doc.lens_section_4118D.Base = qwm_doc.sketch_lens_section_4118
+    qwm_doc.lens_section_4118D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_4118D.Solid = True
+    qwm_doc.lens_section_4118D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_4118D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_42')
     qwm_doc.sketch_lens_section_42.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.00407,0), FreeCAD.Vector(2.41119,-9.98522,0)))
@@ -645,24 +645,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_42U.Solid = True
     qwm_doc.lens_section_42U.ViewObject.Transparency = 60
     qwm_doc.lens_section_42U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_42')
-    qwm_doc.sketch_lens_section_42.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.01175,0), FreeCAD.Vector(2.41351,-9.99204,0)))
-    qwm_doc.sketch_lens_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(2.41351,-9.99204,0), FreeCAD.Vector(4.33184,-7.49719,0)))
-    qwm_doc.sketch_lens_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33184,-7.49719,0), FreeCAD.Vector(5.66376,-4.64583,0)))
-    qwm_doc.sketch_lens_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(5.66376,-4.64583,0), FreeCAD.Vector(6.34594,-1.57355,0)))
-    qwm_doc.sketch_lens_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(6.34594,-1.57355,0), FreeCAD.Vector(6.34594,1.57355,0)))
-    qwm_doc.sketch_lens_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(6.34594,1.57355,0), FreeCAD.Vector(5.66376,4.64583,0)))
-    qwm_doc.sketch_lens_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(5.66376,4.64583,0), FreeCAD.Vector(4.33184,7.49719,0)))
-    qwm_doc.sketch_lens_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33184,7.49719,0), FreeCAD.Vector(2.41351,9.99204,0)))
-    qwm_doc.sketch_lens_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(2.41351,9.99204,0), FreeCAD.Vector(0.0,12.01175,0)))
-    qwm_doc.sketch_lens_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.01175,0), FreeCAD.Vector(0.0,-12.01175,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_42D")
-    qwm_doc.lens_section_42D.Base = qwm_doc.sketch_lens_section_42
-    qwm_doc.lens_section_42D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_42D.Solid = True
-    qwm_doc.lens_section_42D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_42D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_4219')
+    qwm_doc.sketch_lens_section_4219.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_4219.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.01175,0), FreeCAD.Vector(2.41351,-9.99204,0)))
+    qwm_doc.sketch_lens_section_4219.addGeometry(Part.LineSegment(FreeCAD.Vector(2.41351,-9.99204,0), FreeCAD.Vector(4.33184,-7.49719,0)))
+    qwm_doc.sketch_lens_section_4219.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33184,-7.49719,0), FreeCAD.Vector(5.66376,-4.64583,0)))
+    qwm_doc.sketch_lens_section_4219.addGeometry(Part.LineSegment(FreeCAD.Vector(5.66376,-4.64583,0), FreeCAD.Vector(6.34594,-1.57355,0)))
+    qwm_doc.sketch_lens_section_4219.addGeometry(Part.LineSegment(FreeCAD.Vector(6.34594,-1.57355,0), FreeCAD.Vector(6.34594,1.57355,0)))
+    qwm_doc.sketch_lens_section_4219.addGeometry(Part.LineSegment(FreeCAD.Vector(6.34594,1.57355,0), FreeCAD.Vector(5.66376,4.64583,0)))
+    qwm_doc.sketch_lens_section_4219.addGeometry(Part.LineSegment(FreeCAD.Vector(5.66376,4.64583,0), FreeCAD.Vector(4.33184,7.49719,0)))
+    qwm_doc.sketch_lens_section_4219.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33184,7.49719,0), FreeCAD.Vector(2.41351,9.99204,0)))
+    qwm_doc.sketch_lens_section_4219.addGeometry(Part.LineSegment(FreeCAD.Vector(2.41351,9.99204,0), FreeCAD.Vector(0.0,12.01175,0)))
+    qwm_doc.sketch_lens_section_4219.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.01175,0), FreeCAD.Vector(0.0,-12.01175,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_4219D")
+    qwm_doc.lens_section_4219D.Base = qwm_doc.sketch_lens_section_4219
+    qwm_doc.lens_section_4219D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_4219D.Solid = True
+    qwm_doc.lens_section_4219D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_4219D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_43')
     qwm_doc.sketch_lens_section_43.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.14888,0), FreeCAD.Vector(2.45499,-10.11378,0)))
@@ -681,24 +681,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_43U.Solid = True
     qwm_doc.lens_section_43U.ViewObject.Transparency = 60
     qwm_doc.lens_section_43U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_43')
-    qwm_doc.sketch_lens_section_43.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.15564,0), FreeCAD.Vector(2.45704,-10.11978,0)))
-    qwm_doc.sketch_lens_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(2.45704,-10.11978,0), FreeCAD.Vector(4.41128,-7.59734,0)))
-    qwm_doc.sketch_lens_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(4.41128,-7.59734,0), FreeCAD.Vector(5.76877,-4.70962,0)))
-    qwm_doc.sketch_lens_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(5.76877,-4.70962,0), FreeCAD.Vector(6.46423,-1.59544,0)))
-    qwm_doc.sketch_lens_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(6.46423,-1.59544,0), FreeCAD.Vector(6.46423,1.59544,0)))
-    qwm_doc.sketch_lens_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(6.46423,1.59544,0), FreeCAD.Vector(5.76877,4.70962,0)))
-    qwm_doc.sketch_lens_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(5.76877,4.70962,0), FreeCAD.Vector(4.41128,7.59734,0)))
-    qwm_doc.sketch_lens_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(4.41128,7.59734,0), FreeCAD.Vector(2.45704,10.11978,0)))
-    qwm_doc.sketch_lens_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(2.45704,10.11978,0), FreeCAD.Vector(0.0,12.15564,0)))
-    qwm_doc.sketch_lens_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.15564,0), FreeCAD.Vector(0.0,-12.15564,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_43D")
-    qwm_doc.lens_section_43D.Base = qwm_doc.sketch_lens_section_43
-    qwm_doc.lens_section_43D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_43D.Solid = True
-    qwm_doc.lens_section_43D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_43D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_4320')
+    qwm_doc.sketch_lens_section_4320.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_4320.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.15564,0), FreeCAD.Vector(2.45704,-10.11978,0)))
+    qwm_doc.sketch_lens_section_4320.addGeometry(Part.LineSegment(FreeCAD.Vector(2.45704,-10.11978,0), FreeCAD.Vector(4.41128,-7.59734,0)))
+    qwm_doc.sketch_lens_section_4320.addGeometry(Part.LineSegment(FreeCAD.Vector(4.41128,-7.59734,0), FreeCAD.Vector(5.76877,-4.70962,0)))
+    qwm_doc.sketch_lens_section_4320.addGeometry(Part.LineSegment(FreeCAD.Vector(5.76877,-4.70962,0), FreeCAD.Vector(6.46423,-1.59544,0)))
+    qwm_doc.sketch_lens_section_4320.addGeometry(Part.LineSegment(FreeCAD.Vector(6.46423,-1.59544,0), FreeCAD.Vector(6.46423,1.59544,0)))
+    qwm_doc.sketch_lens_section_4320.addGeometry(Part.LineSegment(FreeCAD.Vector(6.46423,1.59544,0), FreeCAD.Vector(5.76877,4.70962,0)))
+    qwm_doc.sketch_lens_section_4320.addGeometry(Part.LineSegment(FreeCAD.Vector(5.76877,4.70962,0), FreeCAD.Vector(4.41128,7.59734,0)))
+    qwm_doc.sketch_lens_section_4320.addGeometry(Part.LineSegment(FreeCAD.Vector(4.41128,7.59734,0), FreeCAD.Vector(2.45704,10.11978,0)))
+    qwm_doc.sketch_lens_section_4320.addGeometry(Part.LineSegment(FreeCAD.Vector(2.45704,10.11978,0), FreeCAD.Vector(0.0,12.15564,0)))
+    qwm_doc.sketch_lens_section_4320.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.15564,0), FreeCAD.Vector(0.0,-12.15564,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_4320D")
+    qwm_doc.lens_section_4320D.Base = qwm_doc.sketch_lens_section_4320
+    qwm_doc.lens_section_4320D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_4320D.Solid = True
+    qwm_doc.lens_section_4320D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_4320D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_44')
     qwm_doc.sketch_lens_section_44.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.2755,0), FreeCAD.Vector(2.49339,-10.22628,0)))
@@ -717,24 +717,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_44U.Solid = True
     qwm_doc.lens_section_44U.ViewObject.Transparency = 60
     qwm_doc.lens_section_44U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_44')
-    qwm_doc.sketch_lens_section_44.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.28136,0), FreeCAD.Vector(2.49517,-10.23149,0)))
-    qwm_doc.sketch_lens_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(2.49517,-10.23149,0), FreeCAD.Vector(4.4809,-7.68498,0)))
-    qwm_doc.sketch_lens_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(4.4809,-7.68498,0), FreeCAD.Vector(5.86082,-4.76545,0)))
-    qwm_doc.sketch_lens_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(5.86082,-4.76545,0), FreeCAD.Vector(6.56794,-1.61461,0)))
-    qwm_doc.sketch_lens_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(6.56794,-1.61461,0), FreeCAD.Vector(6.56794,1.61461,0)))
-    qwm_doc.sketch_lens_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(6.56794,1.61461,0), FreeCAD.Vector(5.86082,4.76545,0)))
-    qwm_doc.sketch_lens_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(5.86082,4.76545,0), FreeCAD.Vector(4.4809,7.68498,0)))
-    qwm_doc.sketch_lens_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(4.4809,7.68498,0), FreeCAD.Vector(2.49517,10.23149,0)))
-    qwm_doc.sketch_lens_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(2.49517,10.23149,0), FreeCAD.Vector(0.0,12.28136,0)))
-    qwm_doc.sketch_lens_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.28136,0), FreeCAD.Vector(0.0,-12.28136,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_44D")
-    qwm_doc.lens_section_44D.Base = qwm_doc.sketch_lens_section_44
-    qwm_doc.lens_section_44D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_44D.Solid = True
-    qwm_doc.lens_section_44D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_44D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_4421')
+    qwm_doc.sketch_lens_section_4421.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_4421.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.28136,0), FreeCAD.Vector(2.49517,-10.23149,0)))
+    qwm_doc.sketch_lens_section_4421.addGeometry(Part.LineSegment(FreeCAD.Vector(2.49517,-10.23149,0), FreeCAD.Vector(4.4809,-7.68498,0)))
+    qwm_doc.sketch_lens_section_4421.addGeometry(Part.LineSegment(FreeCAD.Vector(4.4809,-7.68498,0), FreeCAD.Vector(5.86082,-4.76545,0)))
+    qwm_doc.sketch_lens_section_4421.addGeometry(Part.LineSegment(FreeCAD.Vector(5.86082,-4.76545,0), FreeCAD.Vector(6.56794,-1.61461,0)))
+    qwm_doc.sketch_lens_section_4421.addGeometry(Part.LineSegment(FreeCAD.Vector(6.56794,-1.61461,0), FreeCAD.Vector(6.56794,1.61461,0)))
+    qwm_doc.sketch_lens_section_4421.addGeometry(Part.LineSegment(FreeCAD.Vector(6.56794,1.61461,0), FreeCAD.Vector(5.86082,4.76545,0)))
+    qwm_doc.sketch_lens_section_4421.addGeometry(Part.LineSegment(FreeCAD.Vector(5.86082,4.76545,0), FreeCAD.Vector(4.4809,7.68498,0)))
+    qwm_doc.sketch_lens_section_4421.addGeometry(Part.LineSegment(FreeCAD.Vector(4.4809,7.68498,0), FreeCAD.Vector(2.49517,10.23149,0)))
+    qwm_doc.sketch_lens_section_4421.addGeometry(Part.LineSegment(FreeCAD.Vector(2.49517,10.23149,0), FreeCAD.Vector(0.0,12.28136,0)))
+    qwm_doc.sketch_lens_section_4421.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.28136,0), FreeCAD.Vector(0.0,-12.28136,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_4421D")
+    qwm_doc.lens_section_4421D.Base = qwm_doc.sketch_lens_section_4421
+    qwm_doc.lens_section_4421D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_4421D.Solid = True
+    qwm_doc.lens_section_4421D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_4421D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_45')
     qwm_doc.sketch_lens_section_45.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.38449,0), FreeCAD.Vector(2.52651,-10.32318,0)))
@@ -753,24 +753,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_45U.Solid = True
     qwm_doc.lens_section_45U.ViewObject.Transparency = 60
     qwm_doc.lens_section_45U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_45')
-    qwm_doc.sketch_lens_section_45.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.38948,0), FreeCAD.Vector(2.52803,-10.32763,0)))
-    qwm_doc.sketch_lens_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(2.52803,-10.32763,0), FreeCAD.Vector(4.54092,-7.76044,0)))
-    qwm_doc.sketch_lens_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(4.54092,-7.76044,0), FreeCAD.Vector(5.9402,-4.81354,0)))
-    qwm_doc.sketch_lens_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(5.9402,-4.81354,0), FreeCAD.Vector(6.65738,-1.63112,0)))
-    qwm_doc.sketch_lens_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(6.65738,-1.63112,0), FreeCAD.Vector(6.65738,1.63112,0)))
-    qwm_doc.sketch_lens_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(6.65738,1.63112,0), FreeCAD.Vector(5.9402,4.81354,0)))
-    qwm_doc.sketch_lens_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(5.9402,4.81354,0), FreeCAD.Vector(4.54092,7.76044,0)))
-    qwm_doc.sketch_lens_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(4.54092,7.76044,0), FreeCAD.Vector(2.52803,10.32763,0)))
-    qwm_doc.sketch_lens_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(2.52803,10.32763,0), FreeCAD.Vector(0.0,12.38948,0)))
-    qwm_doc.sketch_lens_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.38948,0), FreeCAD.Vector(0.0,-12.38948,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_45D")
-    qwm_doc.lens_section_45D.Base = qwm_doc.sketch_lens_section_45
-    qwm_doc.lens_section_45D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_45D.Solid = True
-    qwm_doc.lens_section_45D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_45D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_4522')
+    qwm_doc.sketch_lens_section_4522.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_4522.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.38948,0), FreeCAD.Vector(2.52803,-10.32763,0)))
+    qwm_doc.sketch_lens_section_4522.addGeometry(Part.LineSegment(FreeCAD.Vector(2.52803,-10.32763,0), FreeCAD.Vector(4.54092,-7.76044,0)))
+    qwm_doc.sketch_lens_section_4522.addGeometry(Part.LineSegment(FreeCAD.Vector(4.54092,-7.76044,0), FreeCAD.Vector(5.9402,-4.81354,0)))
+    qwm_doc.sketch_lens_section_4522.addGeometry(Part.LineSegment(FreeCAD.Vector(5.9402,-4.81354,0), FreeCAD.Vector(6.65738,-1.63112,0)))
+    qwm_doc.sketch_lens_section_4522.addGeometry(Part.LineSegment(FreeCAD.Vector(6.65738,-1.63112,0), FreeCAD.Vector(6.65738,1.63112,0)))
+    qwm_doc.sketch_lens_section_4522.addGeometry(Part.LineSegment(FreeCAD.Vector(6.65738,1.63112,0), FreeCAD.Vector(5.9402,4.81354,0)))
+    qwm_doc.sketch_lens_section_4522.addGeometry(Part.LineSegment(FreeCAD.Vector(5.9402,4.81354,0), FreeCAD.Vector(4.54092,7.76044,0)))
+    qwm_doc.sketch_lens_section_4522.addGeometry(Part.LineSegment(FreeCAD.Vector(4.54092,7.76044,0), FreeCAD.Vector(2.52803,10.32763,0)))
+    qwm_doc.sketch_lens_section_4522.addGeometry(Part.LineSegment(FreeCAD.Vector(2.52803,10.32763,0), FreeCAD.Vector(0.0,12.38948,0)))
+    qwm_doc.sketch_lens_section_4522.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.38948,0), FreeCAD.Vector(0.0,-12.38948,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_4522D")
+    qwm_doc.lens_section_4522D.Base = qwm_doc.sketch_lens_section_4522
+    qwm_doc.lens_section_4522D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_4522D.Solid = True
+    qwm_doc.lens_section_4522D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_4522D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_46')
     qwm_doc.sketch_lens_section_46.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.4763,0), FreeCAD.Vector(2.55447,-10.40487,0)))
@@ -789,24 +789,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_46U.Solid = True
     qwm_doc.lens_section_46U.ViewObject.Transparency = 60
     qwm_doc.lens_section_46U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_46')
-    qwm_doc.sketch_lens_section_46.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.48045,0), FreeCAD.Vector(2.55573,-10.40856,0)))
-    qwm_doc.sketch_lens_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(2.55573,-10.40856,0), FreeCAD.Vector(4.59153,-7.824,0)))
-    qwm_doc.sketch_lens_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(4.59153,-7.824,0), FreeCAD.Vector(6.00713,-4.85406,0)))
-    qwm_doc.sketch_lens_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(6.00713,-4.85406,0), FreeCAD.Vector(6.7328,-1.64503,0)))
-    qwm_doc.sketch_lens_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(6.7328,-1.64503,0), FreeCAD.Vector(6.7328,1.64503,0)))
-    qwm_doc.sketch_lens_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(6.7328,1.64503,0), FreeCAD.Vector(6.00713,4.85406,0)))
-    qwm_doc.sketch_lens_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(6.00713,4.85406,0), FreeCAD.Vector(4.59153,7.824,0)))
-    qwm_doc.sketch_lens_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(4.59153,7.824,0), FreeCAD.Vector(2.55573,10.40856,0)))
-    qwm_doc.sketch_lens_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(2.55573,10.40856,0), FreeCAD.Vector(0.0,12.48045,0)))
-    qwm_doc.sketch_lens_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.48045,0), FreeCAD.Vector(0.0,-12.48045,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_46D")
-    qwm_doc.lens_section_46D.Base = qwm_doc.sketch_lens_section_46
-    qwm_doc.lens_section_46D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_46D.Solid = True
-    qwm_doc.lens_section_46D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_46D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_4623')
+    qwm_doc.sketch_lens_section_4623.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_4623.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.48045,0), FreeCAD.Vector(2.55573,-10.40856,0)))
+    qwm_doc.sketch_lens_section_4623.addGeometry(Part.LineSegment(FreeCAD.Vector(2.55573,-10.40856,0), FreeCAD.Vector(4.59153,-7.824,0)))
+    qwm_doc.sketch_lens_section_4623.addGeometry(Part.LineSegment(FreeCAD.Vector(4.59153,-7.824,0), FreeCAD.Vector(6.00713,-4.85406,0)))
+    qwm_doc.sketch_lens_section_4623.addGeometry(Part.LineSegment(FreeCAD.Vector(6.00713,-4.85406,0), FreeCAD.Vector(6.7328,-1.64503,0)))
+    qwm_doc.sketch_lens_section_4623.addGeometry(Part.LineSegment(FreeCAD.Vector(6.7328,-1.64503,0), FreeCAD.Vector(6.7328,1.64503,0)))
+    qwm_doc.sketch_lens_section_4623.addGeometry(Part.LineSegment(FreeCAD.Vector(6.7328,1.64503,0), FreeCAD.Vector(6.00713,4.85406,0)))
+    qwm_doc.sketch_lens_section_4623.addGeometry(Part.LineSegment(FreeCAD.Vector(6.00713,4.85406,0), FreeCAD.Vector(4.59153,7.824,0)))
+    qwm_doc.sketch_lens_section_4623.addGeometry(Part.LineSegment(FreeCAD.Vector(4.59153,7.824,0), FreeCAD.Vector(2.55573,10.40856,0)))
+    qwm_doc.sketch_lens_section_4623.addGeometry(Part.LineSegment(FreeCAD.Vector(2.55573,10.40856,0), FreeCAD.Vector(0.0,12.48045,0)))
+    qwm_doc.sketch_lens_section_4623.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.48045,0), FreeCAD.Vector(0.0,-12.48045,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_4623D")
+    qwm_doc.lens_section_4623D.Base = qwm_doc.sketch_lens_section_4623
+    qwm_doc.lens_section_4623D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_4623D.Solid = True
+    qwm_doc.lens_section_4623D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_4623D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_47')
     qwm_doc.sketch_lens_section_47.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.55132,0), FreeCAD.Vector(2.34125,-10.70487,0)))
@@ -826,25 +826,25 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_47U.Solid = True
     qwm_doc.lens_section_47U.ViewObject.Transparency = 60
     qwm_doc.lens_section_47U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_47')
-    qwm_doc.sketch_lens_section_47.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.55464,0), FreeCAD.Vector(2.34217,-10.70787,0)))
-    qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(2.34217,-10.70787,0), FreeCAD.Vector(4.26918,-8.43126,0)))
-    qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(4.26918,-8.43126,0), FreeCAD.Vector(5.70368,-5.8162,0)))
-    qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(5.70368,-5.8162,0), FreeCAD.Vector(6.58808,-2.96767,0)))
-    qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(6.58808,-2.96767,0), FreeCAD.Vector(6.88687,0.0,0)))
-    qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(6.88687,0.0,0), FreeCAD.Vector(6.58808,2.96767,0)))
-    qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(6.58808,2.96767,0), FreeCAD.Vector(5.70368,5.8162,0)))
-    qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(5.70368,5.8162,0), FreeCAD.Vector(4.26918,8.43126,0)))
-    qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(4.26918,8.43126,0), FreeCAD.Vector(2.34217,10.70787,0)))
-    qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(2.34217,10.70787,0), FreeCAD.Vector(0.0,12.55464,0)))
-    qwm_doc.sketch_lens_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.55464,0), FreeCAD.Vector(0.0,-12.55464,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_47D")
-    qwm_doc.lens_section_47D.Base = qwm_doc.sketch_lens_section_47
-    qwm_doc.lens_section_47D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_47D.Solid = True
-    qwm_doc.lens_section_47D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_47D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_4724')
+    qwm_doc.sketch_lens_section_4724.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_4724.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.55464,0), FreeCAD.Vector(2.34217,-10.70787,0)))
+    qwm_doc.sketch_lens_section_4724.addGeometry(Part.LineSegment(FreeCAD.Vector(2.34217,-10.70787,0), FreeCAD.Vector(4.26918,-8.43126,0)))
+    qwm_doc.sketch_lens_section_4724.addGeometry(Part.LineSegment(FreeCAD.Vector(4.26918,-8.43126,0), FreeCAD.Vector(5.70368,-5.8162,0)))
+    qwm_doc.sketch_lens_section_4724.addGeometry(Part.LineSegment(FreeCAD.Vector(5.70368,-5.8162,0), FreeCAD.Vector(6.58808,-2.96767,0)))
+    qwm_doc.sketch_lens_section_4724.addGeometry(Part.LineSegment(FreeCAD.Vector(6.58808,-2.96767,0), FreeCAD.Vector(6.88687,0.0,0)))
+    qwm_doc.sketch_lens_section_4724.addGeometry(Part.LineSegment(FreeCAD.Vector(6.88687,0.0,0), FreeCAD.Vector(6.58808,2.96767,0)))
+    qwm_doc.sketch_lens_section_4724.addGeometry(Part.LineSegment(FreeCAD.Vector(6.58808,2.96767,0), FreeCAD.Vector(5.70368,5.8162,0)))
+    qwm_doc.sketch_lens_section_4724.addGeometry(Part.LineSegment(FreeCAD.Vector(5.70368,5.8162,0), FreeCAD.Vector(4.26918,8.43126,0)))
+    qwm_doc.sketch_lens_section_4724.addGeometry(Part.LineSegment(FreeCAD.Vector(4.26918,8.43126,0), FreeCAD.Vector(2.34217,10.70787,0)))
+    qwm_doc.sketch_lens_section_4724.addGeometry(Part.LineSegment(FreeCAD.Vector(2.34217,10.70787,0), FreeCAD.Vector(0.0,12.55464,0)))
+    qwm_doc.sketch_lens_section_4724.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.55464,0), FreeCAD.Vector(0.0,-12.55464,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_4724D")
+    qwm_doc.lens_section_4724D.Base = qwm_doc.sketch_lens_section_4724
+    qwm_doc.lens_section_4724D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_4724D.Solid = True
+    qwm_doc.lens_section_4724D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_4724D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_48')
     qwm_doc.sketch_lens_section_48.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.60985,0), FreeCAD.Vector(2.35745,-10.75786,0)))
@@ -864,25 +864,25 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_48U.Solid = True
     qwm_doc.lens_section_48U.ViewObject.Transparency = 60
     qwm_doc.lens_section_48U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_48')
-    qwm_doc.sketch_lens_section_48.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.61235,0), FreeCAD.Vector(2.35814,-10.76012,0)))
-    qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(2.35814,-10.76012,0), FreeCAD.Vector(4.29877,-8.47417,0)))
-    qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(4.29877,-8.47417,0), FreeCAD.Vector(5.74366,-5.84665,0)))
-    qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(5.74366,-5.84665,0), FreeCAD.Vector(6.63456,-2.98345,0)))
-    qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(6.63456,-2.98345,0), FreeCAD.Vector(6.93557,0.0,0)))
-    qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(6.93557,0.0,0), FreeCAD.Vector(6.63456,2.98345,0)))
-    qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(6.63456,2.98345,0), FreeCAD.Vector(5.74366,5.84665,0)))
-    qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(5.74366,5.84665,0), FreeCAD.Vector(4.29877,8.47417,0)))
-    qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(4.29877,8.47417,0), FreeCAD.Vector(2.35814,10.76012,0)))
-    qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(2.35814,10.76012,0), FreeCAD.Vector(0.0,12.61235,0)))
-    qwm_doc.sketch_lens_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.61235,0), FreeCAD.Vector(0.0,-12.61235,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_48D")
-    qwm_doc.lens_section_48D.Base = qwm_doc.sketch_lens_section_48
-    qwm_doc.lens_section_48D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_48D.Solid = True
-    qwm_doc.lens_section_48D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_48D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_4825')
+    qwm_doc.sketch_lens_section_4825.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_4825.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.61235,0), FreeCAD.Vector(2.35814,-10.76012,0)))
+    qwm_doc.sketch_lens_section_4825.addGeometry(Part.LineSegment(FreeCAD.Vector(2.35814,-10.76012,0), FreeCAD.Vector(4.29877,-8.47417,0)))
+    qwm_doc.sketch_lens_section_4825.addGeometry(Part.LineSegment(FreeCAD.Vector(4.29877,-8.47417,0), FreeCAD.Vector(5.74366,-5.84665,0)))
+    qwm_doc.sketch_lens_section_4825.addGeometry(Part.LineSegment(FreeCAD.Vector(5.74366,-5.84665,0), FreeCAD.Vector(6.63456,-2.98345,0)))
+    qwm_doc.sketch_lens_section_4825.addGeometry(Part.LineSegment(FreeCAD.Vector(6.63456,-2.98345,0), FreeCAD.Vector(6.93557,0.0,0)))
+    qwm_doc.sketch_lens_section_4825.addGeometry(Part.LineSegment(FreeCAD.Vector(6.93557,0.0,0), FreeCAD.Vector(6.63456,2.98345,0)))
+    qwm_doc.sketch_lens_section_4825.addGeometry(Part.LineSegment(FreeCAD.Vector(6.63456,2.98345,0), FreeCAD.Vector(5.74366,5.84665,0)))
+    qwm_doc.sketch_lens_section_4825.addGeometry(Part.LineSegment(FreeCAD.Vector(5.74366,5.84665,0), FreeCAD.Vector(4.29877,8.47417,0)))
+    qwm_doc.sketch_lens_section_4825.addGeometry(Part.LineSegment(FreeCAD.Vector(4.29877,8.47417,0), FreeCAD.Vector(2.35814,10.76012,0)))
+    qwm_doc.sketch_lens_section_4825.addGeometry(Part.LineSegment(FreeCAD.Vector(2.35814,10.76012,0), FreeCAD.Vector(0.0,12.61235,0)))
+    qwm_doc.sketch_lens_section_4825.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.61235,0), FreeCAD.Vector(0.0,-12.61235,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_4825D")
+    qwm_doc.lens_section_4825D.Base = qwm_doc.sketch_lens_section_4825
+    qwm_doc.lens_section_4825D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_4825D.Solid = True
+    qwm_doc.lens_section_4825D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_4825D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_49')
     qwm_doc.sketch_lens_section_49.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.65211,0), FreeCAD.Vector(2.36916,-10.79613,0)))
@@ -902,25 +902,25 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_49U.Solid = True
     qwm_doc.lens_section_49U.ViewObject.Transparency = 60
     qwm_doc.lens_section_49U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_49')
-    qwm_doc.sketch_lens_section_49.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.6538,0), FreeCAD.Vector(2.36963,-10.79766,0)))
-    qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36963,-10.79766,0), FreeCAD.Vector(4.32005,-8.50501,0)))
-    qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(4.32005,-8.50501,0), FreeCAD.Vector(5.7724,-5.86853,0)))
-    qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(5.7724,-5.86853,0), FreeCAD.Vector(6.66799,-2.9948,0)))
-    qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(6.66799,-2.9948,0), FreeCAD.Vector(6.9706,0.0,0)))
-    qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(6.9706,0.0,0), FreeCAD.Vector(6.66799,2.9948,0)))
-    qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(6.66799,2.9948,0), FreeCAD.Vector(5.7724,5.86853,0)))
-    qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(5.7724,5.86853,0), FreeCAD.Vector(4.32005,8.50501,0)))
-    qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(4.32005,8.50501,0), FreeCAD.Vector(2.36963,10.79766,0)))
-    qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36963,10.79766,0), FreeCAD.Vector(0.0,12.6538,0)))
-    qwm_doc.sketch_lens_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.6538,0), FreeCAD.Vector(0.0,-12.6538,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_49D")
-    qwm_doc.lens_section_49D.Base = qwm_doc.sketch_lens_section_49
-    qwm_doc.lens_section_49D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_49D.Solid = True
-    qwm_doc.lens_section_49D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_49D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_4926')
+    qwm_doc.sketch_lens_section_4926.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_4926.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.6538,0), FreeCAD.Vector(2.36963,-10.79766,0)))
+    qwm_doc.sketch_lens_section_4926.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36963,-10.79766,0), FreeCAD.Vector(4.32005,-8.50501,0)))
+    qwm_doc.sketch_lens_section_4926.addGeometry(Part.LineSegment(FreeCAD.Vector(4.32005,-8.50501,0), FreeCAD.Vector(5.7724,-5.86853,0)))
+    qwm_doc.sketch_lens_section_4926.addGeometry(Part.LineSegment(FreeCAD.Vector(5.7724,-5.86853,0), FreeCAD.Vector(6.66799,-2.9948,0)))
+    qwm_doc.sketch_lens_section_4926.addGeometry(Part.LineSegment(FreeCAD.Vector(6.66799,-2.9948,0), FreeCAD.Vector(6.9706,0.0,0)))
+    qwm_doc.sketch_lens_section_4926.addGeometry(Part.LineSegment(FreeCAD.Vector(6.9706,0.0,0), FreeCAD.Vector(6.66799,2.9948,0)))
+    qwm_doc.sketch_lens_section_4926.addGeometry(Part.LineSegment(FreeCAD.Vector(6.66799,2.9948,0), FreeCAD.Vector(5.7724,5.86853,0)))
+    qwm_doc.sketch_lens_section_4926.addGeometry(Part.LineSegment(FreeCAD.Vector(5.7724,5.86853,0), FreeCAD.Vector(4.32005,8.50501,0)))
+    qwm_doc.sketch_lens_section_4926.addGeometry(Part.LineSegment(FreeCAD.Vector(4.32005,8.50501,0), FreeCAD.Vector(2.36963,10.79766,0)))
+    qwm_doc.sketch_lens_section_4926.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36963,10.79766,0), FreeCAD.Vector(0.0,12.6538,0)))
+    qwm_doc.sketch_lens_section_4926.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.6538,0), FreeCAD.Vector(0.0,-12.6538,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_4926D")
+    qwm_doc.lens_section_4926D.Base = qwm_doc.sketch_lens_section_4926
+    qwm_doc.lens_section_4926D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_4926D.Solid = True
+    qwm_doc.lens_section_4926D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_4926D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_50')
     qwm_doc.sketch_lens_section_50.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.67827,0), FreeCAD.Vector(2.37641,-10.81983,0)))
@@ -940,25 +940,25 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_50U.Solid = True
     qwm_doc.lens_section_50U.ViewObject.Transparency = 60
     qwm_doc.lens_section_50U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_50')
-    qwm_doc.sketch_lens_section_50.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.67921,0), FreeCAD.Vector(2.37667,-10.82068,0)))
-    qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37667,-10.82068,0), FreeCAD.Vector(4.33309,-8.52392,0)))
-    qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33309,-8.52392,0), FreeCAD.Vector(5.79004,-5.88194,0)))
-    qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(5.79004,-5.88194,0), FreeCAD.Vector(6.68849,-3.00176,0)))
-    qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(6.68849,-3.00176,0), FreeCAD.Vector(6.99208,0.0,0)))
-    qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(6.99208,0.0,0), FreeCAD.Vector(6.68849,3.00176,0)))
-    qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(6.68849,3.00176,0), FreeCAD.Vector(5.79004,5.88194,0)))
-    qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(5.79004,5.88194,0), FreeCAD.Vector(4.33309,8.52392,0)))
-    qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33309,8.52392,0), FreeCAD.Vector(2.37667,10.82068,0)))
-    qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37667,10.82068,0), FreeCAD.Vector(0.0,12.67921,0)))
-    qwm_doc.sketch_lens_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.67921,0), FreeCAD.Vector(0.0,-12.67921,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_50D")
-    qwm_doc.lens_section_50D.Base = qwm_doc.sketch_lens_section_50
-    qwm_doc.lens_section_50D.Dir = (0, 0, -0.25)
-    qwm_doc.lens_section_50D.Solid = True
-    qwm_doc.lens_section_50D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_50D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_5027')
+    qwm_doc.sketch_lens_section_5027.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_5027.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.67921,0), FreeCAD.Vector(2.37667,-10.82068,0)))
+    qwm_doc.sketch_lens_section_5027.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37667,-10.82068,0), FreeCAD.Vector(4.33309,-8.52392,0)))
+    qwm_doc.sketch_lens_section_5027.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33309,-8.52392,0), FreeCAD.Vector(5.79004,-5.88194,0)))
+    qwm_doc.sketch_lens_section_5027.addGeometry(Part.LineSegment(FreeCAD.Vector(5.79004,-5.88194,0), FreeCAD.Vector(6.68849,-3.00176,0)))
+    qwm_doc.sketch_lens_section_5027.addGeometry(Part.LineSegment(FreeCAD.Vector(6.68849,-3.00176,0), FreeCAD.Vector(6.99208,0.0,0)))
+    qwm_doc.sketch_lens_section_5027.addGeometry(Part.LineSegment(FreeCAD.Vector(6.99208,0.0,0), FreeCAD.Vector(6.68849,3.00176,0)))
+    qwm_doc.sketch_lens_section_5027.addGeometry(Part.LineSegment(FreeCAD.Vector(6.68849,3.00176,0), FreeCAD.Vector(5.79004,5.88194,0)))
+    qwm_doc.sketch_lens_section_5027.addGeometry(Part.LineSegment(FreeCAD.Vector(5.79004,5.88194,0), FreeCAD.Vector(4.33309,8.52392,0)))
+    qwm_doc.sketch_lens_section_5027.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33309,8.52392,0), FreeCAD.Vector(2.37667,10.82068,0)))
+    qwm_doc.sketch_lens_section_5027.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37667,10.82068,0), FreeCAD.Vector(0.0,12.67921,0)))
+    qwm_doc.sketch_lens_section_5027.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.67921,0), FreeCAD.Vector(0.0,-12.67921,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_5027D")
+    qwm_doc.lens_section_5027D.Base = qwm_doc.sketch_lens_section_5027
+    qwm_doc.lens_section_5027D.Dir = (0, 0, -0.25)
+    qwm_doc.lens_section_5027D.Solid = True
+    qwm_doc.lens_section_5027D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_5027D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_51')
     qwm_doc.sketch_lens_section_51.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.68857,0), FreeCAD.Vector(2.37927,-10.82916,0)))
@@ -978,25 +978,25 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_51U.Solid = True
     qwm_doc.lens_section_51U.ViewObject.Transparency = 60
     qwm_doc.lens_section_51U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_51')
-    qwm_doc.sketch_lens_section_51.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.68857,0), FreeCAD.Vector(2.37927,-10.82916,0)))
-    qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37927,-10.82916,0), FreeCAD.Vector(4.3379,-8.53088,0)))
-    qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(4.3379,-8.53088,0), FreeCAD.Vector(5.79654,-5.88689,0)))
-    qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(5.79654,-5.88689,0), FreeCAD.Vector(6.69605,-3.00432,0)))
-    qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(6.69605,-3.00432,0), FreeCAD.Vector(6.99999,0.0,0)))
-    qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(6.99999,0.0,0), FreeCAD.Vector(6.69605,3.00432,0)))
-    qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(6.69605,3.00432,0), FreeCAD.Vector(5.79654,5.88689,0)))
-    qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(5.79654,5.88689,0), FreeCAD.Vector(4.3379,8.53088,0)))
-    qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(4.3379,8.53088,0), FreeCAD.Vector(2.37927,10.82916,0)))
-    qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37927,10.82916,0), FreeCAD.Vector(0.0,12.68857,0)))
-    qwm_doc.sketch_lens_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.68857,0), FreeCAD.Vector(0.0,-12.68857,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_51D")
-    qwm_doc.lens_section_51D.Base = qwm_doc.sketch_lens_section_51
-    qwm_doc.lens_section_51D.Dir = (0, 0, -0.25)
-    qwm_doc.lens_section_51D.Solid = True
-    qwm_doc.lens_section_51D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_51D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_5128')
+    qwm_doc.sketch_lens_section_5128.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_5128.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.68857,0), FreeCAD.Vector(2.37927,-10.82916,0)))
+    qwm_doc.sketch_lens_section_5128.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37927,-10.82916,0), FreeCAD.Vector(4.3379,-8.53088,0)))
+    qwm_doc.sketch_lens_section_5128.addGeometry(Part.LineSegment(FreeCAD.Vector(4.3379,-8.53088,0), FreeCAD.Vector(5.79654,-5.88689,0)))
+    qwm_doc.sketch_lens_section_5128.addGeometry(Part.LineSegment(FreeCAD.Vector(5.79654,-5.88689,0), FreeCAD.Vector(6.69605,-3.00432,0)))
+    qwm_doc.sketch_lens_section_5128.addGeometry(Part.LineSegment(FreeCAD.Vector(6.69605,-3.00432,0), FreeCAD.Vector(6.99999,0.0,0)))
+    qwm_doc.sketch_lens_section_5128.addGeometry(Part.LineSegment(FreeCAD.Vector(6.99999,0.0,0), FreeCAD.Vector(6.69605,3.00432,0)))
+    qwm_doc.sketch_lens_section_5128.addGeometry(Part.LineSegment(FreeCAD.Vector(6.69605,3.00432,0), FreeCAD.Vector(5.79654,5.88689,0)))
+    qwm_doc.sketch_lens_section_5128.addGeometry(Part.LineSegment(FreeCAD.Vector(5.79654,5.88689,0), FreeCAD.Vector(4.3379,8.53088,0)))
+    qwm_doc.sketch_lens_section_5128.addGeometry(Part.LineSegment(FreeCAD.Vector(4.3379,8.53088,0), FreeCAD.Vector(2.37927,10.82916,0)))
+    qwm_doc.sketch_lens_section_5128.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37927,10.82916,0), FreeCAD.Vector(0.0,12.68857,0)))
+    qwm_doc.sketch_lens_section_5128.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.68857,0), FreeCAD.Vector(0.0,-12.68857,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_5128D")
+    qwm_doc.lens_section_5128D.Base = qwm_doc.sketch_lens_section_5128
+    qwm_doc.lens_section_5128D.Dir = (0, 0, -0.25)
+    qwm_doc.lens_section_5128D.Solid = True
+    qwm_doc.lens_section_5128D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_5128D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_52')
     qwm_doc.sketch_lens_section_52.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.67921,0), FreeCAD.Vector(2.37667,-10.82068,0)))
@@ -1016,25 +1016,25 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_52U.Solid = True
     qwm_doc.lens_section_52U.ViewObject.Transparency = 60
     qwm_doc.lens_section_52U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_52')
-    qwm_doc.sketch_lens_section_52.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.67827,0), FreeCAD.Vector(2.37641,-10.81983,0)))
-    qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37641,-10.81983,0), FreeCAD.Vector(4.33261,-8.52322,0)))
-    qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33261,-8.52322,0), FreeCAD.Vector(5.78939,-5.88145,0)))
-    qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(5.78939,-5.88145,0), FreeCAD.Vector(6.68774,-3.0015,0)))
-    qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(6.68774,-3.0015,0), FreeCAD.Vector(6.99128,0.0,0)))
-    qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(6.99128,0.0,0), FreeCAD.Vector(6.68774,3.0015,0)))
-    qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(6.68774,3.0015,0), FreeCAD.Vector(5.78939,5.88145,0)))
-    qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(5.78939,5.88145,0), FreeCAD.Vector(4.33261,8.52322,0)))
-    qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33261,8.52322,0), FreeCAD.Vector(2.37641,10.81983,0)))
-    qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37641,10.81983,0), FreeCAD.Vector(0.0,12.67827,0)))
-    qwm_doc.sketch_lens_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.67827,0), FreeCAD.Vector(0.0,-12.67827,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_52D")
-    qwm_doc.lens_section_52D.Base = qwm_doc.sketch_lens_section_52
-    qwm_doc.lens_section_52D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_52D.Solid = True
-    qwm_doc.lens_section_52D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_52D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_5229')
+    qwm_doc.sketch_lens_section_5229.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_5229.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.67827,0), FreeCAD.Vector(2.37641,-10.81983,0)))
+    qwm_doc.sketch_lens_section_5229.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37641,-10.81983,0), FreeCAD.Vector(4.33261,-8.52322,0)))
+    qwm_doc.sketch_lens_section_5229.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33261,-8.52322,0), FreeCAD.Vector(5.78939,-5.88145,0)))
+    qwm_doc.sketch_lens_section_5229.addGeometry(Part.LineSegment(FreeCAD.Vector(5.78939,-5.88145,0), FreeCAD.Vector(6.68774,-3.0015,0)))
+    qwm_doc.sketch_lens_section_5229.addGeometry(Part.LineSegment(FreeCAD.Vector(6.68774,-3.0015,0), FreeCAD.Vector(6.99128,0.0,0)))
+    qwm_doc.sketch_lens_section_5229.addGeometry(Part.LineSegment(FreeCAD.Vector(6.99128,0.0,0), FreeCAD.Vector(6.68774,3.0015,0)))
+    qwm_doc.sketch_lens_section_5229.addGeometry(Part.LineSegment(FreeCAD.Vector(6.68774,3.0015,0), FreeCAD.Vector(5.78939,5.88145,0)))
+    qwm_doc.sketch_lens_section_5229.addGeometry(Part.LineSegment(FreeCAD.Vector(5.78939,5.88145,0), FreeCAD.Vector(4.33261,8.52322,0)))
+    qwm_doc.sketch_lens_section_5229.addGeometry(Part.LineSegment(FreeCAD.Vector(4.33261,8.52322,0), FreeCAD.Vector(2.37641,10.81983,0)))
+    qwm_doc.sketch_lens_section_5229.addGeometry(Part.LineSegment(FreeCAD.Vector(2.37641,10.81983,0), FreeCAD.Vector(0.0,12.67827,0)))
+    qwm_doc.sketch_lens_section_5229.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.67827,0), FreeCAD.Vector(0.0,-12.67827,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_5229D")
+    qwm_doc.lens_section_5229D.Base = qwm_doc.sketch_lens_section_5229
+    qwm_doc.lens_section_5229D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_5229D.Solid = True
+    qwm_doc.lens_section_5229D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_5229D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_53')
     qwm_doc.sketch_lens_section_53.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.6538,0), FreeCAD.Vector(2.36963,-10.79766,0)))
@@ -1054,25 +1054,25 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_53U.Solid = True
     qwm_doc.lens_section_53U.ViewObject.Transparency = 60
     qwm_doc.lens_section_53U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_53')
-    qwm_doc.sketch_lens_section_53.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.65211,0), FreeCAD.Vector(2.36916,-10.79613,0)))
-    qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36916,-10.79613,0), FreeCAD.Vector(4.31918,-8.50375,0)))
-    qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(4.31918,-8.50375,0), FreeCAD.Vector(5.77123,-5.86764,0)))
-    qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(5.77123,-5.86764,0), FreeCAD.Vector(6.66663,-2.99434,0)))
-    qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(6.66663,-2.99434,0), FreeCAD.Vector(6.96917,0.0,0)))
-    qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(6.96917,0.0,0), FreeCAD.Vector(6.66663,2.99434,0)))
-    qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(6.66663,2.99434,0), FreeCAD.Vector(5.77123,5.86764,0)))
-    qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(5.77123,5.86764,0), FreeCAD.Vector(4.31918,8.50375,0)))
-    qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(4.31918,8.50375,0), FreeCAD.Vector(2.36916,10.79613,0)))
-    qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36916,10.79613,0), FreeCAD.Vector(0.0,12.65211,0)))
-    qwm_doc.sketch_lens_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.65211,0), FreeCAD.Vector(0.0,-12.65211,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_53D")
-    qwm_doc.lens_section_53D.Base = qwm_doc.sketch_lens_section_53
-    qwm_doc.lens_section_53D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_53D.Solid = True
-    qwm_doc.lens_section_53D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_53D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_5330')
+    qwm_doc.sketch_lens_section_5330.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_5330.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.65211,0), FreeCAD.Vector(2.36916,-10.79613,0)))
+    qwm_doc.sketch_lens_section_5330.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36916,-10.79613,0), FreeCAD.Vector(4.31918,-8.50375,0)))
+    qwm_doc.sketch_lens_section_5330.addGeometry(Part.LineSegment(FreeCAD.Vector(4.31918,-8.50375,0), FreeCAD.Vector(5.77123,-5.86764,0)))
+    qwm_doc.sketch_lens_section_5330.addGeometry(Part.LineSegment(FreeCAD.Vector(5.77123,-5.86764,0), FreeCAD.Vector(6.66663,-2.99434,0)))
+    qwm_doc.sketch_lens_section_5330.addGeometry(Part.LineSegment(FreeCAD.Vector(6.66663,-2.99434,0), FreeCAD.Vector(6.96917,0.0,0)))
+    qwm_doc.sketch_lens_section_5330.addGeometry(Part.LineSegment(FreeCAD.Vector(6.96917,0.0,0), FreeCAD.Vector(6.66663,2.99434,0)))
+    qwm_doc.sketch_lens_section_5330.addGeometry(Part.LineSegment(FreeCAD.Vector(6.66663,2.99434,0), FreeCAD.Vector(5.77123,5.86764,0)))
+    qwm_doc.sketch_lens_section_5330.addGeometry(Part.LineSegment(FreeCAD.Vector(5.77123,5.86764,0), FreeCAD.Vector(4.31918,8.50375,0)))
+    qwm_doc.sketch_lens_section_5330.addGeometry(Part.LineSegment(FreeCAD.Vector(4.31918,8.50375,0), FreeCAD.Vector(2.36916,10.79613,0)))
+    qwm_doc.sketch_lens_section_5330.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36916,10.79613,0), FreeCAD.Vector(0.0,12.65211,0)))
+    qwm_doc.sketch_lens_section_5330.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.65211,0), FreeCAD.Vector(0.0,-12.65211,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_5330D")
+    qwm_doc.lens_section_5330D.Base = qwm_doc.sketch_lens_section_5330
+    qwm_doc.lens_section_5330D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_5330D.Solid = True
+    qwm_doc.lens_section_5330D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_5330D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_54')
     qwm_doc.sketch_lens_section_54.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.61235,0), FreeCAD.Vector(2.35814,-10.76012,0)))
@@ -1092,25 +1092,25 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_54U.Solid = True
     qwm_doc.lens_section_54U.ViewObject.Transparency = 60
     qwm_doc.lens_section_54U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_54')
-    qwm_doc.sketch_lens_section_54.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.60985,0), FreeCAD.Vector(2.35745,-10.75786,0)))
-    qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(2.35745,-10.75786,0), FreeCAD.Vector(4.29749,-8.47232,0)))
-    qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(4.29749,-8.47232,0), FreeCAD.Vector(5.74193,-5.84533,0)))
-    qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(5.74193,-5.84533,0), FreeCAD.Vector(6.63255,-2.98277,0)))
-    qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(6.63255,-2.98277,0), FreeCAD.Vector(6.93346,0.0,0)))
-    qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(6.93346,0.0,0), FreeCAD.Vector(6.63255,2.98277,0)))
-    qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(6.63255,2.98277,0), FreeCAD.Vector(5.74193,5.84533,0)))
-    qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(5.74193,5.84533,0), FreeCAD.Vector(4.29749,8.47232,0)))
-    qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(4.29749,8.47232,0), FreeCAD.Vector(2.35745,10.75786,0)))
-    qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(2.35745,10.75786,0), FreeCAD.Vector(0.0,12.60985,0)))
-    qwm_doc.sketch_lens_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.60985,0), FreeCAD.Vector(0.0,-12.60985,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_54D")
-    qwm_doc.lens_section_54D.Base = qwm_doc.sketch_lens_section_54
-    qwm_doc.lens_section_54D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_54D.Solid = True
-    qwm_doc.lens_section_54D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_54D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_5431')
+    qwm_doc.sketch_lens_section_5431.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_5431.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.60985,0), FreeCAD.Vector(2.35745,-10.75786,0)))
+    qwm_doc.sketch_lens_section_5431.addGeometry(Part.LineSegment(FreeCAD.Vector(2.35745,-10.75786,0), FreeCAD.Vector(4.29749,-8.47232,0)))
+    qwm_doc.sketch_lens_section_5431.addGeometry(Part.LineSegment(FreeCAD.Vector(4.29749,-8.47232,0), FreeCAD.Vector(5.74193,-5.84533,0)))
+    qwm_doc.sketch_lens_section_5431.addGeometry(Part.LineSegment(FreeCAD.Vector(5.74193,-5.84533,0), FreeCAD.Vector(6.63255,-2.98277,0)))
+    qwm_doc.sketch_lens_section_5431.addGeometry(Part.LineSegment(FreeCAD.Vector(6.63255,-2.98277,0), FreeCAD.Vector(6.93346,0.0,0)))
+    qwm_doc.sketch_lens_section_5431.addGeometry(Part.LineSegment(FreeCAD.Vector(6.93346,0.0,0), FreeCAD.Vector(6.63255,2.98277,0)))
+    qwm_doc.sketch_lens_section_5431.addGeometry(Part.LineSegment(FreeCAD.Vector(6.63255,2.98277,0), FreeCAD.Vector(5.74193,5.84533,0)))
+    qwm_doc.sketch_lens_section_5431.addGeometry(Part.LineSegment(FreeCAD.Vector(5.74193,5.84533,0), FreeCAD.Vector(4.29749,8.47232,0)))
+    qwm_doc.sketch_lens_section_5431.addGeometry(Part.LineSegment(FreeCAD.Vector(4.29749,8.47232,0), FreeCAD.Vector(2.35745,10.75786,0)))
+    qwm_doc.sketch_lens_section_5431.addGeometry(Part.LineSegment(FreeCAD.Vector(2.35745,10.75786,0), FreeCAD.Vector(0.0,12.60985,0)))
+    qwm_doc.sketch_lens_section_5431.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.60985,0), FreeCAD.Vector(0.0,-12.60985,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_5431D")
+    qwm_doc.lens_section_5431D.Base = qwm_doc.sketch_lens_section_5431
+    qwm_doc.lens_section_5431D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_5431D.Solid = True
+    qwm_doc.lens_section_5431D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_5431D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_55')
     qwm_doc.sketch_lens_section_55.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.55464,0), FreeCAD.Vector(2.34217,-10.70787,0)))
@@ -1130,25 +1130,25 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_55U.Solid = True
     qwm_doc.lens_section_55U.ViewObject.Transparency = 60
     qwm_doc.lens_section_55U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_55')
-    qwm_doc.sketch_lens_section_55.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.55132,0), FreeCAD.Vector(2.34125,-10.70487,0)))
-    qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(2.34125,-10.70487,0), FreeCAD.Vector(4.26748,-8.4288,0)))
-    qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(4.26748,-8.4288,0), FreeCAD.Vector(5.70138,-5.81445,0)))
-    qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(5.70138,-5.81445,0), FreeCAD.Vector(6.58541,-2.96676,0)))
-    qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(6.58541,-2.96676,0), FreeCAD.Vector(6.88408,0.0,0)))
-    qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(6.88408,0.0,0), FreeCAD.Vector(6.58541,2.96676,0)))
-    qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(6.58541,2.96676,0), FreeCAD.Vector(5.70138,5.81445,0)))
-    qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(5.70138,5.81445,0), FreeCAD.Vector(4.26748,8.4288,0)))
-    qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(4.26748,8.4288,0), FreeCAD.Vector(2.34125,10.70487,0)))
-    qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(2.34125,10.70487,0), FreeCAD.Vector(0.0,12.55132,0)))
-    qwm_doc.sketch_lens_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.55132,0), FreeCAD.Vector(0.0,-12.55132,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_55D")
-    qwm_doc.lens_section_55D.Base = qwm_doc.sketch_lens_section_55
-    qwm_doc.lens_section_55D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_55D.Solid = True
-    qwm_doc.lens_section_55D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_55D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_5532')
+    qwm_doc.sketch_lens_section_5532.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_5532.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.55132,0), FreeCAD.Vector(2.34125,-10.70487,0)))
+    qwm_doc.sketch_lens_section_5532.addGeometry(Part.LineSegment(FreeCAD.Vector(2.34125,-10.70487,0), FreeCAD.Vector(4.26748,-8.4288,0)))
+    qwm_doc.sketch_lens_section_5532.addGeometry(Part.LineSegment(FreeCAD.Vector(4.26748,-8.4288,0), FreeCAD.Vector(5.70138,-5.81445,0)))
+    qwm_doc.sketch_lens_section_5532.addGeometry(Part.LineSegment(FreeCAD.Vector(5.70138,-5.81445,0), FreeCAD.Vector(6.58541,-2.96676,0)))
+    qwm_doc.sketch_lens_section_5532.addGeometry(Part.LineSegment(FreeCAD.Vector(6.58541,-2.96676,0), FreeCAD.Vector(6.88408,0.0,0)))
+    qwm_doc.sketch_lens_section_5532.addGeometry(Part.LineSegment(FreeCAD.Vector(6.88408,0.0,0), FreeCAD.Vector(6.58541,2.96676,0)))
+    qwm_doc.sketch_lens_section_5532.addGeometry(Part.LineSegment(FreeCAD.Vector(6.58541,2.96676,0), FreeCAD.Vector(5.70138,5.81445,0)))
+    qwm_doc.sketch_lens_section_5532.addGeometry(Part.LineSegment(FreeCAD.Vector(5.70138,5.81445,0), FreeCAD.Vector(4.26748,8.4288,0)))
+    qwm_doc.sketch_lens_section_5532.addGeometry(Part.LineSegment(FreeCAD.Vector(4.26748,8.4288,0), FreeCAD.Vector(2.34125,10.70487,0)))
+    qwm_doc.sketch_lens_section_5532.addGeometry(Part.LineSegment(FreeCAD.Vector(2.34125,10.70487,0), FreeCAD.Vector(0.0,12.55132,0)))
+    qwm_doc.sketch_lens_section_5532.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.55132,0), FreeCAD.Vector(0.0,-12.55132,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_5532D")
+    qwm_doc.lens_section_5532D.Base = qwm_doc.sketch_lens_section_5532
+    qwm_doc.lens_section_5532D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_5532D.Solid = True
+    qwm_doc.lens_section_5532D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_5532D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_56')
     qwm_doc.sketch_lens_section_56.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.48045,0), FreeCAD.Vector(2.55573,-10.40856,0)))
@@ -1167,24 +1167,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_56U.Solid = True
     qwm_doc.lens_section_56U.ViewObject.Transparency = 60
     qwm_doc.lens_section_56U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_56')
-    qwm_doc.sketch_lens_section_56.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.4763,0), FreeCAD.Vector(2.55447,-10.40487,0)))
-    qwm_doc.sketch_lens_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(2.55447,-10.40487,0), FreeCAD.Vector(4.58922,-7.8211,0)))
-    qwm_doc.sketch_lens_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(4.58922,-7.8211,0), FreeCAD.Vector(6.00408,-4.85221,0)))
-    qwm_doc.sketch_lens_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(6.00408,-4.85221,0), FreeCAD.Vector(6.72936,-1.64439,0)))
-    qwm_doc.sketch_lens_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(6.72936,-1.64439,0), FreeCAD.Vector(6.72936,1.64439,0)))
-    qwm_doc.sketch_lens_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(6.72936,1.64439,0), FreeCAD.Vector(6.00408,4.85221,0)))
-    qwm_doc.sketch_lens_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(6.00408,4.85221,0), FreeCAD.Vector(4.58922,7.8211,0)))
-    qwm_doc.sketch_lens_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(4.58922,7.8211,0), FreeCAD.Vector(2.55447,10.40487,0)))
-    qwm_doc.sketch_lens_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(2.55447,10.40487,0), FreeCAD.Vector(0.0,12.4763,0)))
-    qwm_doc.sketch_lens_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.4763,0), FreeCAD.Vector(0.0,-12.4763,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_56D")
-    qwm_doc.lens_section_56D.Base = qwm_doc.sketch_lens_section_56
-    qwm_doc.lens_section_56D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_56D.Solid = True
-    qwm_doc.lens_section_56D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_56D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_5633')
+    qwm_doc.sketch_lens_section_5633.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_5633.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.4763,0), FreeCAD.Vector(2.55447,-10.40487,0)))
+    qwm_doc.sketch_lens_section_5633.addGeometry(Part.LineSegment(FreeCAD.Vector(2.55447,-10.40487,0), FreeCAD.Vector(4.58922,-7.8211,0)))
+    qwm_doc.sketch_lens_section_5633.addGeometry(Part.LineSegment(FreeCAD.Vector(4.58922,-7.8211,0), FreeCAD.Vector(6.00408,-4.85221,0)))
+    qwm_doc.sketch_lens_section_5633.addGeometry(Part.LineSegment(FreeCAD.Vector(6.00408,-4.85221,0), FreeCAD.Vector(6.72936,-1.64439,0)))
+    qwm_doc.sketch_lens_section_5633.addGeometry(Part.LineSegment(FreeCAD.Vector(6.72936,-1.64439,0), FreeCAD.Vector(6.72936,1.64439,0)))
+    qwm_doc.sketch_lens_section_5633.addGeometry(Part.LineSegment(FreeCAD.Vector(6.72936,1.64439,0), FreeCAD.Vector(6.00408,4.85221,0)))
+    qwm_doc.sketch_lens_section_5633.addGeometry(Part.LineSegment(FreeCAD.Vector(6.00408,4.85221,0), FreeCAD.Vector(4.58922,7.8211,0)))
+    qwm_doc.sketch_lens_section_5633.addGeometry(Part.LineSegment(FreeCAD.Vector(4.58922,7.8211,0), FreeCAD.Vector(2.55447,10.40487,0)))
+    qwm_doc.sketch_lens_section_5633.addGeometry(Part.LineSegment(FreeCAD.Vector(2.55447,10.40487,0), FreeCAD.Vector(0.0,12.4763,0)))
+    qwm_doc.sketch_lens_section_5633.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.4763,0), FreeCAD.Vector(0.0,-12.4763,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_5633D")
+    qwm_doc.lens_section_5633D.Base = qwm_doc.sketch_lens_section_5633
+    qwm_doc.lens_section_5633D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_5633D.Solid = True
+    qwm_doc.lens_section_5633D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_5633D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_57')
     qwm_doc.sketch_lens_section_57.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.38948,0), FreeCAD.Vector(2.52803,-10.32763,0)))
@@ -1203,24 +1203,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_57U.Solid = True
     qwm_doc.lens_section_57U.ViewObject.Transparency = 60
     qwm_doc.lens_section_57U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_57')
-    qwm_doc.sketch_lens_section_57.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.38449,0), FreeCAD.Vector(2.52651,-10.32318,0)))
-    qwm_doc.sketch_lens_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(2.52651,-10.32318,0), FreeCAD.Vector(4.53815,-7.75695,0)))
-    qwm_doc.sketch_lens_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(4.53815,-7.75695,0), FreeCAD.Vector(5.93652,-4.81132,0)))
-    qwm_doc.sketch_lens_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(5.93652,-4.81132,0), FreeCAD.Vector(6.65324,-1.63035,0)))
-    qwm_doc.sketch_lens_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(6.65324,-1.63035,0), FreeCAD.Vector(6.65324,1.63035,0)))
-    qwm_doc.sketch_lens_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(6.65324,1.63035,0), FreeCAD.Vector(5.93652,4.81132,0)))
-    qwm_doc.sketch_lens_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(5.93652,4.81132,0), FreeCAD.Vector(4.53815,7.75695,0)))
-    qwm_doc.sketch_lens_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(4.53815,7.75695,0), FreeCAD.Vector(2.52651,10.32318,0)))
-    qwm_doc.sketch_lens_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(2.52651,10.32318,0), FreeCAD.Vector(0.0,12.38449,0)))
-    qwm_doc.sketch_lens_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.38449,0), FreeCAD.Vector(0.0,-12.38449,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_57D")
-    qwm_doc.lens_section_57D.Base = qwm_doc.sketch_lens_section_57
-    qwm_doc.lens_section_57D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_57D.Solid = True
-    qwm_doc.lens_section_57D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_57D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_5734')
+    qwm_doc.sketch_lens_section_5734.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_5734.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.38449,0), FreeCAD.Vector(2.52651,-10.32318,0)))
+    qwm_doc.sketch_lens_section_5734.addGeometry(Part.LineSegment(FreeCAD.Vector(2.52651,-10.32318,0), FreeCAD.Vector(4.53815,-7.75695,0)))
+    qwm_doc.sketch_lens_section_5734.addGeometry(Part.LineSegment(FreeCAD.Vector(4.53815,-7.75695,0), FreeCAD.Vector(5.93652,-4.81132,0)))
+    qwm_doc.sketch_lens_section_5734.addGeometry(Part.LineSegment(FreeCAD.Vector(5.93652,-4.81132,0), FreeCAD.Vector(6.65324,-1.63035,0)))
+    qwm_doc.sketch_lens_section_5734.addGeometry(Part.LineSegment(FreeCAD.Vector(6.65324,-1.63035,0), FreeCAD.Vector(6.65324,1.63035,0)))
+    qwm_doc.sketch_lens_section_5734.addGeometry(Part.LineSegment(FreeCAD.Vector(6.65324,1.63035,0), FreeCAD.Vector(5.93652,4.81132,0)))
+    qwm_doc.sketch_lens_section_5734.addGeometry(Part.LineSegment(FreeCAD.Vector(5.93652,4.81132,0), FreeCAD.Vector(4.53815,7.75695,0)))
+    qwm_doc.sketch_lens_section_5734.addGeometry(Part.LineSegment(FreeCAD.Vector(4.53815,7.75695,0), FreeCAD.Vector(2.52651,10.32318,0)))
+    qwm_doc.sketch_lens_section_5734.addGeometry(Part.LineSegment(FreeCAD.Vector(2.52651,10.32318,0), FreeCAD.Vector(0.0,12.38449,0)))
+    qwm_doc.sketch_lens_section_5734.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.38449,0), FreeCAD.Vector(0.0,-12.38449,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_5734D")
+    qwm_doc.lens_section_5734D.Base = qwm_doc.sketch_lens_section_5734
+    qwm_doc.lens_section_5734D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_5734D.Solid = True
+    qwm_doc.lens_section_5734D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_5734D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_58')
     qwm_doc.sketch_lens_section_58.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.28136,0), FreeCAD.Vector(2.49517,-10.23149,0)))
@@ -1239,24 +1239,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_58U.Solid = True
     qwm_doc.lens_section_58U.ViewObject.Transparency = 60
     qwm_doc.lens_section_58U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_58')
-    qwm_doc.sketch_lens_section_58.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.2755,0), FreeCAD.Vector(2.49339,-10.22628,0)))
-    qwm_doc.sketch_lens_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(2.49339,-10.22628,0), FreeCAD.Vector(4.47765,-7.68089,0)))
-    qwm_doc.sketch_lens_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(4.47765,-7.68089,0), FreeCAD.Vector(5.85652,-4.76285,0)))
-    qwm_doc.sketch_lens_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(5.85652,-4.76285,0), FreeCAD.Vector(6.5631,-1.61371,0)))
-    qwm_doc.sketch_lens_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(6.5631,-1.61371,0), FreeCAD.Vector(6.5631,1.61371,0)))
-    qwm_doc.sketch_lens_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(6.5631,1.61371,0), FreeCAD.Vector(5.85652,4.76285,0)))
-    qwm_doc.sketch_lens_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(5.85652,4.76285,0), FreeCAD.Vector(4.47765,7.68089,0)))
-    qwm_doc.sketch_lens_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(4.47765,7.68089,0), FreeCAD.Vector(2.49339,10.22628,0)))
-    qwm_doc.sketch_lens_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(2.49339,10.22628,0), FreeCAD.Vector(0.0,12.2755,0)))
-    qwm_doc.sketch_lens_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.2755,0), FreeCAD.Vector(0.0,-12.2755,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_58D")
-    qwm_doc.lens_section_58D.Base = qwm_doc.sketch_lens_section_58
-    qwm_doc.lens_section_58D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_58D.Solid = True
-    qwm_doc.lens_section_58D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_58D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_5835')
+    qwm_doc.sketch_lens_section_5835.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_5835.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.2755,0), FreeCAD.Vector(2.49339,-10.22628,0)))
+    qwm_doc.sketch_lens_section_5835.addGeometry(Part.LineSegment(FreeCAD.Vector(2.49339,-10.22628,0), FreeCAD.Vector(4.47765,-7.68089,0)))
+    qwm_doc.sketch_lens_section_5835.addGeometry(Part.LineSegment(FreeCAD.Vector(4.47765,-7.68089,0), FreeCAD.Vector(5.85652,-4.76285,0)))
+    qwm_doc.sketch_lens_section_5835.addGeometry(Part.LineSegment(FreeCAD.Vector(5.85652,-4.76285,0), FreeCAD.Vector(6.5631,-1.61371,0)))
+    qwm_doc.sketch_lens_section_5835.addGeometry(Part.LineSegment(FreeCAD.Vector(6.5631,-1.61371,0), FreeCAD.Vector(6.5631,1.61371,0)))
+    qwm_doc.sketch_lens_section_5835.addGeometry(Part.LineSegment(FreeCAD.Vector(6.5631,1.61371,0), FreeCAD.Vector(5.85652,4.76285,0)))
+    qwm_doc.sketch_lens_section_5835.addGeometry(Part.LineSegment(FreeCAD.Vector(5.85652,4.76285,0), FreeCAD.Vector(4.47765,7.68089,0)))
+    qwm_doc.sketch_lens_section_5835.addGeometry(Part.LineSegment(FreeCAD.Vector(4.47765,7.68089,0), FreeCAD.Vector(2.49339,10.22628,0)))
+    qwm_doc.sketch_lens_section_5835.addGeometry(Part.LineSegment(FreeCAD.Vector(2.49339,10.22628,0), FreeCAD.Vector(0.0,12.2755,0)))
+    qwm_doc.sketch_lens_section_5835.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.2755,0), FreeCAD.Vector(0.0,-12.2755,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_5835D")
+    qwm_doc.lens_section_5835D.Base = qwm_doc.sketch_lens_section_5835
+    qwm_doc.lens_section_5835D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_5835D.Solid = True
+    qwm_doc.lens_section_5835D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_5835D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_59')
     qwm_doc.sketch_lens_section_59.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.15564,0), FreeCAD.Vector(2.45704,-10.11978,0)))
@@ -1275,24 +1275,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_59U.Solid = True
     qwm_doc.lens_section_59U.ViewObject.Transparency = 60
     qwm_doc.lens_section_59U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_59')
-    qwm_doc.sketch_lens_section_59.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.14888,0), FreeCAD.Vector(2.45499,-10.11378,0)))
-    qwm_doc.sketch_lens_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(2.45499,-10.11378,0), FreeCAD.Vector(4.40754,-7.59264,0)))
-    qwm_doc.sketch_lens_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(4.40754,-7.59264,0), FreeCAD.Vector(5.76383,-4.70662,0)))
-    qwm_doc.sketch_lens_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(5.76383,-4.70662,0), FreeCAD.Vector(6.45867,-1.59441,0)))
-    qwm_doc.sketch_lens_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(6.45867,-1.59441,0), FreeCAD.Vector(6.45867,1.59441,0)))
-    qwm_doc.sketch_lens_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(6.45867,1.59441,0), FreeCAD.Vector(5.76383,4.70662,0)))
-    qwm_doc.sketch_lens_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(5.76383,4.70662,0), FreeCAD.Vector(4.40754,7.59264,0)))
-    qwm_doc.sketch_lens_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(4.40754,7.59264,0), FreeCAD.Vector(2.45499,10.11378,0)))
-    qwm_doc.sketch_lens_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(2.45499,10.11378,0), FreeCAD.Vector(0.0,12.14888,0)))
-    qwm_doc.sketch_lens_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.14888,0), FreeCAD.Vector(0.0,-12.14888,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_59D")
-    qwm_doc.lens_section_59D.Base = qwm_doc.sketch_lens_section_59
-    qwm_doc.lens_section_59D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_59D.Solid = True
-    qwm_doc.lens_section_59D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_59D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_5936')
+    qwm_doc.sketch_lens_section_5936.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_5936.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.14888,0), FreeCAD.Vector(2.45499,-10.11378,0)))
+    qwm_doc.sketch_lens_section_5936.addGeometry(Part.LineSegment(FreeCAD.Vector(2.45499,-10.11378,0), FreeCAD.Vector(4.40754,-7.59264,0)))
+    qwm_doc.sketch_lens_section_5936.addGeometry(Part.LineSegment(FreeCAD.Vector(4.40754,-7.59264,0), FreeCAD.Vector(5.76383,-4.70662,0)))
+    qwm_doc.sketch_lens_section_5936.addGeometry(Part.LineSegment(FreeCAD.Vector(5.76383,-4.70662,0), FreeCAD.Vector(6.45867,-1.59441,0)))
+    qwm_doc.sketch_lens_section_5936.addGeometry(Part.LineSegment(FreeCAD.Vector(6.45867,-1.59441,0), FreeCAD.Vector(6.45867,1.59441,0)))
+    qwm_doc.sketch_lens_section_5936.addGeometry(Part.LineSegment(FreeCAD.Vector(6.45867,1.59441,0), FreeCAD.Vector(5.76383,4.70662,0)))
+    qwm_doc.sketch_lens_section_5936.addGeometry(Part.LineSegment(FreeCAD.Vector(5.76383,4.70662,0), FreeCAD.Vector(4.40754,7.59264,0)))
+    qwm_doc.sketch_lens_section_5936.addGeometry(Part.LineSegment(FreeCAD.Vector(4.40754,7.59264,0), FreeCAD.Vector(2.45499,10.11378,0)))
+    qwm_doc.sketch_lens_section_5936.addGeometry(Part.LineSegment(FreeCAD.Vector(2.45499,10.11378,0), FreeCAD.Vector(0.0,12.14888,0)))
+    qwm_doc.sketch_lens_section_5936.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.14888,0), FreeCAD.Vector(0.0,-12.14888,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_5936D")
+    qwm_doc.lens_section_5936D.Base = qwm_doc.sketch_lens_section_5936
+    qwm_doc.lens_section_5936D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_5936D.Solid = True
+    qwm_doc.lens_section_5936D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_5936D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_60')
     qwm_doc.sketch_lens_section_60.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.01175,0), FreeCAD.Vector(2.41351,-9.99204,0)))
@@ -1311,24 +1311,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_60U.Solid = True
     qwm_doc.lens_section_60U.ViewObject.Transparency = 60
     qwm_doc.lens_section_60U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_60')
-    qwm_doc.sketch_lens_section_60.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.00407,0), FreeCAD.Vector(2.41119,-9.98522,0)))
-    qwm_doc.sketch_lens_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(2.41119,-9.98522,0), FreeCAD.Vector(4.32761,-7.49185,0)))
-    qwm_doc.sketch_lens_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(4.32761,-7.49185,0), FreeCAD.Vector(5.65817,-4.64243,0)))
-    qwm_doc.sketch_lens_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(5.65817,-4.64243,0), FreeCAD.Vector(6.33964,-1.57238,0)))
-    qwm_doc.sketch_lens_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(6.33964,-1.57238,0), FreeCAD.Vector(6.33964,1.57238,0)))
-    qwm_doc.sketch_lens_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(6.33964,1.57238,0), FreeCAD.Vector(5.65817,4.64243,0)))
-    qwm_doc.sketch_lens_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(5.65817,4.64243,0), FreeCAD.Vector(4.32761,7.49185,0)))
-    qwm_doc.sketch_lens_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(4.32761,7.49185,0), FreeCAD.Vector(2.41119,9.98522,0)))
-    qwm_doc.sketch_lens_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(2.41119,9.98522,0), FreeCAD.Vector(0.0,12.00407,0)))
-    qwm_doc.sketch_lens_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.00407,0), FreeCAD.Vector(0.0,-12.00407,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_60D")
-    qwm_doc.lens_section_60D.Base = qwm_doc.sketch_lens_section_60
-    qwm_doc.lens_section_60D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_60D.Solid = True
-    qwm_doc.lens_section_60D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_60D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_6037')
+    qwm_doc.sketch_lens_section_6037.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_6037.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-12.00407,0), FreeCAD.Vector(2.41119,-9.98522,0)))
+    qwm_doc.sketch_lens_section_6037.addGeometry(Part.LineSegment(FreeCAD.Vector(2.41119,-9.98522,0), FreeCAD.Vector(4.32761,-7.49185,0)))
+    qwm_doc.sketch_lens_section_6037.addGeometry(Part.LineSegment(FreeCAD.Vector(4.32761,-7.49185,0), FreeCAD.Vector(5.65817,-4.64243,0)))
+    qwm_doc.sketch_lens_section_6037.addGeometry(Part.LineSegment(FreeCAD.Vector(5.65817,-4.64243,0), FreeCAD.Vector(6.33964,-1.57238,0)))
+    qwm_doc.sketch_lens_section_6037.addGeometry(Part.LineSegment(FreeCAD.Vector(6.33964,-1.57238,0), FreeCAD.Vector(6.33964,1.57238,0)))
+    qwm_doc.sketch_lens_section_6037.addGeometry(Part.LineSegment(FreeCAD.Vector(6.33964,1.57238,0), FreeCAD.Vector(5.65817,4.64243,0)))
+    qwm_doc.sketch_lens_section_6037.addGeometry(Part.LineSegment(FreeCAD.Vector(5.65817,4.64243,0), FreeCAD.Vector(4.32761,7.49185,0)))
+    qwm_doc.sketch_lens_section_6037.addGeometry(Part.LineSegment(FreeCAD.Vector(4.32761,7.49185,0), FreeCAD.Vector(2.41119,9.98522,0)))
+    qwm_doc.sketch_lens_section_6037.addGeometry(Part.LineSegment(FreeCAD.Vector(2.41119,9.98522,0), FreeCAD.Vector(0.0,12.00407,0)))
+    qwm_doc.sketch_lens_section_6037.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,12.00407,0), FreeCAD.Vector(0.0,-12.00407,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_6037D")
+    qwm_doc.lens_section_6037D.Base = qwm_doc.sketch_lens_section_6037
+    qwm_doc.lens_section_6037D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_6037D.Solid = True
+    qwm_doc.lens_section_6037D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_6037D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_61')
     qwm_doc.sketch_lens_section_61.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.84904,0), FreeCAD.Vector(2.36445,-9.84774,0)))
@@ -1347,24 +1347,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_61U.Solid = True
     qwm_doc.lens_section_61U.ViewObject.Transparency = 60
     qwm_doc.lens_section_61U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_61')
-    qwm_doc.sketch_lens_section_61.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.8404,0), FreeCAD.Vector(2.36185,-9.84008,0)))
-    qwm_doc.sketch_lens_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36185,-9.84008,0), FreeCAD.Vector(4.23758,-7.37813,0)))
-    qwm_doc.sketch_lens_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(4.23758,-7.37813,0), FreeCAD.Vector(5.53919,-4.57003,0)))
-    qwm_doc.sketch_lens_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(5.53919,-4.57003,0), FreeCAD.Vector(6.20564,-1.54755,0)))
-    qwm_doc.sketch_lens_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(6.20564,-1.54755,0), FreeCAD.Vector(6.20564,1.54755,0)))
-    qwm_doc.sketch_lens_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(6.20564,1.54755,0), FreeCAD.Vector(5.53919,4.57003,0)))
-    qwm_doc.sketch_lens_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(5.53919,4.57003,0), FreeCAD.Vector(4.23758,7.37813,0)))
-    qwm_doc.sketch_lens_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(4.23758,7.37813,0), FreeCAD.Vector(2.36185,9.84008,0)))
-    qwm_doc.sketch_lens_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36185,9.84008,0), FreeCAD.Vector(0.0,11.8404,0)))
-    qwm_doc.sketch_lens_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.8404,0), FreeCAD.Vector(0.0,-11.8404,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_61D")
-    qwm_doc.lens_section_61D.Base = qwm_doc.sketch_lens_section_61
-    qwm_doc.lens_section_61D.Dir = (0, 0, -0.225)
-    qwm_doc.lens_section_61D.Solid = True
-    qwm_doc.lens_section_61D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_61D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_6138')
+    qwm_doc.sketch_lens_section_6138.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_6138.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.8404,0), FreeCAD.Vector(2.36185,-9.84008,0)))
+    qwm_doc.sketch_lens_section_6138.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36185,-9.84008,0), FreeCAD.Vector(4.23758,-7.37813,0)))
+    qwm_doc.sketch_lens_section_6138.addGeometry(Part.LineSegment(FreeCAD.Vector(4.23758,-7.37813,0), FreeCAD.Vector(5.53919,-4.57003,0)))
+    qwm_doc.sketch_lens_section_6138.addGeometry(Part.LineSegment(FreeCAD.Vector(5.53919,-4.57003,0), FreeCAD.Vector(6.20564,-1.54755,0)))
+    qwm_doc.sketch_lens_section_6138.addGeometry(Part.LineSegment(FreeCAD.Vector(6.20564,-1.54755,0), FreeCAD.Vector(6.20564,1.54755,0)))
+    qwm_doc.sketch_lens_section_6138.addGeometry(Part.LineSegment(FreeCAD.Vector(6.20564,1.54755,0), FreeCAD.Vector(5.53919,4.57003,0)))
+    qwm_doc.sketch_lens_section_6138.addGeometry(Part.LineSegment(FreeCAD.Vector(5.53919,4.57003,0), FreeCAD.Vector(4.23758,7.37813,0)))
+    qwm_doc.sketch_lens_section_6138.addGeometry(Part.LineSegment(FreeCAD.Vector(4.23758,7.37813,0), FreeCAD.Vector(2.36185,9.84008,0)))
+    qwm_doc.sketch_lens_section_6138.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36185,9.84008,0), FreeCAD.Vector(0.0,11.8404,0)))
+    qwm_doc.sketch_lens_section_6138.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.8404,0), FreeCAD.Vector(0.0,-11.8404,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_6138D")
+    qwm_doc.lens_section_6138D.Base = qwm_doc.sketch_lens_section_6138
+    qwm_doc.lens_section_6138D.Dir = (0, 0, -0.225)
+    qwm_doc.lens_section_6138D.Solid = True
+    qwm_doc.lens_section_6138D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_6138D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_62')
     qwm_doc.sketch_lens_section_62.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.66672,0), FreeCAD.Vector(2.30967,-9.68624,0)))
@@ -1383,24 +1383,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_62U.Solid = True
     qwm_doc.lens_section_62U.ViewObject.Transparency = 60
     qwm_doc.lens_section_62U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_62')
-    qwm_doc.sketch_lens_section_62.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.65654,0), FreeCAD.Vector(2.30661,-9.67722,0)))
-    qwm_doc.sketch_lens_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(2.30661,-9.67722,0), FreeCAD.Vector(4.13686,-7.25063,0)))
-    qwm_doc.sketch_lens_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(4.13686,-7.25063,0), FreeCAD.Vector(5.40614,-4.48891,0)))
-    qwm_doc.sketch_lens_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(5.40614,-4.48891,0), FreeCAD.Vector(6.05579,-1.51972,0)))
-    qwm_doc.sketch_lens_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(6.05579,-1.51972,0), FreeCAD.Vector(6.05579,1.51972,0)))
-    qwm_doc.sketch_lens_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(6.05579,1.51972,0), FreeCAD.Vector(5.40614,4.48891,0)))
-    qwm_doc.sketch_lens_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(5.40614,4.48891,0), FreeCAD.Vector(4.13686,7.25063,0)))
-    qwm_doc.sketch_lens_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(4.13686,7.25063,0), FreeCAD.Vector(2.30661,9.67722,0)))
-    qwm_doc.sketch_lens_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(2.30661,9.67722,0), FreeCAD.Vector(0.0,11.65654,0)))
-    qwm_doc.sketch_lens_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.65654,0), FreeCAD.Vector(0.0,-11.65654,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_62D")
-    qwm_doc.lens_section_62D.Base = qwm_doc.sketch_lens_section_62
-    qwm_doc.lens_section_62D.Dir = (0, 0, -0.25)
-    qwm_doc.lens_section_62D.Solid = True
-    qwm_doc.lens_section_62D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_62D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_6239')
+    qwm_doc.sketch_lens_section_6239.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_6239.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.65654,0), FreeCAD.Vector(2.30661,-9.67722,0)))
+    qwm_doc.sketch_lens_section_6239.addGeometry(Part.LineSegment(FreeCAD.Vector(2.30661,-9.67722,0), FreeCAD.Vector(4.13686,-7.25063,0)))
+    qwm_doc.sketch_lens_section_6239.addGeometry(Part.LineSegment(FreeCAD.Vector(4.13686,-7.25063,0), FreeCAD.Vector(5.40614,-4.48891,0)))
+    qwm_doc.sketch_lens_section_6239.addGeometry(Part.LineSegment(FreeCAD.Vector(5.40614,-4.48891,0), FreeCAD.Vector(6.05579,-1.51972,0)))
+    qwm_doc.sketch_lens_section_6239.addGeometry(Part.LineSegment(FreeCAD.Vector(6.05579,-1.51972,0), FreeCAD.Vector(6.05579,1.51972,0)))
+    qwm_doc.sketch_lens_section_6239.addGeometry(Part.LineSegment(FreeCAD.Vector(6.05579,1.51972,0), FreeCAD.Vector(5.40614,4.48891,0)))
+    qwm_doc.sketch_lens_section_6239.addGeometry(Part.LineSegment(FreeCAD.Vector(5.40614,4.48891,0), FreeCAD.Vector(4.13686,7.25063,0)))
+    qwm_doc.sketch_lens_section_6239.addGeometry(Part.LineSegment(FreeCAD.Vector(4.13686,7.25063,0), FreeCAD.Vector(2.30661,9.67722,0)))
+    qwm_doc.sketch_lens_section_6239.addGeometry(Part.LineSegment(FreeCAD.Vector(2.30661,9.67722,0), FreeCAD.Vector(0.0,11.65654,0)))
+    qwm_doc.sketch_lens_section_6239.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.65654,0), FreeCAD.Vector(0.0,-11.65654,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_6239D")
+    qwm_doc.lens_section_6239D.Base = qwm_doc.sketch_lens_section_6239
+    qwm_doc.lens_section_6239D.Dir = (0, 0, -0.25)
+    qwm_doc.lens_section_6239D.Solid = True
+    qwm_doc.lens_section_6239D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_6239D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_63')
     qwm_doc.sketch_lens_section_63.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.4406,0), FreeCAD.Vector(2.24203,-9.48621,0)))
@@ -1419,24 +1419,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_63U.Solid = True
     qwm_doc.lens_section_63U.ViewObject.Transparency = 60
     qwm_doc.lens_section_63U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_63')
-    qwm_doc.sketch_lens_section_63.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.42858,0), FreeCAD.Vector(2.23844,-9.47559,0)))
-    qwm_doc.sketch_lens_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(2.23844,-9.47559,0), FreeCAD.Vector(4.01261,-7.09292,0)))
-    qwm_doc.sketch_lens_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(4.01261,-7.09292,0), FreeCAD.Vector(5.24207,-4.38863,0)))
-    qwm_doc.sketch_lens_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(5.24207,-4.38863,0), FreeCAD.Vector(5.87105,-1.48533,0)))
-    qwm_doc.sketch_lens_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(5.87105,-1.48533,0), FreeCAD.Vector(5.87105,1.48533,0)))
-    qwm_doc.sketch_lens_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(5.87105,1.48533,0), FreeCAD.Vector(5.24207,4.38863,0)))
-    qwm_doc.sketch_lens_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(5.24207,4.38863,0), FreeCAD.Vector(4.01261,7.09292,0)))
-    qwm_doc.sketch_lens_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(4.01261,7.09292,0), FreeCAD.Vector(2.23844,9.47559,0)))
-    qwm_doc.sketch_lens_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(2.23844,9.47559,0), FreeCAD.Vector(0.0,11.42858,0)))
-    qwm_doc.sketch_lens_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.42858,0), FreeCAD.Vector(0.0,-11.42858,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_63D")
-    qwm_doc.lens_section_63D.Base = qwm_doc.sketch_lens_section_63
-    qwm_doc.lens_section_63D.Dir = (0, 0, -0.25)
-    qwm_doc.lens_section_63D.Solid = True
-    qwm_doc.lens_section_63D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_63D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_6340')
+    qwm_doc.sketch_lens_section_6340.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_6340.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.42858,0), FreeCAD.Vector(2.23844,-9.47559,0)))
+    qwm_doc.sketch_lens_section_6340.addGeometry(Part.LineSegment(FreeCAD.Vector(2.23844,-9.47559,0), FreeCAD.Vector(4.01261,-7.09292,0)))
+    qwm_doc.sketch_lens_section_6340.addGeometry(Part.LineSegment(FreeCAD.Vector(4.01261,-7.09292,0), FreeCAD.Vector(5.24207,-4.38863,0)))
+    qwm_doc.sketch_lens_section_6340.addGeometry(Part.LineSegment(FreeCAD.Vector(5.24207,-4.38863,0), FreeCAD.Vector(5.87105,-1.48533,0)))
+    qwm_doc.sketch_lens_section_6340.addGeometry(Part.LineSegment(FreeCAD.Vector(5.87105,-1.48533,0), FreeCAD.Vector(5.87105,1.48533,0)))
+    qwm_doc.sketch_lens_section_6340.addGeometry(Part.LineSegment(FreeCAD.Vector(5.87105,1.48533,0), FreeCAD.Vector(5.24207,4.38863,0)))
+    qwm_doc.sketch_lens_section_6340.addGeometry(Part.LineSegment(FreeCAD.Vector(5.24207,4.38863,0), FreeCAD.Vector(4.01261,7.09292,0)))
+    qwm_doc.sketch_lens_section_6340.addGeometry(Part.LineSegment(FreeCAD.Vector(4.01261,7.09292,0), FreeCAD.Vector(2.23844,9.47559,0)))
+    qwm_doc.sketch_lens_section_6340.addGeometry(Part.LineSegment(FreeCAD.Vector(2.23844,9.47559,0), FreeCAD.Vector(0.0,11.42858,0)))
+    qwm_doc.sketch_lens_section_6340.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.42858,0), FreeCAD.Vector(0.0,-11.42858,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_6340D")
+    qwm_doc.lens_section_6340D.Base = qwm_doc.sketch_lens_section_6340
+    qwm_doc.lens_section_6340D.Dir = (0, 0, -0.25)
+    qwm_doc.lens_section_6340D.Solid = True
+    qwm_doc.lens_section_6340D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_6340D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_64')
     qwm_doc.sketch_lens_section_64.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.18704,0), FreeCAD.Vector(2.16659,-9.2623,0)))
@@ -1455,24 +1455,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_64U.Solid = True
     qwm_doc.lens_section_64U.ViewObject.Transparency = 60
     qwm_doc.lens_section_64U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_64')
-    qwm_doc.sketch_lens_section_64.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.17362,0), FreeCAD.Vector(2.16261,-9.25047,0)))
-    qwm_doc.sketch_lens_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(2.16261,-9.25047,0), FreeCAD.Vector(3.87452,-6.91706,0)))
-    qwm_doc.sketch_lens_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(3.87452,-6.91706,0), FreeCAD.Vector(5.05979,-4.27687,0)))
-    qwm_doc.sketch_lens_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(5.05979,-4.27687,0), FreeCAD.Vector(5.66587,-1.44702,0)))
-    qwm_doc.sketch_lens_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(5.66587,-1.44702,0), FreeCAD.Vector(5.66587,1.44702,0)))
-    qwm_doc.sketch_lens_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(5.66587,1.44702,0), FreeCAD.Vector(5.05979,4.27687,0)))
-    qwm_doc.sketch_lens_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(5.05979,4.27687,0), FreeCAD.Vector(3.87452,6.91706,0)))
-    qwm_doc.sketch_lens_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(3.87452,6.91706,0), FreeCAD.Vector(2.16261,9.25047,0)))
-    qwm_doc.sketch_lens_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(2.16261,9.25047,0), FreeCAD.Vector(0.0,11.17362,0)))
-    qwm_doc.sketch_lens_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.17362,0), FreeCAD.Vector(0.0,-11.17362,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_64D")
-    qwm_doc.lens_section_64D.Base = qwm_doc.sketch_lens_section_64
-    qwm_doc.lens_section_64D.Dir = (0, 0, -0.25)
-    qwm_doc.lens_section_64D.Solid = True
-    qwm_doc.lens_section_64D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_64D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_6441')
+    qwm_doc.sketch_lens_section_6441.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_6441.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-11.17362,0), FreeCAD.Vector(2.16261,-9.25047,0)))
+    qwm_doc.sketch_lens_section_6441.addGeometry(Part.LineSegment(FreeCAD.Vector(2.16261,-9.25047,0), FreeCAD.Vector(3.87452,-6.91706,0)))
+    qwm_doc.sketch_lens_section_6441.addGeometry(Part.LineSegment(FreeCAD.Vector(3.87452,-6.91706,0), FreeCAD.Vector(5.05979,-4.27687,0)))
+    qwm_doc.sketch_lens_section_6441.addGeometry(Part.LineSegment(FreeCAD.Vector(5.05979,-4.27687,0), FreeCAD.Vector(5.66587,-1.44702,0)))
+    qwm_doc.sketch_lens_section_6441.addGeometry(Part.LineSegment(FreeCAD.Vector(5.66587,-1.44702,0), FreeCAD.Vector(5.66587,1.44702,0)))
+    qwm_doc.sketch_lens_section_6441.addGeometry(Part.LineSegment(FreeCAD.Vector(5.66587,1.44702,0), FreeCAD.Vector(5.05979,4.27687,0)))
+    qwm_doc.sketch_lens_section_6441.addGeometry(Part.LineSegment(FreeCAD.Vector(5.05979,4.27687,0), FreeCAD.Vector(3.87452,6.91706,0)))
+    qwm_doc.sketch_lens_section_6441.addGeometry(Part.LineSegment(FreeCAD.Vector(3.87452,6.91706,0), FreeCAD.Vector(2.16261,9.25047,0)))
+    qwm_doc.sketch_lens_section_6441.addGeometry(Part.LineSegment(FreeCAD.Vector(2.16261,9.25047,0), FreeCAD.Vector(0.0,11.17362,0)))
+    qwm_doc.sketch_lens_section_6441.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,11.17362,0), FreeCAD.Vector(0.0,-11.17362,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_6441D")
+    qwm_doc.lens_section_6441D.Base = qwm_doc.sketch_lens_section_6441
+    qwm_doc.lens_section_6441D.Dir = (0, 0, -0.25)
+    qwm_doc.lens_section_6441D.Solid = True
+    qwm_doc.lens_section_6441D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_6441D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_65')
     qwm_doc.sketch_lens_section_65.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.90469,0), FreeCAD.Vector(2.08314,-9.01347,0)))
@@ -1491,24 +1491,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_65U.Solid = True
     qwm_doc.lens_section_65U.ViewObject.Transparency = 60
     qwm_doc.lens_section_65U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_65')
-    qwm_doc.sketch_lens_section_65.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.88978,0), FreeCAD.Vector(2.07875,-9.00034,0)))
-    qwm_doc.sketch_lens_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(2.07875,-9.00034,0), FreeCAD.Vector(3.72191,-6.72192,0)))
-    qwm_doc.sketch_lens_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(3.72191,-6.72192,0), FreeCAD.Vector(4.85846,-4.15298,0)))
-    qwm_doc.sketch_lens_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(4.85846,-4.15298,0), FreeCAD.Vector(5.43929,-1.40456,0)))
-    qwm_doc.sketch_lens_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(5.43929,-1.40456,0), FreeCAD.Vector(5.43929,1.40456,0)))
-    qwm_doc.sketch_lens_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(5.43929,1.40456,0), FreeCAD.Vector(4.85846,4.15298,0)))
-    qwm_doc.sketch_lens_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(4.85846,4.15298,0), FreeCAD.Vector(3.72191,6.72192,0)))
-    qwm_doc.sketch_lens_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(3.72191,6.72192,0), FreeCAD.Vector(2.07875,9.00034,0)))
-    qwm_doc.sketch_lens_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(2.07875,9.00034,0), FreeCAD.Vector(0.0,10.88978,0)))
-    qwm_doc.sketch_lens_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.88978,0), FreeCAD.Vector(0.0,-10.88978,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_65D")
-    qwm_doc.lens_section_65D.Base = qwm_doc.sketch_lens_section_65
-    qwm_doc.lens_section_65D.Dir = (0, 0, -0.25)
-    qwm_doc.lens_section_65D.Solid = True
-    qwm_doc.lens_section_65D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_65D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_6542')
+    qwm_doc.sketch_lens_section_6542.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_6542.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.88978,0), FreeCAD.Vector(2.07875,-9.00034,0)))
+    qwm_doc.sketch_lens_section_6542.addGeometry(Part.LineSegment(FreeCAD.Vector(2.07875,-9.00034,0), FreeCAD.Vector(3.72191,-6.72192,0)))
+    qwm_doc.sketch_lens_section_6542.addGeometry(Part.LineSegment(FreeCAD.Vector(3.72191,-6.72192,0), FreeCAD.Vector(4.85846,-4.15298,0)))
+    qwm_doc.sketch_lens_section_6542.addGeometry(Part.LineSegment(FreeCAD.Vector(4.85846,-4.15298,0), FreeCAD.Vector(5.43929,-1.40456,0)))
+    qwm_doc.sketch_lens_section_6542.addGeometry(Part.LineSegment(FreeCAD.Vector(5.43929,-1.40456,0), FreeCAD.Vector(5.43929,1.40456,0)))
+    qwm_doc.sketch_lens_section_6542.addGeometry(Part.LineSegment(FreeCAD.Vector(5.43929,1.40456,0), FreeCAD.Vector(4.85846,4.15298,0)))
+    qwm_doc.sketch_lens_section_6542.addGeometry(Part.LineSegment(FreeCAD.Vector(4.85846,4.15298,0), FreeCAD.Vector(3.72191,6.72192,0)))
+    qwm_doc.sketch_lens_section_6542.addGeometry(Part.LineSegment(FreeCAD.Vector(3.72191,6.72192,0), FreeCAD.Vector(2.07875,9.00034,0)))
+    qwm_doc.sketch_lens_section_6542.addGeometry(Part.LineSegment(FreeCAD.Vector(2.07875,9.00034,0), FreeCAD.Vector(0.0,10.88978,0)))
+    qwm_doc.sketch_lens_section_6542.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.88978,0), FreeCAD.Vector(0.0,-10.88978,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_6542D")
+    qwm_doc.lens_section_6542D.Base = qwm_doc.sketch_lens_section_6542
+    qwm_doc.lens_section_6542D.Dir = (0, 0, -0.25)
+    qwm_doc.lens_section_6542D.Solid = True
+    qwm_doc.lens_section_6542D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_6542D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_66')
     qwm_doc.sketch_lens_section_66.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.59126,0), FreeCAD.Vector(2.21214,-8.47862,0)))
@@ -1526,23 +1526,23 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_66U.Solid = True
     qwm_doc.lens_section_66U.ViewObject.Transparency = 60
     qwm_doc.lens_section_66U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_66')
-    qwm_doc.sketch_lens_section_66.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.57509,0), FreeCAD.Vector(2.20689,-8.46475,0)))
-    qwm_doc.sketch_lens_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(2.20689,-8.46475,0), FreeCAD.Vector(3.87253,-5.90555,0)))
-    qwm_doc.sketch_lens_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(3.87253,-5.90555,0), FreeCAD.Vector(4.90861,-3.03319,0)))
-    qwm_doc.sketch_lens_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(4.90861,-3.03319,0), FreeCAD.Vector(5.26018,0.0,0)))
-    qwm_doc.sketch_lens_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(5.26018,0.0,0), FreeCAD.Vector(4.90861,3.03319,0)))
-    qwm_doc.sketch_lens_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(4.90861,3.03319,0), FreeCAD.Vector(3.87253,5.90555,0)))
-    qwm_doc.sketch_lens_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(3.87253,5.90555,0), FreeCAD.Vector(2.20689,8.46475,0)))
-    qwm_doc.sketch_lens_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(2.20689,8.46475,0), FreeCAD.Vector(0.0,10.57509,0)))
-    qwm_doc.sketch_lens_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.57509,0), FreeCAD.Vector(0.0,-10.57509,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_66D")
-    qwm_doc.lens_section_66D.Base = qwm_doc.sketch_lens_section_66
-    qwm_doc.lens_section_66D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_66D.Solid = True
-    qwm_doc.lens_section_66D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_66D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_6643')
+    qwm_doc.sketch_lens_section_6643.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_6643.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.57509,0), FreeCAD.Vector(2.20689,-8.46475,0)))
+    qwm_doc.sketch_lens_section_6643.addGeometry(Part.LineSegment(FreeCAD.Vector(2.20689,-8.46475,0), FreeCAD.Vector(3.87253,-5.90555,0)))
+    qwm_doc.sketch_lens_section_6643.addGeometry(Part.LineSegment(FreeCAD.Vector(3.87253,-5.90555,0), FreeCAD.Vector(4.90861,-3.03319,0)))
+    qwm_doc.sketch_lens_section_6643.addGeometry(Part.LineSegment(FreeCAD.Vector(4.90861,-3.03319,0), FreeCAD.Vector(5.26018,0.0,0)))
+    qwm_doc.sketch_lens_section_6643.addGeometry(Part.LineSegment(FreeCAD.Vector(5.26018,0.0,0), FreeCAD.Vector(4.90861,3.03319,0)))
+    qwm_doc.sketch_lens_section_6643.addGeometry(Part.LineSegment(FreeCAD.Vector(4.90861,3.03319,0), FreeCAD.Vector(3.87253,5.90555,0)))
+    qwm_doc.sketch_lens_section_6643.addGeometry(Part.LineSegment(FreeCAD.Vector(3.87253,5.90555,0), FreeCAD.Vector(2.20689,8.46475,0)))
+    qwm_doc.sketch_lens_section_6643.addGeometry(Part.LineSegment(FreeCAD.Vector(2.20689,8.46475,0), FreeCAD.Vector(0.0,10.57509,0)))
+    qwm_doc.sketch_lens_section_6643.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.57509,0), FreeCAD.Vector(0.0,-10.57509,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_6643D")
+    qwm_doc.lens_section_6643D.Base = qwm_doc.sketch_lens_section_6643
+    qwm_doc.lens_section_6643D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_6643D.Solid = True
+    qwm_doc.lens_section_6643D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_6643D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_67')
     qwm_doc.sketch_lens_section_67.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.25932,0), FreeCAD.Vector(2.10472,-8.1944,0)))
@@ -1560,23 +1560,23 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_67U.Solid = True
     qwm_doc.lens_section_67U.ViewObject.Transparency = 60
     qwm_doc.lens_section_67U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_67')
-    qwm_doc.sketch_lens_section_67.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.24187,0), FreeCAD.Vector(2.09911,-8.17948,0)))
-    qwm_doc.sketch_lens_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(2.09911,-8.17948,0), FreeCAD.Vector(3.68041,-5.69772,0)))
-    qwm_doc.sketch_lens_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(3.68041,-5.69772,0), FreeCAD.Vector(4.66283,-2.92381,0)))
-    qwm_doc.sketch_lens_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(4.66283,-2.92381,0), FreeCAD.Vector(4.996,0.0,0)))
-    qwm_doc.sketch_lens_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(4.996,0.0,0), FreeCAD.Vector(4.66283,2.92381,0)))
-    qwm_doc.sketch_lens_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(4.66283,2.92381,0), FreeCAD.Vector(3.68041,5.69772,0)))
-    qwm_doc.sketch_lens_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(3.68041,5.69772,0), FreeCAD.Vector(2.09911,8.17948,0)))
-    qwm_doc.sketch_lens_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(2.09911,8.17948,0), FreeCAD.Vector(0.0,10.24187,0)))
-    qwm_doc.sketch_lens_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.24187,0), FreeCAD.Vector(0.0,-10.24187,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_67D")
-    qwm_doc.lens_section_67D.Base = qwm_doc.sketch_lens_section_67
-    qwm_doc.lens_section_67D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_67D.Solid = True
-    qwm_doc.lens_section_67D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_67D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_6744')
+    qwm_doc.sketch_lens_section_6744.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_6744.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-10.24187,0), FreeCAD.Vector(2.09911,-8.17948,0)))
+    qwm_doc.sketch_lens_section_6744.addGeometry(Part.LineSegment(FreeCAD.Vector(2.09911,-8.17948,0), FreeCAD.Vector(3.68041,-5.69772,0)))
+    qwm_doc.sketch_lens_section_6744.addGeometry(Part.LineSegment(FreeCAD.Vector(3.68041,-5.69772,0), FreeCAD.Vector(4.66283,-2.92381,0)))
+    qwm_doc.sketch_lens_section_6744.addGeometry(Part.LineSegment(FreeCAD.Vector(4.66283,-2.92381,0), FreeCAD.Vector(4.996,0.0,0)))
+    qwm_doc.sketch_lens_section_6744.addGeometry(Part.LineSegment(FreeCAD.Vector(4.996,0.0,0), FreeCAD.Vector(4.66283,2.92381,0)))
+    qwm_doc.sketch_lens_section_6744.addGeometry(Part.LineSegment(FreeCAD.Vector(4.66283,2.92381,0), FreeCAD.Vector(3.68041,5.69772,0)))
+    qwm_doc.sketch_lens_section_6744.addGeometry(Part.LineSegment(FreeCAD.Vector(3.68041,5.69772,0), FreeCAD.Vector(2.09911,8.17948,0)))
+    qwm_doc.sketch_lens_section_6744.addGeometry(Part.LineSegment(FreeCAD.Vector(2.09911,8.17948,0), FreeCAD.Vector(0.0,10.24187,0)))
+    qwm_doc.sketch_lens_section_6744.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,10.24187,0), FreeCAD.Vector(0.0,-10.24187,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_6744D")
+    qwm_doc.lens_section_6744D.Base = qwm_doc.sketch_lens_section_6744
+    qwm_doc.lens_section_6744D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_6744D.Solid = True
+    qwm_doc.lens_section_6744D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_6744D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_68')
     qwm_doc.sketch_lens_section_68.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.89355,0), FreeCAD.Vector(1.98762,-7.88225,0)))
@@ -1594,23 +1594,23 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_68U.Solid = True
     qwm_doc.lens_section_68U.ViewObject.Transparency = 60
     qwm_doc.lens_section_68U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_68')
-    qwm_doc.sketch_lens_section_68.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.8743,0), FreeCAD.Vector(1.9815,-7.86585,0)))
-    qwm_doc.sketch_lens_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(1.9815,-7.86585,0), FreeCAD.Vector(3.47102,-5.4697,0)))
-    qwm_doc.sketch_lens_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(3.47102,-5.4697,0), FreeCAD.Vector(4.39515,-2.80395,0)))
-    qwm_doc.sketch_lens_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(4.39515,-2.80395,0), FreeCAD.Vector(4.70834,0.0,0)))
-    qwm_doc.sketch_lens_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(4.70834,0.0,0), FreeCAD.Vector(4.39515,2.80395,0)))
-    qwm_doc.sketch_lens_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(4.39515,2.80395,0), FreeCAD.Vector(3.47102,5.4697,0)))
-    qwm_doc.sketch_lens_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(3.47102,5.4697,0), FreeCAD.Vector(1.9815,7.86585,0)))
-    qwm_doc.sketch_lens_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(1.9815,7.86585,0), FreeCAD.Vector(0.0,9.8743,0)))
-    qwm_doc.sketch_lens_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.8743,0), FreeCAD.Vector(0.0,-9.8743,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_68D")
-    qwm_doc.lens_section_68D.Base = qwm_doc.sketch_lens_section_68
-    qwm_doc.lens_section_68D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_68D.Solid = True
-    qwm_doc.lens_section_68D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_68D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_6845')
+    qwm_doc.sketch_lens_section_6845.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_6845.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.8743,0), FreeCAD.Vector(1.9815,-7.86585,0)))
+    qwm_doc.sketch_lens_section_6845.addGeometry(Part.LineSegment(FreeCAD.Vector(1.9815,-7.86585,0), FreeCAD.Vector(3.47102,-5.4697,0)))
+    qwm_doc.sketch_lens_section_6845.addGeometry(Part.LineSegment(FreeCAD.Vector(3.47102,-5.4697,0), FreeCAD.Vector(4.39515,-2.80395,0)))
+    qwm_doc.sketch_lens_section_6845.addGeometry(Part.LineSegment(FreeCAD.Vector(4.39515,-2.80395,0), FreeCAD.Vector(4.70834,0.0,0)))
+    qwm_doc.sketch_lens_section_6845.addGeometry(Part.LineSegment(FreeCAD.Vector(4.70834,0.0,0), FreeCAD.Vector(4.39515,2.80395,0)))
+    qwm_doc.sketch_lens_section_6845.addGeometry(Part.LineSegment(FreeCAD.Vector(4.39515,2.80395,0), FreeCAD.Vector(3.47102,5.4697,0)))
+    qwm_doc.sketch_lens_section_6845.addGeometry(Part.LineSegment(FreeCAD.Vector(3.47102,5.4697,0), FreeCAD.Vector(1.9815,7.86585,0)))
+    qwm_doc.sketch_lens_section_6845.addGeometry(Part.LineSegment(FreeCAD.Vector(1.9815,7.86585,0), FreeCAD.Vector(0.0,9.8743,0)))
+    qwm_doc.sketch_lens_section_6845.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.8743,0), FreeCAD.Vector(0.0,-9.8743,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_6845D")
+    qwm_doc.lens_section_6845D.Base = qwm_doc.sketch_lens_section_6845
+    qwm_doc.lens_section_6845D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_6845D.Solid = True
+    qwm_doc.lens_section_6845D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_6845D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_69')
     qwm_doc.sketch_lens_section_69.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.48966,0), FreeCAD.Vector(1.85998,-7.53887,0)))
@@ -1628,23 +1628,23 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_69U.Solid = True
     qwm_doc.lens_section_69U.ViewObject.Transparency = 60
     qwm_doc.lens_section_69U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_69')
-    qwm_doc.sketch_lens_section_69.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.46838,0), FreeCAD.Vector(1.8533,-7.52081,0)))
-    qwm_doc.sketch_lens_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(1.8533,-7.52081,0), FreeCAD.Vector(3.2431,-5.21947,0)))
-    qwm_doc.sketch_lens_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(3.2431,-5.21947,0), FreeCAD.Vector(4.10403,-2.67259,0)))
-    qwm_doc.sketch_lens_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(4.10403,-2.67259,0), FreeCAD.Vector(4.39557,0.0,0)))
-    qwm_doc.sketch_lens_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(4.39557,0.0,0), FreeCAD.Vector(4.10403,2.67259,0)))
-    qwm_doc.sketch_lens_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(4.10403,2.67259,0), FreeCAD.Vector(3.2431,5.21947,0)))
-    qwm_doc.sketch_lens_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(3.2431,5.21947,0), FreeCAD.Vector(1.8533,7.52081,0)))
-    qwm_doc.sketch_lens_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(1.8533,7.52081,0), FreeCAD.Vector(0.0,9.46838,0)))
-    qwm_doc.sketch_lens_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.46838,0), FreeCAD.Vector(0.0,-9.46838,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_69D")
-    qwm_doc.lens_section_69D.Base = qwm_doc.sketch_lens_section_69
-    qwm_doc.lens_section_69D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_69D.Solid = True
-    qwm_doc.lens_section_69D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_69D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_6946')
+    qwm_doc.sketch_lens_section_6946.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_6946.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.46838,0), FreeCAD.Vector(1.8533,-7.52081,0)))
+    qwm_doc.sketch_lens_section_6946.addGeometry(Part.LineSegment(FreeCAD.Vector(1.8533,-7.52081,0), FreeCAD.Vector(3.2431,-5.21947,0)))
+    qwm_doc.sketch_lens_section_6946.addGeometry(Part.LineSegment(FreeCAD.Vector(3.2431,-5.21947,0), FreeCAD.Vector(4.10403,-2.67259,0)))
+    qwm_doc.sketch_lens_section_6946.addGeometry(Part.LineSegment(FreeCAD.Vector(4.10403,-2.67259,0), FreeCAD.Vector(4.39557,0.0,0)))
+    qwm_doc.sketch_lens_section_6946.addGeometry(Part.LineSegment(FreeCAD.Vector(4.39557,0.0,0), FreeCAD.Vector(4.10403,2.67259,0)))
+    qwm_doc.sketch_lens_section_6946.addGeometry(Part.LineSegment(FreeCAD.Vector(4.10403,2.67259,0), FreeCAD.Vector(3.2431,5.21947,0)))
+    qwm_doc.sketch_lens_section_6946.addGeometry(Part.LineSegment(FreeCAD.Vector(3.2431,5.21947,0), FreeCAD.Vector(1.8533,7.52081,0)))
+    qwm_doc.sketch_lens_section_6946.addGeometry(Part.LineSegment(FreeCAD.Vector(1.8533,7.52081,0), FreeCAD.Vector(0.0,9.46838,0)))
+    qwm_doc.sketch_lens_section_6946.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.46838,0), FreeCAD.Vector(0.0,-9.46838,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_6946D")
+    qwm_doc.lens_section_6946D.Base = qwm_doc.sketch_lens_section_6946
+    qwm_doc.lens_section_6946D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_6946D.Solid = True
+    qwm_doc.lens_section_6946D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_6946D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_70')
     qwm_doc.sketch_lens_section_70.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.04253,0), FreeCAD.Vector(1.93289,-6.86331,0)))
@@ -1661,22 +1661,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_70U.Solid = True
     qwm_doc.lens_section_70U.ViewObject.Transparency = 60
     qwm_doc.lens_section_70U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_70')
-    qwm_doc.sketch_lens_section_70.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.01893,0), FreeCAD.Vector(1.9247,-6.84408,0)))
-    qwm_doc.sketch_lens_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(1.9247,-6.84408,0), FreeCAD.Vector(3.27345,-4.27205,0)))
-    qwm_doc.sketch_lens_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(3.27345,-4.27205,0), FreeCAD.Vector(3.96798,-1.45211,0)))
-    qwm_doc.sketch_lens_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(3.96798,-1.45211,0), FreeCAD.Vector(3.96798,1.45211,0)))
-    qwm_doc.sketch_lens_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(3.96798,1.45211,0), FreeCAD.Vector(3.27345,4.27205,0)))
-    qwm_doc.sketch_lens_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(3.27345,4.27205,0), FreeCAD.Vector(1.9247,6.84408,0)))
-    qwm_doc.sketch_lens_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(1.9247,6.84408,0), FreeCAD.Vector(0.0,9.01893,0)))
-    qwm_doc.sketch_lens_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.01893,0), FreeCAD.Vector(0.0,-9.01893,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_70D")
-    qwm_doc.lens_section_70D.Base = qwm_doc.sketch_lens_section_70
-    qwm_doc.lens_section_70D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_70D.Solid = True
-    qwm_doc.lens_section_70D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_70D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_7047')
+    qwm_doc.sketch_lens_section_7047.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_7047.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.01893,0), FreeCAD.Vector(1.9247,-6.84408,0)))
+    qwm_doc.sketch_lens_section_7047.addGeometry(Part.LineSegment(FreeCAD.Vector(1.9247,-6.84408,0), FreeCAD.Vector(3.27345,-4.27205,0)))
+    qwm_doc.sketch_lens_section_7047.addGeometry(Part.LineSegment(FreeCAD.Vector(3.27345,-4.27205,0), FreeCAD.Vector(3.96798,-1.45211,0)))
+    qwm_doc.sketch_lens_section_7047.addGeometry(Part.LineSegment(FreeCAD.Vector(3.96798,-1.45211,0), FreeCAD.Vector(3.96798,1.45211,0)))
+    qwm_doc.sketch_lens_section_7047.addGeometry(Part.LineSegment(FreeCAD.Vector(3.96798,1.45211,0), FreeCAD.Vector(3.27345,4.27205,0)))
+    qwm_doc.sketch_lens_section_7047.addGeometry(Part.LineSegment(FreeCAD.Vector(3.27345,4.27205,0), FreeCAD.Vector(1.9247,6.84408,0)))
+    qwm_doc.sketch_lens_section_7047.addGeometry(Part.LineSegment(FreeCAD.Vector(1.9247,6.84408,0), FreeCAD.Vector(0.0,9.01893,0)))
+    qwm_doc.sketch_lens_section_7047.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.01893,0), FreeCAD.Vector(0.0,-9.01893,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_7047D")
+    qwm_doc.lens_section_7047D.Base = qwm_doc.sketch_lens_section_7047
+    qwm_doc.lens_section_7047D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_7047D.Solid = True
+    qwm_doc.lens_section_7047D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_7047D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_71')
     qwm_doc.sketch_lens_section_71.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-8.54538,0), FreeCAD.Vector(1.76219,-6.45934,0)))
@@ -1693,22 +1693,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_71U.Solid = True
     qwm_doc.lens_section_71U.ViewObject.Transparency = 60
     qwm_doc.lens_section_71U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_71')
-    qwm_doc.sketch_lens_section_71.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-8.51906,0), FreeCAD.Vector(1.75326,-6.43803,0)))
-    qwm_doc.sketch_lens_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(1.75326,-6.43803,0), FreeCAD.Vector(2.97773,-4.00795,0)))
-    qwm_doc.sketch_lens_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(2.97773,-4.00795,0), FreeCAD.Vector(3.60703,-1.36057,0)))
-    qwm_doc.sketch_lens_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(3.60703,-1.36057,0), FreeCAD.Vector(3.60703,1.36057,0)))
-    qwm_doc.sketch_lens_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(3.60703,1.36057,0), FreeCAD.Vector(2.97773,4.00795,0)))
-    qwm_doc.sketch_lens_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(2.97773,4.00795,0), FreeCAD.Vector(1.75326,6.43803,0)))
-    qwm_doc.sketch_lens_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(1.75326,6.43803,0), FreeCAD.Vector(0.0,8.51906,0)))
-    qwm_doc.sketch_lens_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,8.51906,0), FreeCAD.Vector(0.0,-8.51906,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_71D")
-    qwm_doc.lens_section_71D.Base = qwm_doc.sketch_lens_section_71
-    qwm_doc.lens_section_71D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_71D.Solid = True
-    qwm_doc.lens_section_71D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_71D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_7148')
+    qwm_doc.sketch_lens_section_7148.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_7148.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-8.51906,0), FreeCAD.Vector(1.75326,-6.43803,0)))
+    qwm_doc.sketch_lens_section_7148.addGeometry(Part.LineSegment(FreeCAD.Vector(1.75326,-6.43803,0), FreeCAD.Vector(2.97773,-4.00795,0)))
+    qwm_doc.sketch_lens_section_7148.addGeometry(Part.LineSegment(FreeCAD.Vector(2.97773,-4.00795,0), FreeCAD.Vector(3.60703,-1.36057,0)))
+    qwm_doc.sketch_lens_section_7148.addGeometry(Part.LineSegment(FreeCAD.Vector(3.60703,-1.36057,0), FreeCAD.Vector(3.60703,1.36057,0)))
+    qwm_doc.sketch_lens_section_7148.addGeometry(Part.LineSegment(FreeCAD.Vector(3.60703,1.36057,0), FreeCAD.Vector(2.97773,4.00795,0)))
+    qwm_doc.sketch_lens_section_7148.addGeometry(Part.LineSegment(FreeCAD.Vector(2.97773,4.00795,0), FreeCAD.Vector(1.75326,6.43803,0)))
+    qwm_doc.sketch_lens_section_7148.addGeometry(Part.LineSegment(FreeCAD.Vector(1.75326,6.43803,0), FreeCAD.Vector(0.0,8.51906,0)))
+    qwm_doc.sketch_lens_section_7148.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,8.51906,0), FreeCAD.Vector(0.0,-8.51906,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_7148D")
+    qwm_doc.lens_section_7148D.Base = qwm_doc.sketch_lens_section_7148
+    qwm_doc.lens_section_7148D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_7148D.Solid = True
+    qwm_doc.lens_section_7148D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_7148D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_72')
     qwm_doc.sketch_lens_section_72.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.98887,0), FreeCAD.Vector(1.57592,-6.01031,0)))
@@ -1725,22 +1725,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_72U.Solid = True
     qwm_doc.lens_section_72U.ViewObject.Transparency = 60
     qwm_doc.lens_section_72U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_72')
-    qwm_doc.sketch_lens_section_72.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.95927,0), FreeCAD.Vector(1.56617,-5.98653,0)))
-    qwm_doc.sketch_lens_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(1.56617,-5.98653,0), FreeCAD.Vector(2.65574,-3.71553,0)))
-    qwm_doc.sketch_lens_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(2.65574,-3.71553,0), FreeCAD.Vector(3.21445,-1.25942,0)))
-    qwm_doc.sketch_lens_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(3.21445,-1.25942,0), FreeCAD.Vector(3.21445,1.25942,0)))
-    qwm_doc.sketch_lens_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(3.21445,1.25942,0), FreeCAD.Vector(2.65574,3.71553,0)))
-    qwm_doc.sketch_lens_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(2.65574,3.71553,0), FreeCAD.Vector(1.56617,5.98653,0)))
-    qwm_doc.sketch_lens_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(1.56617,5.98653,0), FreeCAD.Vector(0.0,7.95927,0)))
-    qwm_doc.sketch_lens_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.95927,0), FreeCAD.Vector(0.0,-7.95927,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_72D")
-    qwm_doc.lens_section_72D.Base = qwm_doc.sketch_lens_section_72
-    qwm_doc.lens_section_72D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_72D.Solid = True
-    qwm_doc.lens_section_72D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_72D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_7249')
+    qwm_doc.sketch_lens_section_7249.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_7249.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.95927,0), FreeCAD.Vector(1.56617,-5.98653,0)))
+    qwm_doc.sketch_lens_section_7249.addGeometry(Part.LineSegment(FreeCAD.Vector(1.56617,-5.98653,0), FreeCAD.Vector(2.65574,-3.71553,0)))
+    qwm_doc.sketch_lens_section_7249.addGeometry(Part.LineSegment(FreeCAD.Vector(2.65574,-3.71553,0), FreeCAD.Vector(3.21445,-1.25942,0)))
+    qwm_doc.sketch_lens_section_7249.addGeometry(Part.LineSegment(FreeCAD.Vector(3.21445,-1.25942,0), FreeCAD.Vector(3.21445,1.25942,0)))
+    qwm_doc.sketch_lens_section_7249.addGeometry(Part.LineSegment(FreeCAD.Vector(3.21445,1.25942,0), FreeCAD.Vector(2.65574,3.71553,0)))
+    qwm_doc.sketch_lens_section_7249.addGeometry(Part.LineSegment(FreeCAD.Vector(2.65574,3.71553,0), FreeCAD.Vector(1.56617,5.98653,0)))
+    qwm_doc.sketch_lens_section_7249.addGeometry(Part.LineSegment(FreeCAD.Vector(1.56617,5.98653,0), FreeCAD.Vector(0.0,7.95927,0)))
+    qwm_doc.sketch_lens_section_7249.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.95927,0), FreeCAD.Vector(0.0,-7.95927,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_7249D")
+    qwm_doc.lens_section_7249D.Base = qwm_doc.sketch_lens_section_7249
+    qwm_doc.lens_section_7249D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_7249D.Solid = True
+    qwm_doc.lens_section_7249D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_7249D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_73')
     qwm_doc.sketch_lens_section_73.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.35956,0), FreeCAD.Vector(1.56129,-5.17154,0)))
@@ -1756,21 +1756,21 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_73U.Solid = True
     qwm_doc.lens_section_73U.ViewObject.Transparency = 60
     qwm_doc.lens_section_73U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_73')
-    qwm_doc.sketch_lens_section_73.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.32586,0), FreeCAD.Vector(1.5491,-5.14615,0)))
-    qwm_doc.sketch_lens_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(1.5491,-5.14615,0), FreeCAD.Vector(2.51789,-2.65371,0)))
-    qwm_doc.sketch_lens_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(2.51789,-2.65371,0), FreeCAD.Vector(2.8475,0.0,0)))
-    qwm_doc.sketch_lens_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(2.8475,0.0,0), FreeCAD.Vector(2.51789,2.65371,0)))
-    qwm_doc.sketch_lens_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(2.51789,2.65371,0), FreeCAD.Vector(1.5491,5.14615,0)))
-    qwm_doc.sketch_lens_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(1.5491,5.14615,0), FreeCAD.Vector(0.0,7.32586,0)))
-    qwm_doc.sketch_lens_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.32586,0), FreeCAD.Vector(0.0,-7.32586,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_73D")
-    qwm_doc.lens_section_73D.Base = qwm_doc.sketch_lens_section_73
-    qwm_doc.lens_section_73D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_73D.Solid = True
-    qwm_doc.lens_section_73D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_73D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_7350')
+    qwm_doc.sketch_lens_section_7350.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_7350.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.32586,0), FreeCAD.Vector(1.5491,-5.14615,0)))
+    qwm_doc.sketch_lens_section_7350.addGeometry(Part.LineSegment(FreeCAD.Vector(1.5491,-5.14615,0), FreeCAD.Vector(2.51789,-2.65371,0)))
+    qwm_doc.sketch_lens_section_7350.addGeometry(Part.LineSegment(FreeCAD.Vector(2.51789,-2.65371,0), FreeCAD.Vector(2.8475,0.0,0)))
+    qwm_doc.sketch_lens_section_7350.addGeometry(Part.LineSegment(FreeCAD.Vector(2.8475,0.0,0), FreeCAD.Vector(2.51789,2.65371,0)))
+    qwm_doc.sketch_lens_section_7350.addGeometry(Part.LineSegment(FreeCAD.Vector(2.51789,2.65371,0), FreeCAD.Vector(1.5491,5.14615,0)))
+    qwm_doc.sketch_lens_section_7350.addGeometry(Part.LineSegment(FreeCAD.Vector(1.5491,5.14615,0), FreeCAD.Vector(0.0,7.32586,0)))
+    qwm_doc.sketch_lens_section_7350.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.32586,0), FreeCAD.Vector(0.0,-7.32586,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_7350D")
+    qwm_doc.lens_section_7350D.Base = qwm_doc.sketch_lens_section_7350
+    qwm_doc.lens_section_7350D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_7350D.Solid = True
+    qwm_doc.lens_section_7350D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_7350D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_74')
     qwm_doc.sketch_lens_section_74.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-6.63676,0), FreeCAD.Vector(1.30627,-4.63033,0)))
@@ -1786,21 +1786,21 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_74U.Solid = True
     qwm_doc.lens_section_74U.ViewObject.Transparency = 60
     qwm_doc.lens_section_74U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_74')
-    qwm_doc.sketch_lens_section_74.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-6.59763,0), FreeCAD.Vector(1.29287,-4.60124,0)))
-    qwm_doc.sketch_lens_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(1.29287,-4.60124,0), FreeCAD.Vector(2.09683,-2.36277,0)))
-    qwm_doc.sketch_lens_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(2.09683,-2.36277,0), FreeCAD.Vector(2.36961,0.0,0)))
-    qwm_doc.sketch_lens_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36961,0.0,0), FreeCAD.Vector(2.09683,2.36277,0)))
-    qwm_doc.sketch_lens_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(2.09683,2.36277,0), FreeCAD.Vector(1.29287,4.60124,0)))
-    qwm_doc.sketch_lens_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(1.29287,4.60124,0), FreeCAD.Vector(0.0,6.59763,0)))
-    qwm_doc.sketch_lens_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,6.59763,0), FreeCAD.Vector(0.0,-6.59763,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_74D")
-    qwm_doc.lens_section_74D.Base = qwm_doc.sketch_lens_section_74
-    qwm_doc.lens_section_74D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_74D.Solid = True
-    qwm_doc.lens_section_74D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_74D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_7451')
+    qwm_doc.sketch_lens_section_7451.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_7451.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-6.59763,0), FreeCAD.Vector(1.29287,-4.60124,0)))
+    qwm_doc.sketch_lens_section_7451.addGeometry(Part.LineSegment(FreeCAD.Vector(1.29287,-4.60124,0), FreeCAD.Vector(2.09683,-2.36277,0)))
+    qwm_doc.sketch_lens_section_7451.addGeometry(Part.LineSegment(FreeCAD.Vector(2.09683,-2.36277,0), FreeCAD.Vector(2.36961,0.0,0)))
+    qwm_doc.sketch_lens_section_7451.addGeometry(Part.LineSegment(FreeCAD.Vector(2.36961,0.0,0), FreeCAD.Vector(2.09683,2.36277,0)))
+    qwm_doc.sketch_lens_section_7451.addGeometry(Part.LineSegment(FreeCAD.Vector(2.09683,2.36277,0), FreeCAD.Vector(1.29287,4.60124,0)))
+    qwm_doc.sketch_lens_section_7451.addGeometry(Part.LineSegment(FreeCAD.Vector(1.29287,4.60124,0), FreeCAD.Vector(0.0,6.59763,0)))
+    qwm_doc.sketch_lens_section_7451.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,6.59763,0), FreeCAD.Vector(0.0,-6.59763,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_7451D")
+    qwm_doc.lens_section_7451D.Base = qwm_doc.sketch_lens_section_7451
+    qwm_doc.lens_section_7451D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_7451D.Solid = True
+    qwm_doc.lens_section_7451D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_7451D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_75')
     qwm_doc.sketch_lens_section_75.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-5.78554,0), FreeCAD.Vector(1.18429,-3.62233,0)))
@@ -1815,20 +1815,20 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_75U.Solid = True
     qwm_doc.lens_section_75U.ViewObject.Transparency = 60
     qwm_doc.lens_section_75U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_75')
-    qwm_doc.sketch_lens_section_75.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-5.73862,0), FreeCAD.Vector(1.16713,-3.59104,0)))
-    qwm_doc.sketch_lens_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(1.16713,-3.59104,0), FreeCAD.Vector(1.76925,-1.22212,0)))
-    qwm_doc.sketch_lens_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(1.76925,-1.22212,0), FreeCAD.Vector(1.76925,1.22212,0)))
-    qwm_doc.sketch_lens_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(1.76925,1.22212,0), FreeCAD.Vector(1.16713,3.59104,0)))
-    qwm_doc.sketch_lens_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(1.16713,3.59104,0), FreeCAD.Vector(0.0,5.73862,0)))
-    qwm_doc.sketch_lens_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,5.73862,0), FreeCAD.Vector(0.0,-5.73862,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_75D")
-    qwm_doc.lens_section_75D.Base = qwm_doc.sketch_lens_section_75
-    qwm_doc.lens_section_75D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_75D.Solid = True
-    qwm_doc.lens_section_75D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_75D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_7552')
+    qwm_doc.sketch_lens_section_7552.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_7552.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-5.73862,0), FreeCAD.Vector(1.16713,-3.59104,0)))
+    qwm_doc.sketch_lens_section_7552.addGeometry(Part.LineSegment(FreeCAD.Vector(1.16713,-3.59104,0), FreeCAD.Vector(1.76925,-1.22212,0)))
+    qwm_doc.sketch_lens_section_7552.addGeometry(Part.LineSegment(FreeCAD.Vector(1.76925,-1.22212,0), FreeCAD.Vector(1.76925,1.22212,0)))
+    qwm_doc.sketch_lens_section_7552.addGeometry(Part.LineSegment(FreeCAD.Vector(1.76925,1.22212,0), FreeCAD.Vector(1.16713,3.59104,0)))
+    qwm_doc.sketch_lens_section_7552.addGeometry(Part.LineSegment(FreeCAD.Vector(1.16713,3.59104,0), FreeCAD.Vector(0.0,5.73862,0)))
+    qwm_doc.sketch_lens_section_7552.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,5.73862,0), FreeCAD.Vector(0.0,-5.73862,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_7552D")
+    qwm_doc.lens_section_7552D.Base = qwm_doc.sketch_lens_section_7552
+    qwm_doc.lens_section_7552D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_7552D.Solid = True
+    qwm_doc.lens_section_7552D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_7552D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_76')
     qwm_doc.sketch_lens_section_76.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_76.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-4.73718,0), FreeCAD.Vector(0.96715,-2.45581,0)))
@@ -1842,19 +1842,19 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_76U.Solid = True
     qwm_doc.lens_section_76U.ViewObject.Transparency = 60
     qwm_doc.lens_section_76U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_76')
-    qwm_doc.sketch_lens_section_76.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_76.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-4.67731,0), FreeCAD.Vector(0.94464,-2.42294,0)))
-    qwm_doc.sketch_lens_section_76.addGeometry(Part.LineSegment(FreeCAD.Vector(0.94464,-2.42294,0), FreeCAD.Vector(1.267,0.0,0)))
-    qwm_doc.sketch_lens_section_76.addGeometry(Part.LineSegment(FreeCAD.Vector(1.267,0.0,0), FreeCAD.Vector(0.94464,2.42294,0)))
-    qwm_doc.sketch_lens_section_76.addGeometry(Part.LineSegment(FreeCAD.Vector(0.94464,2.42294,0), FreeCAD.Vector(0.0,4.67731,0)))
-    qwm_doc.sketch_lens_section_76.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.67731,0), FreeCAD.Vector(0.0,-4.67731,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_76D")
-    qwm_doc.lens_section_76D.Base = qwm_doc.sketch_lens_section_76
-    qwm_doc.lens_section_76D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_76D.Solid = True
-    qwm_doc.lens_section_76D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_76D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_7653')
+    qwm_doc.sketch_lens_section_7653.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_7653.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-4.67731,0), FreeCAD.Vector(0.94464,-2.42294,0)))
+    qwm_doc.sketch_lens_section_7653.addGeometry(Part.LineSegment(FreeCAD.Vector(0.94464,-2.42294,0), FreeCAD.Vector(1.267,0.0,0)))
+    qwm_doc.sketch_lens_section_7653.addGeometry(Part.LineSegment(FreeCAD.Vector(1.267,0.0,0), FreeCAD.Vector(0.94464,2.42294,0)))
+    qwm_doc.sketch_lens_section_7653.addGeometry(Part.LineSegment(FreeCAD.Vector(0.94464,2.42294,0), FreeCAD.Vector(0.0,4.67731,0)))
+    qwm_doc.sketch_lens_section_7653.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.67731,0), FreeCAD.Vector(0.0,-4.67731,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_7653D")
+    qwm_doc.lens_section_7653D.Base = qwm_doc.sketch_lens_section_7653
+    qwm_doc.lens_section_7653D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_7653D.Solid = True
+    qwm_doc.lens_section_7653D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_7653D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_77')
     qwm_doc.sketch_lens_section_77.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,12.26138),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_lens_section_77.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-3.30933,0), FreeCAD.Vector(0.58357,-1.12869,0)))
@@ -1867,18 +1867,18 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.lens_section_77U.Solid = True
     qwm_doc.lens_section_77U.ViewObject.Transparency = 60
     qwm_doc.lens_section_77U.Medium = QW_Modeller.getQWMedium("teflon")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_77')
-    qwm_doc.sketch_lens_section_77.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,12.26138),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_lens_section_77.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-3.2195,0), FreeCAD.Vector(0.55349,-1.09683,0)))
-    qwm_doc.sketch_lens_section_77.addGeometry(Part.LineSegment(FreeCAD.Vector(0.55349,-1.09683,0), FreeCAD.Vector(0.55349,1.09683,0)))
-    qwm_doc.sketch_lens_section_77.addGeometry(Part.LineSegment(FreeCAD.Vector(0.55349,1.09683,0), FreeCAD.Vector(0.0,3.2195,0)))
-    qwm_doc.sketch_lens_section_77.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,3.2195,0), FreeCAD.Vector(0.0,-3.2195,0)))
-    qwm_doc.addObject("Part::Extrusion", "lens_section_77D")
-    qwm_doc.lens_section_77D.Base = qwm_doc.sketch_lens_section_77
-    qwm_doc.lens_section_77D.Dir = (0, 0, -0.23915)
-    qwm_doc.lens_section_77D.Solid = True
-    qwm_doc.lens_section_77D.ViewObject.Transparency = 60
-    qwm_doc.lens_section_77D.Medium = QW_Modeller.getQWMedium("teflon")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_lens_section_7754')
+    qwm_doc.sketch_lens_section_7754.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,12.26138),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_lens_section_7754.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-3.2195,0), FreeCAD.Vector(0.55349,-1.09683,0)))
+    qwm_doc.sketch_lens_section_7754.addGeometry(Part.LineSegment(FreeCAD.Vector(0.55349,-1.09683,0), FreeCAD.Vector(0.55349,1.09683,0)))
+    qwm_doc.sketch_lens_section_7754.addGeometry(Part.LineSegment(FreeCAD.Vector(0.55349,1.09683,0), FreeCAD.Vector(0.0,3.2195,0)))
+    qwm_doc.sketch_lens_section_7754.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,3.2195,0), FreeCAD.Vector(0.0,-3.2195,0)))
+    qwm_doc.addObject("Part::Extrusion", "lens_section_7754D")
+    qwm_doc.lens_section_7754D.Base = qwm_doc.sketch_lens_section_7754
+    qwm_doc.lens_section_7754D.Dir = (0, 0, -0.23915)
+    qwm_doc.lens_section_7754D.Solid = True
+    qwm_doc.lens_section_7754D.ViewObject.Transparency = 60
+    qwm_doc.lens_section_7754D.Medium = QW_Modeller.getQWMedium("teflon")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_26')
     qwm_doc.sketch_horn_section_26.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_26.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-0.61491,9.29503,0)))
@@ -1891,18 +1891,18 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_26U.Solid = True
     qwm_doc.horn_section_26U.ViewObject.Transparency = 60
     qwm_doc.horn_section_26U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_26')
-    qwm_doc.sketch_horn_section_26.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_26.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-0.68666,9.27111,0)))
-    qwm_doc.sketch_horn_section_26.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.68666,9.27111,0), FreeCAD.Vector(-0.68666,-9.27111,0)))
-    qwm_doc.sketch_horn_section_26.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.68666,-9.27111,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_26.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_26D")
-    qwm_doc.horn_section_26D.Base = qwm_doc.sketch_horn_section_26
-    qwm_doc.horn_section_26D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_26D.Solid = True
-    qwm_doc.horn_section_26D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_26D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_2655')
+    qwm_doc.sketch_horn_section_2655.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_2655.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-0.68666,9.27111,0)))
+    qwm_doc.sketch_horn_section_2655.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.68666,9.27111,0), FreeCAD.Vector(-0.68666,-9.27111,0)))
+    qwm_doc.sketch_horn_section_2655.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.68666,-9.27111,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_2655.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_2655D")
+    qwm_doc.horn_section_2655D.Base = qwm_doc.sketch_horn_section_2655
+    qwm_doc.horn_section_2655D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_2655D.Solid = True
+    qwm_doc.horn_section_2655D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_2655D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_27')
     qwm_doc.sketch_horn_section_27.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-2.04983,8.81672,0)))
@@ -1915,18 +1915,18 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_27U.Solid = True
     qwm_doc.horn_section_27U.ViewObject.Transparency = 60
     qwm_doc.horn_section_27U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_27')
-    qwm_doc.sketch_horn_section_27.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-2.12158,8.79281,0)))
-    qwm_doc.sketch_horn_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(-2.12158,8.79281,0), FreeCAD.Vector(-2.12158,-8.79281,0)))
-    qwm_doc.sketch_horn_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(-2.12158,-8.79281,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_27.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_27D")
-    qwm_doc.horn_section_27D.Base = qwm_doc.sketch_horn_section_27
-    qwm_doc.horn_section_27D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_27D.Solid = True
-    qwm_doc.horn_section_27D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_27D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_2756')
+    qwm_doc.sketch_horn_section_2756.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_2756.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-2.12158,8.79281,0)))
+    qwm_doc.sketch_horn_section_2756.addGeometry(Part.LineSegment(FreeCAD.Vector(-2.12158,8.79281,0), FreeCAD.Vector(-2.12158,-8.79281,0)))
+    qwm_doc.sketch_horn_section_2756.addGeometry(Part.LineSegment(FreeCAD.Vector(-2.12158,-8.79281,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_2756.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_2756D")
+    qwm_doc.horn_section_2756D.Base = qwm_doc.sketch_horn_section_2756
+    qwm_doc.horn_section_2756D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_2756D.Solid = True
+    qwm_doc.horn_section_2756D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_2756D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_28')
     qwm_doc.sketch_horn_section_28.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-3.48475,8.33842,0)))
@@ -1939,18 +1939,18 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_28U.Solid = True
     qwm_doc.horn_section_28U.ViewObject.Transparency = 60
     qwm_doc.horn_section_28U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_28')
-    qwm_doc.sketch_horn_section_28.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-3.5565,8.3145,0)))
-    qwm_doc.sketch_horn_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.5565,8.3145,0), FreeCAD.Vector(-3.5565,-8.3145,0)))
-    qwm_doc.sketch_horn_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.5565,-8.3145,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_28.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_28D")
-    qwm_doc.horn_section_28D.Base = qwm_doc.sketch_horn_section_28
-    qwm_doc.horn_section_28D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_28D.Solid = True
-    qwm_doc.horn_section_28D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_28D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_2857')
+    qwm_doc.sketch_horn_section_2857.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_2857.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-3.5565,8.3145,0)))
+    qwm_doc.sketch_horn_section_2857.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.5565,8.3145,0), FreeCAD.Vector(-3.5565,-8.3145,0)))
+    qwm_doc.sketch_horn_section_2857.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.5565,-8.3145,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_2857.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_2857D")
+    qwm_doc.horn_section_2857D.Base = qwm_doc.sketch_horn_section_2857
+    qwm_doc.horn_section_2857D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_2857D.Solid = True
+    qwm_doc.horn_section_2857D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_2857D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_29')
     qwm_doc.sketch_horn_section_29.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-4.91968,7.86011,0)))
@@ -1963,18 +1963,18 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_29U.Solid = True
     qwm_doc.horn_section_29U.ViewObject.Transparency = 60
     qwm_doc.horn_section_29U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_29')
-    qwm_doc.sketch_horn_section_29.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-4.99142,7.83619,0)))
-    qwm_doc.sketch_horn_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.99142,7.83619,0), FreeCAD.Vector(-4.99142,-7.83619,0)))
-    qwm_doc.sketch_horn_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.99142,-7.83619,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_29.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_29D")
-    qwm_doc.horn_section_29D.Base = qwm_doc.sketch_horn_section_29
-    qwm_doc.horn_section_29D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_29D.Solid = True
-    qwm_doc.horn_section_29D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_29D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_2958')
+    qwm_doc.sketch_horn_section_2958.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_2958.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-4.99142,7.83619,0)))
+    qwm_doc.sketch_horn_section_2958.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.99142,7.83619,0), FreeCAD.Vector(-4.99142,-7.83619,0)))
+    qwm_doc.sketch_horn_section_2958.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.99142,-7.83619,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_2958.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_2958D")
+    qwm_doc.horn_section_2958D.Base = qwm_doc.sketch_horn_section_2958
+    qwm_doc.horn_section_2958D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_2958D.Solid = True
+    qwm_doc.horn_section_2958D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_2958D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_30')
     qwm_doc.sketch_horn_section_30.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.3546,-7.3818,0), FreeCAD.Vector(-0.3546,7.3818,0)))
@@ -1991,22 +1991,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_30U.Solid = True
     qwm_doc.horn_section_30U.ViewObject.Transparency = 60
     qwm_doc.horn_section_30U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_30')
-    qwm_doc.sketch_horn_section_30.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.42634,-7.35789,0), FreeCAD.Vector(-0.42634,7.35789,0)))
-    qwm_doc.sketch_horn_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.42634,7.35789,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-6.42634,7.35789,0)))
-    qwm_doc.sketch_horn_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.42634,7.35789,0), FreeCAD.Vector(-6.42634,-7.35789,0)))
-    qwm_doc.sketch_horn_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.42634,-7.35789,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_30.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-0.42634,-7.35789,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_30D")
-    qwm_doc.horn_section_30D.Base = qwm_doc.sketch_horn_section_30
-    qwm_doc.horn_section_30D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_30D.Solid = True
-    qwm_doc.horn_section_30D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_30D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_3059')
+    qwm_doc.sketch_horn_section_3059.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_3059.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.42634,-7.35789,0), FreeCAD.Vector(-0.42634,7.35789,0)))
+    qwm_doc.sketch_horn_section_3059.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.42634,7.35789,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_3059.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_3059.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-6.42634,7.35789,0)))
+    qwm_doc.sketch_horn_section_3059.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.42634,7.35789,0), FreeCAD.Vector(-6.42634,-7.35789,0)))
+    qwm_doc.sketch_horn_section_3059.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.42634,-7.35789,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_3059.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_3059.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-0.42634,-7.35789,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_3059D")
+    qwm_doc.horn_section_3059D.Base = qwm_doc.sketch_horn_section_3059
+    qwm_doc.horn_section_3059D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_3059D.Solid = True
+    qwm_doc.horn_section_3059D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_3059D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_31')
     qwm_doc.sketch_horn_section_31.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(-1.78952,-6.90349,0), FreeCAD.Vector(-1.78952,6.90349,0)))
@@ -2023,22 +2023,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_31U.Solid = True
     qwm_doc.horn_section_31U.ViewObject.Transparency = 60
     qwm_doc.horn_section_31U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_31')
-    qwm_doc.sketch_horn_section_31.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(-1.86126,-6.87958,0), FreeCAD.Vector(-1.86126,6.87958,0)))
-    qwm_doc.sketch_horn_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(-1.86126,6.87958,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-7.86126,6.87958,0)))
-    qwm_doc.sketch_horn_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.86126,6.87958,0), FreeCAD.Vector(-7.86126,-6.87958,0)))
-    qwm_doc.sketch_horn_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.86126,-6.87958,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_31.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-1.86126,-6.87958,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_31D")
-    qwm_doc.horn_section_31D.Base = qwm_doc.sketch_horn_section_31
-    qwm_doc.horn_section_31D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_31D.Solid = True
-    qwm_doc.horn_section_31D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_31D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_3160')
+    qwm_doc.sketch_horn_section_3160.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_3160.addGeometry(Part.LineSegment(FreeCAD.Vector(-1.86126,-6.87958,0), FreeCAD.Vector(-1.86126,6.87958,0)))
+    qwm_doc.sketch_horn_section_3160.addGeometry(Part.LineSegment(FreeCAD.Vector(-1.86126,6.87958,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_3160.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_3160.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-7.86126,6.87958,0)))
+    qwm_doc.sketch_horn_section_3160.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.86126,6.87958,0), FreeCAD.Vector(-7.86126,-6.87958,0)))
+    qwm_doc.sketch_horn_section_3160.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.86126,-6.87958,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_3160.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_3160.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-1.86126,-6.87958,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_3160D")
+    qwm_doc.horn_section_3160D.Base = qwm_doc.sketch_horn_section_3160
+    qwm_doc.horn_section_3160D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_3160D.Solid = True
+    qwm_doc.horn_section_3160D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_3160D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_32')
     qwm_doc.sketch_horn_section_32.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.22444,-6.42519,0), FreeCAD.Vector(-3.22444,6.42519,0)))
@@ -2055,22 +2055,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_32U.Solid = True
     qwm_doc.horn_section_32U.ViewObject.Transparency = 60
     qwm_doc.horn_section_32U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_32')
-    qwm_doc.sketch_horn_section_32.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.29619,-6.40127,0), FreeCAD.Vector(-3.29619,6.40127,0)))
-    qwm_doc.sketch_horn_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.29619,6.40127,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-9.29619,6.40127,0)))
-    qwm_doc.sketch_horn_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.29619,6.40127,0), FreeCAD.Vector(-9.29619,-6.40127,0)))
-    qwm_doc.sketch_horn_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.29619,-6.40127,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_32.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-3.29619,-6.40127,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_32D")
-    qwm_doc.horn_section_32D.Base = qwm_doc.sketch_horn_section_32
-    qwm_doc.horn_section_32D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_32D.Solid = True
-    qwm_doc.horn_section_32D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_32D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_3261')
+    qwm_doc.sketch_horn_section_3261.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_3261.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.29619,-6.40127,0), FreeCAD.Vector(-3.29619,6.40127,0)))
+    qwm_doc.sketch_horn_section_3261.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.29619,6.40127,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_3261.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_3261.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-9.29619,6.40127,0)))
+    qwm_doc.sketch_horn_section_3261.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.29619,6.40127,0), FreeCAD.Vector(-9.29619,-6.40127,0)))
+    qwm_doc.sketch_horn_section_3261.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.29619,-6.40127,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_3261.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_3261.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-3.29619,-6.40127,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_3261D")
+    qwm_doc.horn_section_3261D.Base = qwm_doc.sketch_horn_section_3261
+    qwm_doc.horn_section_3261D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_3261D.Solid = True
+    qwm_doc.horn_section_3261D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_3261D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_33')
     qwm_doc.sketch_horn_section_33.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.65936,-5.94688,0), FreeCAD.Vector(-4.65936,5.94688,0)))
@@ -2087,22 +2087,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_33U.Solid = True
     qwm_doc.horn_section_33U.ViewObject.Transparency = 60
     qwm_doc.horn_section_33U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_33')
-    qwm_doc.sketch_horn_section_33.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.73111,-5.92296,0), FreeCAD.Vector(-4.73111,5.92296,0)))
-    qwm_doc.sketch_horn_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.73111,5.92296,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-10.73111,5.92296,0)))
-    qwm_doc.sketch_horn_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.73111,5.92296,0), FreeCAD.Vector(-10.73111,-5.92296,0)))
-    qwm_doc.sketch_horn_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.73111,-5.92296,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_33.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-4.73111,-5.92296,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_33D")
-    qwm_doc.horn_section_33D.Base = qwm_doc.sketch_horn_section_33
-    qwm_doc.horn_section_33D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_33D.Solid = True
-    qwm_doc.horn_section_33D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_33D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_3362')
+    qwm_doc.sketch_horn_section_3362.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_3362.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.73111,-5.92296,0), FreeCAD.Vector(-4.73111,5.92296,0)))
+    qwm_doc.sketch_horn_section_3362.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.73111,5.92296,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_3362.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_3362.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-10.73111,5.92296,0)))
+    qwm_doc.sketch_horn_section_3362.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.73111,5.92296,0), FreeCAD.Vector(-10.73111,-5.92296,0)))
+    qwm_doc.sketch_horn_section_3362.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.73111,-5.92296,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_3362.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_3362.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-4.73111,-5.92296,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_3362D")
+    qwm_doc.horn_section_3362D.Base = qwm_doc.sketch_horn_section_3362
+    qwm_doc.horn_section_3362D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_3362D.Solid = True
+    qwm_doc.horn_section_3362D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_3362D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_34')
     qwm_doc.sketch_horn_section_34.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.09428,-5.46857,0), FreeCAD.Vector(-6.09428,5.46857,0)))
@@ -2119,22 +2119,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_34U.Solid = True
     qwm_doc.horn_section_34U.ViewObject.Transparency = 60
     qwm_doc.horn_section_34U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_34')
-    qwm_doc.sketch_horn_section_34.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.16603,-5.44466,0), FreeCAD.Vector(-6.16603,5.44466,0)))
-    qwm_doc.sketch_horn_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.16603,5.44466,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-12.16603,5.44466,0)))
-    qwm_doc.sketch_horn_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.16603,5.44466,0), FreeCAD.Vector(-12.16603,-5.44466,0)))
-    qwm_doc.sketch_horn_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.16603,-5.44466,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_34.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-6.16603,-5.44466,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_34D")
-    qwm_doc.horn_section_34D.Base = qwm_doc.sketch_horn_section_34
-    qwm_doc.horn_section_34D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_34D.Solid = True
-    qwm_doc.horn_section_34D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_34D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_3463')
+    qwm_doc.sketch_horn_section_3463.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_3463.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.16603,-5.44466,0), FreeCAD.Vector(-6.16603,5.44466,0)))
+    qwm_doc.sketch_horn_section_3463.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.16603,5.44466,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_3463.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_3463.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-12.16603,5.44466,0)))
+    qwm_doc.sketch_horn_section_3463.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.16603,5.44466,0), FreeCAD.Vector(-12.16603,-5.44466,0)))
+    qwm_doc.sketch_horn_section_3463.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.16603,-5.44466,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_3463.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_3463.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-6.16603,-5.44466,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_3463D")
+    qwm_doc.horn_section_3463D.Base = qwm_doc.sketch_horn_section_3463
+    qwm_doc.horn_section_3463D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_3463D.Solid = True
+    qwm_doc.horn_section_3463D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_3463D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_35')
     qwm_doc.sketch_horn_section_35.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.52921,-4.99026,0), FreeCAD.Vector(-7.52921,4.99026,0)))
@@ -2151,22 +2151,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_35U.Solid = True
     qwm_doc.horn_section_35U.ViewObject.Transparency = 60
     qwm_doc.horn_section_35U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_35')
-    qwm_doc.sketch_horn_section_35.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.60095,-4.96635,0), FreeCAD.Vector(-7.60095,4.96635,0)))
-    qwm_doc.sketch_horn_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.60095,4.96635,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-13.60095,4.96635,0)))
-    qwm_doc.sketch_horn_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.60095,4.96635,0), FreeCAD.Vector(-13.60095,-4.96635,0)))
-    qwm_doc.sketch_horn_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.60095,-4.96635,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_35.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-7.60095,-4.96635,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_35D")
-    qwm_doc.horn_section_35D.Base = qwm_doc.sketch_horn_section_35
-    qwm_doc.horn_section_35D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_35D.Solid = True
-    qwm_doc.horn_section_35D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_35D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_3564')
+    qwm_doc.sketch_horn_section_3564.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_3564.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.60095,-4.96635,0), FreeCAD.Vector(-7.60095,4.96635,0)))
+    qwm_doc.sketch_horn_section_3564.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.60095,4.96635,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_3564.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_3564.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-13.60095,4.96635,0)))
+    qwm_doc.sketch_horn_section_3564.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.60095,4.96635,0), FreeCAD.Vector(-13.60095,-4.96635,0)))
+    qwm_doc.sketch_horn_section_3564.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.60095,-4.96635,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_3564.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_3564.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-7.60095,-4.96635,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_3564D")
+    qwm_doc.horn_section_3564D.Base = qwm_doc.sketch_horn_section_3564
+    qwm_doc.horn_section_3564D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_3564D.Solid = True
+    qwm_doc.horn_section_3564D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_3564D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_36')
     qwm_doc.sketch_horn_section_36.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(-8.96413,-4.51196,0), FreeCAD.Vector(-8.96413,4.51196,0)))
@@ -2183,24 +2183,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_36U.Solid = True
     qwm_doc.horn_section_36U.ViewObject.Transparency = 60
     qwm_doc.horn_section_36U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_36')
-    qwm_doc.sketch_horn_section_36.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-9.0375,-4.4875,0)))
-    qwm_doc.sketch_horn_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.0375,-4.4875,0), FreeCAD.Vector(-9.0375,4.4875,0)))
-    qwm_doc.sketch_horn_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.0375,4.4875,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_36.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_36D")
-    qwm_doc.horn_section_36D.Base = qwm_doc.sketch_horn_section_36
-    qwm_doc.horn_section_36D.Dir = (0, 0, -0.25)
-    qwm_doc.horn_section_36D.Solid = True
-    qwm_doc.horn_section_36D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_36D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_3665')
+    qwm_doc.sketch_horn_section_3665.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_3665.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_3665.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_3665.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-9.0375,-4.4875,0)))
+    qwm_doc.sketch_horn_section_3665.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.0375,-4.4875,0), FreeCAD.Vector(-9.0375,4.4875,0)))
+    qwm_doc.sketch_horn_section_3665.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.0375,4.4875,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_3665.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_3665.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_3665.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_3665.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_3665.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_3665D")
+    qwm_doc.horn_section_3665D.Base = qwm_doc.sketch_horn_section_3665
+    qwm_doc.horn_section_3665D.Dir = (0, 0, -0.25)
+    qwm_doc.horn_section_3665D.Solid = True
+    qwm_doc.horn_section_3665D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_3665D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_37')
     qwm_doc.sketch_horn_section_37.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
@@ -2219,24 +2219,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_37U.Solid = True
     qwm_doc.horn_section_37U.ViewObject.Transparency = 60
     qwm_doc.horn_section_37U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_37')
-    qwm_doc.sketch_horn_section_37.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-10.5375,-3.9875,0)))
-    qwm_doc.sketch_horn_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.5375,-3.9875,0), FreeCAD.Vector(-10.5375,3.9875,0)))
-    qwm_doc.sketch_horn_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.5375,3.9875,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_37.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_37D")
-    qwm_doc.horn_section_37D.Base = qwm_doc.sketch_horn_section_37
-    qwm_doc.horn_section_37D.Dir = (0, 0, -0.25)
-    qwm_doc.horn_section_37D.Solid = True
-    qwm_doc.horn_section_37D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_37D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_3766')
+    qwm_doc.sketch_horn_section_3766.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_3766.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_3766.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_3766.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-10.5375,-3.9875,0)))
+    qwm_doc.sketch_horn_section_3766.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.5375,-3.9875,0), FreeCAD.Vector(-10.5375,3.9875,0)))
+    qwm_doc.sketch_horn_section_3766.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.5375,3.9875,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_3766.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_3766.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_3766.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_3766.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_3766.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_3766D")
+    qwm_doc.horn_section_3766D.Base = qwm_doc.sketch_horn_section_3766
+    qwm_doc.horn_section_3766D.Dir = (0, 0, -0.25)
+    qwm_doc.horn_section_3766D.Solid = True
+    qwm_doc.horn_section_3766D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_3766D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_38')
     qwm_doc.sketch_horn_section_38.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
@@ -2255,24 +2255,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_38U.Solid = True
     qwm_doc.horn_section_38U.ViewObject.Transparency = 60
     qwm_doc.horn_section_38U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_38')
-    qwm_doc.sketch_horn_section_38.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-12.0375,-3.4875,0)))
-    qwm_doc.sketch_horn_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.0375,-3.4875,0), FreeCAD.Vector(-12.0375,3.4875,0)))
-    qwm_doc.sketch_horn_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.0375,3.4875,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_38.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_38D")
-    qwm_doc.horn_section_38D.Base = qwm_doc.sketch_horn_section_38
-    qwm_doc.horn_section_38D.Dir = (0, 0, -0.25)
-    qwm_doc.horn_section_38D.Solid = True
-    qwm_doc.horn_section_38D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_38D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_3867')
+    qwm_doc.sketch_horn_section_3867.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_3867.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_3867.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_3867.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-12.0375,-3.4875,0)))
+    qwm_doc.sketch_horn_section_3867.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.0375,-3.4875,0), FreeCAD.Vector(-12.0375,3.4875,0)))
+    qwm_doc.sketch_horn_section_3867.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.0375,3.4875,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_3867.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_3867.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_3867.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_3867.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_3867.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_3867D")
+    qwm_doc.horn_section_3867D.Base = qwm_doc.sketch_horn_section_3867
+    qwm_doc.horn_section_3867D.Dir = (0, 0, -0.25)
+    qwm_doc.horn_section_3867D.Solid = True
+    qwm_doc.horn_section_3867D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_3867D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_39')
     qwm_doc.sketch_horn_section_39.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
@@ -2291,24 +2291,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_39U.Solid = True
     qwm_doc.horn_section_39U.ViewObject.Transparency = 60
     qwm_doc.horn_section_39U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_39')
-    qwm_doc.sketch_horn_section_39.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-13.5375,-2.9875,0)))
-    qwm_doc.sketch_horn_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.5375,-2.9875,0), FreeCAD.Vector(-13.5375,2.9875,0)))
-    qwm_doc.sketch_horn_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.5375,2.9875,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_39.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_39D")
-    qwm_doc.horn_section_39D.Base = qwm_doc.sketch_horn_section_39
-    qwm_doc.horn_section_39D.Dir = (0, 0, -0.25)
-    qwm_doc.horn_section_39D.Solid = True
-    qwm_doc.horn_section_39D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_39D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_3968')
+    qwm_doc.sketch_horn_section_3968.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_3968.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_3968.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_3968.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-13.5375,-2.9875,0)))
+    qwm_doc.sketch_horn_section_3968.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.5375,-2.9875,0), FreeCAD.Vector(-13.5375,2.9875,0)))
+    qwm_doc.sketch_horn_section_3968.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.5375,2.9875,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_3968.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_3968.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_3968.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_3968.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_3968.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_3968D")
+    qwm_doc.horn_section_3968D.Base = qwm_doc.sketch_horn_section_3968
+    qwm_doc.horn_section_3968D.Dir = (0, 0, -0.25)
+    qwm_doc.horn_section_3968D.Solid = True
+    qwm_doc.horn_section_3968D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_3968D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_40')
     qwm_doc.sketch_horn_section_40.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
@@ -2327,26 +2327,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_40U.Solid = True
     qwm_doc.horn_section_40U.ViewObject.Transparency = 60
     qwm_doc.horn_section_40U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_40')
-    qwm_doc.sketch_horn_section_40.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_40.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_40D")
-    qwm_doc.horn_section_40D.Base = qwm_doc.sketch_horn_section_40
-    qwm_doc.horn_section_40D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_40D.Solid = True
-    qwm_doc.horn_section_40D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_40D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_4069')
+    qwm_doc.sketch_horn_section_4069.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_4069.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_4069D")
+    qwm_doc.horn_section_4069D.Base = qwm_doc.sketch_horn_section_4069
+    qwm_doc.horn_section_4069D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_4069D.Solid = True
+    qwm_doc.horn_section_4069D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_4069D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_41')
     qwm_doc.sketch_horn_section_41.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2367,26 +2367,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_41U.Solid = True
     qwm_doc.horn_section_41U.ViewObject.Transparency = 60
     qwm_doc.horn_section_41U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_41')
-    qwm_doc.sketch_horn_section_41.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_41.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_41D")
-    qwm_doc.horn_section_41D.Base = qwm_doc.sketch_horn_section_41
-    qwm_doc.horn_section_41D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_41D.Solid = True
-    qwm_doc.horn_section_41D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_41D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_4170')
+    qwm_doc.sketch_horn_section_4170.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_4170.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_4170D")
+    qwm_doc.horn_section_4170D.Base = qwm_doc.sketch_horn_section_4170
+    qwm_doc.horn_section_4170D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_4170D.Solid = True
+    qwm_doc.horn_section_4170D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_4170D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_42')
     qwm_doc.sketch_horn_section_42.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2407,26 +2407,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_42U.Solid = True
     qwm_doc.horn_section_42U.ViewObject.Transparency = 60
     qwm_doc.horn_section_42U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_42')
-    qwm_doc.sketch_horn_section_42.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_42.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_42D")
-    qwm_doc.horn_section_42D.Base = qwm_doc.sketch_horn_section_42
-    qwm_doc.horn_section_42D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_42D.Solid = True
-    qwm_doc.horn_section_42D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_42D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_4271')
+    qwm_doc.sketch_horn_section_4271.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_4271.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_4271D")
+    qwm_doc.horn_section_4271D.Base = qwm_doc.sketch_horn_section_4271
+    qwm_doc.horn_section_4271D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_4271D.Solid = True
+    qwm_doc.horn_section_4271D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_4271D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_43')
     qwm_doc.sketch_horn_section_43.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2447,26 +2447,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_43U.Solid = True
     qwm_doc.horn_section_43U.ViewObject.Transparency = 60
     qwm_doc.horn_section_43U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_43')
-    qwm_doc.sketch_horn_section_43.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_43.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_43D")
-    qwm_doc.horn_section_43D.Base = qwm_doc.sketch_horn_section_43
-    qwm_doc.horn_section_43D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_43D.Solid = True
-    qwm_doc.horn_section_43D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_43D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_4372')
+    qwm_doc.sketch_horn_section_4372.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_4372.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_4372D")
+    qwm_doc.horn_section_4372D.Base = qwm_doc.sketch_horn_section_4372
+    qwm_doc.horn_section_4372D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_4372D.Solid = True
+    qwm_doc.horn_section_4372D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_4372D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_44')
     qwm_doc.sketch_horn_section_44.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2487,26 +2487,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_44U.Solid = True
     qwm_doc.horn_section_44U.ViewObject.Transparency = 60
     qwm_doc.horn_section_44U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_44')
-    qwm_doc.sketch_horn_section_44.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_44.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_44D")
-    qwm_doc.horn_section_44D.Base = qwm_doc.sketch_horn_section_44
-    qwm_doc.horn_section_44D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_44D.Solid = True
-    qwm_doc.horn_section_44D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_44D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_4473')
+    qwm_doc.sketch_horn_section_4473.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_4473.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_4473D")
+    qwm_doc.horn_section_4473D.Base = qwm_doc.sketch_horn_section_4473
+    qwm_doc.horn_section_4473D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_4473D.Solid = True
+    qwm_doc.horn_section_4473D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_4473D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_45')
     qwm_doc.sketch_horn_section_45.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2527,26 +2527,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_45U.Solid = True
     qwm_doc.horn_section_45U.ViewObject.Transparency = 60
     qwm_doc.horn_section_45U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_45')
-    qwm_doc.sketch_horn_section_45.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_45.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_45D")
-    qwm_doc.horn_section_45D.Base = qwm_doc.sketch_horn_section_45
-    qwm_doc.horn_section_45D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_45D.Solid = True
-    qwm_doc.horn_section_45D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_45D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_4574')
+    qwm_doc.sketch_horn_section_4574.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_4574.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_4574D")
+    qwm_doc.horn_section_4574D.Base = qwm_doc.sketch_horn_section_4574
+    qwm_doc.horn_section_4574D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_4574D.Solid = True
+    qwm_doc.horn_section_4574D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_4574D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_46')
     qwm_doc.sketch_horn_section_46.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2567,26 +2567,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_46U.Solid = True
     qwm_doc.horn_section_46U.ViewObject.Transparency = 60
     qwm_doc.horn_section_46U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_46')
-    qwm_doc.sketch_horn_section_46.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_46.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_46D")
-    qwm_doc.horn_section_46D.Base = qwm_doc.sketch_horn_section_46
-    qwm_doc.horn_section_46D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_46D.Solid = True
-    qwm_doc.horn_section_46D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_46D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_4675')
+    qwm_doc.sketch_horn_section_4675.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_4675.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_4675D")
+    qwm_doc.horn_section_4675D.Base = qwm_doc.sketch_horn_section_4675
+    qwm_doc.horn_section_4675D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_4675D.Solid = True
+    qwm_doc.horn_section_4675D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_4675D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_47')
     qwm_doc.sketch_horn_section_47.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2607,26 +2607,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_47U.Solid = True
     qwm_doc.horn_section_47U.ViewObject.Transparency = 60
     qwm_doc.horn_section_47U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_47')
-    qwm_doc.sketch_horn_section_47.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_47.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_47D")
-    qwm_doc.horn_section_47D.Base = qwm_doc.sketch_horn_section_47
-    qwm_doc.horn_section_47D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_47D.Solid = True
-    qwm_doc.horn_section_47D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_47D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_4776')
+    qwm_doc.sketch_horn_section_4776.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_4776.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_4776D")
+    qwm_doc.horn_section_4776D.Base = qwm_doc.sketch_horn_section_4776
+    qwm_doc.horn_section_4776D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_4776D.Solid = True
+    qwm_doc.horn_section_4776D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_4776D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_48')
     qwm_doc.sketch_horn_section_48.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2647,26 +2647,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_48U.Solid = True
     qwm_doc.horn_section_48U.ViewObject.Transparency = 60
     qwm_doc.horn_section_48U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_48')
-    qwm_doc.sketch_horn_section_48.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_48.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_48D")
-    qwm_doc.horn_section_48D.Base = qwm_doc.sketch_horn_section_48
-    qwm_doc.horn_section_48D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_48D.Solid = True
-    qwm_doc.horn_section_48D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_48D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_4877')
+    qwm_doc.sketch_horn_section_4877.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_4877.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_4877D")
+    qwm_doc.horn_section_4877D.Base = qwm_doc.sketch_horn_section_4877
+    qwm_doc.horn_section_4877D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_4877D.Solid = True
+    qwm_doc.horn_section_4877D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_4877D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_49')
     qwm_doc.sketch_horn_section_49.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2687,26 +2687,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_49U.Solid = True
     qwm_doc.horn_section_49U.ViewObject.Transparency = 60
     qwm_doc.horn_section_49U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_49')
-    qwm_doc.sketch_horn_section_49.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_49.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_49D")
-    qwm_doc.horn_section_49D.Base = qwm_doc.sketch_horn_section_49
-    qwm_doc.horn_section_49D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_49D.Solid = True
-    qwm_doc.horn_section_49D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_49D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_4978')
+    qwm_doc.sketch_horn_section_4978.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_4978.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_4978D")
+    qwm_doc.horn_section_4978D.Base = qwm_doc.sketch_horn_section_4978
+    qwm_doc.horn_section_4978D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_4978D.Solid = True
+    qwm_doc.horn_section_4978D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_4978D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_50')
     qwm_doc.sketch_horn_section_50.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2727,26 +2727,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_50U.Solid = True
     qwm_doc.horn_section_50U.ViewObject.Transparency = 60
     qwm_doc.horn_section_50U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_50')
-    qwm_doc.sketch_horn_section_50.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,1.5,0)))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,1.5,0), FreeCAD.Vector(-15.0,1.5,0)))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,1.5,0), FreeCAD.Vector(0.0,4.5,0)))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-4.5,0), FreeCAD.Vector(-15.0,-1.5,0)))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-1.5,0), FreeCAD.Vector(-25.0,-1.5,0)))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-1.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_50.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_50D")
-    qwm_doc.horn_section_50D.Base = qwm_doc.sketch_horn_section_50
-    qwm_doc.horn_section_50D.Dir = (0, 0, -0.25)
-    qwm_doc.horn_section_50D.Solid = True
-    qwm_doc.horn_section_50D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_50D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_5079')
+    qwm_doc.sketch_horn_section_5079.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,-0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,1.5,0)))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,1.5,0), FreeCAD.Vector(-15.0,1.5,0)))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,1.5,0), FreeCAD.Vector(0.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-4.5,0), FreeCAD.Vector(-15.0,-1.5,0)))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-1.5,0), FreeCAD.Vector(-25.0,-1.5,0)))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-1.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5079.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_5079D")
+    qwm_doc.horn_section_5079D.Base = qwm_doc.sketch_horn_section_5079
+    qwm_doc.horn_section_5079D.Dir = (0, 0, -0.25)
+    qwm_doc.horn_section_5079D.Solid = True
+    qwm_doc.horn_section_5079D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_5079D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_51')
     qwm_doc.sketch_horn_section_51.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,1.5,0)))
@@ -2767,26 +2767,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_51U.Solid = True
     qwm_doc.horn_section_51U.ViewObject.Transparency = 60
     qwm_doc.horn_section_51U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_51')
-    qwm_doc.sketch_horn_section_51.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,1.5,0)))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,1.5,0), FreeCAD.Vector(-15.0,1.5,0)))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,1.5,0), FreeCAD.Vector(0.0,4.5,0)))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-4.5,0), FreeCAD.Vector(-15.0,-1.5,0)))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-1.5,0), FreeCAD.Vector(-25.0,-1.5,0)))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-1.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_51.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_51D")
-    qwm_doc.horn_section_51D.Base = qwm_doc.sketch_horn_section_51
-    qwm_doc.horn_section_51D.Dir = (0, 0, -0.25)
-    qwm_doc.horn_section_51D.Solid = True
-    qwm_doc.horn_section_51D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_51D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_5180')
+    qwm_doc.sketch_horn_section_5180.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,1.5,0)))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,1.5,0), FreeCAD.Vector(-15.0,1.5,0)))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,1.5,0), FreeCAD.Vector(0.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,4.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-4.5,0), FreeCAD.Vector(-15.0,-1.5,0)))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-1.5,0), FreeCAD.Vector(-25.0,-1.5,0)))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-1.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5180.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_5180D")
+    qwm_doc.horn_section_5180D.Base = qwm_doc.sketch_horn_section_5180
+    qwm_doc.horn_section_5180D.Dir = (0, 0, -0.25)
+    qwm_doc.horn_section_5180D.Solid = True
+    qwm_doc.horn_section_5180D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_5180D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_52')
     qwm_doc.sketch_horn_section_52.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,1.5,0)))
@@ -2807,26 +2807,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_52U.Solid = True
     qwm_doc.horn_section_52U.ViewObject.Transparency = 60
     qwm_doc.horn_section_52U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_52')
-    qwm_doc.sketch_horn_section_52.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_52.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_52D")
-    qwm_doc.horn_section_52D.Base = qwm_doc.sketch_horn_section_52
-    qwm_doc.horn_section_52D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_52D.Solid = True
-    qwm_doc.horn_section_52D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_52D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_5281')
+    qwm_doc.sketch_horn_section_5281.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5281.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_5281D")
+    qwm_doc.horn_section_5281D.Base = qwm_doc.sketch_horn_section_5281
+    qwm_doc.horn_section_5281D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_5281D.Solid = True
+    qwm_doc.horn_section_5281D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_5281D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_53')
     qwm_doc.sketch_horn_section_53.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2847,26 +2847,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_53U.Solid = True
     qwm_doc.horn_section_53U.ViewObject.Transparency = 60
     qwm_doc.horn_section_53U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_53')
-    qwm_doc.sketch_horn_section_53.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_53.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_53D")
-    qwm_doc.horn_section_53D.Base = qwm_doc.sketch_horn_section_53
-    qwm_doc.horn_section_53D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_53D.Solid = True
-    qwm_doc.horn_section_53D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_53D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_5382')
+    qwm_doc.sketch_horn_section_5382.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,0.95),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5382.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_5382D")
+    qwm_doc.horn_section_5382D.Base = qwm_doc.sketch_horn_section_5382
+    qwm_doc.horn_section_5382D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_5382D.Solid = True
+    qwm_doc.horn_section_5382D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_5382D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_54')
     qwm_doc.sketch_horn_section_54.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2887,26 +2887,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_54U.Solid = True
     qwm_doc.horn_section_54U.ViewObject.Transparency = 60
     qwm_doc.horn_section_54U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_54')
-    qwm_doc.sketch_horn_section_54.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_54.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_54D")
-    qwm_doc.horn_section_54D.Base = qwm_doc.sketch_horn_section_54
-    qwm_doc.horn_section_54D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_54D.Solid = True
-    qwm_doc.horn_section_54D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_54D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_5483')
+    qwm_doc.sketch_horn_section_5483.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.4),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5483.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_5483D")
+    qwm_doc.horn_section_5483D.Base = qwm_doc.sketch_horn_section_5483
+    qwm_doc.horn_section_5483D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_5483D.Solid = True
+    qwm_doc.horn_section_5483D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_5483D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_55')
     qwm_doc.sketch_horn_section_55.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2927,26 +2927,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_55U.Solid = True
     qwm_doc.horn_section_55U.ViewObject.Transparency = 60
     qwm_doc.horn_section_55U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_55')
-    qwm_doc.sketch_horn_section_55.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_55.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_55D")
-    qwm_doc.horn_section_55D.Base = qwm_doc.sketch_horn_section_55
-    qwm_doc.horn_section_55D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_55D.Solid = True
-    qwm_doc.horn_section_55D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_55D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_5584')
+    qwm_doc.sketch_horn_section_5584.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,1.85),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5584.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_5584D")
+    qwm_doc.horn_section_5584D.Base = qwm_doc.sketch_horn_section_5584
+    qwm_doc.horn_section_5584D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_5584D.Solid = True
+    qwm_doc.horn_section_5584D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_5584D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_56')
     qwm_doc.sketch_horn_section_56.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -2967,26 +2967,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_56U.Solid = True
     qwm_doc.horn_section_56U.ViewObject.Transparency = 60
     qwm_doc.horn_section_56U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_56')
-    qwm_doc.sketch_horn_section_56.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_56.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_56D")
-    qwm_doc.horn_section_56D.Base = qwm_doc.sketch_horn_section_56
-    qwm_doc.horn_section_56D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_56D.Solid = True
-    qwm_doc.horn_section_56D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_56D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_5685')
+    qwm_doc.sketch_horn_section_5685.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.3),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5685.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_5685D")
+    qwm_doc.horn_section_5685D.Base = qwm_doc.sketch_horn_section_5685
+    qwm_doc.horn_section_5685D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_5685D.Solid = True
+    qwm_doc.horn_section_5685D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_5685D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_57')
     qwm_doc.sketch_horn_section_57.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -3007,26 +3007,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_57U.Solid = True
     qwm_doc.horn_section_57U.ViewObject.Transparency = 60
     qwm_doc.horn_section_57U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_57')
-    qwm_doc.sketch_horn_section_57.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_57.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_57D")
-    qwm_doc.horn_section_57D.Base = qwm_doc.sketch_horn_section_57
-    qwm_doc.horn_section_57D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_57D.Solid = True
-    qwm_doc.horn_section_57D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_57D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_5786')
+    qwm_doc.sketch_horn_section_5786.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,2.75),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5786.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_5786D")
+    qwm_doc.horn_section_5786D.Base = qwm_doc.sketch_horn_section_5786
+    qwm_doc.horn_section_5786D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_5786D.Solid = True
+    qwm_doc.horn_section_5786D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_5786D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_58')
     qwm_doc.sketch_horn_section_58.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -3047,26 +3047,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_58U.Solid = True
     qwm_doc.horn_section_58U.ViewObject.Transparency = 60
     qwm_doc.horn_section_58U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_58')
-    qwm_doc.sketch_horn_section_58.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_58.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_58D")
-    qwm_doc.horn_section_58D.Base = qwm_doc.sketch_horn_section_58
-    qwm_doc.horn_section_58D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_58D.Solid = True
-    qwm_doc.horn_section_58D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_58D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_5887')
+    qwm_doc.sketch_horn_section_5887.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.2),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5887.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_5887D")
+    qwm_doc.horn_section_5887D.Base = qwm_doc.sketch_horn_section_5887
+    qwm_doc.horn_section_5887D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_5887D.Solid = True
+    qwm_doc.horn_section_5887D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_5887D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_59')
     qwm_doc.sketch_horn_section_59.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -3087,26 +3087,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_59U.Solid = True
     qwm_doc.horn_section_59U.ViewObject.Transparency = 60
     qwm_doc.horn_section_59U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_59')
-    qwm_doc.sketch_horn_section_59.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_59.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_59D")
-    qwm_doc.horn_section_59D.Base = qwm_doc.sketch_horn_section_59
-    qwm_doc.horn_section_59D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_59D.Solid = True
-    qwm_doc.horn_section_59D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_59D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_5988')
+    qwm_doc.sketch_horn_section_5988.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,3.65),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_5988.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_5988D")
+    qwm_doc.horn_section_5988D.Base = qwm_doc.sketch_horn_section_5988
+    qwm_doc.horn_section_5988D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_5988D.Solid = True
+    qwm_doc.horn_section_5988D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_5988D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_60')
     qwm_doc.sketch_horn_section_60.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -3127,26 +3127,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_60U.Solid = True
     qwm_doc.horn_section_60U.ViewObject.Transparency = 60
     qwm_doc.horn_section_60U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_60')
-    qwm_doc.sketch_horn_section_60.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_60.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_60D")
-    qwm_doc.horn_section_60D.Base = qwm_doc.sketch_horn_section_60
-    qwm_doc.horn_section_60D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_60D.Solid = True
-    qwm_doc.horn_section_60D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_60D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_6089')
+    qwm_doc.sketch_horn_section_6089.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.1),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_6089.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_6089D")
+    qwm_doc.horn_section_6089D.Base = qwm_doc.sketch_horn_section_6089
+    qwm_doc.horn_section_6089D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_6089D.Solid = True
+    qwm_doc.horn_section_6089D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_6089D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_61')
     qwm_doc.sketch_horn_section_61.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -3167,26 +3167,26 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_61U.Solid = True
     qwm_doc.horn_section_61U.ViewObject.Transparency = 60
     qwm_doc.horn_section_61U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_61')
-    qwm_doc.sketch_horn_section_61.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_61.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_61D")
-    qwm_doc.horn_section_61D.Base = qwm_doc.sketch_horn_section_61
-    qwm_doc.horn_section_61D.Dir = (0, 0, -0.225)
-    qwm_doc.horn_section_61D.Solid = True
-    qwm_doc.horn_section_61D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_61D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_6190')
+    qwm_doc.sketch_horn_section_6190.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,4.55),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,2.5,0), FreeCAD.Vector(-15.0,2.5,0)))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,2.5,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-15.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-2.5,0), FreeCAD.Vector(-25.0,-2.5,0)))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-2.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_6190.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_6190D")
+    qwm_doc.horn_section_6190D.Base = qwm_doc.sketch_horn_section_6190
+    qwm_doc.horn_section_6190D.Dir = (0, 0, -0.225)
+    qwm_doc.horn_section_6190D.Solid = True
+    qwm_doc.horn_section_6190D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_6190D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_62')
     qwm_doc.sketch_horn_section_62.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,2.5,0)))
@@ -3207,24 +3207,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_62U.Solid = True
     qwm_doc.horn_section_62U.ViewObject.Transparency = 60
     qwm_doc.horn_section_62U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_62')
-    qwm_doc.sketch_horn_section_62.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-14.9625,-2.5125,0)))
-    qwm_doc.sketch_horn_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(-14.9625,-2.5125,0), FreeCAD.Vector(-14.9625,2.5125,0)))
-    qwm_doc.sketch_horn_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(-14.9625,2.5125,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_62.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_62D")
-    qwm_doc.horn_section_62D.Base = qwm_doc.sketch_horn_section_62
-    qwm_doc.horn_section_62D.Dir = (0, 0, -0.25)
-    qwm_doc.horn_section_62D.Solid = True
-    qwm_doc.horn_section_62D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_62D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_6291')
+    qwm_doc.sketch_horn_section_6291.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_6291.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_6291.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_6291.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-14.9625,-2.5125,0)))
+    qwm_doc.sketch_horn_section_6291.addGeometry(Part.LineSegment(FreeCAD.Vector(-14.9625,-2.5125,0), FreeCAD.Vector(-14.9625,2.5125,0)))
+    qwm_doc.sketch_horn_section_6291.addGeometry(Part.LineSegment(FreeCAD.Vector(-14.9625,2.5125,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_6291.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_6291.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6291.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6291.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_6291.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_6291D")
+    qwm_doc.horn_section_6291D.Base = qwm_doc.sketch_horn_section_6291
+    qwm_doc.horn_section_6291D.Dir = (0, 0, -0.25)
+    qwm_doc.horn_section_6291D.Solid = True
+    qwm_doc.horn_section_6291D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_6291D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_63')
     qwm_doc.sketch_horn_section_63.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
@@ -3243,24 +3243,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_63U.Solid = True
     qwm_doc.horn_section_63U.ViewObject.Transparency = 60
     qwm_doc.horn_section_63U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_63')
-    qwm_doc.sketch_horn_section_63.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-13.4625,-3.0125,0)))
-    qwm_doc.sketch_horn_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.4625,-3.0125,0), FreeCAD.Vector(-13.4625,3.0125,0)))
-    qwm_doc.sketch_horn_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.4625,3.0125,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_63.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_63D")
-    qwm_doc.horn_section_63D.Base = qwm_doc.sketch_horn_section_63
-    qwm_doc.horn_section_63D.Dir = (0, 0, -0.25)
-    qwm_doc.horn_section_63D.Solid = True
-    qwm_doc.horn_section_63D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_63D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_6392')
+    qwm_doc.sketch_horn_section_6392.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,5.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_6392.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_6392.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_6392.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-13.4625,-3.0125,0)))
+    qwm_doc.sketch_horn_section_6392.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.4625,-3.0125,0), FreeCAD.Vector(-13.4625,3.0125,0)))
+    qwm_doc.sketch_horn_section_6392.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.4625,3.0125,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_6392.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_6392.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6392.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6392.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_6392.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_6392D")
+    qwm_doc.horn_section_6392D.Base = qwm_doc.sketch_horn_section_6392
+    qwm_doc.horn_section_6392D.Dir = (0, 0, -0.25)
+    qwm_doc.horn_section_6392D.Solid = True
+    qwm_doc.horn_section_6392D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_6392D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_64')
     qwm_doc.sketch_horn_section_64.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
@@ -3279,24 +3279,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_64U.Solid = True
     qwm_doc.horn_section_64U.ViewObject.Transparency = 60
     qwm_doc.horn_section_64U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_64')
-    qwm_doc.sketch_horn_section_64.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-11.9625,-3.5125,0)))
-    qwm_doc.sketch_horn_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(-11.9625,-3.5125,0), FreeCAD.Vector(-11.9625,3.5125,0)))
-    qwm_doc.sketch_horn_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(-11.9625,3.5125,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_64.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_64D")
-    qwm_doc.horn_section_64D.Base = qwm_doc.sketch_horn_section_64
-    qwm_doc.horn_section_64D.Dir = (0, 0, -0.25)
-    qwm_doc.horn_section_64D.Solid = True
-    qwm_doc.horn_section_64D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_64D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_6493')
+    qwm_doc.sketch_horn_section_6493.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_6493.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_6493.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_6493.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-11.9625,-3.5125,0)))
+    qwm_doc.sketch_horn_section_6493.addGeometry(Part.LineSegment(FreeCAD.Vector(-11.9625,-3.5125,0), FreeCAD.Vector(-11.9625,3.5125,0)))
+    qwm_doc.sketch_horn_section_6493.addGeometry(Part.LineSegment(FreeCAD.Vector(-11.9625,3.5125,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_6493.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_6493.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6493.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6493.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_6493.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_6493D")
+    qwm_doc.horn_section_6493D.Base = qwm_doc.sketch_horn_section_6493
+    qwm_doc.horn_section_6493D.Dir = (0, 0, -0.25)
+    qwm_doc.horn_section_6493D.Solid = True
+    qwm_doc.horn_section_6493D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_6493D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_65')
     qwm_doc.sketch_horn_section_65.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
@@ -3315,24 +3315,24 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_65U.Solid = True
     qwm_doc.horn_section_65U.ViewObject.Transparency = 60
     qwm_doc.horn_section_65U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_65')
-    qwm_doc.sketch_horn_section_65.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-10.4625,-4.0125,0)))
-    qwm_doc.sketch_horn_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.4625,-4.0125,0), FreeCAD.Vector(-10.4625,4.0125,0)))
-    qwm_doc.sketch_horn_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.4625,4.0125,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
-    qwm_doc.sketch_horn_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
-    qwm_doc.sketch_horn_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
-    qwm_doc.sketch_horn_section_65.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_65D")
-    qwm_doc.horn_section_65D.Base = qwm_doc.sketch_horn_section_65
-    qwm_doc.horn_section_65D.Dir = (0, 0, -0.25)
-    qwm_doc.horn_section_65D.Solid = True
-    qwm_doc.horn_section_65D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_65D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_6594')
+    qwm_doc.sketch_horn_section_6594.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,6.5),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_6594.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_6594.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_6594.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-10.4625,-4.0125,0)))
+    qwm_doc.sketch_horn_section_6594.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.4625,-4.0125,0), FreeCAD.Vector(-10.4625,4.0125,0)))
+    qwm_doc.sketch_horn_section_6594.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.4625,4.0125,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_6594.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_6594.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-15.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6594.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,4.5,0), FreeCAD.Vector(-25.0,4.5,0)))
+    qwm_doc.sketch_horn_section_6594.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,4.5,0), FreeCAD.Vector(-25.0,-4.5,0)))
+    qwm_doc.sketch_horn_section_6594.addGeometry(Part.LineSegment(FreeCAD.Vector(-25.0,-4.5,0), FreeCAD.Vector(-15.0,-4.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_6594D")
+    qwm_doc.horn_section_6594D.Base = qwm_doc.sketch_horn_section_6594
+    qwm_doc.horn_section_6594D.Dir = (0, 0, -0.25)
+    qwm_doc.horn_section_6594D.Solid = True
+    qwm_doc.horn_section_6594D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_6594D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_66')
     qwm_doc.sketch_horn_section_66.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(-15.0,-4.5,0), FreeCAD.Vector(0.0,-9.5,0)))
@@ -3351,22 +3351,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_66U.Solid = True
     qwm_doc.horn_section_66U.ViewObject.Transparency = 60
     qwm_doc.horn_section_66U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_66')
-    qwm_doc.sketch_horn_section_66.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(-8.96413,-4.51196,0), FreeCAD.Vector(-8.96413,4.51196,0)))
-    qwm_doc.sketch_horn_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(-8.96413,4.51196,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-14.96413,4.51196,0)))
-    qwm_doc.sketch_horn_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(-14.96413,4.51196,0), FreeCAD.Vector(-14.96413,-4.51196,0)))
-    qwm_doc.sketch_horn_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(-14.96413,-4.51196,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_66.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-8.96413,-4.51196,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_66D")
-    qwm_doc.horn_section_66D.Base = qwm_doc.sketch_horn_section_66
-    qwm_doc.horn_section_66D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_66D.Solid = True
-    qwm_doc.horn_section_66D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_66D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_6695')
+    qwm_doc.sketch_horn_section_6695.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.0),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_6695.addGeometry(Part.LineSegment(FreeCAD.Vector(-8.96413,-4.51196,0), FreeCAD.Vector(-8.96413,4.51196,0)))
+    qwm_doc.sketch_horn_section_6695.addGeometry(Part.LineSegment(FreeCAD.Vector(-8.96413,4.51196,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_6695.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_6695.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-14.96413,4.51196,0)))
+    qwm_doc.sketch_horn_section_6695.addGeometry(Part.LineSegment(FreeCAD.Vector(-14.96413,4.51196,0), FreeCAD.Vector(-14.96413,-4.51196,0)))
+    qwm_doc.sketch_horn_section_6695.addGeometry(Part.LineSegment(FreeCAD.Vector(-14.96413,-4.51196,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_6695.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_6695.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-8.96413,-4.51196,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_6695D")
+    qwm_doc.horn_section_6695D.Base = qwm_doc.sketch_horn_section_6695
+    qwm_doc.horn_section_6695D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_6695D.Solid = True
+    qwm_doc.horn_section_6695D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_6695D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_67')
     qwm_doc.sketch_horn_section_67.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.60095,-4.96635,0), FreeCAD.Vector(-7.60095,4.96635,0)))
@@ -3383,22 +3383,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_67U.Solid = True
     qwm_doc.horn_section_67U.ViewObject.Transparency = 60
     qwm_doc.horn_section_67U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_67')
-    qwm_doc.sketch_horn_section_67.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.52921,-4.99026,0), FreeCAD.Vector(-7.52921,4.99026,0)))
-    qwm_doc.sketch_horn_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.52921,4.99026,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-13.52921,4.99026,0)))
-    qwm_doc.sketch_horn_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.52921,4.99026,0), FreeCAD.Vector(-13.52921,-4.99026,0)))
-    qwm_doc.sketch_horn_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.52921,-4.99026,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_67.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-7.52921,-4.99026,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_67D")
-    qwm_doc.horn_section_67D.Base = qwm_doc.sketch_horn_section_67
-    qwm_doc.horn_section_67D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_67D.Solid = True
-    qwm_doc.horn_section_67D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_67D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_6796')
+    qwm_doc.sketch_horn_section_6796.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.47831),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_6796.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.52921,-4.99026,0), FreeCAD.Vector(-7.52921,4.99026,0)))
+    qwm_doc.sketch_horn_section_6796.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.52921,4.99026,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_6796.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_6796.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-13.52921,4.99026,0)))
+    qwm_doc.sketch_horn_section_6796.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.52921,4.99026,0), FreeCAD.Vector(-13.52921,-4.99026,0)))
+    qwm_doc.sketch_horn_section_6796.addGeometry(Part.LineSegment(FreeCAD.Vector(-13.52921,-4.99026,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_6796.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_6796.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-7.52921,-4.99026,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_6796D")
+    qwm_doc.horn_section_6796D.Base = qwm_doc.sketch_horn_section_6796
+    qwm_doc.horn_section_6796D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_6796D.Solid = True
+    qwm_doc.horn_section_6796D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_6796D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_68')
     qwm_doc.sketch_horn_section_68.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.16603,-5.44466,0), FreeCAD.Vector(-6.16603,5.44466,0)))
@@ -3415,22 +3415,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_68U.Solid = True
     qwm_doc.horn_section_68U.ViewObject.Transparency = 60
     qwm_doc.horn_section_68U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_68')
-    qwm_doc.sketch_horn_section_68.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.09428,-5.46857,0), FreeCAD.Vector(-6.09428,5.46857,0)))
-    qwm_doc.sketch_horn_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.09428,5.46857,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-12.09428,5.46857,0)))
-    qwm_doc.sketch_horn_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.09428,5.46857,0), FreeCAD.Vector(-12.09428,-5.46857,0)))
-    qwm_doc.sketch_horn_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.09428,-5.46857,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_68.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-6.09428,-5.46857,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_68D")
-    qwm_doc.horn_section_68D.Base = qwm_doc.sketch_horn_section_68
-    qwm_doc.horn_section_68D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_68D.Solid = True
-    qwm_doc.horn_section_68D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_68D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_6897')
+    qwm_doc.sketch_horn_section_6897.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,7.95661),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_6897.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.09428,-5.46857,0), FreeCAD.Vector(-6.09428,5.46857,0)))
+    qwm_doc.sketch_horn_section_6897.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.09428,5.46857,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_6897.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_6897.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-12.09428,5.46857,0)))
+    qwm_doc.sketch_horn_section_6897.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.09428,5.46857,0), FreeCAD.Vector(-12.09428,-5.46857,0)))
+    qwm_doc.sketch_horn_section_6897.addGeometry(Part.LineSegment(FreeCAD.Vector(-12.09428,-5.46857,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_6897.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_6897.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-6.09428,-5.46857,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_6897D")
+    qwm_doc.horn_section_6897D.Base = qwm_doc.sketch_horn_section_6897
+    qwm_doc.horn_section_6897D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_6897D.Solid = True
+    qwm_doc.horn_section_6897D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_6897D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_69')
     qwm_doc.sketch_horn_section_69.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.73111,-5.92296,0), FreeCAD.Vector(-4.73111,5.92296,0)))
@@ -3447,22 +3447,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_69U.Solid = True
     qwm_doc.horn_section_69U.ViewObject.Transparency = 60
     qwm_doc.horn_section_69U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_69')
-    qwm_doc.sketch_horn_section_69.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.65936,-5.94688,0), FreeCAD.Vector(-4.65936,5.94688,0)))
-    qwm_doc.sketch_horn_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.65936,5.94688,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-10.65936,5.94688,0)))
-    qwm_doc.sketch_horn_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.65936,5.94688,0), FreeCAD.Vector(-10.65936,-5.94688,0)))
-    qwm_doc.sketch_horn_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.65936,-5.94688,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_69.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-4.65936,-5.94688,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_69D")
-    qwm_doc.horn_section_69D.Base = qwm_doc.sketch_horn_section_69
-    qwm_doc.horn_section_69D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_69D.Solid = True
-    qwm_doc.horn_section_69D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_69D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_6998')
+    qwm_doc.sketch_horn_section_6998.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.43492),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_6998.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.65936,-5.94688,0), FreeCAD.Vector(-4.65936,5.94688,0)))
+    qwm_doc.sketch_horn_section_6998.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.65936,5.94688,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_6998.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_6998.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-10.65936,5.94688,0)))
+    qwm_doc.sketch_horn_section_6998.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.65936,5.94688,0), FreeCAD.Vector(-10.65936,-5.94688,0)))
+    qwm_doc.sketch_horn_section_6998.addGeometry(Part.LineSegment(FreeCAD.Vector(-10.65936,-5.94688,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_6998.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_6998.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-4.65936,-5.94688,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_6998D")
+    qwm_doc.horn_section_6998D.Base = qwm_doc.sketch_horn_section_6998
+    qwm_doc.horn_section_6998D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_6998D.Solid = True
+    qwm_doc.horn_section_6998D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_6998D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_70')
     qwm_doc.sketch_horn_section_70.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.29619,-6.40127,0), FreeCAD.Vector(-3.29619,6.40127,0)))
@@ -3479,22 +3479,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_70U.Solid = True
     qwm_doc.horn_section_70U.ViewObject.Transparency = 60
     qwm_doc.horn_section_70U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_70')
-    qwm_doc.sketch_horn_section_70.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.22444,-6.42519,0), FreeCAD.Vector(-3.22444,6.42519,0)))
-    qwm_doc.sketch_horn_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.22444,6.42519,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-9.22444,6.42519,0)))
-    qwm_doc.sketch_horn_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.22444,6.42519,0), FreeCAD.Vector(-9.22444,-6.42519,0)))
-    qwm_doc.sketch_horn_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.22444,-6.42519,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_70.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-3.22444,-6.42519,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_70D")
-    qwm_doc.horn_section_70D.Base = qwm_doc.sketch_horn_section_70
-    qwm_doc.horn_section_70D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_70D.Solid = True
-    qwm_doc.horn_section_70D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_70D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_7099')
+    qwm_doc.sketch_horn_section_7099.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,8.91323),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_7099.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.22444,-6.42519,0), FreeCAD.Vector(-3.22444,6.42519,0)))
+    qwm_doc.sketch_horn_section_7099.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.22444,6.42519,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_7099.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_7099.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-9.22444,6.42519,0)))
+    qwm_doc.sketch_horn_section_7099.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.22444,6.42519,0), FreeCAD.Vector(-9.22444,-6.42519,0)))
+    qwm_doc.sketch_horn_section_7099.addGeometry(Part.LineSegment(FreeCAD.Vector(-9.22444,-6.42519,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_7099.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_7099.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-3.22444,-6.42519,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_7099D")
+    qwm_doc.horn_section_7099D.Base = qwm_doc.sketch_horn_section_7099
+    qwm_doc.horn_section_7099D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_7099D.Solid = True
+    qwm_doc.horn_section_7099D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_7099D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_71')
     qwm_doc.sketch_horn_section_71.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(-1.86126,-6.87958,0), FreeCAD.Vector(-1.86126,6.87958,0)))
@@ -3511,22 +3511,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_71U.Solid = True
     qwm_doc.horn_section_71U.ViewObject.Transparency = 60
     qwm_doc.horn_section_71U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_71')
-    qwm_doc.sketch_horn_section_71.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(-1.78952,-6.90349,0), FreeCAD.Vector(-1.78952,6.90349,0)))
-    qwm_doc.sketch_horn_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(-1.78952,6.90349,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-7.78952,6.90349,0)))
-    qwm_doc.sketch_horn_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.78952,6.90349,0), FreeCAD.Vector(-7.78952,-6.90349,0)))
-    qwm_doc.sketch_horn_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.78952,-6.90349,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_71.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-1.78952,-6.90349,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_71D")
-    qwm_doc.horn_section_71D.Base = qwm_doc.sketch_horn_section_71
-    qwm_doc.horn_section_71D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_71D.Solid = True
-    qwm_doc.horn_section_71D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_71D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_71100')
+    qwm_doc.sketch_horn_section_71100.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.39154),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_71100.addGeometry(Part.LineSegment(FreeCAD.Vector(-1.78952,-6.90349,0), FreeCAD.Vector(-1.78952,6.90349,0)))
+    qwm_doc.sketch_horn_section_71100.addGeometry(Part.LineSegment(FreeCAD.Vector(-1.78952,6.90349,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_71100.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_71100.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-7.78952,6.90349,0)))
+    qwm_doc.sketch_horn_section_71100.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.78952,6.90349,0), FreeCAD.Vector(-7.78952,-6.90349,0)))
+    qwm_doc.sketch_horn_section_71100.addGeometry(Part.LineSegment(FreeCAD.Vector(-7.78952,-6.90349,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_71100.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_71100.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-1.78952,-6.90349,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_71100D")
+    qwm_doc.horn_section_71100D.Base = qwm_doc.sketch_horn_section_71100
+    qwm_doc.horn_section_71100D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_71100D.Solid = True
+    qwm_doc.horn_section_71100D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_71100D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_72')
     qwm_doc.sketch_horn_section_72.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.42634,-7.35789,0), FreeCAD.Vector(-0.42634,7.35789,0)))
@@ -3543,22 +3543,22 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_72U.Solid = True
     qwm_doc.horn_section_72U.ViewObject.Transparency = 60
     qwm_doc.horn_section_72U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_72')
-    qwm_doc.sketch_horn_section_72.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.3546,-7.3818,0), FreeCAD.Vector(-0.3546,7.3818,0)))
-    qwm_doc.sketch_horn_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.3546,7.3818,0), FreeCAD.Vector(0.0,7.5,0)))
-    qwm_doc.sketch_horn_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.sketch_horn_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-6.3546,7.3818,0)))
-    qwm_doc.sketch_horn_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.3546,7.3818,0), FreeCAD.Vector(-6.3546,-7.3818,0)))
-    qwm_doc.sketch_horn_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.3546,-7.3818,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
-    qwm_doc.sketch_horn_section_72.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-0.3546,-7.3818,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_72D")
-    qwm_doc.horn_section_72D.Base = qwm_doc.sketch_horn_section_72
-    qwm_doc.horn_section_72D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_72D.Solid = True
-    qwm_doc.horn_section_72D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_72D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_72101')
+    qwm_doc.sketch_horn_section_72101.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,9.86984),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_72101.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.3546,-7.3818,0), FreeCAD.Vector(-0.3546,7.3818,0)))
+    qwm_doc.sketch_horn_section_72101.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.3546,7.3818,0), FreeCAD.Vector(0.0,7.5,0)))
+    qwm_doc.sketch_horn_section_72101.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,7.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.sketch_horn_section_72101.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-6.3546,7.3818,0)))
+    qwm_doc.sketch_horn_section_72101.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.3546,7.3818,0), FreeCAD.Vector(-6.3546,-7.3818,0)))
+    qwm_doc.sketch_horn_section_72101.addGeometry(Part.LineSegment(FreeCAD.Vector(-6.3546,-7.3818,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_72101.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,-7.5,0)))
+    qwm_doc.sketch_horn_section_72101.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-7.5,0), FreeCAD.Vector(-0.3546,-7.3818,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_72101D")
+    qwm_doc.horn_section_72101D.Base = qwm_doc.sketch_horn_section_72101
+    qwm_doc.horn_section_72101D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_72101D.Solid = True
+    qwm_doc.horn_section_72101D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_72101D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_73')
     qwm_doc.sketch_horn_section_73.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-4.99142,7.83619,0)))
@@ -3571,18 +3571,18 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_73U.Solid = True
     qwm_doc.horn_section_73U.ViewObject.Transparency = 60
     qwm_doc.horn_section_73U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_73')
-    qwm_doc.sketch_horn_section_73.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-4.91968,7.86011,0)))
-    qwm_doc.sketch_horn_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.91968,7.86011,0), FreeCAD.Vector(-4.91968,-7.86011,0)))
-    qwm_doc.sketch_horn_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.91968,-7.86011,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_73.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_73D")
-    qwm_doc.horn_section_73D.Base = qwm_doc.sketch_horn_section_73
-    qwm_doc.horn_section_73D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_73D.Solid = True
-    qwm_doc.horn_section_73D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_73D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_73102')
+    qwm_doc.sketch_horn_section_73102.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.34815),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_73102.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-4.91968,7.86011,0)))
+    qwm_doc.sketch_horn_section_73102.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.91968,7.86011,0), FreeCAD.Vector(-4.91968,-7.86011,0)))
+    qwm_doc.sketch_horn_section_73102.addGeometry(Part.LineSegment(FreeCAD.Vector(-4.91968,-7.86011,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_73102.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_73102D")
+    qwm_doc.horn_section_73102D.Base = qwm_doc.sketch_horn_section_73102
+    qwm_doc.horn_section_73102D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_73102D.Solid = True
+    qwm_doc.horn_section_73102D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_73102D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_74')
     qwm_doc.sketch_horn_section_74.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-3.5565,8.3145,0)))
@@ -3595,18 +3595,18 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_74U.Solid = True
     qwm_doc.horn_section_74U.ViewObject.Transparency = 60
     qwm_doc.horn_section_74U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_74')
-    qwm_doc.sketch_horn_section_74.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-3.48475,8.33842,0)))
-    qwm_doc.sketch_horn_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.48475,8.33842,0), FreeCAD.Vector(-3.48475,-8.33842,0)))
-    qwm_doc.sketch_horn_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.48475,-8.33842,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_74.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_74D")
-    qwm_doc.horn_section_74D.Base = qwm_doc.sketch_horn_section_74
-    qwm_doc.horn_section_74D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_74D.Solid = True
-    qwm_doc.horn_section_74D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_74D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_74103')
+    qwm_doc.sketch_horn_section_74103.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,10.82646),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_74103.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-3.48475,8.33842,0)))
+    qwm_doc.sketch_horn_section_74103.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.48475,8.33842,0), FreeCAD.Vector(-3.48475,-8.33842,0)))
+    qwm_doc.sketch_horn_section_74103.addGeometry(Part.LineSegment(FreeCAD.Vector(-3.48475,-8.33842,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_74103.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_74103D")
+    qwm_doc.horn_section_74103D.Base = qwm_doc.sketch_horn_section_74103
+    qwm_doc.horn_section_74103D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_74103D.Solid = True
+    qwm_doc.horn_section_74103D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_74103D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_75')
     qwm_doc.sketch_horn_section_75.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-2.12158,8.79281,0)))
@@ -3619,18 +3619,18 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_75U.Solid = True
     qwm_doc.horn_section_75U.ViewObject.Transparency = 60
     qwm_doc.horn_section_75U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_75')
-    qwm_doc.sketch_horn_section_75.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-2.04983,8.81672,0)))
-    qwm_doc.sketch_horn_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(-2.04983,8.81672,0), FreeCAD.Vector(-2.04983,-8.81672,0)))
-    qwm_doc.sketch_horn_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(-2.04983,-8.81672,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_75.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_75D")
-    qwm_doc.horn_section_75D.Base = qwm_doc.sketch_horn_section_75
-    qwm_doc.horn_section_75D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_75D.Solid = True
-    qwm_doc.horn_section_75D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_75D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_75104')
+    qwm_doc.sketch_horn_section_75104.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.30477),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_75104.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-2.04983,8.81672,0)))
+    qwm_doc.sketch_horn_section_75104.addGeometry(Part.LineSegment(FreeCAD.Vector(-2.04983,8.81672,0), FreeCAD.Vector(-2.04983,-8.81672,0)))
+    qwm_doc.sketch_horn_section_75104.addGeometry(Part.LineSegment(FreeCAD.Vector(-2.04983,-8.81672,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_75104.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_75104D")
+    qwm_doc.horn_section_75104D.Base = qwm_doc.sketch_horn_section_75104
+    qwm_doc.horn_section_75104D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_75104D.Solid = True
+    qwm_doc.horn_section_75104D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_75104D.Medium = QW_Modeller.getQWMedium("metal")
     qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_76')
     qwm_doc.sketch_horn_section_76.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
     qwm_doc.sketch_horn_section_76.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-0.68666,9.27111,0)))
@@ -3643,15 +3643,15 @@ def set_GeometryAndMedia(qwm_doc):
     qwm_doc.horn_section_76U.Solid = True
     qwm_doc.horn_section_76U.ViewObject.Transparency = 60
     qwm_doc.horn_section_76U.Medium = QW_Modeller.getQWMedium("metal")
-    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_76')
-    qwm_doc.sketch_horn_section_76.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
-    qwm_doc.sketch_horn_section_76.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-0.61491,9.29503,0)))
-    qwm_doc.sketch_horn_section_76.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.61491,9.29503,0), FreeCAD.Vector(-0.61491,-9.29503,0)))
-    qwm_doc.sketch_horn_section_76.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.61491,-9.29503,0), FreeCAD.Vector(0.0,-9.5,0)))
-    qwm_doc.sketch_horn_section_76.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
-    qwm_doc.addObject("Part::Extrusion", "horn_section_76D")
-    qwm_doc.horn_section_76D.Base = qwm_doc.sketch_horn_section_76
-    qwm_doc.horn_section_76D.Dir = (0, 0, -0.23915)
-    qwm_doc.horn_section_76D.Solid = True
-    qwm_doc.horn_section_76D.ViewObject.Transparency = 60
-    qwm_doc.horn_section_76D.Medium = QW_Modeller.getQWMedium("metal")
+    qwm_doc.addObject('Sketcher::SketchObject', 'sketch_horn_section_76105')
+    qwm_doc.sketch_horn_section_76105.Placement = FreeCAD.Placement(FreeCAD.Vector(0.0,0.0,11.78307),FreeCAD.Rotation(0.0, 0.0, 0.0, 1.0))
+    qwm_doc.sketch_horn_section_76105.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,9.5,0), FreeCAD.Vector(-0.61491,9.29503,0)))
+    qwm_doc.sketch_horn_section_76105.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.61491,9.29503,0), FreeCAD.Vector(-0.61491,-9.29503,0)))
+    qwm_doc.sketch_horn_section_76105.addGeometry(Part.LineSegment(FreeCAD.Vector(-0.61491,-9.29503,0), FreeCAD.Vector(0.0,-9.5,0)))
+    qwm_doc.sketch_horn_section_76105.addGeometry(Part.LineSegment(FreeCAD.Vector(0.0,-9.5,0), FreeCAD.Vector(0.0,9.5,0)))
+    qwm_doc.addObject("Part::Extrusion", "horn_section_76105D")
+    qwm_doc.horn_section_76105D.Base = qwm_doc.sketch_horn_section_76105
+    qwm_doc.horn_section_76105D.Dir = (0, 0, -0.23915)
+    qwm_doc.horn_section_76105D.Solid = True
+    qwm_doc.horn_section_76105D.ViewObject.Transparency = 60
+    qwm_doc.horn_section_76105D.Medium = QW_Modeller.getQWMedium("metal")

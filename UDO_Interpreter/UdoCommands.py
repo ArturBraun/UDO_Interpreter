@@ -1156,7 +1156,7 @@ def set_Simulation(qwm_doc):
                     height                  = self.portCommandDict["height"],
                     excitationPointX        = self.portCommandDict["excitationPointX"],
                     excitationPointY        = self.portCommandDict["excitationPointY"],
-                    excitationPointZ        = self.portCommandDict["level"],
+                    excitationPointZ        = self.portCommandDict["excitationPointZ"] + self.portCommandDict["height"] / 2,
                     rotation                = rotation,
                     )
         
@@ -1172,7 +1172,7 @@ def set_Simulation(qwm_doc):
                     portName                = self.portCommandDict["name"],
                     excitationPointX        = self.portCommandDict["excitationPointX"],
                     excitationPointY        = self.portCommandDict["excitationPointY"],
-                    excitationPointZ        = excitationPointZ,
+                    excitationPointZ        = self.portCommandDict["excitationPointZ"],
                     rotation                = rotation,
                     orientation             = orientation,
                     position                = excitationPointZ,

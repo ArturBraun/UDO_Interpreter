@@ -72,8 +72,6 @@ class TestsUdoInterpreter(unittest.TestCase):
     Checks also generated files corectness.
     """
 
-    # dielf1, cwgheat, rx, threeel, rt2w
-
     def test_angpc(self):
         print("\nTest of -> angpc")
         result = testGeneratedFiles("angpc")
